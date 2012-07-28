@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<layman>
+	<overlay
+		type = "git"
+		src  = "https://github.com/hdecarne/gentoo-extras-overlay.git"
+		contact = "hdecarne@gmail.com"
+		name = "gentoo-extras-overlay">
+		<link>https://github.com/hdecarne/gentoo-extras-overlay/wiki</link>
+		<description>optional custom description</description>
+	</overlay>
+</layman> 

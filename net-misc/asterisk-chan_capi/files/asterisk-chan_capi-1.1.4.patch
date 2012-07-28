@@ -1,0 +1,223 @@
+diff -crB chan_capi-1.1.4/chan_capi.c chan_capi-1.1.4.patched/chan_capi.c
+*** chan_capi-1.1.4/chan_capi.c	2009-08-16 12:21:10.000000000 +0200
+--- chan_capi-1.1.4.patched/chan_capi.c	2010-01-07 14:48:29.149270381 +0100
+***************
+*** 80,99 ****
+  "\n"
+  "capicommand() where () can be:\n"
+  "\"progress\" send progress (for NT mode)\n"
+! "\"deflect|to_number\" forwards an unanswered call to number\n"
+  "\"malicous\" report a call of malicious nature\n"
+! "\"echocancel|<yes> or <no>\" echo-cancel provided by driver/hardware\n"
+! "\"echosquelch|<yes> or <no>\" very primitive echo-squelch by chan-capi\n"
+! "\"holdtype|<local> or <hold>\" set type of 'hold'\n"
+! "\"hold[|MYHOLDVAR]\" puts an answered call on hold\n"
+! "\"retrieve|${MYHOLDVAR}\" gets back the held call\n"
+! "\"ect|${MYHOLDVAR})\" explicit call transfer of call on hold\n"
+! "\"3pty_begin|${MYHOLDVAR})\" Three-Party-Conference (3PTY) with active and held call\n"
+! "\"receivefax|filename|stationID|headline|options\" receive a " CC_MESSAGE_BIGNAME " fax\n"
+! "\"sendfax|filename.sff|stationID|headline\" send a " CC_MESSAGE_BIGNAME " fax\n"
+! "\"qsig_ssct|cidsrc|ciddst\" QSIG single step call transfer\n"
+! "\"qsig_ct|cidsrc|ciddst|marker|waitconnect\" QSIG call transfer\n"
+! "\"qsig_callmark|marker\" marks a QSIG call for later identification\n"
+  "Variables set after fax receive:\n"
+  "FAXSTATUS     :0=OK, 1=Error\n"
+  "FAXREASON     :B3 disconnect reason\n"
+--- 80,99 ----
+  "\n"
+  "capicommand() where () can be:\n"
+  "\"progress\" send progress (for NT mode)\n"
+! "\"deflect,to_number\" forwards an unanswered call to number\n"
+  "\"malicous\" report a call of malicious nature\n"
+! "\"echocancel,<yes> or <no>\" echo-cancel provided by driver/hardware\n"
+! "\"echosquelch,<yes> or <no>\" very primitive echo-squelch by chan-capi\n"
+! "\"holdtype,<local> or <hold>\" set type of 'hold'\n"
+! "\"hold[,MYHOLDVAR]\" puts an answered call on hold\n"
+! "\"retrieve,${MYHOLDVAR}\" gets back the held call\n"
+! "\"ect,${MYHOLDVAR})\" explicit call transfer of call on hold\n"
+! "\"3pty_begin,${MYHOLDVAR})\" Three-Party-Conference (3PTY) with active and held call\n"
+! "\"receivefax,filename,stationID,headline,options\" receive a " CC_MESSAGE_BIGNAME " fax\n"
+! "\"sendfax,filename.sff,stationID,headline\" send a " CC_MESSAGE_BIGNAME " fax\n"
+! "\"qsig_ssct,cidsrc,ciddst\" QSIG single step call transfer\n"
+! "\"qsig_ct,cidsrc,ciddst,marker,waitconnect\" QSIG call transfer\n"
+! "\"qsig_callmark,marker\" marks a QSIG call for later identification\n"
+  "Variables set after fax receive:\n"
+  "FAXSTATUS     :0=OK, 1=Error\n"
+  "FAXREASON     :B3 disconnect reason\n"
+***************
+*** 2477,2485 ****
+  	unsigned short b3_protocol_options = 0x0001;
+  	int extended_resolution = 0;
+  
+! 	filename = strsep(&data, "|");
+! 	stationid = strsep(&data, "|");
+! 	headline = strsep(&data, "|");
+  	options = data;
+  
+  	if (!stationid)
+--- 2477,2485 ----
+  	unsigned short b3_protocol_options = 0x0001;
+  	int extended_resolution = 0;
+  
+! 	filename = strsep(&data, ",");
+! 	stationid = strsep(&data, ",");
+! 	headline = strsep(&data, ",");
+  	options = data;
+  
+  	if (!stationid)
+***************
+*** 2665,2673 ****
+  	B3_PROTO_FAXG3 b3conf;
+  	char buffer[CAPI_MAX_STRING];
+  
+! 	filename = strsep(&data, "|");
+! 	stationid = strsep(&data, "|");
+! 	headline = strsep(&data, "|");
+  	options = data;
+  
+  	if (!stationid)
+--- 2665,2673 ----
+  	B3_PROTO_FAXG3 b3conf;
+  	char buffer[CAPI_MAX_STRING];
+  
+! 	filename = strsep(&data, ",");
+! 	stationid = strsep(&data, ",");
+! 	headline = strsep(&data, ",");
+  	options = data;
+  
+  	if (!stationid)
+***************
+*** 2815,2823 ****
+  		return -1;
+  	}
+  
+! 	(void)strsep(&ldata, "|");
+! 	(void)strsep(&ldata, "|");
+! 	(void)strsep(&ldata, "|");
+  	while ((ldata) && (*ldata)) {
+  		switch (*ldata) {
+  			case 'X':
+--- 2815,2823 ----
+  		return -1;
+  	}
+  
+! 	(void)strsep(&ldata, ",");
+! 	(void)strsep(&ldata, ",");
+! 	(void)strsep(&ldata, ",");
+  	while ((ldata) && (*ldata)) {
+  		switch (*ldata) {
+  			case 'X':
+***************
+*** 2935,2943 ****
+  	unsigned short b3_protocol_options = 0;
+  	int extended_resolution = 0;
+  
+! 	filename = strsep(&data, "|");
+! 	stationid = strsep(&data, "|");
+! 	headline = strsep(&data, "|");
+  	options = data;
+  
+  	if (!stationid)
+--- 2935,2943 ----
+  	unsigned short b3_protocol_options = 0;
+  	int extended_resolution = 0;
+  
+! 	filename = strsep(&data, ",");
+! 	stationid = strsep(&data, ",");
+! 	headline = strsep(&data, ",");
+  	options = data;
+  
+  	if (!stationid)
+***************
+*** 3140,3148 ****
+  	B3_PROTO_FAXG3 b3conf;
+  	char buffer[CAPI_MAX_STRING];
+  
+! 	filename = strsep(&data, "|");
+! 	stationid = strsep(&data, "|");
+! 	headline = strsep(&data, "|");
+  	options = data;
+  
+  	if (!stationid)
+--- 3140,3148 ----
+  	B3_PROTO_FAXG3 b3conf;
+  	char buffer[CAPI_MAX_STRING];
+  
+! 	filename = strsep(&data, ",");
+! 	stationid = strsep(&data, ",");
+! 	headline = strsep(&data, ",");
+  	options = data;
+  
+  	if (!stationid)
+***************
+*** 3264,3272 ****
+  		return -1;
+  	}
+  
+! 	(void)strsep(&ldata, "|");
+! 	(void)strsep(&ldata, "|");
+! 	(void)strsep(&ldata, "|");
+  	while ((ldata) && (*ldata)) {
+  		switch (*ldata) {
+  			case 'X':
+--- 3264,3272 ----
+  		return -1;
+  	}
+  
+! 	(void)strsep(&ldata, ",");
+! 	(void)strsep(&ldata, ",");
+! 	(void)strsep(&ldata, ",");
+  	while ((ldata) && (*ldata)) {
+  		switch (*ldata) {
+  			case 'X':
+***************
+*** 5266,5272 ****
+  			" deflection requires an argument (destination phone number)\n");
+  		return -1;
+  	}
+! 	number = strsep(&param, "|");
+  	numberlen = strlen(number);
+  
+  	if (!numberlen) {
+--- 5266,5272 ----
+  			" deflection requires an argument (destination phone number)\n");
+  		return -1;
+  	}
+! 	number = strsep(&param, ",");
+  	numberlen = strlen(number);
+  
+  	if (!numberlen) {
+***************
+*** 5455,5461 ****
+  		plci = (unsigned int)strtoul(id, NULL, 0);
+  	}
+  	
+! 	holdid = strsep(&param, "|");
+  
+  	if (holdid) {
+  		plci = (unsigned int)strtoul(holdid, NULL, 0);
+--- 5455,5461 ----
+  		plci = (unsigned int)strtoul(id, NULL, 0);
+  	}
+  	
+! 	holdid = strsep(&param, ",");
+  
+  	if (holdid) {
+  		plci = (unsigned int)strtoul(holdid, NULL, 0);
+***************
+*** 6700,6706 ****
+  
+  	s = ast_strdupa(data);
+  	stringp = s;
+! 	command = strsep(&stringp, "|");
+  	params = stringp;
+  	cc_verbose(2, 1, VERBOSE_PREFIX_3 "capicommand: '%s' '%s'\n",
+  		command, params);
+--- 6700,6706 ----
+  
+  	s = ast_strdupa(data);
+  	stringp = s;
+! 	command = strsep(&stringp, ",");
+  	params = stringp;
+  	cc_verbose(2, 1, VERBOSE_PREFIX_3 "capicommand: '%s' '%s'\n",
+  		command, params);

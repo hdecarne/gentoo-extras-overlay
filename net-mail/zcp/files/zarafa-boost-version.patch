@@ -1,0 +1,24 @@
+diff -rupN zarafa-7.0.5/configure zarafa-7.0.5.patch/configure
+--- zarafa-7.0.5/configure	2012-02-01 15:48:54.000000000 +0100
++++ zarafa-7.0.5.patch/configure	2012-02-29 07:28:48.664174272 +0100
+@@ -31072,7 +31072,7 @@ fi
+ { echo "$as_me:$LINENO: checking boost version compatibility" >&5
+ echo $ECHO_N "checking boost version compatibility... $ECHO_C" >&6; }
+ if test -n "$boost_major_version" -a $boost_major_version -ge 146; then
+-   if test $boost_major_version -ge 148; then
++   if test $boost_major_version -ge 149; then
+    	  { { echo "$as_me:$LINENO: error: boost version is too new" >&5
+ echo "$as_me: error: boost version is too new" >&2;}
+    { (exit 1); exit 1; }; }
+diff -rupN zarafa-7.0.5/configure.ac zarafa-7.0.5.patch/configure.ac
+--- zarafa-7.0.5/configure.ac	2012-02-01 15:40:31.000000000 +0100
++++ zarafa-7.0.5.patch/configure.ac	2012-02-29 07:09:31.574549232 +0100
+@@ -664,7 +664,7 @@ BOOST_FILESYSTEM([mt])
+ BOOST_DATE_TIME([mt])
+ AC_MSG_CHECKING([boost version compatibility])
+ if test -n "$boost_major_version" -a $boost_major_version -ge 146; then
+-   if test $boost_major_version -ge 148; then
++   if test $boost_major_version -ge 149; then
+    	  AC_MSG_ERROR([boost version is too new])
+    fi
+    AC_MSG_RESULT([adding backward compatible flags])

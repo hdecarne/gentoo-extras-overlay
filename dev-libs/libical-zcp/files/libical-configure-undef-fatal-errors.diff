@@ -1,0 +1,12 @@
+diff -Nurb libical-0.44.orig/configure libical-0.44/configure
+--- libical-0.44.orig/configure	2009-09-27 04:40:12.000000000 +0200
++++ libical-0.44/configure	2009-10-28 11:17:33.000000000 +0100
+@@ -19537,7 +19537,7 @@
+ if test "x$ac_cv_ical_errors_are_fatal" != "xyes"; then
+ 
+ cat >>confdefs.h <<\_ACEOF
+-#define ICAL_ERRORS_ARE_FATAL 0
++#undef ICAL_ERRORS_ARE_FATAL
+ _ACEOF
+ 
+ else

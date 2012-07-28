@@ -1,0 +1,12 @@
+diff -rupN php-mobile-webaccess.org/index.php php-mobile-webaccess/index.php
+--- php-mobile-webaccess.org/index.php	2011-07-26 02:16:58.000000000 +0200
++++ php-mobile-webaccess/index.php	2011-08-01 20:19:48.148518485 +0200
+@@ -98,7 +98,7 @@ $mapi = new Mapi();
+ 
+ $authenticated = login(); 
+ 
+-header("Content-Type: text/html; charset=windows-1252");
++header("Content-Type: text/html; charset=utf-8");
+ 
+ if ($authenticated) {	
+ 	

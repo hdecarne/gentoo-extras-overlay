@@ -1,0 +1,30 @@
+#!/sbin/runscript
+# Copyright 1999-2008 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+LICENSEDCONFIG=/etc/zarafa/licensed.cfg
+LICENSEDPROGRAM=/usr/bin/zarafa-licensed
+
+[ -x $LICENSEDPROGRAM ] || exit 0
+
+LICENSEDCONFIG_OPT=""
+[ ! -z $LICENSEDCONFIG -a -f $LICENSEDCONFIG ] && LICENSEDCONFIG_OPT="-c $LICENSEDCONFIG"
+
+PIDFILE=/var/run/"${SVCNAME}".pid
+
+start() {
+	ebegin "Starting ${SVCNAME}"
+	start-stop-daemon --start \
+		--pidfile ${PIDFILE} \
+		--exec ${LICENSEDPROGRAM} -- ${LICENSEDCONFIG_OPT} ${LICENSED_OPTIONS}
+	eend $?
+}
+
+stop() {
+	ebegin "Stopping ${SVCNAME}"
+	start-stop-daemon --stop \
+		--pidfile ${PIDFILE} \
+		--exec ${LICENSEDPROGRAM} -- ${LICENSEDCONFIG_OPT}
+	eend $?
+}

@@ -1,0 +1,65 @@
+#
+# This is an example for the common logrotate system.
+# Copy this file to /etc/logrotate.d/zarafa to activate it.
+# Also, check the location of the logfiles, and replace if needed.
+#
+
+/var/log/zarafa/server.log {
+        weekly
+        missingok
+        rotate 52
+        compress
+        delaycompress
+        notifempty
+        postrotate
+			killall -HUP zarafa-server
+        endscript
+}
+
+/var/log/zarafa/spooler.log {
+        weekly
+        missingok
+        rotate 52
+        compress
+        delaycompress
+        notifempty
+        postrotate
+			killall -HUP zarafa-spooler
+        endscript
+}
+
+/var/log/zarafa/monitor.log {
+        weekly
+        missingok
+        rotate 52
+        compress
+        delaycompress
+        notifempty
+        postrotate
+			killall -HUP zarafa-monitor
+        endscript
+}
+
+/var/log/zarafa/gateway.log {
+        weekly
+        missingok
+        rotate 52
+        compress
+        delaycompress
+        notifempty
+        postrotate
+			killall -HUP zarafa-gateway
+        endscript
+}
+
+/var/log/zarafa/ical.log {
+        weekly
+        missingok
+        rotate 52
+        compress
+        delaycompress
+        notifempty
+        postrotate
+			killall -HUP zarafa-ical
+        endscript
+}
