@@ -5,8 +5,8 @@ The corresponding packages either did not yet find their way into the portage tr
 
 How to use these ebuilds
 ------------------------
-You can use layman with the URL https://raw.github.com/hdecarne/gentoo-extras-overlay/master/overlay.xml to subscribe to this overlay. Or you can clone the repository and add the path to your PORTDIR_OVERLAY variable manually.
-_Please beware_: I am running and hence tested these ebuilds against ~amd64 and with my private setup. Use them at your own risk.
+You can use layman with the URL https://raw.github.com/hdecarne/gentoo-extras-overlay/master/overlay.xml to subscribe to this overlay. Or you can clone the repository and add the path to your PORTDIR\_OVERLAY variable manually.
+__Please beware__: I am running and hence tested these ebuilds against ~amd64 and with my private setup. Use them at your own risk.
 
 List of ebuilds
 ---------------
@@ -15,24 +15,24 @@ List of ebuilds
 
 * net-firewall/ipsec-tools: Update to the portage ebuild fixing issue http://sourceforge.net/tracker/?func=detail&aid=2852569&group_id=74601&atid=541484.
 
-* net-analyzer/net-snmp: Update to the portage ebuild re-enabling lm_sensors.
+* net-analyzer/net-snmp: Update to the portage ebuild re-enabling lm\_sensors.
 
 * net-analyzer/cacti: Update to the portage ebuild that makes version 0.8.8a available. See https://bugs.gentoo.org/show_bug.cgi?id=414419 for further details.
 
-* net-misc/asterisk-chan_capi: Updated ebuild for the Asteriks capi channel module (http://www.melware.org/ChanCapi). Please note: The 1.1.6 ebuild is actually a build against the development head. Expect emerge to fail with "Digest verification failed". ebuild <xxx.ebuild> manifest is your friend here.
+* net-misc/asterisk-chan\_capi: Updated ebuild for the Asteriks capi channel module (http://www.melware.org/ChanCapi). Please note: The 1.1.6 ebuild is actually a build against the development head. Expect emerge to fail with "Digest verification failed". ebuild <xxx.ebuild> manifest is your friend here.
 
 * net-im/spectrum-transport: New ebuild for the 1.x version of Spectrum XMPP transport (http://spectrum.im/).
 
-* net-mail/zcp/zcp: New ebuild for the Zarafa groupware solution (http://www.zarafa.com). _Please see_ following ebuilds for more details.
+* net-mail/zcp/zcp: New ebuild for the Zarafa groupware solution (http://www.zarafa.com). __Please see__ following ebuilds for more details.
 
 * dev-cpp/libvmime-zcp/libvmime-zcp: New ebuild for Zarafa patched version of libvmime. Required by the zcp ebuild above.
 
-* dev-libs/libical-zcp/libical-zcp: New ebuild for Zarafa patched version of libical. Required by the zcp ebuild above. _Please note_: There is an official libical ebuild in the portage tree that conflicts with this ebuild.
+* dev-libs/libical-zcp/libical-zcp: New ebuild for Zarafa patched version of libical. Required by the zcp ebuild above. __Please note__: There is an official libical ebuild in the portage tree that conflicts with this ebuild.
 
 * www-apps/zarafa-webapp: New ebuild for the Zarafa Webapp client.
 
 * www-apps/z-push: New ebuild for the Zarafa ActiveSync solution.
 
-* www-apps/zarafa-mobile: New ebuild for the legacy Zarafa mobile web frontend. _Please note_: Will be deleted in the future, as superseded by the z-push solution above.
+* www-apps/zarafa-mobile: New ebuild for the legacy Zarafa mobile web frontend. __Please note__: Will be deleted in the future, as superseded by the z-push solution above.
 
-* www-apps/zarafa-webaccess: New ebuild for the legacy Zarafa web frontend. _Please note_: Will be deleted in the future, as superseded by the Zarafa WebApp above.
+* www-apps/zarafa-webaccess: New ebuild for the legacy Zarafa web frontend. __Please note__: Will be deleted in the future, as superseded by the Zarafa WebApp above.
