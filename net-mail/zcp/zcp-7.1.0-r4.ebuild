@@ -9,6 +9,8 @@ PHP_EXT_INI="yes"
 PHP_EXT_ZENDEXT="no"
 USE_PHP="php5-3 php5-4"
 
+PYTHON_DEPEND="python? 2"
+
 inherit eutils flag-o-matic php-ext-base-r1
 
 DESCRIPTION="Open Source Groupware Solution"
@@ -18,14 +20,15 @@ HOMEPAGE="http://zarafa.com/"
 SRC_URI="http://download.zarafa.com/community/beta/7.1/${PV}rc2-36025/sourcecode/${P}.tar.gz"
 S="${WORKDIR}/zarafa-${PV}"
 
+ZARAFA_SERVICES="dagent gateway ical monitor search server spooler"
+
 LICENSE="AGPL-3"
 SLOT="0"
 KEYWORDS="~x86"
 RESTRICT="mirror"
-IUSE="debug kerberos icu ldap logrotate perl static swig tcmalloc"
+IUSE="debug kerberos icu ldap logrotate perl +python static swig tcmalloc"
 
-RDEPEND=">=app-text/catdoc-0.94.2
-	>=dev-libs/libical-zcp-0.44
+RDEPEND=">=dev-libs/libical-zcp-0.44
 	>=dev-cpp/libvmime-zcp-0.9.2
 	virtual/httpd-php
 	virtual/mysql
@@ -37,12 +40,12 @@ RDEPEND=">=app-text/catdoc-0.94.2
 	net-misc/curl
 	sys-libs/e2fsprogs-libs
 	sys-libs/zlib
-	dev-lang/python
 	icu? ( dev-libs/icu )
 	kerberos? ( virtual/krb5 )
 	ldap? ( net-nds/openldap )
 	logrotate? ( app-admin/logrotate )
 	perl? ( virtual/perl )
+	python? ( dev-lang/python )
 	swig? ( virtual/swig )
 	tcmalloc? ( dev-util/google-perftools )"
 DEPEND="${RDEPEND}
@@ -54,7 +57,7 @@ src_unpack() {
 	cd "${S}"
 }
 
-src_compile() {
+src_configure() {
 	append-flags -fpermissive
 	econf \
 		--enable-oss \
@@ -62,15 +65,18 @@ src_compile() {
 		--enable-release \
 		--enable-unicode \
 		--enable-epoll \
-		--enable-python \
 		--with-userscript-prefix=/etc/zarafa/userscripts \
 		--with-quotatemplate-prefix=/etc/zarafa/quotamails \
 		--with-searchscripts-prefix=/etc/zarafa/searchscripts \
 		$(use_enable icu) \
 		$(use_enable static) \
 		$(use_enable perl) \
+		$(use_enable python) \
 		$(use_enable swig) \
 		$(use_enable tcmalloc)
+}
+
+src_compile() {
 	emake || die "emake failed"
 }
 
@@ -94,11 +100,8 @@ src_install() {
 	dodir /var/log/zarafa
 	keepdir /var/log/zarafa
 
-	newinitd ${FILESDIR}/zarafa-dagent.rc6 zarafa-dagent
-	newinitd ${FILESDIR}/zarafa-gateway.rc6 zarafa-gateway
-	newinitd ${FILESDIR}/zarafa-ical.rc6 zarafa-ical		
-	newinitd ${FILESDIR}/zarafa-monitor.rc6 zarafa-monitor
-	newinitd ${FILESDIR}/zarafa-server.rc6 zarafa-server
-	newinitd ${FILESDIR}/zarafa-spooler.rc6 zarafa-spooler
-	newinitd ${FILESDIR}/zarafa-search.rc6 zarafa-search
+	for service in ${ZARAFA_SERVICES}; do
+		newconfd "${FILESDIR}/zarafa-${service}.confd" "zarafa-${service}"
+		newinitd "${FILESDIR}/zarafa-${service}.initd" "zarafa-${service}"
+	done
 }

@@ -3,21 +3,25 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-LICENSEDCONFIG=/etc/zarafa/licensed.cfg
-LICENSEDPROGRAM=/usr/bin/zarafa-licensed
+SEARCHCONFIG=/etc/zarafa/search.cfg
+SEARCHPROGRAM=/usr/bin/zarafa-search
 
-[ -x $LICENSEDPROGRAM ] || exit 0
+[ -x $SEARCHPROGRAM ] || exit 0
 
-LICENSEDCONFIG_OPT=""
-[ ! -z $LICENSEDCONFIG -a -f $LICENSEDCONFIG ] && LICENSEDCONFIG_OPT="-c $LICENSEDCONFIG"
+SEARCHCONFIG_OPT=""
+[ ! -z $SEARCHCONFIG -a -f $SEARCHCONFIG ] && SEARCHCONFIG_OPT="-c $SEARCHCONFIG"
 
 PIDFILE=/var/run/"${SVCNAME}".pid
+
+depend() {
+	need zarafa-server
+}
 
 start() {
 	ebegin "Starting ${SVCNAME}"
 	start-stop-daemon --start \
 		--pidfile ${PIDFILE} \
-		--exec ${LICENSEDPROGRAM} -- ${LICENSEDCONFIG_OPT} ${LICENSED_OPTIONS}
+		--exec ${SEARCHPROGRAM} -- ${SEARCH_OPT} ${SEARCH_OPTIONS}
 	eend $?
 }
 
@@ -25,6 +29,6 @@ stop() {
 	ebegin "Stopping ${SVCNAME}"
 	start-stop-daemon --stop \
 		--pidfile ${PIDFILE} \
-		--exec ${LICENSEDPROGRAM} -- ${LICENSEDCONFIG_OPT}
+		--exec ${SEARCHPROGRAM} -- ${SEARCHCONFIG_OPT}
 	eend $?
 }

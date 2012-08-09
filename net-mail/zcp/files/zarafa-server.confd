@@ -1,0 +1,12 @@
+# /etc/conf.d/zarafa-server: config file for /etc/init.d/zarafa-server
+
+# Options to pass to the zarfa-server daemon.
+# See the zarafa-server man page for more info.
+
+SERVER_OPTIONS=""
+
+#
+# Define default locales for zarafa server and user scripts.
+#
+ZARAFA_LOCALE="en_US"
+ZARAFA_USERSCRIPT_LOCALE="en_US"

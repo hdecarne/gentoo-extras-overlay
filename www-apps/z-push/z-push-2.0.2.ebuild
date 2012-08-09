@@ -9,7 +9,7 @@ inherit webapp eutils depend.php
 DESCRIPTION="Z-Push - open source push technology"
 HOMEPAGE="http://z-push.sourceforge.net"
 
-ZPUSH_BUILD="RC-1400"
+ZPUSH_BUILD="RC2-1422"
 
 SRC_URI="http://zarafa-deutschland.de/z-push-download/beta/2.0/${P}${ZPUSH_BUILD}.tar.gz"
 S="${WORKDIR}/${P}${ZPUSH_BUILD}"
@@ -29,12 +29,14 @@ pkg_setup () {
 src_install() {
 	webapp_src_preinst
 
-	dodir /var/log/z-push
-	dodir /var/lib/z-push
+	dodir "/var/log/z-push"
+	dodir "/var/lib/z-push"
 
 	insinto "${MY_HTDOCSDIR}"
 	doins -r "${S}"/*
 
+	webapp_serverowned -R "/var/log/z-push"
+	webapp_serverowned -R "/var/lib/z-push"
 	webapp_configfile "${MY_HTDOCSDIR}"/config.php
 	webapp_serverowned "${MY_HTDOCSDIR}"/config.php
 

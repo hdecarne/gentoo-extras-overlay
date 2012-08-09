@@ -3,21 +3,25 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-SEARCHCONFIG=/etc/zarafa/search.cfg
-SEARCHPROGRAM=/usr/bin/zarafa-search
+DAGENTCONFIG=/etc/zarafa/dagent.cfg
+DAGENTPROGRAM=/usr/bin/zarafa-dagent
 
-[ -x $SEARCHPROGRAM ] || exit 0
+[ -x $DAGENTPROGRAM ] || exit 0
 
-SEARCHCONFIG_OPT=""
-[ ! -z $SEARCHCONFIG -a -f $SEARCHCONFIG ] && SEARCHCONFIG_OPT="-c $SEARCHCONFIG"
+DAGENTCONFIG_OPT=""
+[ ! -z $DAGENTCONFIG -a -f $DAGENTCONFIG ] && DAGENTCONFIG_OPT="-c $DAGENTCONFIG"
 
 PIDFILE=/var/run/"${SVCNAME}".pid
+
+depend() {
+	need zarafa-server
+}
 
 start() {
 	ebegin "Starting ${SVCNAME}"
 	start-stop-daemon --start \
 		--pidfile ${PIDFILE} \
-		--exec ${SEARCHPROGRAM} -- ${SEARCH_OPT} ${SEARCH_OPTIONS}
+		--exec ${DAGENTPROGRAM} -- -d ${DAGENTCONFIG_OPT} ${DAGENT_OPTIONS}
 	eend $?
 }
 
@@ -25,6 +29,7 @@ stop() {
 	ebegin "Stopping ${SVCNAME}"
 	start-stop-daemon --stop \
 		--pidfile ${PIDFILE} \
-		--exec ${SEARCHPROGRAM} -- ${SEARCHCONFIG_OPT}
+		--retry 65 \
+		--exec ${DAGENTPROGRAM} -- ${DAGENTCONFIG_OPT}
 	eend $?
 }

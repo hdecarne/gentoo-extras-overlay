@@ -13,6 +13,10 @@ ICALCONFIG_OPT=""
 
 PIDFILE=/var/run/"${SVCNAME}".pid
 
+depend() {
+	need zarafa-server
+}
+
 start() {
 	ebegin "Starting ${SVCNAME}"
 	start-stop-daemon --start \

@@ -1,0 +1,6 @@
+# /etc/conf.d/zarafa-spooler: config file for /etc/init.d/zarafa-spooler
+
+# Options to pass to the zarfa-spooler daemon.
+# See the zarafa-spooler man page for more info.
+
+SPOOLER_OPTIONS=""

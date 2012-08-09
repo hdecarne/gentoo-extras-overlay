@@ -3,21 +3,25 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-SPOOLERCONFIG=/etc/zarafa/spooler.cfg
-SPOOLERPROGRAM=/usr/bin/zarafa-spooler
+MONITORCONFIG=/etc/zarafa/monitor.cfg
+MONITORPROGRAM=/usr/bin/zarafa-monitor
 
-[ -x $SPOOLERPROGRAM ] || exit 0
+[ -x $MONITORPROGRAM ] || exit 0
 
-SPOOLERCONFIG_OPT=""
-[ ! -z $SPOOLERCONFIG -a -f $SPOOLERCONFIG ] && SPOOLERCONFIG_OPT="-c $SPOOLERCONFIG"
+MONITORCONFIG_OPT=""
+[ ! -z $MONITORCONFIG -a -f $MONITORCONFIG ] && MONITORCONFIG_OPT="-c $MONITORCONFIG"
 
 PIDFILE=/var/run/"${SVCNAME}".pid
+
+depend() {
+	need zarafa-server
+}
 
 start() {
 	ebegin "Starting ${SVCNAME}"
 	start-stop-daemon --start \
 		--pidfile ${PIDFILE} \
-		--exec ${SPOOLERPROGRAM} -- ${SPOOLERCONFIG_OPT} ${SPOOLER_OPTIONS}
+		--exec ${MONITORPROGRAM} -- ${MONITORCONFIG_OPT} ${MONITOR_OPTIONS}
 	eend $?
 }
 
@@ -25,6 +29,6 @@ stop() {
 	ebegin "Stopping ${SVCNAME}"
 	start-stop-daemon --stop \
 		--pidfile ${PIDFILE} \
-		--exec ${SPOOLERPROGRAM} -- ${SPOOLERCONFIG_OPT}
+		--exec ${MONITORPROGRAM} -- ${MONITORCONFIG_OPT}
 	eend $?
 }

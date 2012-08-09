@@ -1,0 +1,6 @@
+# /etc/conf.d/zarafa-ical: config file for /etc/init.d/zarafa-ical
+
+# Options to pass to the zarfa-ical daemon.
+# See the zarafa-ical man page for more info.
+
+ICAL_OPTIONS=""

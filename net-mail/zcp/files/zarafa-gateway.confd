@@ -1,0 +1,6 @@
+# /etc/conf.d/zarafa-gateway: config file for /etc/init.d/zarafa-gateway
+
+# Options to pass to the zarfa-gateway daemon.
+# See the zarafa-gateway man page for more info.
+
+GATEWAY_OPTIONS=""
