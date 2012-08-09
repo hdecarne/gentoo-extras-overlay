@@ -11,19 +11,19 @@ _Please beware_: I am running and hence tested these ebuilds against ~amd64 and 
 List of ebuilds
 ---------------
 
-* dev-php/adodb: Update to the portage ebuild fixing bug "https://bugs.gentoo.org/show_bug.cgi?id=420517".
+* dev-php/adodb: Update to the portage ebuild fixing bug https://bugs.gentoo.org/show_bug.cgi?id=420517.
 
-* net-firewall/ipsec-tools: Update to the portage ebuild fixing issue "http://sourceforge.net/tracker/?func=detail&aid=2852569&group_id=74601&atid=541484".
+* net-firewall/ipsec-tools: Update to the portage ebuild fixing issue http://sourceforge.net/tracker/?func=detail&aid=2852569&group_id=74601&atid=541484.
 
 * net-analyzer/net-snmp: Update to the portage ebuild re-enabling lm_sensors.
 
-* net-analyzer/cacti: Update to the portage ebuild that makes version 0.8.8a available. See "https://bugs.gentoo.org/show_bug.cgi?id=414419" for further details.
+* net-analyzer/cacti: Update to the portage ebuild that makes version 0.8.8a available. See https://bugs.gentoo.org/show_bug.cgi?id=414419 for further details.
 
-* net-misc/asterisk-chan_capi: Updated ebuild for the Asteriks capi channel module ("http://www.melware.org/ChanCapi"). Please note: The 1.1.6 ebuild is actually a build against the development head. Expect emerge to fail with "Digest verification failed". ebuild <xxx.ebuild> manifest is your friend here.
+* net-misc/asterisk-chan_capi: Updated ebuild for the Asteriks capi channel module (http://www.melware.org/ChanCapi). Please note: The 1.1.6 ebuild is actually a build against the development head. Expect emerge to fail with "Digest verification failed". ebuild <xxx.ebuild> manifest is your friend here.
 
-* net-im/spectrum-transport: New ebuild for the 1.x version of Spectrum XMPP transport ("http://spectrum.im/").
+* net-im/spectrum-transport: New ebuild for the 1.x version of Spectrum XMPP transport (http://spectrum.im/).
 
-* net-mail/zcp/zcp: New ebuild for the Zarafa groupware solution ("http://www.zarafa.com"). _Please see_ following ebuilds for more details.
+* net-mail/zcp/zcp: New ebuild for the Zarafa groupware solution (http://www.zarafa.com). _Please see_ following ebuilds for more details.
 
 * dev-cpp/libvmime-zcp/libvmime-zcp: New ebuild for Zarafa patched version of libvmime. Required by the zcp ebuild above.
 
