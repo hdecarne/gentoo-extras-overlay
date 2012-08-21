@@ -10,7 +10,7 @@ DESCRIPTION="Open Source Groupware Solution"
 HOMEPAGE="http://zarafa.com/"
 
 ZARAFA_WEBAPP_BUILD="beta"
-ZARAFA_WEBAPP_BUILDV="36114"
+ZARAFA_WEBAPP_BUILDV="36378"
 
 SRC_URI="http://download.zarafa.com/community/${ZARAFA_WEBAPP_BUILD}/WebApp/zarafa-webapp-${PV}-${ZARAFA_WEBAPP_BUILDV}.noarch.rpm"
 S="${WORKDIR}/usr/share/zarafa-webapp"
@@ -34,9 +34,9 @@ src_install() {
 	rm config.php || die "Unexpected source layout; ebuild needs update"
 	rm -r plugins || die "Unexpected source layout; ebuild needs update"
 	cp "${S}/../../../etc/zarafa/webapp/config.php" "${S}/config.php" || die "Unexpected source layout; ebuild needs update"
-	sed -i "s/define(\"PATH_PLUGIN_DIR\", \"plugins\")/define(\"PATH_PLUGIN_DIR\", \"\/var\/lib\/zarafa-webapp\/plugins\")/" "${S}/config.php" || die "Unexpected source layout; ebuild needs update"
 	
 	dodir "/var/lib/zarafa-webapp/plugins"
+	dosym "/var/lib/zarafa-webapp/plugins" "${MY_HTDOCSDIR}"/plugins
 	dodir "/var/lib/zarafa-webapp/tmp"
 
 	insinto "${MY_HTDOCSDIR}"
