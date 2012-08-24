@@ -32,7 +32,3 @@ List of ebuilds
 * www-apps/zarafa-webapp: New ebuild for the Zarafa Webapp client.
 
 * www-apps/z-push: New ebuild for the Zarafa ActiveSync solution.
-
-* www-apps/zarafa-mobile: New ebuild for the legacy Zarafa mobile web frontend. __Please note__: Will be deleted in the future, as superseded by the z-push solution above.
-
-* www-apps/zarafa-webaccess: New ebuild for the legacy Zarafa web frontend. __Please note__: Will be deleted in the future, as superseded by the Zarafa WebApp above.
