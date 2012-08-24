@@ -10,7 +10,7 @@ DESCRIPTION="Open Source Groupware Solution"
 HOMEPAGE="http://zarafa.com/"
 
 ZARAFA_WEBAPP_BUILD="beta"
-ZARAFA_WEBAPP_BUILDV="36378"
+ZARAFA_WEBAPP_BUILDV="36628"
 
 SRC_URI="http://download.zarafa.com/community/${ZARAFA_WEBAPP_BUILD}/WebApp/zarafa-webapp-${PV}-${ZARAFA_WEBAPP_BUILDV}.noarch.rpm"
 S="${WORKDIR}/usr/share/zarafa-webapp"

@@ -16,8 +16,10 @@ inherit eutils flag-o-matic php-ext-base-r1 python
 DESCRIPTION="Open Source Groupware Solution"
 HOMEPAGE="http://zarafa.com/"
 
-#SRC_URI="http://download.zarafa.com/community/final/7.0/${PV}-32752/sourcecode/${P}.tar.gz"
-SRC_URI="http://download.zarafa.com/community/beta/7.1/${PV}rc3-36420/sourcecode/${P}.tar.gz"
+ZARAFA_RELEASE="final"
+ZARAFA_BUILD="-36420"
+
+SRC_URI="http://download.zarafa.com/community/${ZARAFA_RELEASE}/7.1/${PV}${ZARAFA_BUILD}/sourcecode/${P}.tar.gz"
 S="${WORKDIR}/zarafa-${PV}"
 
 ZARAFA_SERVICES="dagent gateway ical monitor search server spooler"
