@@ -1,0 +1,19 @@
+diff -rupN zarafa-webapp-1.2-36945.noarch/usr/share/zarafa-webapp/index.php zarafa-webapp-1.2-36945.noarch.patched/usr/share/zarafa-webapp/index.php
+--- zarafa-webapp-1.2-36945.noarch/usr/share/zarafa-webapp/index.php	2012-09-03 14:21:42.000000000 +0200
++++ zarafa-webapp-1.2-36945.noarch.patched/usr/share/zarafa-webapp/index.php	2012-09-04 22:29:42.517395944 +0200
+@@ -80,12 +80,12 @@
+ 	}
+ 	if(!DISABLE_REMOTE_USER_LOGIN){
+ 		// REMOTE_USER is set when apache has authenticated the user
+-		if( ! $_POST && $_SERVER && array_key_exists("REMOTE_USER", $_SERVER)) {
+-			$_SESSION["username"] = $_SERVER['REMOTE_USER'];
++		if( ! $_POST && $_SERVER && array_key_exists("PHP_AUTH_USER", $_SERVER)) {
++			$_SESSION["username"] = $_SERVER['PHP_AUTH_USER'];
+ 			if (LOGINNAME_STRIP_DOMAIN) {
+ 				$_SESSION["username"] = ereg_replace('@.*', '', $_SESSION["username"]);
+ 			}
+-			$_SESSION["password"] = "";
++			$_SESSION["password"] = $_SERVER['PHP_AUTH_PW'];
+ 		}
+ 	}
+ 

@@ -10,7 +10,7 @@ DESCRIPTION="Open Source Groupware Solution"
 HOMEPAGE="http://zarafa.com/"
 
 ZARAFA_WEBAPP_BUILD="beta"
-ZARAFA_WEBAPP_BUILDV="36628"
+ZARAFA_WEBAPP_BUILDV="36945"
 
 SRC_URI="http://download.zarafa.com/community/${ZARAFA_WEBAPP_BUILD}/WebApp/zarafa-webapp-${PV}-${ZARAFA_WEBAPP_BUILDV}.noarch.rpm"
 S="${WORKDIR}/usr/share/zarafa-webapp"
@@ -25,6 +25,10 @@ need_php_httpd
 pkg_setup () {
 	webapp_pkg_setup
 	require_php_with_use iconv session xml
+}
+
+src_prepare() {
+	epatch "${FILESDIR}/${PN}-phpautologin.patch"
 }
 
 src_install() {
