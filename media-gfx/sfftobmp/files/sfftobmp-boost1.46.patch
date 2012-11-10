@@ -1,0 +1,16 @@
+diff -ruN sfftobmp-3.1.2/src/cmdline.cpp sfftobmp-3.1.2.new//src/cmdline.cpp
+--- sfftobmp-3.1.2/src/cmdline.cpp	2008-09-13 13:06:26.000000000 +0000
++++ sfftobmp-3.1.2.new//src/cmdline.cpp	2011-05-19 13:30:08.227317485 +0000
+@@ -271,7 +272,11 @@
+ #else
+   int n = optind;
+   while (n < m_argc) {
++#if !defined(BOOST_FILESYSTEM_VERSION) || BOOST_FILESYSTEM_VERSION == 2
+     m_vFiles.push_back( fs::path(m_argv[n], fs::native) );
++#else
++    m_vFiles.push_back( fs::path(m_argv[n]) );
++#endif
+     ++n;
+   }
+ #endif
+
