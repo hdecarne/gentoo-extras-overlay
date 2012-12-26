@@ -6,7 +6,8 @@ inherit eutils
 
 DESCRIPTION="CAPI 2.0 channel module for Asterisk"
 HOMEPAGE="http://www.melware.org/ChanCapi"
-SRC_URI="ftp://ftp.chan-capi.org/chan-capi/${P/asterisk-}.tar.gz"
+#SRC_URI="ftp://ftp.chan-capi.org/chan-capi/${P/asterisk-}.tar.gz"
+SRC_URI="ftp://ftp.chan-capi.org/chan-capi/chan_capi-HEAD.tgz"
 
 SLOT="0"
 LICENSE="GPL-2"
@@ -20,7 +21,8 @@ RDEPEND=">=net-misc/asterisk-1.2.0
 DEPEND="${RDEPEND}
 	sys-apps/sed"
 
-S="${WORKDIR}/${P/asterisk-}"
+#S="${WORKDIR}/${P/asterisk-}"
+S="${WORKDIR}/chan-capi-HEAD"
 
 src_unpack() {
 	unpack ${A}
