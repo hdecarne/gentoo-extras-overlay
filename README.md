@@ -17,8 +17,6 @@ List of ebuilds
 
 * net-analyzer/cacti: Update to the portage ebuild that makes version 0.8.8a available. See https://bugs.gentoo.org/show_bug.cgi?id=414419 for further details.
 
-* net-misc/asterisk-chan\_capi: Updated ebuild for the Asteriks capi channel module (http://www.melware.org/ChanCapi). Please note: The 1.1.6 ebuild is actually a build against the development head. Expect emerge to fail with "Digest verification failed". ebuild <xxx.ebuild> manifest is your friend here.
-
 * net-im/spectrum-transport: New ebuild for the 1.x version of Spectrum XMPP transport (http://spectrum.im/).
 
 * net-mail/zcp/zcp: New ebuild for the Zarafa groupware solution (http://www.zarafa.com). __Please see__ following ebuilds for more details.

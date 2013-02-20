@@ -9,13 +9,13 @@ inherit webapp eutils rpm depend.php
 DESCRIPTION="Open Source Groupware Solution"
 HOMEPAGE="http://zarafa.com/"
 
-ZARAFA_WEBAPP_BUILD="beta"
-ZARAFA_WEBAPP_BUILDV="38734"
+ZARAFA_WEBAPP_BUILD="final"
+ZARAFA_WEBAPP_BUILDV="41013"
 
 if [[ ${ZARAFA_WEBAPP_BUILD} == "final" ]] ; then
-	SRC_URI="http://download.zarafa.com/community/${ZARAFA_WEBAPP_BUILD}/WebApp/zarafa-webapp-${PV}-${ZARAFA_WEBAPP_BUILDV}.noarch.rpm"
-else
 	SRC_URI="http://download.zarafa.com/community/${ZARAFA_WEBAPP_BUILD}/WebApp/${PV}/rhel/zarafa-webapp-${PV}-${ZARAFA_WEBAPP_BUILDV}.noarch.rpm"
+else
+	SRC_URI="http://download.zarafa.com/community/${ZARAFA_WEBAPP_BUILD}/WebApp/zarafa-webapp-${PV}-${ZARAFA_WEBAPP_BUILDV}.noarch.rpm"
 fi
 S="${WORKDIR}/usr/share/zarafa-webapp"
 
