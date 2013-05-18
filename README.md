@@ -11,10 +11,6 @@ __Please beware__: I am running and hence tested these ebuilds against ~amd64 an
 List of ebuilds
 ---------------
 
-* dev-php/adodb: Update to the portage ebuild fixing bug https://bugs.gentoo.org/show_bug.cgi?id=420517.
-
-* net-firewall/ipsec-tools: Update to the portage ebuild fixing issue http://sourceforge.net/tracker/?func=detail&aid=2852569&group_id=74601&atid=541484.
-
 * net-analyzer/cacti: Update to the portage ebuild that makes version 0.8.8a available. See https://bugs.gentoo.org/show_bug.cgi?id=414419 for further details.
 
 * net-im/spectrum-transport: New ebuild for the 1.x version of Spectrum XMPP transport (http://spectrum.im/).
@@ -28,3 +24,7 @@ List of ebuilds
 * www-apps/zarafa-webapp: New ebuild for the Zarafa Webapp client.
 
 * www-apps/z-push: New ebuild for the Zarafa ActiveSync solution.
+
+* www-apache/mod_auth_kerb: Update to the portage ebuild for Apache 2.4 compability.
+
+* net-wireless/bluez: New ebuild for Bluez 5.3 version.
