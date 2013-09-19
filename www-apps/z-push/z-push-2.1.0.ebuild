@@ -9,8 +9,8 @@ inherit webapp eutils depend.php
 DESCRIPTION="Z-Push - open source push technology"
 HOMEPAGE="http://z-push.sourceforge.net"
 
-ZPUSH_RELEASE="beta"
-ZPUSH_BUILD="M2-1700"
+ZPUSH_RELEASE="final"
+ZPUSH_BUILD="-1750"
 
 SRC_URI="http://zarafa-deutschland.de/z-push-download/${ZPUSH_RELEASE}/2.1/${P}${ZPUSH_BUILD}.tar.gz"
 S="${WORKDIR}/${P}${ZPUSH_BUILD}"

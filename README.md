@@ -11,8 +11,6 @@ __Please beware__: I am running and hence tested these ebuilds against ~amd64 an
 List of ebuilds
 ---------------
 
-* net-analyzer/cacti: Update to the portage ebuild that makes version 0.8.8a available. See https://bugs.gentoo.org/show_bug.cgi?id=414419 for further details.
-
 * net-im/spectrum-transport: New ebuild for the 1.x version of Spectrum XMPP transport (http://spectrum.im/).
 
 * net-mail/zcp/zcp: New ebuild for the Zarafa groupware solution (http://www.zarafa.com). __Please see__ following ebuilds for more details.
@@ -27,4 +25,4 @@ List of ebuilds
 
 * www-apache/mod_auth_kerb: Update to the portage ebuild for Apache 2.4 compability.
 
-* net-wireless/bluez: New ebuild for Bluez 5.3 version.
+* net-wireless/bluez: New ebuild for Bluez 5.8 version.

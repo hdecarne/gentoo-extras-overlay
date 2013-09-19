@@ -10,7 +10,7 @@ DESCRIPTION="Zarafa WebApp plugins"
 HOMEPAGE="http://zarafa.com/"
 
 ZARAFA_WEBAPP_BUILD="beta"
-ZARAFA_WEBAPP_BUILDV="42030"
+ZARAFA_WEBAPP_BUILDV="42591"
 
 if [[ ${ZARAFA_WEBAPP_BUILD} == "final" ]] ; then
 	SRC_URI="http://download.zarafa.com/community/${ZARAFA_WEBAPP_BUILD}/WebApp/${PV}/rhel/zarafa-webapp-${PV}-${ZARAFA_WEBAPP_BUILDV}.noarch.rpm"
