@@ -16,8 +16,8 @@ inherit eutils flag-o-matic php-ext-base-r1 python
 DESCRIPTION="Open Source Groupware Solution"
 HOMEPAGE="http://zarafa.com/"
 
-ZARAFA_RELEASE="beta"
-ZARAFA_BUILD="beta1-42574"
+ZARAFA_RELEASE="final"
+ZARAFA_BUILD="-42710"
 
 SRC_URI="http://download.zarafa.com/community/${ZARAFA_RELEASE}/7.1/${PV}${ZARAFA_BUILD}/sourcecode/${P}.tar.gz"
 S="${WORKDIR}/zarafa-${PV}"
