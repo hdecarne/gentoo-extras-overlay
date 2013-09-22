@@ -46,6 +46,8 @@ src_install() {
 	for plugin in extbox pdfbox; do
 		if use "plugin_${plugin}"; then
 			einfo " ${plugin}"
+			rm "${S}/plugins/${plugin}/config.php"
+			cp "${WORKDIR}/etc/zarafa/webapp/config-${plugin}.php" "${S}/plugins/${plugin}/config.php"
 			cp -R "${S}/plugins/${plugin}" "${D}/var/lib/zarafa-webapp/plugins/"
 			fowners -R apache:apache "/var/lib/zarafa-webapp/plugins/${plugin}"
 		fi
