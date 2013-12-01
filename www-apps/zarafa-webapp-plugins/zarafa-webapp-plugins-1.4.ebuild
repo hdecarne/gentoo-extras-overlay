@@ -22,7 +22,7 @@ LICENSE="AGPL-3"
 SLOT="0"
 KEYWORDS="~x86"
 
-IUSE="plugin_extbox plugin_pdfbox"
+IUSE="plugin_extbox plugin_pdfbox plugin_xmpp"
 
 RESTRICT="mirror"
 
@@ -43,7 +43,7 @@ src_compile() {
 src_install() {
 	einfo "Installing plugins..."
 	dodir "/var/lib/zarafa-webapp/plugins"
-	for plugin in extbox pdfbox; do
+	for plugin in extbox pdfbox xmpp; do
 		if use "plugin_${plugin}"; then
 			einfo " ${plugin}"
 			rm "${S}/plugins/${plugin}/config.php"

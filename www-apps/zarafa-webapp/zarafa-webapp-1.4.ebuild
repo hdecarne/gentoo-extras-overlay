@@ -31,9 +31,9 @@ pkg_setup () {
 	require_php_with_use iconv session xml
 }
 
-#src_prepare() {
-#	epatch "${FILESDIR}/${PN}-phpautologin.patch"
-#}
+src_prepare() {
+	epatch "${FILESDIR}/${PN}-phpautologin-1.4.patch"
+}
 
 src_install() {
 	webapp_src_preinst
@@ -42,7 +42,7 @@ src_install() {
 	rm config.php || die "Unexpected source layout; ebuild needs update"
 	rm -r plugins || die "Unexpected source layout; ebuild needs update"
 	cp "${S}/../../../etc/zarafa/webapp/config.php" "${S}/config.php" || die "Unexpected source layout; ebuild needs update"
-	
+
 	dodir "/var/lib/zarafa-webapp/plugins"
 	dosym "/var/lib/zarafa-webapp/plugins" "${MY_HTDOCSDIR}"/plugins
 	dodir "/var/lib/zarafa-webapp/tmp"
