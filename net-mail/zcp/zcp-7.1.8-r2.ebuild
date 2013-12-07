@@ -11,7 +11,7 @@ USE_PHP="php5-3 php5-4"
 
 PYTHON_DEPEND="python? 2"
 
-inherit eutils flag-o-matic php-ext-base-r1 python
+inherit autotools eutils flag-o-matic php-ext-base-r1 python
 
 DESCRIPTION="Open Source Groupware Solution"
 HOMEPAGE="http://zarafa.com/"
@@ -34,7 +34,7 @@ RDEPEND=">=dev-libs/libical-zcp-0.44
 	>=dev-cpp/libvmime-zcp-0.9.2
 	virtual/httpd-php
 	virtual/mysql
-	>=dev-cpp/clucene-0.9.21b-r1
+	>=dev-cpp/clucene-2.3.3.4-r5
 	dev-db/kyotocabinet
 	dev-libs/boost
 	dev-libs/libxml2
@@ -63,9 +63,14 @@ src_unpack() {
 	cd "${S}"
 }
 
-#src_prepare() {
-#	epatch "${FILESDIR}/zarafa-${PV}-fixes.patch"
-#}
+src_prepare() {
+	epatch "${FILESDIR}/zarafa-${PV}-fixes.patch"
+	epatch "${FILESDIR}/zarafa-oss-configure.patch"
+	epatch "${FILESDIR}/zarafa-sizeof-char.patch"
+	epatch "${FILESDIR}/zarafa-gcc47.patch"
+	epatch "${FILESDIR}/zarafa-newclucene.patch"
+	eautoreconf
+}
 
 src_configure() {
 	append-flags -fpermissive

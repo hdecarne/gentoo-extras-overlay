@@ -1,0 +1,391 @@
+From: Jan Engelhardt <jengelh@inai.de>
+
+src: remove useless sizeof(char)
+
+sizeof(char) is defined by the standard to be always equal to 1.
+It is thus useless in e.g. multiplications.
+
+---
+ common/CommonUtil.cpp                  |   14 +++++++-------
+ common/Trace.cpp                       |    2 +-
+ common/Util.cpp                        |    2 +-
+ common/fileutil.cpp                    |   12 ++++++------
+ gateway/IMAP.cpp                       |    8 ++++----
+ inetmapi/tnef.cpp                      |    4 ++--
+ mapi4linux/src/m4l.mapisvc.cpp         |    2 +-
+ mapi4linux/src/mapidefs.cpp            |    2 +-
+ provider/contacts/ZCMAPIProp.cpp       |    2 +-
+ provider/libserver/ECDatabaseUtils.cpp |    2 +-
+ swig/python/RecurrenceState_wrap.cxx   |    2 +-
+ swig/python/archiver_wrap.cxx          |    2 +-
+ swig/python/icalmapi_wrap.cxx          |    2 +-
+ swig/python/inetmapi_wrap.cxx          |    6 +++---
+ swig/python/libcommon_wrap.cxx         |    2 +-
+ swig/python/libfreebusy_wrap.cxx       |    2 +-
+ swig/python/licenseclient_wrap.cxx     |    2 +-
+ swig/python/mapi_wrap.cxx              |    2 +-
+ 18 files changed, 35 insertions(+), 35 deletions(-)
+
+Index: zarafa-7.1.0/common/CommonUtil.cpp
+===================================================================
+--- zarafa-7.1.0.orig/common/CommonUtil.cpp
++++ zarafa-7.1.0/common/CommonUtil.cpp
+@@ -1041,11 +1041,11 @@ HRESULT ECCreateOneOff(LPTSTR lpszName,
+ 		strOneOff.append((char*)strUnicode.c_str(), (strUnicode.length()+1)*sizeof(unsigned short));
+ 	} else {
+ 		if (lpszName)
+-			strOneOff.append((char *)lpszName, (strlen((char *)lpszName) + 1) * sizeof(char));
++			strOneOff.append((char *)lpszName, strlen((char *)lpszName) + 1);
+ 		else
+-			strOneOff.append(sizeof(char), '\0');
+-		strOneOff.append((char *)lpszAdrType, (strlen((char *)lpszAdrType) + 1) * sizeof(char));
+-		strOneOff.append((char *)lpszAddress, (strlen((char *)lpszAddress) + 1) * sizeof(char));
++			strOneOff.append(1, '\0');
++		strOneOff.append((char *)lpszAdrType, strlen((char *)lpszAdrType) + 1);
++		strOneOff.append((char *)lpszAddress, strlen((char *)lpszAddress) + 1);
+ 	}
+ 
+ 	hr = MAPIAllocateBuffer(strOneOff.size(), (void **)lppEntryID);
+@@ -1148,7 +1148,7 @@ HRESULT ECParseOneOff(LPENTRYID lpEntryI
+ 		hr = TryConvert(lpBuffer, rawsize(lpBuffer), "windows-1252", name);
+ 		if (hr != hrSuccess)
+ 			goto exit;
+-		lpBuffer += (str.length() + 1) * sizeof(char);
++		lpBuffer += str.length() + 1;
+ 
+ 		str = (char*)lpBuffer;
+ 		if (str.length() == 0) {
+@@ -1156,7 +1156,7 @@ HRESULT ECParseOneOff(LPENTRYID lpEntryI
+ 			goto exit;
+ 		}
+ 		type = convert_to<std::wstring>(str);
+-		lpBuffer += (str.length() + 1) * sizeof(char);
++		lpBuffer += str.length() + 1;
+ 
+ 		str = (char*)lpBuffer;
+ 		if (str.length() == 0) {
+@@ -1164,7 +1164,7 @@ HRESULT ECParseOneOff(LPENTRYID lpEntryI
+ 			goto exit;
+ 		}
+ 		addr = convert_to<std::wstring>(str);
+-		lpBuffer += (str.length() + 1) * sizeof(char);
++		lpBuffer += str.length() + 1;
+ 	}
+ 
+ 	strWName = name;
+Index: zarafa-7.1.0/common/Trace.cpp
+===================================================================
+--- zarafa-7.1.0.orig/common/Trace.cpp
++++ zarafa-7.1.0/common/Trace.cpp
+@@ -135,7 +135,7 @@ void TraceMsg(char* lpMsg, int time, cha
+ 	if (BUFFER_LIMIT != 0 && pos+3 < BUFFER_LIMIT && len > BUFFER_LIMIT)
+ 		len = BUFFER_LIMIT;
+ 
+-	buffer = (char*)malloc( len * sizeof(char) );
++	buffer = static_cast<char *>(malloc(len));
+ 
+ 	memcpy(buffer, debug, pos);
+ 
+Index: zarafa-7.1.0/common/Util.cpp
+===================================================================
+--- zarafa-7.1.0.orig/common/Util.cpp
++++ zarafa-7.1.0/common/Util.cpp
+@@ -470,7 +470,7 @@ HRESULT Util::HrCopyProperty(LPSPropValu
+ 			goto exit;
+ 		}
+ 
+-		hr = lpfAllocMore(strlen(lpSrc->Value.lpszA)*sizeof(char)+sizeof(char), lpBase, (void**)&lpDest->Value.lpszA);
++		hr = lpfAllocMore(strlen(lpSrc->Value.lpszA) + 1, lpBase, (void**)&lpDest->Value.lpszA);
+ 		if (hr != hrSuccess)
+ 			goto exit;
+ 		strcpy(lpDest->Value.lpszA, lpSrc->Value.lpszA);
+Index: zarafa-7.1.0/common/fileutil.cpp
+===================================================================
+--- zarafa-7.1.0.orig/common/fileutil.cpp
++++ zarafa-7.1.0/common/fileutil.cpp
+@@ -104,7 +104,7 @@ HRESULT HrFileLFtoCRLF(FILE *fin, FILE**
+ 	}
+ 
+ 	while (!feof(fin)) {
+-		readsize = fread(bufferin, sizeof(char), BLOCKSIZE / 2, fin);
++		readsize = fread(bufferin, 1, BLOCKSIZE / 2, fin);
+ 		if (ferror(fin)) {
+ 			perror("Read error");//FIXME: What an error?, what now?
+ 			hr = MAPI_E_CORRUPT_DATA;
+@@ -113,7 +113,7 @@ HRESULT HrFileLFtoCRLF(FILE *fin, FILE**
+ 
+ 		BufferLFtoCRLF(readsize, bufferin, bufferout, &sizebufferout);
+ 
+-		if (fwrite(bufferout, sizeof(char), sizebufferout, fTmp) != sizebufferout) {
++		if (fwrite(bufferout, 1, sizebufferout, fTmp) != sizebufferout) {
+ 			perror("Write error");//FIXME: What an error?, what now?
+ 			hr = MAPI_E_CORRUPT_DATA;
+ 			break;
+@@ -180,7 +180,7 @@ HRESULT HrMapFileToBuffer(FILE *f, char
+ 	/* mmap failed (probably reading from STDIN as a stream), just read the file into memory, and return that */
+ 	lpBuffer = (char*)malloc(BLOCKSIZE); // will be deleted as soon as possible
+ 	while (!feof(f)) {
+-		ulReadsize = fread(lpBuffer+offset, sizeof(char), BLOCKSIZE, f);
++		ulReadsize = fread(lpBuffer+offset, 1, BLOCKSIZE, f);
+ 		if (ferror(f)) {
+ 			perror("Read error");
+ 			break;
+@@ -309,7 +309,7 @@ bool DuplicateFile(ECLogger *lpLogger, F
+ 	}
+ 
+ 	while (!feof(lpFile)) {
+-		ulReadsize = fread(lpBuffer, sizeof(char), BLOCKSIZE, lpFile);
++		ulReadsize = fread(lpBuffer, 1, BLOCKSIZE, lpFile);
+ 		if (ferror(lpFile)) {
+ 			if (lpLogger)
+ 				lpLogger->Log(EC_LOGLEVEL_FATAL, "Read error, error %d", errno);
+@@ -321,7 +321,7 @@ bool DuplicateFile(ECLogger *lpLogger, F
+ 		}
+ 		
+ 
+-		if (fwrite(lpBuffer, sizeof(char), ulReadsize , pfNew) != ulReadsize) {
++		if (fwrite(lpBuffer, 1, ulReadsize , pfNew) != ulReadsize) {
+ 			if (lpLogger)
+ 				lpLogger->Log(EC_LOGLEVEL_FATAL, "Write error, error %d", errno);
+ 			else
+@@ -389,7 +389,7 @@ bool ConvertFileFromUCS2ToUTF8(ECLogger
+ 		goto exit;
+ 	}
+ 	
+-	if (fwrite(strConverted.c_str(), sizeof(char), strConverted.size(), pfDst) != strConverted.size()) { 
++	if (fwrite(strConverted.c_str(), 1, strConverted.size(), pfDst) != strConverted.size()) {
+ 		if (lpLogger)
+ 			lpLogger->Log(EC_LOGLEVEL_FATAL, "Unable to write to file '%s', error %d", strDstFileName.c_str(), errno);
+ 		else
+Index: zarafa-7.1.0/gateway/IMAP.cpp
+===================================================================
+--- zarafa-7.1.0.orig/gateway/IMAP.cpp
++++ zarafa-7.1.0/gateway/IMAP.cpp
+@@ -5973,7 +5973,7 @@ HRESULT IMAP::HrSearch(vector<string> &l
+ 			if (iconv)
+ 				iconv->convert(lstSearchCriteria[ulStartCriteria+1]);
+ 
+-			hr = MAPIAllocateMore(sizeof(char) * (lstSearchCriteria[ulStartCriteria + 1].size() + 1), lpRootRestrict,
++			hr = MAPIAllocateMore(lstSearchCriteria[ulStartCriteria + 1].size() + 1, lpRootRestrict,
+ 								  (LPVOID *) &szBuffer);
+ 			if (hr != hrSuccess)
+ 				goto exit;
+@@ -6063,7 +6063,7 @@ HRESULT IMAP::HrSearch(vector<string> &l
+ 			if (iconv)
+ 				iconv->convert(lstSearchCriteria[ulStartCriteria+1]);
+ 
+-			hr = MAPIAllocateMore(sizeof(char) * (lstSearchCriteria[ulStartCriteria + 1].size() + 1), lpRootRestrict,
++			hr = MAPIAllocateMore(lstSearchCriteria[ulStartCriteria + 1].size() + 1, lpRootRestrict,
+ 								  (LPVOID *) &szBuffer);
+ 			if (hr != hrSuccess)
+ 				goto exit;
+@@ -6509,7 +6509,7 @@ HRESULT IMAP::HrSearch(vector<string> &l
+ 			if (iconv)
+ 				iconv->convert(lstSearchCriteria[ulStartCriteria+1]);
+ 
+-			hr = MAPIAllocateMore(sizeof(char) * (lstSearchCriteria[ulStartCriteria + 1].size() + 1), lpRootRestrict,
++			hr = MAPIAllocateMore(lstSearchCriteria[ulStartCriteria + 1].size() + 1, lpRootRestrict,
+ 								  (LPVOID *) &szBuffer);
+ 			if (hr != hrSuccess)
+ 				goto exit;
+@@ -6542,7 +6542,7 @@ HRESULT IMAP::HrSearch(vector<string> &l
+ 			if (iconv)
+ 				iconv->convert(lstSearchCriteria[ulStartCriteria+1]);
+ 
+-			hr = MAPIAllocateMore(sizeof(char) * (lstSearchCriteria[ulStartCriteria + 1].size() + 1), lpRootRestrict,
++			hr = MAPIAllocateMore(lstSearchCriteria[ulStartCriteria + 1].size() + 1, lpRootRestrict,
+ 								  (LPVOID *) &szBuffer);
+ 			if (hr != hrSuccess)
+ 				goto exit;
+Index: zarafa-7.1.0/inetmapi/tnef.cpp
+===================================================================
+--- zarafa-7.1.0.orig/inetmapi/tnef.cpp
++++ zarafa-7.1.0/inetmapi/tnef.cpp
+@@ -1896,11 +1896,11 @@ HRESULT ECTNEF::HrReadByte(IStream *lpSt
+ 	HRESULT hr = hrSuccess;
+ 	ULONG ulRead = 0;
+ 
+-	hr = lpStream->Read(ulData, sizeof(char), &ulRead);
++	hr = lpStream->Read(ulData, 1, &ulRead);
+ 	if(hr != hrSuccess)
+ 		goto exit;
+ 
+-	if(ulRead != sizeof(char)) {
++	if(ulRead != 1) {
+ 		hr = MAPI_E_NOT_FOUND;
+ 		goto exit;
+ 	}
+Index: zarafa-7.1.0/mapi4linux/src/m4l.mapisvc.cpp
+===================================================================
+--- zarafa-7.1.0.orig/mapi4linux/src/m4l.mapisvc.cpp
++++ zarafa-7.1.0/mapi4linux/src/m4l.mapisvc.cpp
+@@ -280,7 +280,7 @@ HRESULT INFLoader::MakeProperty(const st
+ 		sProp.ulPropTag = CHANGE_PROP_TYPE(sProp.ulPropTag, PT_STRING8);
+ 	case PT_STRING8:
+ 	{
+-		hr = MAPIAllocateMore((strData.length() +1) * sizeof(char), base, (void**)&sProp.Value.lpszA);
++		hr = MAPIAllocateMore(strData.length() + 1, base, (void**)&sProp.Value.lpszA);
+ 		if (hr != hrSuccess)
+ 			goto exit;
+ 		strcpy(sProp.Value.lpszA, strData.c_str());
+Index: zarafa-7.1.0/mapi4linux/src/mapidefs.cpp
+===================================================================
+--- zarafa-7.1.0.orig/mapi4linux/src/mapidefs.cpp
++++ zarafa-7.1.0/mapi4linux/src/mapidefs.cpp
+@@ -200,7 +200,7 @@ HRESULT M4LMAPIProp::GetProps(LPSPropTag
+ 							goto exit;
+ 						for (ULONG c = 0; c < (*i)->Value.MVszW.cValues; c++) {
+ 							ansi = converter.convert_to<string>((*i)->Value.MVszW.lppszW[c]);
+-							hr = MAPIAllocateMore(ansi.length() * sizeof(char) + sizeof(char), props, (void**)&sConvert.Value.MVszA.lppszA[c]);
++							hr = MAPIAllocateMore(ansi.length() + 1, props, (void**)&sConvert.Value.MVszA.lppszA[c]);
+ 							if (hr != hrSuccess)
+ 								goto exit;
+ 							strcpy(sConvert.Value.MVszA.lppszA[c], ansi.c_str());
+Index: zarafa-7.1.0/provider/contacts/ZCMAPIProp.cpp
+===================================================================
+--- zarafa-7.1.0.orig/provider/contacts/ZCMAPIProp.cpp
++++ zarafa-7.1.0/provider/contacts/ZCMAPIProp.cpp
+@@ -379,7 +379,7 @@ HRESULT ZCMAPIProp::CopyOneProp(convert_
+ 		// copy from unicode to string8
+ 		lpProp->ulPropTag = CHANGE_PROP_TYPE(i->second.ulPropTag, PT_STRING8);
+ 		strAnsi = converter.convert_to<std::string>(i->second.Value.lpszW);
+-		hr = MAPIAllocateMore(strAnsi.size() + sizeof(char), lpBase, (void**)&lpProp->Value.lpszA);
++		hr = MAPIAllocateMore(strAnsi.size() + 1, lpBase, (void**)&lpProp->Value.lpszA);
+ 		if (hr != hrSuccess)
+ 			goto exit;
+ 		strcpy(lpProp->Value.lpszA, strAnsi.c_str());
+Index: zarafa-7.1.0/provider/libserver/ECDatabaseUtils.cpp
+===================================================================
+--- zarafa-7.1.0.orig/provider/libserver/ECDatabaseUtils.cpp
++++ zarafa-7.1.0/provider/libserver/ECDatabaseUtils.cpp
+@@ -788,7 +788,7 @@ ECRESULT CopyDatabasePropValToSOAPPropVa
+ 		{
+ 			ParseMVProp(lpRow[FIELD_NR_STRING], lpLen[FIELD_NR_STRING], &ulLastPos, &strData);
+ 			lpPropVal->Value.mvszA.__ptr[i] = s_alloc<char>(soap, strData.size() + 1);
+-			memcpy(lpPropVal->Value.mvszA.__ptr[i], strData.c_str(), sizeof(char) * (strData.size() + 1));
++			memcpy(lpPropVal->Value.mvszA.__ptr[i], strData.c_str(), strData.size() + 1);
+ 		}
+ 		ulPropTag = CHANGE_PROP_TYPE(ulPropTag, PT_MV_UNICODE); // return unicode strings to client, because database contains UTF-8
+ 		break;
+Index: zarafa-7.1.0/swig/python/RecurrenceState_wrap.cxx
+===================================================================
+--- zarafa-7.1.0.orig/swig/python/RecurrenceState_wrap.cxx
++++ zarafa-7.1.0/swig/python/RecurrenceState_wrap.cxx
+@@ -3278,7 +3278,7 @@ SWIG_AsCharPtrAndSize(PyObject *obj, cha
+ 	if (*alloc == SWIG_NEWOBJ) 
+ #endif
+ 	  {
+-	    *cptr = reinterpret_cast< char* >(memcpy((new char[len + 1]), cstr, sizeof(char)*(len + 1)));
++	    *cptr = reinterpret_cast< char* >(memcpy((new char[len + 1]), cstr, len + 1));
+ 	    *alloc = SWIG_NEWOBJ;
+ 	  }
+ 	else {
+Index: zarafa-7.1.0/swig/python/archiver_wrap.cxx
+===================================================================
+--- zarafa-7.1.0.orig/swig/python/archiver_wrap.cxx
++++ zarafa-7.1.0/swig/python/archiver_wrap.cxx
+@@ -3075,7 +3075,7 @@ SWIG_AsCharPtrAndSize(PyObject *obj, cha
+ 	if (*alloc == SWIG_NEWOBJ) 
+ #endif
+ 	  {
+-	    *cptr = reinterpret_cast< char* >(memcpy((new char[len + 1]), cstr, sizeof(char)*(len + 1)));
++	    *cptr = reinterpret_cast< char* >(memcpy((new char[len + 1]), cstr, len + 1));
+ 	    *alloc = SWIG_NEWOBJ;
+ 	  }
+ 	else {
+Index: zarafa-7.1.0/swig/python/icalmapi_wrap.cxx
+===================================================================
+--- zarafa-7.1.0.orig/swig/python/icalmapi_wrap.cxx
++++ zarafa-7.1.0/swig/python/icalmapi_wrap.cxx
+@@ -2879,7 +2879,7 @@ SWIG_AsCharPtrAndSize(PyObject *obj, cha
+ 	if (*alloc == SWIG_NEWOBJ) 
+ #endif
+ 	  {
+-	    *cptr = reinterpret_cast< char* >(memcpy((new char[len + 1]), cstr, sizeof(char)*(len + 1)));
++	    *cptr = reinterpret_cast< char* >(memcpy((new char[len + 1]), cstr, len + 1));
+ 	    *alloc = SWIG_NEWOBJ;
+ 	  }
+ 	else {
+Index: zarafa-7.1.0/swig/python/inetmapi_wrap.cxx
+===================================================================
+--- zarafa-7.1.0.orig/swig/python/inetmapi_wrap.cxx
++++ zarafa-7.1.0/swig/python/inetmapi_wrap.cxx
+@@ -2865,7 +2865,7 @@ SWIG_AsCharPtrAndSize(PyObject *obj, cha
+ 	if (*alloc == SWIG_NEWOBJ) 
+ #endif
+ 	  {
+-	    *cptr = reinterpret_cast< char* >(memcpy((new char[len + 1]), cstr, sizeof(char)*(len + 1)));
++	    *cptr = reinterpret_cast< char* >(memcpy((new char[len + 1]), cstr, len + 1));
+ 	    *alloc = SWIG_NEWOBJ;
+ 	  }
+ 	else {
+@@ -3140,7 +3140,7 @@ SWIGINTERN PyObject *_wrap_sending_optio
+     if (arg1->alternate_boundary) delete[] arg1->alternate_boundary;
+     if (arg2) {
+       size_t size = strlen(reinterpret_cast< const char * >(arg2)) + 1;
+-      arg1->alternate_boundary = (char *)reinterpret_cast< char* >(memcpy((new char[size]), reinterpret_cast< const char * >(arg2), sizeof(char)*(size)));
++      arg1->alternate_boundary = (char *)reinterpret_cast< char* >(memcpy((new char[size]), reinterpret_cast< const char * >(arg2), size));
+     } else {
+       arg1->alternate_boundary = 0;
+     }
+@@ -3569,7 +3569,7 @@ SWIGINTERN PyObject *_wrap_sending_optio
+     if (arg1->charset_upgrade) delete[] arg1->charset_upgrade;
+     if (arg2) {
+       size_t size = strlen(reinterpret_cast< const char * >(arg2)) + 1;
+-      arg1->charset_upgrade = (char *)reinterpret_cast< char* >(memcpy((new char[size]), reinterpret_cast< const char * >(arg2), sizeof(char)*(size)));
++      arg1->charset_upgrade = (char *)reinterpret_cast< char* >(memcpy((new char[size]), reinterpret_cast< const char * >(arg2), size));
+     } else {
+       arg1->charset_upgrade = 0;
+     }
+Index: zarafa-7.1.0/swig/python/libcommon_wrap.cxx
+===================================================================
+--- zarafa-7.1.0.orig/swig/python/libcommon_wrap.cxx
++++ zarafa-7.1.0/swig/python/libcommon_wrap.cxx
+@@ -3002,7 +3002,7 @@ SWIG_AsCharPtrAndSize(PyObject *obj, cha
+ 	if (*alloc == SWIG_NEWOBJ) 
+ #endif
+ 	  {
+-	    *cptr = reinterpret_cast< char* >(memcpy((new char[len + 1]), cstr, sizeof(char)*(len + 1)));
++	    *cptr = reinterpret_cast< char* >(memcpy((new char[len + 1]), cstr, len + 1));
+ 	    *alloc = SWIG_NEWOBJ;
+ 	  }
+ 	else {
+Index: zarafa-7.1.0/swig/python/libfreebusy_wrap.cxx
+===================================================================
+--- zarafa-7.1.0.orig/swig/python/libfreebusy_wrap.cxx
++++ zarafa-7.1.0/swig/python/libfreebusy_wrap.cxx
+@@ -2894,7 +2894,7 @@ SWIG_AsCharPtrAndSize(PyObject *obj, cha
+ 	if (*alloc == SWIG_NEWOBJ) 
+ #endif
+ 	  {
+-	    *cptr = reinterpret_cast< char* >(memcpy((new char[len + 1]), cstr, sizeof(char)*(len + 1)));
++	    *cptr = reinterpret_cast< char* >(memcpy((new char[len + 1]), cstr, len + 1));
+ 	    *alloc = SWIG_NEWOBJ;
+ 	  }
+ 	else {
+Index: zarafa-7.1.0/swig/python/licenseclient_wrap.cxx
+===================================================================
+--- zarafa-7.1.0.orig/swig/python/licenseclient_wrap.cxx
++++ zarafa-7.1.0/swig/python/licenseclient_wrap.cxx
+@@ -2870,7 +2870,7 @@ SWIG_AsCharPtrAndSize(PyObject *obj, cha
+ 	if (*alloc == SWIG_NEWOBJ) 
+ #endif
+ 	  {
+-	    *cptr = reinterpret_cast< char* >(memcpy((new char[len + 1]), cstr, sizeof(char)*(len + 1)));
++	    *cptr = reinterpret_cast< char* >(memcpy((new char[len + 1]), cstr, len + 1));
+ 	    *alloc = SWIG_NEWOBJ;
+ 	  }
+ 	else {
+Index: zarafa-7.1.0/swig/python/mapi_wrap.cxx
+===================================================================
+--- zarafa-7.1.0.orig/swig/python/mapi_wrap.cxx
++++ zarafa-7.1.0/swig/python/mapi_wrap.cxx
+@@ -3520,7 +3520,7 @@ SWIG_AsCharPtrAndSize(PyObject *obj, cha
+ 	if (*alloc == SWIG_NEWOBJ) 
+ #endif
+ 	  {
+-	    *cptr = reinterpret_cast< char* >(memcpy((new char[len + 1]), cstr, sizeof(char)*(len + 1)));
++	    *cptr = reinterpret_cast< char* >(memcpy((new char[len + 1]), cstr, len + 1));
+ 	    *alloc = SWIG_NEWOBJ;
+ 	  }
+ 	else {

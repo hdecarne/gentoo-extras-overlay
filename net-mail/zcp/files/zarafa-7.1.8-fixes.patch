@@ -1,35 +1,13 @@
-diff -rupN zarafa-7.1.4/php-ext/typeconversion.cpp zarafa-7.1.4.patched/php-ext/typeconversion.cpp
---- zarafa-7.1.4/php-ext/typeconversion.cpp	2013-02-20 16:58:24.000000000 +0100
-+++ zarafa-7.1.4.patched/php-ext/typeconversion.cpp	2013-02-23 08:38:37.748591942 +0100
-@@ -65,6 +65,11 @@ extern "C" {
+diff -rupN zarafa-7.1.8/php-ext/typeconversion.cpp zarafa-7.1.8.patched/php-ext/typeconversion.cpp
+--- zarafa-7.1.8/php-ext/typeconversion.cpp	2013-11-08 10:36:50.000000000 +0100
++++ zarafa-7.1.8.patched/php-ext/typeconversion.cpp	2013-12-03 20:44:29.021971465 +0100
+@@ -65,6 +65,9 @@ extern "C" {
     	#include "php_globals.h"
  	#include "ext/standard/info.h"
  	#include "ext/standard/php_string.h"
-+
 +#ifdef ZTS
-+	void*** tsrm_ls;
++    void*** tsrm_ls;
 +#endif
-+
  }
  
  #undef inline
-diff -rupN zarafa-7.1.4/swig/icalmapi.i zarafa-7.1.4.patched/swig/icalmapi.i
---- zarafa-7.1.4/swig/icalmapi.i	2013-02-20 16:07:17.000000000 +0100
-+++ zarafa-7.1.4.patched/swig/icalmapi.i	2013-02-23 13:40:47.280602867 +0100
-@@ -24,14 +24,14 @@
- 	$1 = &temp;
- }
- %typemap(argout) (eIcalType* ) {
--	%append_output(SWIG_From_long(*$1));
-+	%append_output(PyInt_FromLong(*$1));
- }
- 
- %typemap(in,numinputs=0) (time_t *) (time_t temp) {
- 	$1 = &temp;
- }
- %typemap(argout) (time_t* ) {
--	%append_output(SWIG_From_long(*$1));
-+	%append_output(PyInt_FromLong(*$1));
- }
- 
- %typemap(in,numinputs=0) (SBinary *) (SBinary temp) {
