@@ -17,7 +17,7 @@ DESCRIPTION="Open Source Groupware Solution"
 HOMEPAGE="http://zarafa.com/"
 
 ZARAFA_RELEASE="beta"
-ZARAFA_BUILD="beta2-43059"
+ZARAFA_BUILD="beta3-43454"
 
 SRC_URI="http://download.zarafa.com/community/${ZARAFA_RELEASE}/7.1/${PV}${ZARAFA_BUILD}/sourcecode/${P}.tar.gz"
 S="${WORKDIR}/zarafa-${PV}"
