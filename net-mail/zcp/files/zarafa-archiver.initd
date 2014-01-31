@@ -1,0 +1,35 @@
+#!/sbin/runscript
+# Copyright 1999-2008 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+ARCHIVERCONFIG=/etc/zarafa/archiver.cfg
+ARCHIVERPROGRAM=/usr/bin/zarafa-archiver
+
+[ -x $ARCHIVERPROGRAM ] || exit 0
+
+ARCHIVERCONFIG_OPT=""
+[ ! -z $ARCHIVERCONFIG -a -f $ARCHIVERCONFIG ] && ARCHIVERCONFIG_OPT="-c $ARCHIVERCONFIG"
+
+PIDFILE=/var/run/"${SVCNAME}".pid
+
+depend() {
+	need zarafa-server
+}
+
+start() {
+	ebegin "Starting ${SVCNAME}"
+	start-stop-daemon --start \
+		--pidfile ${PIDFILE} \
+		--exec ${ARCHIVERPROGRAM} -- -d ${ARCHIVERCONFIG_OPT} ${ARCHIVER_OPTIONS}
+	eend $?
+}
+
+stop() {
+	ebegin "Stopping ${SVCNAME}"
+	start-stop-daemon --stop \
+		--pidfile ${PIDFILE} \
+		--retry 65 \
+		--exec ${ARCHIVERPROGRAM} -- ${ARCHIVERCONFIG_OPT}
+	eend $?
+}
