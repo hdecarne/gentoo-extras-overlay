@@ -1,6 +1,0 @@
-# /etc/conf.d/zarafa-archiver: config file for /etc/init.d/zarafa-archiver
-
-# Options to pass to the zarfa-archiver daemon.
-# See the zarafa-archiver man page for more info.
-
-ARCHIVER_OPTIONS=""

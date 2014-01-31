@@ -22,7 +22,7 @@ ZARAFA_BUILD="-43801"
 SRC_URI="http://download.zarafa.com/community/${ZARAFA_RELEASE}/7.1/${PV}${ZARAFA_BUILD}/sourcecode/${P}.tar.gz"
 S="${WORKDIR}/zarafa-${PV}"
 
-ZARAFA_SERVICES="archiver dagent gateway ical monitor search server spooler"
+ZARAFA_SERVICES="dagent gateway ical monitor search server spooler"
 
 LICENSE="AGPL-3"
 SLOT="0"
