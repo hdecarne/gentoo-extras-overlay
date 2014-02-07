@@ -1,0 +1,111 @@
+diff -rupN zarafa-7.1.8/caldav/Http.cpp zarafa-7.1.8.logging/caldav/Http.cpp
+--- zarafa-7.1.8/caldav/Http.cpp	2014-01-30 13:41:33.000000000 +0100
++++ zarafa-7.1.8.logging/caldav/Http.cpp	2014-02-01 14:58:09.781013310 +0100
+@@ -711,7 +711,7 @@ HRESULT Http::HrFinalize()
+ 		// @todo we're in C LC_TIME locale to get the correct (month) format, but the timezone will be GMT, which is not wanted.
+ 		strftime(szTime, arraySize(szTime), "%d/%b/%Y:%H:%M:%S %z", &local);
+ 		HrGetHeaderValue("User-Agent", &strAgent);
+-		m_lpLogger->Log(EC_LOGLEVEL_FATAL, "%s - %s [%s] \"%s\" %d %d \"-\" \"%s\"",
++		m_lpLogger->Log(EC_LOGLEVEL_INFO, "%s - %s [%s] \"%s\" %d %d \"-\" \"%s\"",
+ 						m_lpChannel->GetIPAddress().c_str(), m_strUser.empty() ? "-" : m_strUser.c_str(), szTime, m_strAction.c_str(), m_ulRetCode, (int)m_strRespBody.length(), strAgent.c_str());
+ 	}
+ 
+diff -rupN zarafa-7.1.8/ECtools/zarafa-search/ECSearcherRequest.cpp zarafa-7.1.8.logging/ECtools/zarafa-search/ECSearcherRequest.cpp
+--- zarafa-7.1.8/ECtools/zarafa-search/ECSearcherRequest.cpp	2014-01-30 13:41:34.000000000 +0100
++++ zarafa-7.1.8.logging/ECtools/zarafa-search/ECSearcherRequest.cpp	2014-02-01 13:46:31.166516084 +0100
+@@ -128,7 +128,7 @@ LPVOID ECSearcherRequest::RunThread(LPVO
+ 	HRESULT hr = hrSuccess;
+ 	ECSearcherRequest *lpRequest = (ECSearcherRequest *)lpVoid;
+ 
+-	lpRequest->m_lpThreadData->lpLogger->Log(EC_LOGLEVEL_ERROR, "Search thread started");
++	lpRequest->m_lpThreadData->lpLogger->Log(EC_LOGLEVEL_INFO, "Search thread started");
+ 
+ 	hr = lpRequest->ProcessRequest();
+ 	if (hr != hrSuccess)
+diff -rupN zarafa-7.1.8/inetmapi/inetmapi.cpp zarafa-7.1.8.logging/inetmapi/inetmapi.cpp
+--- zarafa-7.1.8/inetmapi/inetmapi.cpp	2014-01-30 13:41:33.000000000 +0100
++++ zarafa-7.1.8.logging/inetmapi/inetmapi.cpp	2014-02-01 13:48:14.499731003 +0100
+@@ -300,7 +300,7 @@ INETMAPI_API HRESULT IMToINet(IMAPISessi
+ 		// vmime::messageId::generateId() is not random enough since we use forking in the spooler
+ 		vmime::messageId msgId(generateRandomMessageId(), vmime::platform::getHandler()->getHostName());
+ 		vmMessage->getHeader()->MessageId()->setValue(msgId);
+-		lpLogger->Log(EC_LOGLEVEL_ERROR, "Sending message with Message-ID: " + msgId.getId());
++		lpLogger->Log(EC_LOGLEVEL_INFO, "Sending message with Message-ID: " + msgId.getId());
+ 	}
+ 	catch (vmime::exception& e) {
+ 		mailer->setError(e.what());
+diff -rupN zarafa-7.1.8/inetmapi/MAPISMTPTransport.cpp zarafa-7.1.8.logging/inetmapi/MAPISMTPTransport.cpp
+--- zarafa-7.1.8/inetmapi/MAPISMTPTransport.cpp	2014-01-30 13:41:33.000000000 +0100
++++ zarafa-7.1.8.logging/inetmapi/MAPISMTPTransport.cpp	2014-02-01 13:51:24.162307867 +0100
+@@ -716,7 +716,7 @@ void MAPISMTPTransport::send(const mailb
+ 		// qmail: ok 1295860788 qp 29154
+ 		// exim: OK id=1PhIZ9-0002Ko-Q8
+ 		if (!m_lpLogger->Log(EC_LOGLEVEL_DEBUG)) // prevent double logging
+-			m_lpLogger->Log(EC_LOGLEVEL_WARNING, "SMTP: %s", resp->getText().c_str());
++			m_lpLogger->Log(EC_LOGLEVEL_INFO, "SMTP: %s", resp->getText().c_str());
+ 	}
+ }
+ 
+diff -rupN zarafa-7.1.8/spooler/DAgent.cpp zarafa-7.1.8.logging/spooler/DAgent.cpp
+--- zarafa-7.1.8/spooler/DAgent.cpp	2014-01-30 13:41:35.000000000 +0100
++++ zarafa-7.1.8.logging/spooler/DAgent.cpp	2014-02-01 13:42:51.563029574 +0100
+@@ -2507,7 +2507,7 @@ HRESULT ProcessDeliveryToServer(PyMapiPl
+ 					MAPIFreeBuffer(lpMessageId);
+ 				}
+ 				HrGetOneProp(lpMessageTmp, PR_SUBJECT_W, &lpSubject);
+-				g_lpLogger->Log(EC_LOGLEVEL_FATAL,
++				g_lpLogger->Log(EC_LOGLEVEL_INFO,
+ 					"Delivered message to '%ls', Subject: \"%ls\", Message-Id: %ls",
+ 					(*iter)->wstrUsername.c_str(),
+ 					(lpSubject != NULL) ? lpSubject->Value.lpszW : L"<none>",
+@@ -2828,7 +2828,7 @@ void *HandlerLMTP(void *lpArg) {
+ 	LPADRBOOK	 lpAdrBook = NULL;
+ 	IABContainer *lpAddrDir = NULL;
+ 
+-	g_lpLogger->Log(EC_LOGLEVEL_FATAL, "Starting worker for LMTP request pid %d", getpid());
++	g_lpLogger->Log(EC_LOGLEVEL_INFO, "Starting worker for LMTP request pid %d", getpid());
+ 
+ 	char *lpEnvGDB  = getenv("GDB");
+ 	if (lpEnvGDB && parseBool(lpEnvGDB)) {
+@@ -3073,7 +3073,7 @@ exit:
+ 	if (lpSession)
+ 		lpSession->Release();
+ 
+-	g_lpLogger->Log(EC_LOGLEVEL_FATAL, "LMTP thread exiting");
++	g_lpLogger->Log(EC_LOGLEVEL_INFO, "LMTP thread exiting");
+ 
+ 	if (lpArgs)
+ 		delete lpArgs;
+diff -rupN zarafa-7.1.8/spooler/mailer.cpp zarafa-7.1.8.logging/spooler/mailer.cpp
+--- zarafa-7.1.8/spooler/mailer.cpp	2014-01-30 13:41:35.000000000 +0100
++++ zarafa-7.1.8.logging/spooler/mailer.cpp	2014-02-01 13:45:19.384284972 +0100
+@@ -2182,7 +2182,7 @@ HRESULT ProcessMessage(IMAPISession *lpA
+ 	}
+ 
+ 	// fatal, all other log messages are otherwise somewhat meaningless
+-	g_lpLogger->Log(EC_LOGLEVEL_FATAL, "Sending e-mail for user %ls, subject: '%ls', size: %d",
++	g_lpLogger->Log(EC_LOGLEVEL_INFO, "Sending e-mail for user %ls, subject: '%ls', size: %d",
+ 					lpUser->lpszUsername, lpSubject ? lpSubject->Value.lpszW : L"<none>",
+ 					lpMsgSize ? lpMsgSize->Value.ul : 0);
+ 
+@@ -2431,7 +2431,7 @@ HRESULT ProcessMessage(IMAPISession *lpA
+ 		hr = hrSuccess;
+ 		goto exit;
+ 	} else {
+-		g_lpLogger->Log(EC_LOGLEVEL_FATAL, "E-mail for user %ls was accepted by SMTP server", lpUser->lpszUsername);
++		g_lpLogger->Log(EC_LOGLEVEL_INFO, "E-mail for user %ls was accepted by SMTP server", lpUser->lpszUsername);
+ 	}
+ 
+ 	// If we have a repsenting message, save that now in the sent-items of that user
+diff -rupN zarafa-7.1.8/spooler/Spooler.cpp zarafa-7.1.8.logging/spooler/Spooler.cpp
+--- zarafa-7.1.8/spooler/Spooler.cpp	2014-01-30 13:41:35.000000000 +0100
++++ zarafa-7.1.8.logging/spooler/Spooler.cpp	2014-02-01 13:47:04.357548327 +0100
+@@ -757,7 +757,7 @@ HRESULT ProcessQueue(char* szSMTP, int u
+ 	}
+ 
+ 	if (disconnects == 0)
+-		g_lpLogger->Log(EC_LOGLEVEL_WARNING, "Connection to Zarafa server succeeded");
++		g_lpLogger->Log(EC_LOGLEVEL_INFO, "Connection to Zarafa server succeeded");
+ 	else
+ 		g_lpLogger->Log(EC_LOGLEVEL_WARNING, "Connection to Zarafa server succeeded after %d retries", disconnects);
+ 

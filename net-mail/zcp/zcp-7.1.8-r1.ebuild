@@ -68,6 +68,7 @@ src_prepare() {
 	epatch "${FILESDIR}/zcp-lucene.patch"
 	epatch "${FILESDIR}/zcp-gcc.patch"
 	epatch "${FILESDIR}/zcp-php.patch"
+	epatch "${FILESDIR}/zcp-logging.patch"
 	eautoreconf
 }
 
@@ -111,6 +112,9 @@ src_install() {
 
 	dodir /var/log/zarafa
 	keepdir /var/log/zarafa
+
+	dodir /var/lib/zarafa/spooler/plugins
+	keepdir /var/lib/zarafa/spooler/plugins
 
 	for service in ${ZARAFA_SERVICES}; do
 		newconfd "${FILESDIR}/zarafa-${service}.confd" "zarafa-${service}"

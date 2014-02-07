@@ -31,10 +31,6 @@ pkg_setup () {
 	require_php_with_use iconv session xml
 }
 
-src_prepare() {
-	epatch "${FILESDIR}/${PN}-phpautologin-1.4.patch"
-}
-
 src_install() {
 	webapp_src_preinst
 
