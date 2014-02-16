@@ -15,6 +15,7 @@ SRC_URI="http://prosody.im/tmp/${MY_PV}/${MY_P}.tar.gz"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~x86"
+RESTRICT="mirror"
 IUSE="ipv6 libevent mysql postgres sasl sqlite ssl zlib"
 
 DEPEND="net-im/jabber-base
