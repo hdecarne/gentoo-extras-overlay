@@ -1,6 +1,6 @@
-diff -rupN zarafa-7.1.8/configure.ac zarafa-7.1.8.automake/configure.ac
---- zarafa-7.1.8/configure.ac	2014-01-30 12:38:14.000000000 +0100
-+++ zarafa-7.1.8.automake/configure.ac	2014-02-01 10:02:04.299170143 +0100
+diff -rupN zarafa-7.1.9/configure.ac zarafa-7.1.9.automake/configure.ac
+--- zarafa-7.1.9/configure.ac	2014-03-31 12:53:51.000000000 +0200
++++ zarafa-7.1.9.automake/configure.ac	2014-03-31 21:07:51.154122317 +0200
 @@ -812,21 +812,6 @@ AC_CONFIG_FILES([Makefile
  		version
  		specialbuild
@@ -23,9 +23,21 @@ diff -rupN zarafa-7.1.8/configure.ac zarafa-7.1.8.automake/configure.ac
  
  AC_OUTPUT
  
-diff -rupN zarafa-7.1.8/ECtools/Makefile.am zarafa-7.1.8.automake/ECtools/Makefile.am
---- zarafa-7.1.8/ECtools/Makefile.am	2014-01-30 12:44:38.000000000 +0100
-+++ zarafa-7.1.8.automake/ECtools/Makefile.am	2014-02-01 09:56:06.493524301 +0100
+diff -rupN zarafa-7.1.9/doc/Makefile.am zarafa-7.1.9.automake/doc/Makefile.am
+--- zarafa-7.1.9/doc/Makefile.am	2014-03-31 12:54:26.000000000 +0200
++++ zarafa-7.1.9.automake/doc/Makefile.am	2014-03-31 21:09:09.503185917 +0200
+@@ -8,7 +8,7 @@ allpages=\
+ 	zarafa-ical.cfg.5 zarafa-server.cfg.5 zarafa-ldap.cfg.5 zarafa-ldapms.cfg.5 zarafa-unix.cfg.5 zarafa-spooler.cfg.5 zarafa-gateway.cfg.5 \
+ 	zarafa-monitor.cfg.5 zarafa-licensed.cfg.5 zarafa-dagent.cfg.5 zarafa-search.cfg.5 zarafa-archiver.1 zarafa-archiver.cfg.5 \
+ 	zarafa-msr.1 zarafa-msr.cfg.5 zarafa-msr-verify.1 za-aclsync.1 za-aclset.1 zarafa-backup.cfg.5 za-restore.1 \
+-	zarafa-set-oof.1 zarafa-mailbox-permissions.1 zarafa-autorespond.1 zarafa-ws.1 zarafa-ws.cfg.5
++	zarafa-set-oof.1 zarafa-mailbox-permissions.1 zarafa-autorespond.1
+ 
+ CLEANFILES = zarafa-cfgchecker.1
+ 
+diff -rupN zarafa-7.1.9/ECtools/Makefile.am zarafa-7.1.9.automake/ECtools/Makefile.am
+--- zarafa-7.1.9/ECtools/Makefile.am	2014-03-31 12:59:02.000000000 +0200
++++ zarafa-7.1.9.automake/ECtools/Makefile.am	2014-03-31 21:07:51.154122317 +0200
 @@ -1,5 +1 @@
 -if ! OSS_ONLY
 -PROSUBS = zarafa-backup zarafa-report zarafa-msr za-extra zarafa-ocf zarafa-ws
@@ -33,9 +45,9 @@ diff -rupN zarafa-7.1.8/ECtools/Makefile.am zarafa-7.1.8.automake/ECtools/Makefi
 -
 -SUBDIRS = $(PROSUBS) zarafa-archiver zarafa-admin zarafa-monitor zarafa-passwd zarafa-fsck zarafa-cfgchecker zarafa-stats zarafa-search zarafa-utils
 +SUBDIRS = zarafa-archiver zarafa-admin zarafa-monitor zarafa-passwd zarafa-fsck zarafa-cfgchecker zarafa-stats zarafa-search zarafa-utils
-diff -rupN zarafa-7.1.8/Makefile.am zarafa-7.1.8.automake/Makefile.am
---- zarafa-7.1.8/Makefile.am	2014-01-30 12:44:40.000000000 +0100
-+++ zarafa-7.1.8.automake/Makefile.am	2014-02-01 10:07:30.669229630 +0100
+diff -rupN zarafa-7.1.9/Makefile.am zarafa-7.1.9.automake/Makefile.am
+--- zarafa-7.1.9/Makefile.am	2014-03-31 12:59:04.000000000 +0200
++++ zarafa-7.1.9.automake/Makefile.am	2014-03-31 21:07:51.154122317 +0200
 @@ -1,10 +1,6 @@
  ACLOCAL_AMFLAGS = -I autoconf
  
