@@ -10,7 +10,7 @@ DESCRIPTION="Z-Push - open source push technology"
 HOMEPAGE="http://z-push.sourceforge.net"
 
 ZPUSH_RELEASE="final"
-ZPUSH_BUILD="-1788"
+ZPUSH_BUILD="-1873"
 
 SRC_URI="http://download.z-push.org/${ZPUSH_RELEASE}/2.1/${P}${ZPUSH_BUILD}.tar.gz"
 S="${WORKDIR}/${P}${ZPUSH_BUILD}"
