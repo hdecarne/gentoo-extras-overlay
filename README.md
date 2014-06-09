@@ -11,18 +11,20 @@ __Please beware__: I am running and hence tested these ebuilds against ~amd64 an
 List of ebuilds
 ---------------
 
+* net-im/prosody: Updated ebuild for the Prosody XMPP server (http://prosody.im/) for SASL support.
+
+* dev-lua/lua-cyrussasl: New ebuild for the Cyrus-SASL LUA binding as used by Prosody.
+
 * net-im/spectrum-transport: New ebuild for the 1.x version of Spectrum XMPP transport (http://spectrum.im/).
 
-* net-mail/zcp/zcp: New ebuild for the Zarafa groupware solution (http://www.zarafa.com). __Please see__ following ebuilds for more details.
+* net-mail/zcp/zcp: New ebuild for the Zarafa groupware solution (http://www.zarafa.com).
 
 * dev-cpp/libvmime-zcp/libvmime-zcp: New ebuild for Zarafa patched version of libvmime. Required by the zcp ebuild above.
 
-* dev-libs/libical-zcp/libical-zcp: New ebuild for Zarafa patched version of libical. Required by the zcp ebuild above. __Please note__: There is an official libical ebuild in the portage tree that conflicts with this ebuild.
-
 * www-apps/zarafa-webapp: New ebuild for the Zarafa Webapp client.
+
+* www-apps/zarafa-webapp-plugins: New ebuild for the Zarafa Webapp plugins.
 
 * www-apps/z-push: New ebuild for the Zarafa ActiveSync solution.
 
-* www-apache/mod_auth_kerb: Update to the portage ebuild for Apache 2.4 compability.
-
-* net-wireless/bluez: New ebuild for Bluez 5.8 version.
+* net-dialup/openl2tp: New ebuild for the OpenL2TP L2TP server (http://www.openl2tp.org/)
