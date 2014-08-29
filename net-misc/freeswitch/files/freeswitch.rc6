@@ -1,0 +1,40 @@
+#!/sbin/runscript
+# Copyright 2007 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License, v2 or later
+# $Header: $
+
+FREESWITCH_BIN="${FREESWITCH_BIN:-/usr/bin/freeswitch}"
+
+depend() {
+	need net
+	use dahdi
+}
+
+start() {
+	local OPTS
+
+	[ -n "${FREESWITCH_USER}" ] && \
+		OPTS="${OPTS} -u ${FREESWITCH_USER}"
+
+	[ -n "${FREESWITCH_GROUP}" ] && \
+		OPTS="${OPTS} -g ${FREESWITCH_GROUP}"
+
+	[ -n "${FREESWITCH_OPTS}" ] && \
+		OPTS="${OPTS} ${FREESWITCH_OPTS}"
+
+	if [ -n "${FREESWITCH_STACKSIZE}" ]; then
+		ulimit -s ${FREESWITCH_STACKSIZE}
+		einfo "Stacksize  : ${FREESWITCH_STACKSIZE}"
+	fi
+
+	ebegin "Starting Freeswitch"
+	start-stop-daemon --start --quiet --exec ${FREESWITCH_BIN} \
+		--pidfile /var/run/freeswitch.pid -- -nc ${OPTS}
+	eend $?
+}
+
+stop() {
+	ebegin "Stopping Freeswitch"
+	${FREESWITCH_BIN} -stop
+	eend $?
+}
