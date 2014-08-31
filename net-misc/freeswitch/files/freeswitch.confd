@@ -21,10 +21,5 @@ FREESWITCH_USER="freeswitch"
 #FREESWITCH_STACKSIZE="240"
 
 
-# optional: other options, e.g.
-#
-# -hp	Use realtime priority and protect freeswitch
-#       process from being swapped to disk
-#       (warning: dangerous on machines with little ram!)
-#
+# optional: other options
 #FREESWITCH_OPTS=""

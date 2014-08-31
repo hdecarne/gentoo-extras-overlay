@@ -4,6 +4,7 @@
 # $Header: $
 
 FREESWITCH_BIN="${FREESWITCH_BIN:-/usr/bin/freeswitch}"
+FREESWITCH_PID="/var/run/freeswitch/freeswitch.pid"
 
 depend() {
 	need net
@@ -13,14 +14,17 @@ depend() {
 start() {
 	local OPTS
 
-	[ -n "${FREESWITCH_USER}" ] && \
+	if [ -n "${FREESWITCH_USER}" ]; then
 		OPTS="${OPTS} -u ${FREESWITCH_USER}"
+	fi
 
-	[ -n "${FREESWITCH_GROUP}" ] && \
+	if [ -n "${FREESWITCH_GROUP}" ]; then
 		OPTS="${OPTS} -g ${FREESWITCH_GROUP}"
+	fi
 
-	[ -n "${FREESWITCH_OPTS}" ] && \
+	if [ -n "${FREESWITCH_OPTS}" ]; then
 		OPTS="${OPTS} ${FREESWITCH_OPTS}"
+	fi
 
 	if [ -n "${FREESWITCH_STACKSIZE}" ]; then
 		ulimit -s ${FREESWITCH_STACKSIZE}
@@ -28,13 +32,15 @@ start() {
 	fi
 
 	ebegin "Starting Freeswitch"
+	checkpath -q -d `dirname ${FREESWITCH_PID}` -o ${FREESWITCH_USER}
 	start-stop-daemon --start --quiet --exec ${FREESWITCH_BIN} \
-		--pidfile /var/run/freeswitch.pid -- -nc ${OPTS}
+		--pidfile ${FREESWITCH_PID} -- -ncwait ${OPTS}
 	eend $?
 }
 
 stop() {
 	ebegin "Stopping Freeswitch"
-	${FREESWITCH_BIN} -stop
+	start-stop-daemon --stop --quiet --retry=TERM/30/KILL/5 \
+		--pidfile ${FREESWITCH_PID}
 	eend $?
 }

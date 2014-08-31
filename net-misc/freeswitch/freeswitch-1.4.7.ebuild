@@ -4,7 +4,12 @@
 
 EAPI="4"
 
-inherit autotools eutils flag-o-matic user
+PHP_EXT_NAME="ESL"
+PHP_EXT_INI="yes"
+PHP_EXT_ZENDEXT="no"
+USE_PHP="php5-3 php5-4 php5-5"
+
+inherit autotools eutils flag-o-matic user php-ext-base-r1
 
 DESCRIPTION="FreeSWITCH telephony platform"
 HOMEPAGE="http://www.freeswitch.org/"
@@ -69,7 +74,6 @@ FS_MODULES_OPTIONAL="
 	freeswitch_modules_random:applications/mod_random
 	freeswitch_modules_redis:applications/mod_redis
 	freeswitch_modules_rss:applications/mod_rss
-	freeswitch_modules_skel:applications/mod_skel
 	freeswitch_modules_sms:applications/mod_sms
 	freeswitch_modules_snapshot:applications/mod_snapshot
 	freeswitch_modules_snipe_hunt:applications/mod_snipe_hunt
@@ -106,7 +110,6 @@ FS_MODULES_OPTIONAL="
 	freeswitch_modules_sangoma_codec:codecs/mod_sangoma_codec
 	freeswitch_modules_silk:codecs/mod_silk
 	freeswitch_modules_siren:codecs/mod_siren
-	freeswitch_modules_skel_codec:codecs/mod_skel_codec
 	freeswitch_modules_theora:codecs/mod_theora
 	freeswitch_modules_vp8:codecs/mod_vp8
 	freeswitch_modules_dialplan_asterisk:dialplans/mod_dialplan_asterisk
@@ -187,7 +190,11 @@ FS_LANGUAGES_OPTIONAL="
 	linguas_zh:say/mod_say_zh
 "
 
-IUSE="odbc +resampler sctp zrtp"
+FS_ESL="
+	freeswitch_esl_php
+"
+
+IUSE="debug odbc +resampler sctp zrtp"
 
 for e in ${FS_MODULES_CORE}; do
 	u="${e%:*}"
@@ -205,6 +212,10 @@ for e in ${FS_LANGUAGES_OPTIONAL}; do
 	u="${e%:*}"
 	IUSE="${IUSE} ${u}"
 done
+for e in ${FS_ESL}; do
+	u="${e%:*}"
+	IUSE="${IUSE} ${u}"
+done
 
 REQUIRED_USE="
 	|| ( freeswitch_modules_posix_timer freeswitch_modules_timerfd )
@@ -216,6 +227,7 @@ RDEPEND="
 	sctp? ( kernel_linux? ( net-misc/lksctp-tools ) )
 	freeswitch_modules_cdr_sqlite? ( dev-db/sqlite )
 	freeswitch_modules_curl? ( net-misc/curl )
+	freeswitch_modules_opus? ( media-libs/opus )
 	freeswitch_modules_snmp? ( net-analyzer/net-snmp )
 	freeswitch_modules_spandsp? ( virtual/jpeg )
 "
@@ -231,8 +243,6 @@ PDEPEND="
 
 FREESWITCH_USER=${FREESWITCH_USER:-freeswitch}
 FREESWITCH_GROUP=${FREESWITCH_GROUP:-freeswitch}
-
-addpredict /var/lib/net-snmp/mib_indexes
 
 configure_modules_conf() {
 	einfo "Preparing modules.conf"
@@ -289,19 +299,29 @@ pkg_setup() {
 }
 
 src_prepare() {
+	einfo "Preparing FreeSWITCH..."
+	if use freeswitch_esl_php; then
+		sed -e 's/swig2\.0/swig/' -i libs/esl/php/Makefile.in || die "failed to prepare PHP els module"
+	fi
 	epatch_user
 }
 
 src_configure() {
+	local config_opts python_opts java_opts
+
 	configure_modules_conf
 	einfo "Configuring FreeSWITCH..."
 	touch noreg
+	if ! use debug; then
+		config_opts="--disable-debug --enable-optimization"
+	fi
 	if use freeswitch_modules_python; then
 		python_opts="--with-python=$(PYTHON -a)"
 	fi
 	if use freeswitch_modules_java; then
 		java_opts="--with-java=$(/usr/bin/java-config -O)"
 	fi
+	addpredict /var/lib/net-snmp/mib_indexes
 	econf \
 		--disable-option-checking \
 		${CTARGET:+--target=${CTARGET}} \
@@ -322,6 +342,7 @@ src_configure() {
 		$(use_enable zrtp) \
 		$(use_enable resampler resample) \
 		$(use_enable odbc core-odbc-support) \
+		${config_opts} \
 		${python_opts} \
 		${java_opts} \
 		|| die "failed to configure FreeSWITCH"
@@ -330,10 +351,15 @@ src_configure() {
 src_compile() {
 	einfo "Building FreeSWITCH..."
 	emake || die "failed to build FreeSWITCH"
+	if use freeswitch_esl_php; then
+		einfo "Building PHP esl module..."
+		emake -C libs/esl/php reswig || die "failed to reswig PHP esl module"
+		emake -C libs/esl phpmod || die "failed to build PHP esl module"
+	fi
 }
 
 src_install() {
-	einfo "Building FreeSWITCH..."
+	einfo "Installing FreeSWITCH..."
 	emake install DESTDIR="${D}" || die "failed to install FreeSWITCH"
 
 	find "${ED}" -name "*.la" -delete || die "failed to cleanup .la files"
@@ -347,6 +373,11 @@ src_install() {
 	fowners -Rf "${FREESWITCH_USER}":"${FREESWITCH_GROUP}" "/var/log/${PN}"
 	fowners -Rf "${FREESWITCH_USER}":"${FREESWITCH_GROUP}" "/usr/share/${PN}"
 	fowners -Rf "${FREESWITCH_USER}":"${FREESWITCH_GROUP}" "/var/lib/${PN}"
+	if use freeswitch_esl_php; then
+		einfo "Installing PHP esl module..."
+		php-ext-base-r1_src_install
+		emake DESTDIR="${D}" -C libs/esl phpmod-install || die "failed to install PHP esl module"
+	fi
 }
 
 pkg_postinst() {
