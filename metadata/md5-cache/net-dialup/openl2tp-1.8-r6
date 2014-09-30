@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile configure install postinst prepare setup unpack
+DEPEND=>=net-dialup/ppp-2.4.5 sys-libs/readline sys-devel/bison sys-devel/flex
+DESCRIPTION=Userspace tools for kernel L2TP implementation
+EAPI=4
+HOMEPAGE=http://www.openl2tp.org/
+IUSE=+client doc +examples rpc server -stats
+KEYWORDS=amd64 x86
+LICENSE=GPL-2
+RDEPEND=>=net-dialup/ppp-2.4.5 sys-libs/readline rpc? ( || ( net-nds/rpcbind net-nds/portmap ) )
+REQUIRED_USE=|| ( client server )
+SLOT=0
+SRC_URI=mirror://sourceforge/openl2tp/openl2tp-1.8.tar.gz
+_eclasses_=base	87f7447ccfc06fd0729ff4684e11e0d6	eutils	32548a82e42dc26e3312581476d2f20c	linux-info	2b8c53f6065bdee2d757472215a3088f	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	0f1760274637a138b99bb649202ea402	versionator	cd0bcdb170807e4a1984115e9d53a26f
+_md5_=51c77ab46012c5d1b111ab60cb81d27f

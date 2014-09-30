@@ -1,0 +1,12 @@
+DEFINED_PHASES=configure install prepare
+DEPEND=>=dev-lang/lua-5.1 dev-libs/cyrus-sasl
+DESCRIPTION=Cyrus SASL library for Lua 5.1
+EAPI=5
+HOMEPAGE=https://github.com/JorjBauer/lua-cyrussasl
+KEYWORDS=~amd64
+LICENSE=BSD
+RDEPEND=>=dev-lang/lua-5.1 dev-libs/cyrus-sasl
+SLOT=0
+SRC_URI=https://github.com/JorjBauer/lua-cyrussasl/archive/v1.0.0.tar.gz -> lua-cyrussasl-1.0.0.tar.gz
+_eclasses_=eutils	32548a82e42dc26e3312581476d2f20c	flag-o-matic	75e24bac8423c515dd9c5717f08feb83	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	0f1760274637a138b99bb649202ea402
+_md5_=62293537bcf52b49ca137e7300fec121
