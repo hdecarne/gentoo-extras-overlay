@@ -4,6 +4,8 @@
 
 EAPI="2"
 
+WANT_AUTOMAKE="1.11"
+
 PHP_EXT_NAME="mapi"
 PHP_EXT_INI="yes"
 PHP_EXT_ZENDEXT="no"
@@ -17,7 +19,7 @@ DESCRIPTION="Open Source Groupware Solution"
 HOMEPAGE="http://zarafa.com/"
 
 ZARAFA_RELEASE="final"
-ZARAFA_BUILD="-45875"
+ZARAFA_BUILD="-46050"
 
 SRC_URI="http://download.zarafa.com/community/${ZARAFA_RELEASE}/7.1/${PV}${ZARAFA_BUILD}/sourcecode/${P}.tar.gz"
 S="${WORKDIR}/zarafa-${PV}"
@@ -61,6 +63,11 @@ pkg_setup() {
 src_unpack() {
 	unpack ${A}
 	cd "${S}"
+}
+
+src_prepare() {
+	epatch "${FILESDIR}/zcp-automake-2.patch"
+	eautoreconf
 }
 
 src_configure() {
