@@ -16,7 +16,7 @@ SRC_URI="http://download.z-push.org/${ZPUSH_RELEASE}/2.1/${P}${ZPUSH_BUILD}.tar.
 S="${WORKDIR}/${P}${ZPUSH_BUILD}"
 
 LICENSE="AGPL-3"
-KEYWORDS="~x86"
+KEYWORDS="~amd64 ~x86"
 RESTRICT="mirror"
 IUSE=""
 
