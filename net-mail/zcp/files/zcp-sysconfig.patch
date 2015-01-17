@@ -1,0 +1,12 @@
+diff -rupN zarafa-7.2.0/installer/linux/Makefile.am zarafa-7.2.0.sysconfig/installer/linux/Makefile.am
+--- zarafa-7.2.0/installer/linux/Makefile.am	2014-12-05 09:00:27.000000000 +0100
++++ zarafa-7.2.0.sysconfig/installer/linux/Makefile.am	2014-12-26 21:25:55.659424545 +0100
+@@ -34,7 +34,7 @@ suse_sysconfig_path = ${localstatedir}/a
+ sles_sysconfig_path = ${localstatedir}/adm/fillup-templates
+ sysconf_sysconfigdir = ${@DISTRO@_sysconfig_path}
+ sysconf_sysconfig_DATA = ${@DISTRO@_sysconfig_files}
+-alt_sysconfig_path = ${sysconfdir}/sysconfig
++alt_sysconfig_path = ${sysconfdir}/default
+ 
+ dist_data_DATA = \
+ 	db-convert-4.1-to-4.2 db-convert-4.20-to-4.21 db-convert-4.20-to-innodb.sql db-calc-storesize db-convert-attachments-to-files \
