@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install postinst prepare setup
-DEPEND=media-libs/speex odbc? ( dev-db/unixODBC ) sctp? ( kernel_linux? ( net-misc/lksctp-tools ) ) freeswitch_modules_cdr_sqlite? ( dev-db/sqlite ) freeswitch_modules_curl? ( net-misc/curl ) freeswitch_modules_opus? ( media-libs/opus ) freeswitch_modules_snmp? ( net-analyzer/net-snmp ) freeswitch_modules_spandsp? ( virtual/jpeg ) !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.13:1.13 >=sys-devel/automake-1.14:1.14 ) >=sys-devel/autoconf-2.69 sys-devel/libtool !=dev-lang/php-5.3.3-r2 !=dev-lang/php-5.2.14-r1 !=dev-lang/php-5.3.3-r3 !=dev-lang/php-5.3.5 !=dev-lang/php-5.3.4-r1 !=dev-lang/php-5.3.4 !=dev-lang/php-5.2.16 !=dev-lang/php-5.2.17 !=dev-lang/php-5.2.14-r2
+DEPEND=media-libs/speex odbc? ( dev-db/unixODBC ) sctp? ( kernel_linux? ( net-misc/lksctp-tools ) ) freeswitch_modules_cdr_sqlite? ( dev-db/sqlite ) freeswitch_modules_curl? ( net-misc/curl ) freeswitch_modules_opus? ( media-libs/opus ) freeswitch_modules_snmp? ( net-analyzer/net-snmp ) freeswitch_modules_spandsp? ( virtual/jpeg ) !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.13:1.13 >=sys-devel/automake-1.15:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 !=dev-lang/php-5.3.3-r2 !=dev-lang/php-5.2.14-r1 !=dev-lang/php-5.3.3-r3 !=dev-lang/php-5.3.5 !=dev-lang/php-5.3.4-r1 !=dev-lang/php-5.3.4 !=dev-lang/php-5.2.16 !=dev-lang/php-5.2.17 !=dev-lang/php-5.2.14-r2
 DESCRIPTION=FreeSWITCH telephony platform
 EAPI=4
 HOMEPAGE=http://www.freeswitch.org/
@@ -12,5 +12,5 @@ REQUIRED_USE=|| ( freeswitch_modules_posix_timer freeswitch_modules_timerfd )
 RESTRICT=mirror
 SLOT=0
 SRC_URI=http://files.freeswitch.org/freeswitch-1.4.9.tar.bz2
-_eclasses_=autotools	ebea507d219855923e3438c953cf4ab8	depend.php	df169a364e191b840b695604097e3c21	eutils	32548a82e42dc26e3312581476d2f20c	flag-o-matic	75e24bac8423c515dd9c5717f08feb83	libtool	52d0e17251d04645ffaa61bfdd858944	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	multiprocessing	d7f2985a2c76c365ee20269db5261414	php-ext-base-r1	0948c2db3593527c8a6855d5034b5040	phpconfutils	e108303831029e5b8a9d24b991b1d62a	toolchain-funcs	0f1760274637a138b99bb649202ea402	user	f54e098dd38ba1c0847a13e685b87747
+_eclasses_=autotools	8fc2dd333ef9346c906ffd9a523d8211	depend.php	df169a364e191b840b695604097e3c21	eutils	998e5931fb95b10a6a11ec796ada2759	flag-o-matic	c263990f1b677b0f0be0a3299f179762	libtool	52d0e17251d04645ffaa61bfdd858944	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	php-ext-base-r1	0948c2db3593527c8a6855d5034b5040	phpconfutils	e108303831029e5b8a9d24b991b1d62a	toolchain-funcs	0dfbfa13f57c6184f4728d12ac002aac	user	f54e098dd38ba1c0847a13e685b87747
 _md5_=298ffe42e65a573a9afb7495c4b99c3e

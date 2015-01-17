@@ -1,0 +1,12 @@
+DEFINED_PHASES=-
+DEPEND=|| ( ( linguas_en? ( >=net-misc/freeswitch-sounds-en-1.0.25 ) ) ) net-misc/freeswitch
+DESCRIPTION=Sounds for FreeSWITCH (Meta package)
+EAPI=4
+HOMEPAGE=http://www.freeswitch.org/
+IUSE=linguas_en
+KEYWORDS=~amd64 ~x86
+LICENSE=MPL-1.1
+RDEPEND=|| ( ( linguas_en? ( >=net-misc/freeswitch-sounds-en-1.0.25 ) ) ) net-misc/freeswitch
+REQUIRED_USE=|| ( linguas_en )
+SLOT=0
+_md5_=d14225c0e4a79445138966de069efaf6
