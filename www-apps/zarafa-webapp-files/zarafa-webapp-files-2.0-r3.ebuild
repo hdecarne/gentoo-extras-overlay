@@ -6,12 +6,13 @@ EAPI=5
 
 inherit eutils rpm
 
-ZARAFA_WEBAPP_PLUGIN="extbox"
+ZARAFA_WEBAPP_PLUGIN="files"
 
 DESCRIPTION="Zarafa WebApp plugins"
 HOMEPAGE="http://zarafa.com/"
 
-SRC_URI="http://download.zarafa.com/community/final/WebApp/2.0/rhel-7/zarafa-webapp-${ZARAFA_WEBAPP_PLUGIN}-2.0.47678-35.1.noarch.rpm"
+SRC_URI="http://download.zarafa.com/community/final/WebApp/2.0/rhel-7/zarafa-webapp-${ZARAFA_WEBAPP_PLUGIN}-2.0.47678-35.1.noarch.rpm
+	http://download.zarafa.com/community/final/WebApp/2.0/rhel-7/zarafa-webapp-lang-2.0.47678-35.1.noarch.rpm"
 
 LICENSE="AGPL-3"
 SLOT="0"
@@ -30,7 +31,7 @@ src_install() {
 	dodir "/etc/zarafa/webapp"
 	cp "${WORKDIR}/etc/zarafa/webapp/config-${ZARAFA_WEBAPP_PLUGIN}.php" "${D}/etc/zarafa/webapp/config-${ZARAFA_WEBAPP_PLUGIN}.php"
 	rm "${S}/plugins/${ZARAFA_WEBAPP_PLUGIN}/config.php"
-	dosym "/etc/zarafa/webapp/config-${ZARAFA_WEBAPP_PLUGIN}.php" "/var/lib/zarafa-webapp/plugins/${ZARAFA_WEBAPP_PLUGIN}/config-${ZARAFA_WEBAPP_PLUGIN}.php"
+	dosym "/etc/zarafa/webapp/config-${ZARAFA_WEBAPP_PLUGIN}.php" "/var/lib/zarafa-webapp/plugins/${ZARAFA_WEBAPP_PLUGIN}/config.php"
 	dodir "/var/lib/zarafa-webapp/plugins"
 	cp -R "${S}/plugins/${ZARAFA_WEBAPP_PLUGIN}" "${D}/var/lib/zarafa-webapp/plugins/"
 	fowners -R apache:apache "/var/lib/zarafa-webapp/plugins/${ZARAFA_WEBAPP_PLUGIN}"

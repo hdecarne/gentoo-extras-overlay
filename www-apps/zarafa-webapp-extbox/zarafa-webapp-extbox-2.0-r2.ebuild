@@ -6,7 +6,7 @@ EAPI=5
 
 inherit eutils rpm
 
-ZARAFA_WEBAPP_PLUGIN="files"
+ZARAFA_WEBAPP_PLUGIN="extbox"
 
 DESCRIPTION="Zarafa WebApp plugins"
 HOMEPAGE="http://zarafa.com/"
@@ -30,7 +30,7 @@ src_install() {
 	dodir "/etc/zarafa/webapp"
 	cp "${WORKDIR}/etc/zarafa/webapp/config-${ZARAFA_WEBAPP_PLUGIN}.php" "${D}/etc/zarafa/webapp/config-${ZARAFA_WEBAPP_PLUGIN}.php"
 	rm "${S}/plugins/${ZARAFA_WEBAPP_PLUGIN}/config.php"
-	dosym "/etc/zarafa/webapp/config-${ZARAFA_WEBAPP_PLUGIN}.php" "/var/lib/zarafa-webapp/plugins/${ZARAFA_WEBAPP_PLUGIN}/config-${ZARAFA_WEBAPP_PLUGIN}.php"
+	dosym "/etc/zarafa/webapp/config-${ZARAFA_WEBAPP_PLUGIN}.php" "/var/lib/zarafa-webapp/plugins/${ZARAFA_WEBAPP_PLUGIN}/config.php"
 	dodir "/var/lib/zarafa-webapp/plugins"
 	cp -R "${S}/plugins/${ZARAFA_WEBAPP_PLUGIN}" "${D}/var/lib/zarafa-webapp/plugins/"
 	fowners -R apache:apache "/var/lib/zarafa-webapp/plugins/${ZARAFA_WEBAPP_PLUGIN}"
