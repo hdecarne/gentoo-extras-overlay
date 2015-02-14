@@ -194,7 +194,7 @@ FS_ESL="
 	freeswitch_esl_php
 "
 
-IUSE="debug odbc +resampler sctp zrtp"
+IUSE="debug libedit odbc +resampler sctp zrtp"
 
 for e in ${FS_MODULES_CORE}; do
 	u="${e%:*}"
@@ -223,6 +223,7 @@ REQUIRED_USE="
 
 RDEPEND="
 	media-libs/speex
+	libedit? ( dev-libs/libedit )
 	odbc? ( dev-db/unixODBC )
 	sctp? ( kernel_linux? ( net-misc/lksctp-tools ) )
 	freeswitch_modules_cdr_sqlite? ( dev-db/sqlite )
@@ -315,7 +316,11 @@ src_configure() {
 	einfo "Configuring FreeSWITCH..."
 	touch noreg
 	if ! use debug; then
-		config_opts="--disable-debug --enable-optimization"
+		debug_opts="--disable-debug --enable-optimization"
+	fi
+	config_opts=""
+	if ! use libedit; then
+		config_opts="${config_opts} --disable-core-libedit-support"
 	fi
 	if use freeswitch_modules_python; then
 		python_opts="--with-python=$(PYTHON -a)"
@@ -345,6 +350,7 @@ src_configure() {
 		$(use_enable resampler resample) \
 		$(use_enable odbc core-odbc-support) \
 		${config_opts} \
+		${debug_opts} \
 		${python_opts} \
 		${java_opts} \
 		|| die "failed to configure FreeSWITCH"
