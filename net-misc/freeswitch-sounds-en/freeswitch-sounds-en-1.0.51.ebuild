@@ -16,7 +16,7 @@ REQUIRED_USE="
 "
 
 MY_PV="${PV/_/.}"
-URI_BASE="http://files.freeswitch.org/${PN}"
+URI_BASE="http://files.freeswitch.org/releases/sounds/${PN}"
 
 SRC_URI="
 	${URI_BASE}-us-callie-8000-${MY_PV}.tar.gz

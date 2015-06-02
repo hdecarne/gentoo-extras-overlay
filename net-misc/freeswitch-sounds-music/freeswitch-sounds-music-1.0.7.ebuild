@@ -4,25 +4,22 @@
 
 EAPI="4"
 
-DESCRIPTION="English soundfiles for FreeSWITCH"
+DESCRIPTION="On-Hold Music for FreeSWITCH"
 HOMEPAGE="http://www.freeswitch.org/"
 LICENSE="MPL-1.1"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
 
 IUSE="16k 32k 48k"
-REQUIRED_USE="
-	|| ( 16k 32k 48k )
-"
+REQUIRED_USE=" || ( 16k 32k 48k ) "
 
-MY_PV="${PV/_/.}"
-URI_BASE="http://files.freeswitch.org/${PN}"
+URI_BASE="http://files.freeswitch.org/releases/music/${PN}"
 
 SRC_URI="
-	${URI_BASE}-us-callie-8000-${MY_PV}.tar.gz
-	16k? ( ${URI_BASE}-us-callie-16000-${MY_PV}.tar.gz )
-	32k? ( ${URI_BASE}-us-callie-32000-${MY_PV}.tar.gz )
-	48k? ( ${URI_BASE}-us-callie-48000-${MY_PV}.tar.gz )
+	${URI_BASE}-8000-${PV}.tar.gz
+	16k? ( ${URI_BASE}-16000-${PV}.tar.gz )
+	32k? ( ${URI_BASE}-32000-${PV}.tar.gz )
+	48k? ( ${URI_BASE}-48000-${PV}.tar.gz )
 "
 RESTRICT="mirror"
 

@@ -17,7 +17,7 @@ LICENSE="MPL-1.1"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
 
-SRC_URI="http://files.freeswitch.org/${P/_/}.tar.bz2"
+SRC_URI="http://files.freeswitch.org/freeswitch-releases/${P/_/}.tar.bz2"
 RESTRICT="mirror"
 
 S="${WORKDIR}/${P/_/}"
