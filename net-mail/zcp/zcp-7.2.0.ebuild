@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="2"
+EAPI="5"
 
 WANT_AUTOMAKE="1.11"
 
@@ -13,7 +13,7 @@ USE_PHP="php5-6 php5-5 php5-4 php5-3"
 
 PYTHON_DEPEND="python? 2"
 
-inherit autotools eutils flag-o-matic php-ext-base-r1 python
+inherit autotools eutils flag-o-matic php-ext-source-r2 python
 
 DESCRIPTION="Open Source Groupware Solution"
 HOMEPAGE="http://zarafa.com/"
@@ -101,7 +101,7 @@ src_compile() {
 src_install() {
 	make DESTDIR="${D}" install || die "make install failed"
 
-	php-ext-base-r1_src_install
+	php-ext-source-r2_createinifiles
 
 	if use logrotate; then
 		insinto /etc/logrotate.d
@@ -109,7 +109,7 @@ src_install() {
 	fi
 	if use ldap; then
 		insinto /etc/openldap/schema
-		doins installer/ldap/zarafa.* || die "Failed to install ldap schema files"
+		doins "${S}"/installer/ldap/zarafa.* || die "Failed to install ldap schema files"
 	fi
 
 	insinto /etc/zarafa
