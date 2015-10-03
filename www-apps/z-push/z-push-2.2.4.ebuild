@@ -10,13 +10,16 @@ DESCRIPTION="Z-Push - open source push technology"
 HOMEPAGE="http://z-push.sourceforge.net"
 
 ZPUSH_RELEASE="final"
-ZPUSH_BUILD="-1873"
+ZPUSH_BASE_VERSION="2.2"
+ZPUSH_VERSION="2.2.4"
+ZPUSH_BUILD=""
+ZPUSH_SUFFIX=""
 
-SRC_URI="http://download.z-push.org/${ZPUSH_RELEASE}/2.1/${P}${ZPUSH_BUILD}.tar.gz"
-S="${WORKDIR}/${P}${ZPUSH_BUILD}"
+SRC_URI="http://download.z-push.org/${ZPUSH_RELEASE}/${ZPUSH_BASE_VERSION}/z-push-${ZPUSH_VERSION}${ZPUSH_SUFFIX}${ZPUSH_BUILD}.tar.gz"
+S="${WORKDIR}/z-push-${ZPUSH_VERSION}${ZPUSH_SUFFIX}${ZPUSH_BUILD}"
 
 LICENSE="AGPL-3"
-KEYWORDS="~x86"
+KEYWORDS="~amd64 ~x86"
 RESTRICT="mirror"
 IUSE=""
 
