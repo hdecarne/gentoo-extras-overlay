@@ -124,6 +124,6 @@ src_install() {
 
 	for service in ${ZARAFA_SERVICES}; do
 		newconfd "${FILESDIR}/zarafa-${service}.confd" "zarafa-${service}"
-		newinitd "${FILESDIR}/zarafa-${service}.initd" "zarafa-${service}"
+		newinitd "${FILESDIR}/zarafa-${service}.initd2" "zarafa-${service}"
 	done
 }
