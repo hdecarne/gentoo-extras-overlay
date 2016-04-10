@@ -1,0 +1,6 @@
+# /etc/conf.d/zarafa-presence: config file for /etc/init.d/zarafa-presence
+
+# Options to pass to the zarfa-presence daemon.
+# See the zarafa-presence help for more info.
+
+PRESENCE_OPTIONS=""

@@ -1,0 +1,33 @@
+#!/sbin/runscript
+# Copyright 1999-2008 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+SEARCHCONFIG=/etc/zarafa/search.cfg
+SEARCHPROGRAM=/usr/sbin/zarafa-search
+PIDFILE=/var/run/zarafad/search.pid
+
+[ -x $SEARCHPROGRAM ] || exit 0
+
+SEARCHCONFIG_OPT=""
+[ ! -z $SEARCHCONFIG -a -f $SEARCHCONFIG ] && SEARCHCONFIG_OPT="-c $SEARCHCONFIG"
+
+depend() {
+	need zarafa-server
+}
+
+start() {
+	ebegin "Starting ${SVCNAME}"
+	start-stop-daemon --start \
+		--pidfile ${PIDFILE} \
+		--exec ${SEARCHPROGRAM} -- ${SEARCH_OPT} ${SEARCH_OPTIONS}
+	eend $?
+}
+
+stop() {
+	ebegin "Stopping ${SVCNAME}"
+	start-stop-daemon --stop \
+		--pidfile ${PIDFILE} \
+		--exec ${SEARCHPROGRAM} -- ${SEARCHCONFIG_OPT}
+	eend $?
+}

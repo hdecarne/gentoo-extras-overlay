@@ -1,0 +1,39 @@
+#!/sbin/runscript
+# Copyright 1999-2008 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+SERVERCONFIG=/etc/zarafa/server.cfg
+SERVERPROGRAM=/usr/sbin/zarafa-server
+PIDFILE=/var/run/zarafad/server.pid
+
+[ -x $SERVERPROGRAM ] || exit 0
+
+SERVERCONFIG_OPT=""
+[ ! -z $SERVERCONFIG -a -f $SERVERCONFIG ] && SERVERCONFIG_OPT="-c $SERVERCONFIG"
+
+depend() {
+	after slapd kerberos
+	need net
+}
+
+start() {
+	ebegin "Starting ${SVCNAME}"
+	einfo "Server locale     : ${ZARAFA_LOCALE}"
+	export ZARAFA_LOCALE
+	einfo "User store locale : ${ZARAFA_USERSCRIPT_LOCALE}"
+	export ZARAFA_USERSCRIPT_LOCALE
+	start-stop-daemon --start \
+		--pidfile ${PIDFILE} \
+		--exec ${SERVERPROGRAM} -- ${SERVERCONFIG_OPT} ${SERVER_OPTIONS}
+	eend $?
+}
+
+stop() {
+	ebegin "Stopping ${SVCNAME}"
+	start-stop-daemon --stop \
+		--pidfile ${PIDFILE} \
+		--retry 65 \
+		--exec ${SERVERPROGRAM} -- ${SERVERCONFIG_OPT}
+	eend $?
+}

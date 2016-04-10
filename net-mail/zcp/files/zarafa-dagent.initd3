@@ -1,0 +1,34 @@
+#!/sbin/runscript
+# Copyright 1999-2008 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+DAGENTCONFIG=/etc/zarafa/dagent.cfg
+DAGENTPROGRAM=/usr/sbin/zarafa-dagent
+PIDFILE=/var/run/zarafad/dagent.pid
+
+[ -x $DAGENTPROGRAM ] || exit 0
+
+DAGENTCONFIG_OPT=""
+[ ! -z $DAGENTCONFIG -a -f $DAGENTCONFIG ] && DAGENTCONFIG_OPT="-c $DAGENTCONFIG"
+
+depend() {
+	need zarafa-server
+}
+
+start() {
+	ebegin "Starting ${SVCNAME}"
+	start-stop-daemon --start \
+		--pidfile ${PIDFILE} \
+		--exec ${DAGENTPROGRAM} -- -d ${DAGENTCONFIG_OPT} ${DAGENT_OPTIONS}
+	eend $?
+}
+
+stop() {
+	ebegin "Stopping ${SVCNAME}"
+	start-stop-daemon --stop \
+		--pidfile ${PIDFILE} \
+		--retry 65 \
+		--exec ${DAGENTPROGRAM} -- ${DAGENTCONFIG_OPT}
+	eend $?
+}
