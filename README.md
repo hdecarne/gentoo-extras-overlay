@@ -36,6 +36,8 @@ __Please beware__: I am running and hence tested these ebuilds against ~amd64 an
 
 * app-admin/aws-cli: New ebuild for the AWS Command Line Interface (https://aws.amazon.com/cli/).
 
+* dev-db/mysqltuner: Updated ebuild for the mysqltuner tool (http://mysqltuner.com/).
+
 The following ebuild are no longer maintained in this repository and will be dropped in the near future.
 
 * net-im/prosody: Updated ebuild for the Prosody XMPP server (http://prosody.im/) for SASL support.
