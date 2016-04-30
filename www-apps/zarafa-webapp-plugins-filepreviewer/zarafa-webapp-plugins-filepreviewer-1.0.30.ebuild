@@ -11,7 +11,7 @@ ZARAFA_WEBAPP_PLUGIN="filepreviewer"
 DESCRIPTION="Zarafa WebApp plugins"
 HOMEPAGE="http://zarafa.com/"
 
-SRC_URI="https://download.zarafa.com/community/beta/WebApp/2.2.0/RC1/rhel-7/zarafa-webapp-plugins-filepreviewer-1.0.30-59.2.noarch.rpm"
+SRC_URI="https://download.zarafa.com/community/final/WebApp/2.2.0/rhel-7/zarafa-webapp-plugins-filepreviewer-1.0.30-59.2.noarch.rpm"
 
 LICENSE="AGPL-3"
 SLOT="0"

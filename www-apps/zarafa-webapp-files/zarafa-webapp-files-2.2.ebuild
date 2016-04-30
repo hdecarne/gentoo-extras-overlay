@@ -6,12 +6,12 @@ EAPI=5
 
 inherit eutils rpm
 
-ZARAFA_WEBAPP_PLUGIN="filepreviewer"
+ZARAFA_WEBAPP_PLUGIN="files"
 
 DESCRIPTION="Zarafa WebApp plugins"
 HOMEPAGE="http://zarafa.com/"
 
-SRC_URI="https://download.zarafa.com/community/beta/WebApp/2.2.0/BETA2/rhel-7/zarafa-webapp-plugins-${ZARAFA_WEBAPP_PLUGIN}-1.0.30-59.2.noarch.rpm"
+SRC_URI="https://download.zarafa.com/community/final/WebApp/2.2.0/rhel-7/zarafa-webapp-files-2.2.0.414-185.1.noarch.rpm"
 
 LICENSE="AGPL-3"
 SLOT="0"
