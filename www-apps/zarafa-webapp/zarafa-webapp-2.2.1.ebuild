@@ -2,26 +2,27 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=2
+EAPI=5
 
 inherit webapp eutils rpm depend.php
 
 DESCRIPTION="Open Source Groupware Solution"
 HOMEPAGE="http://zarafa.com/"
 
-SRC_URI="http://download.zarafa.com/community/beta/WebApp/2.0/RC1/rhel-7/zarafa-webapp-2.0rc1.47260-14.1.noarch.rpm
-	http://download.zarafa.com/community/beta/WebApp/2.0/RC1/rhel-7/zarafa-webapp-lang-2.0rc1.47260-14.1.noarch.rpm"
+SRC_URI="https://download.zarafa.com/community/final/WebApp/2.2.1/rhel-7/zarafa-webapp-2.2.1.40-192.1.noarch.rpm
+	https://download.zarafa.com/community/final/WebApp/2.2.1/rhel-7/zarafa-webapp-lang-2.2.1.40-192.1.noarch.rpm"
 
 S="${WORKDIR}/usr/share/zarafa-webapp"
 
 LICENSE="AGPL-3"
 KEYWORDS="~amd64 ~x86"
 RESTRICT="mirror"
-IUSE="plugin_extbox plugin_pdfbox plugin_files"
+IUSE="plugin_filepreviewer plugin_files plugin_smime plugin_mdm"
 
-PDEPEND="plugin_extbox? ( www-apps/zarafa-webapp-extbox )
-	plugin_pdfbox? ( www-apps/zarafa-webapp-pdfbox )
-	plugin_files? ( www-apps/zarafa-webapp-files )"
+PDEPEND="plugin_filepreviewer? ( www-apps/zarafa-webapp-plugins-filepreviewer )
+	plugin_files? ( www-apps/zarafa-webapp-files )
+	plugin_smime? ( www-apps/zarafa-webapp-plugins-smime )
+	plugin_mdm? ( www-apps/zarafa-webapp-plugins-mdm )"
 
 need_php_httpd
 

@@ -11,7 +11,7 @@ ZARAFA_WEBAPP_PLUGIN="files"
 DESCRIPTION="Zarafa WebApp plugins"
 HOMEPAGE="http://zarafa.com/"
 
-SRC_URI="https://download.zarafa.com/community/beta/WebApp/2.2.0/BETA2/rhel-7/zarafa-webapp-${ZARAFA_WEBAPP_PLUGIN}-2.2.0.368-152.1.noarch.rpm"
+SRC_URI="https://download.zarafa.com/community/final/WebApp/2.2.1/rhel-7/zarafa-webapp-files-2.2.1.40-192.1.noarch.rpm"
 
 LICENSE="AGPL-3"
 SLOT="0"
