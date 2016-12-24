@@ -1,0 +1,6 @@
+# /etc/conf.d/kopano-dagent: config file for /etc/init.d/kopano-dagent
+
+# Options to pass to the kopano-dagent daemon.
+# See the kopano-dagent man page for more info.
+
+DAGENT_OPTIONS=""

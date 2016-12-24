@@ -1,0 +1,65 @@
+#
+# This is an example for the common logrotate system.
+# Copy this file to /etc/logrotate.d/kopano to activate it.
+# Also, check the location of the logfiles, and replace if needed.
+#
+
+/var/log/kopano/server.log {
+        weekly
+        missingok
+        rotate 52
+        compress
+        delaycompress
+        notifempty
+        postrotate
+			killall -HUP kopano-server
+        endscript
+}
+
+/var/log/kopano/spooler.log {
+        weekly
+        missingok
+        rotate 52
+        compress
+        delaycompress
+        notifempty
+        postrotate
+			killall -HUP kopano-spooler
+        endscript
+}
+
+/var/log/kopano/monitor.log {
+        weekly
+        missingok
+        rotate 52
+        compress
+        delaycompress
+        notifempty
+        postrotate
+			killall -HUP kopano-monitor
+        endscript
+}
+
+/var/log/kopano/gateway.log {
+        weekly
+        missingok
+        rotate 52
+        compress
+        delaycompress
+        notifempty
+        postrotate
+			killall -HUP kopano-gateway
+        endscript
+}
+
+/var/log/kopano/ical.log {
+        weekly
+        missingok
+        rotate 52
+        compress
+        delaycompress
+        notifempty
+        postrotate
+			killall -HUP kopano-ical
+        endscript
+}

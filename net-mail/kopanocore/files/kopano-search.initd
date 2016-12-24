@@ -1,0 +1,33 @@
+#!/sbin/openrc-run
+# Copyright 1999-2016 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+SEARCHCONFIG=/etc/kopano/search.cfg
+SEARCHPROGRAM=/usr/sbin/kopano-search
+PIDFILE=/var/run/kopano/search.pid
+
+[ -x $SEARCHPROGRAM ] || exit 0
+
+SEARCHCONFIG_OPT=""
+[ ! -z $SEARCHCONFIG -a -f $SEARCHCONFIG ] && SEARCHCONFIG_OPT="-c $SEARCHCONFIG"
+
+depend() {
+	need kopano-server
+}
+
+start() {
+	ebegin "Starting ${SVCNAME}"
+	start-stop-daemon --start \
+		--pidfile ${PIDFILE} \
+		--exec ${SEARCHPROGRAM} -- ${SEARCH_OPT} ${SEARCH_OPTIONS}
+	eend $?
+}
+
+stop() {
+	ebegin "Stopping ${SVCNAME}"
+	start-stop-daemon --stop \
+		--pidfile ${PIDFILE} \
+		--exec ${SEARCHPROGRAM} -- ${SEARCHCONFIG_OPT}
+	eend $?
+}

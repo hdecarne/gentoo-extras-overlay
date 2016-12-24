@@ -1,0 +1,33 @@
+#!/sbin/openrc-run
+# Copyright 1999-2016 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+GATEWAYCONFIG=/etc/kopano/gateway.cfg
+GATEWAYPROGRAM=/usr/sbin/kopano-gateway
+PIDFILE=/var/run/kopano/gateway.pid
+
+[ -x $GATEWAYPROGRAM ] || exit 0
+
+GATEWAYCONFIG_OPT=""
+[ ! -z $GATEWAYCONFIG -a -f $GATEWAYCONFIG ] && GATEWAYCONFIG_OPT="-c $GATEWAYCONFIG"
+
+depend() {
+	need kopano-server
+}
+
+start() {
+    ebegin "Starting ${SVCNAME}"
+    start-stop-daemon --start \
+        --pidfile ${PIDFILE} \
+        --exec ${GATEWAYPROGRAM} -- ${GATEWAYCONFIG_OPT} ${GATEWAY_OPTIONS}
+    eend $?
+}
+
+stop() {
+    ebegin "Stopping ${SVCNAME}"
+    start-stop-daemon --stop \
+        --pidfile ${PIDFILE} \
+        --exec ${GATEWAYPROGRAM} -- ${GATEWAYCONFIG_OPT}
+    eend $?
+}

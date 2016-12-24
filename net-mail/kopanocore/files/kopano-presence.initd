@@ -1,0 +1,33 @@
+#!/sbin/openrc-run
+# Copyright 1999-2016 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+PRESENCECONFIG=/etc/kopano/presence.cfg
+PRESENCEPROGRAM=/usr/sbin/kopano-presence
+PIDFILE=/var/run/kopano/presence.pid
+
+[ -x $PRESENCEPROGRAM ] || exit 0
+
+PRESENCECONFIG_OPT=""
+[ ! -z $PRESENCECONFIG -a -f $PRESENCECONFIG ] && PRESENCECONFIG_OPT="-c $PRESENCECONFIG"
+
+depend() {
+	need kopano-server
+}
+
+start() {
+	ebegin "Starting ${SVCNAME}"
+	start-stop-daemon --start \
+		--pidfile ${PIDFILE} \
+		--exec ${PRESENCEPROGRAM} -- ${PRESENCE_OPT} ${PRESENCE_OPTIONS}
+	eend $?
+}
+
+stop() {
+	ebegin "Stopping ${SVCNAME}"
+	start-stop-daemon --stop \
+		--pidfile ${PIDFILE} \
+		--exec ${PRESENCEPROGRAM} -- ${PRESENCECONFIG_OPT}
+	eend $?
+}

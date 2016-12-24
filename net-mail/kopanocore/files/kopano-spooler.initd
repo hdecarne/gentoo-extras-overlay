@@ -1,0 +1,33 @@
+#!/sbin/openrc-run
+# Copyright 1999-2016 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+SPOOLERCONFIG=/etc/kopano/spooler.cfg
+SPOOLERPROGRAM=/usr/sbin/kopano-spooler
+PIDFILE=/var/run/kopano/spooler.pid
+
+[ -x $SPOOLERPROGRAM ] || exit 0
+
+SPOOLERCONFIG_OPT=""
+[ ! -z $SPOOLERCONFIG -a -f $SPOOLERCONFIG ] && SPOOLERCONFIG_OPT="-c $SPOOLERCONFIG"
+
+depend() {
+	need kopano-server
+}
+
+start() {
+	ebegin "Starting ${SVCNAME}"
+	start-stop-daemon --start \
+		--pidfile ${PIDFILE} \
+		--exec ${SPOOLERPROGRAM} -- ${SPOOLERCONFIG_OPT} ${SPOOLER_OPTIONS}
+	eend $?
+}
+
+stop() {
+	ebegin "Stopping ${SVCNAME}"
+	start-stop-daemon --stop \
+		--pidfile ${PIDFILE} \
+		--exec ${SPOOLERPROGRAM} -- ${SPOOLERCONFIG_OPT}
+	eend $?
+}

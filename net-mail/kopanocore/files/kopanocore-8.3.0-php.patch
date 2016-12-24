@@ -1,0 +1,12 @@
+diff -rupN kopanocore-8.3.0.350/php-ext/main.cpp kopanocore-8.3.0.350.php/php-ext/main.cpp
+--- kopanocore-8.3.0.350/php-ext/main.cpp	2016-12-21 09:58:13.000000000 +0100
++++ kopanocore-8.3.0.350.php/php-ext/main.cpp	2016-12-23 09:55:47.590585597 +0100
+@@ -3079,7 +3079,7 @@ ZEND_FUNCTION(mapi_openpropertytostream)
+ 
+ 	RETVAL_FALSE;
+ 	MAPI_G(hr) = MAPI_E_INVALID_PARAMETER;
+-	php_error_docref("mapi_openpropertytostream", E_DEPRECATED, "Use of mapi_openpropertytostream is deprecated, use mapi_openproperty");
++	php_error_docref("mapi_openpropertytostream" TSRMLS_CC, E_DEPRECATED, "Use of mapi_openpropertytostream is deprecated, use mapi_openproperty");
+ 
+ 	if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "rl|ls", &res, &proptag, &flags, &guidStr, &guidLen) == FAILURE) return;
+ 

@@ -1,0 +1,6 @@
+# /etc/conf.d/kopano-monitor: config file for /etc/init.d/kopano-monitor
+
+# Options to pass to the kopano-monitor daemon.
+# See the kopano-monitor man page for more info.
+
+MONITOR_OPTIONS=""

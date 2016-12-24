@@ -1,0 +1,6 @@
+# /etc/conf.d/kopano-presence: config file for /etc/init.d/kopano-presence
+
+# Options to pass to the kopano-presence daemon.
+# See the kopano-presence help for more info.
+
+PRESENCE_OPTIONS=""

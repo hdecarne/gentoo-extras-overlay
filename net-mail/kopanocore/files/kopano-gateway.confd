@@ -1,0 +1,6 @@
+# /etc/conf.d/kopano-gateway: config file for /etc/init.d/kopano-gateway
+
+# Options to pass to the kopano-gateway daemon.
+# See the kopano-gateway man page for more info.
+
+GATEWAY_OPTIONS=""

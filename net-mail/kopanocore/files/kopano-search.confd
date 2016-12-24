@@ -1,0 +1,6 @@
+# /etc/conf.d/kopano-search: config file for /etc/init.d/kopano-search
+
+# Options to pass to the kopano-search daemon.
+# See the kopano-search help for more info.
+
+SEARCH_OPTIONS=""

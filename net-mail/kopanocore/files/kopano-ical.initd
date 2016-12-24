@@ -1,0 +1,33 @@
+#!/sbin/openrc-run
+# Copyright 1999-2016 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+ICALCONFIG=/etc/kopano/ical.cfg
+ICALPROGRAM=/usr/sbin/kopano-ical
+PIDFILE=/var/run/kopano/ical.pid
+
+[ -x $ICALPROGRAM ] || exit 0
+
+ICALCONFIG_OPT=""
+[ ! -z $ICALCONFIG -a -f $ICALCONFIG ] && ICALCONFIG_OPT="-c $ICALCONFIG"
+
+depend() {
+	need kopano-server
+}
+
+start() {
+	ebegin "Starting ${SVCNAME}"
+	start-stop-daemon --start \
+		--pidfile ${PIDFILE} \
+		--exec ${ICALPROGRAM} -- ${ICALCONFIG_OPT} ${ICAL_OPTIONS}
+	eend $?
+}
+
+stop() {
+	ebegin "Stopping ${SVCNAME}"
+	start-stop-daemon --stop \
+		--pidfile ${PIDFILE} \
+		--exec ${ICALPROGRAM} -- ${ICALCONFIG_OPT}
+	eend $?
+}

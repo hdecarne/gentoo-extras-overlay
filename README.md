@@ -8,11 +8,39 @@ __Please beware__: I am running and hence tested these ebuilds against ~amd64 an
 
 ### List of ebuilds
 
-* net-mail/zcp/zcp: New ebuild for the Zarafa groupware solution (http://www.zarafa.com).
+* net-mail/kopanocore: New ebuild for the Kopano (former Zarafa) groupware solution (http://kopano.io). This is the initial version an might still need some tuning.
+
+* dev-cpp/libvmime: New (live) ebuild for the latest vmime lib as needed by the Kopano Core ebuild above.
+
+* www-apps/kopano-webapp: New ebuild for the Kopano (former Zarafa) WebApp client (http://kopano.io). This is the initial version and might still need some tuning.
+
+* www-apps/kopano-webapp-files: New ebuild for the Kopano WebApp files plugin (http://kopano.io).
+
+* www-apps/kopano-webapp-mdm: New ebuild for the Kopano WebApp smime plugin (http://kopano.io).
+
+* www-apps/kopano-webapp-smime: New ebuild for the Kopano WebApp mdm plugin (http://kopano.io).
+
+* www-apps/z-push: New ebuild for the Z-Push ActiveSync solution (http://z-push.org).
+
+* net-dialup/openl2tp: New ebuild for the OpenL2TP L2TP server (http://www.openl2tp.org)
+
+* net-misc/freeswitch: New ebuild for the FreeSWITCH VOIP solution (https://freeswitch.org)
+
+* net-misc/freeswitch-{sounds,sounds-en,sounds-music}: New ebuild for the FreeSWITCH sound files.
+
+* net-fs/davfs2: Updated ebuild for the DAVFS2 WebDAV client.
+
+* app-admin/aws-cli: New ebuild for the AWS Command Line Interface (https://aws.amazon.com/cli/).
+
+* dev-db/mysqltuner: Updated ebuild for the mysqltuner tool (http://mysqltuner.com).
+
+The following ebuild are no longer actively maintained in this repository and may be dropped in the future.
+
+* net-mail/zcp/zcp: New ebuild for the Zarafa groupware solution (http://www.zarafa.com). Now superseded by the Kopano Core ebuild above.
 
 * dev-cpp/libvmime-zcp/libvmime-zcp: New ebuild for Zarafa patched version of libvmime. Required by the zcp ebuild above.
 
-* www-apps/zarafa-webapp: New ebuild for the Zarafa Webapp client.
+* www-apps/zarafa-webapp: New ebuild for the Zarafa Webapp client. Now superseded by the Kopano Webapp ebuild above.
 
 * www-apps/zarafa-webapp-{extbox,pdfbox}: New ebuild for the Zarafa Webapp file preview plugins (now superseded by the filepreviewer plugin).
 
@@ -23,22 +51,6 @@ __Please beware__: I am running and hence tested these ebuilds against ~amd64 an
 * www-apps/zarafa-webapp-plugins-filepreviewer: New ebuild for the Zarafa Webapp file previewer plugin.
 
 * www-apps/zarafa-webapp-plugins-mdm: New ebuild for the Zarafa Webapp Mobile Device Management plugin.
-
-* www-apps/z-push: New ebuild for the Zarafa ActiveSync solution (Z-Push).
-
-* net-dialup/openl2tp: New ebuild for the OpenL2TP L2TP server (http://www.openl2tp.org/)
-
-* net-misc/freeswitch: New ebuild for the FreeSWITCH VOIP solution (https://freeswitch.org/)
-
-* net-misc/freeswitch-{sounds,sounds-en,sounds-music}: New ebuild for the FreeSWITCH sound files.
-
-* net-fs/davfs2: Updated ebuild for the DAVFS2 WebDAV client.
-
-* app-admin/aws-cli: New ebuild for the AWS Command Line Interface (https://aws.amazon.com/cli/).
-
-* dev-db/mysqltuner: Updated ebuild for the mysqltuner tool (http://mysqltuner.com/).
-
-The following ebuild are no longer maintained in this repository and will be dropped in the near future.
 
 * net-im/prosody: Updated ebuild for the Prosody XMPP server (http://prosody.im/) for SASL support.
 

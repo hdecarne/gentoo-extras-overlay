@@ -1,0 +1,6 @@
+# /etc/conf.d/kopano-ical: config file for /etc/init.d/kopano-ical
+
+# Options to pass to the kopano-ical daemon.
+# See the kopano-ical man page for more info.
+
+ICAL_OPTIONS=""

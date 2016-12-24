@@ -1,0 +1,6 @@
+# /etc/conf.d/kopano-spooler: config file for /etc/init.d/kopano-spooler
+
+# Options to pass to the kopano-spooler daemon.
+# See the kopano-spooler man page for more info.
+
+SPOOLER_OPTIONS=""

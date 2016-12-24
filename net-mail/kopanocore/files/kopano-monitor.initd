@@ -1,0 +1,33 @@
+#!/sbin/openrc-run
+# Copyright 1999-2016 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+MONITORCONFIG=/etc/kopano/monitor.cfg
+MONITORPROGRAM=/usr/sbin/kopano-monitor
+PIDFILE=/var/run/kopano/monitor.pid
+
+[ -x $MONITORPROGRAM ] || exit 0
+
+MONITORCONFIG_OPT=""
+[ ! -z $MONITORCONFIG -a -f $MONITORCONFIG ] && MONITORCONFIG_OPT="-c $MONITORCONFIG"
+
+depend() {
+	need kopano-server
+}
+
+start() {
+	ebegin "Starting ${SVCNAME}"
+	start-stop-daemon --start \
+		--pidfile ${PIDFILE} \
+		--exec ${MONITORPROGRAM} -- ${MONITORCONFIG_OPT} ${MONITOR_OPTIONS}
+	eend $?
+}
+
+stop() {
+	ebegin "Stopping ${SVCNAME}"
+	start-stop-daemon --stop \
+		--pidfile ${PIDFILE} \
+		--exec ${MONITORPROGRAM} -- ${MONITORCONFIG_OPT}
+	eend $?
+}
