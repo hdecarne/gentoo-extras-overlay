@@ -11,15 +11,14 @@ USE_PHP="php5-6"
 
 PYTHON_DEPEND="2"
 
-inherit autotools eutils flag-o-matic user php-ext-source-r2 python
+inherit autotools eutils flag-o-matic git-r3 user php-ext-source-r2 python
 
 DESCRIPTION="Open Source Groupware Solution"
 HOMEPAGE="http://kopano.io/"
 
-KOPANO_BUILD="350"
-
-SRC_URI="https://download.kopano.io/community/core:/sourcecode/${P}.${KOPANO_BUILD}.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}/${P}.${KOPANO_BUILD}"
+EGIT_REPO_URI="https://stash.kopano.io/git/KC/kopanocore.git"
+#EGIT_COMMIT=""
+SRC_URI=""
 
 KOPANO_USER=${KOPANO_USER:-kopano}
 KOPANO_GROUP=${KOPANO_GROUP:-kopano}
@@ -68,8 +67,7 @@ pkg_setup() {
 }
 
 src_unpack() {
-	unpack ${A}
-	cd "${S}"
+	git-r3_src_unpack
 }
 
 src_prepare() {
