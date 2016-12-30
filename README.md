@@ -28,6 +28,8 @@ __Please beware__: I am running and hence tested these ebuilds against ~amd64 an
 
 * net-misc/freeswitch-{sounds,sounds-en,sounds-music}: New ebuild for the FreeSWITCH sound files.
 
+* www-apps/phpsysinfo: Updated ebuild for the phpSysInfo script.
+
 * net-fs/davfs2: Updated ebuild for the DAVFS2 WebDAV client.
 
 * app-admin/aws-cli: New ebuild for the AWS Command Line Interface (https://aws.amazon.com/cli/).
