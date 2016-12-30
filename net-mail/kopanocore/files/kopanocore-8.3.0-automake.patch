@@ -1,0 +1,50 @@
+diff -rupN kopanocore-8.3.0.350/ECtools/search/Makefile.am kopanocore-8.3.0.350.automake/ECtools/search/Makefile.am
+--- kopanocore-8.3.0.350/ECtools/search/Makefile.am	2016-12-21 09:58:13.000000000 +0100
++++ kopanocore-8.3.0.350.automake/ECtools/search/Makefile.am	2016-12-29 22:46:31.498205647 +0100
+@@ -16,7 +16,7 @@ install-exec-local:
+ 	rm -Rf build
+ 
+ install-data-local:
+-	mkdir -p "${DESTDIR}${localstatedir}/lib/kopano/search"
++	mkdir -p "${DESTDIR}${localstatedir}/kopano/search"
+ 
+ uninstall-local:
+ 	rm -Rf ${DESTDIR}${pythondir}/kopano_search \
+diff -rupN kopanocore-8.3.0.350/installer/linux/Makefile.am kopanocore-8.3.0.350.automake/installer/linux/Makefile.am
+--- kopanocore-8.3.0.350/installer/linux/Makefile.am	2016-12-21 09:58:13.000000000 +0100
++++ kopanocore-8.3.0.350.automake/installer/linux/Makefile.am	2016-12-29 22:46:55.115634935 +0100
+@@ -53,12 +53,12 @@ dist_sysconf_config_DATA = ${config_file
+ sysconf_initdir=${sysconfdir}/init.d
+ sysconf_init_SCRIPTS = ${@DISTRO@_initscript_files}
+ 
+-rhel_sysconfig_path = ${sysconfdir}/sysconfig
++rhel_sysconfig_path = ${sysconfdir}/default
+ suse_sysconfig_path = ${localstatedir}/adm/fillup-templates
+ sles_sysconfig_path = ${localstatedir}/adm/fillup-templates
+ sysconf_sysconfigdir = ${@DISTRO@_sysconfig_path}
+ sysconf_sysconfig_DATA = sysconfig.txt
+-alt_sysconfig_path = ${sysconfdir}/sysconfig
++alt_sysconfig_path = ${sysconfdir}/default
+ 
+ dist_doc_DATA = \
+ 	db-calc-storesize db-convert-attachments-to-files \
+@@ -95,7 +95,7 @@ EXTRA_DIST = ${BUILT_SOURCES} ldap.m4 \
+ 
+ install-data-hook:
+ 	install -d -m 755 ${DESTDIR}/${sysconf_configdir}/license
+-	install -d -m 755 ${DESTDIR}/${localstatedir}/lib/kopano/report
++	install -d -m 755 ${DESTDIR}/${localstatedir}/kopano/report
+ 	mv -v ${DESTDIR}${sysconf_rotatedir}/kopano.logrotate ${DESTDIR}${sysconf_rotatedir}/kopano
+ 	mv -v ${DESTDIR}${sysconf_crondir}/kopano-client-update.cron ${DESTDIR}${sysconf_crondir}/kopano-client-update
+ 	if test ${DISTRO} = "sles" -o ${DISTRO} = "suse"; then \
+diff -rupN kopanocore-8.3.0.350/spooler/python/Makefile.am kopanocore-8.3.0.350.automake/spooler/python/Makefile.am
+--- kopanocore-8.3.0.350/spooler/python/Makefile.am	2016-12-21 09:58:13.000000000 +0100
++++ kopanocore-8.3.0.350.automake/spooler/python/Makefile.am	2016-12-29 22:47:19.626426381 +0100
+@@ -9,5 +9,5 @@ kopano_spoolerdir = ${datadir}/kopano-sp
+ kopano_spooler_DATA = mapiplugin.py pluginmanager.py plugintemplates.py wraplogger.py zconfig.py zinterval.py zunit.py
+ 
+ install-data-hook:
+-	mkdir -p ${DESTDIR}/${localstatedir}/lib/kopano/dagent/plugins/
+-	mkdir -p ${DESTDIR}/${localstatedir}/lib/kopano/spooler/plugins/
++	mkdir -p ${DESTDIR}/${localstatedir}/kopano/dagent/plugins/
++	mkdir -p ${DESTDIR}/${localstatedir}/kopano/spooler/plugins/

@@ -4,6 +4,7 @@
 # $Header: $
 
 SERVERCONFIG=/etc/kopano/server.cfg
+SERVERDEFAULTS=/etc/default/kopano
 SERVERPROGRAM=/usr/sbin/kopano-server
 PIDFILE=/var/run/kopano/server.pid
 
@@ -19,6 +20,7 @@ depend() {
 
 start() {
 	ebegin "Starting ${SVCNAME}"
+	source ${SERVERDEFAULTS}
 	einfo "Server locale     : ${KOPANO_LOCALE}"
 	export KOPANO_LOCALE
 	einfo "User store locale : ${KOPANO_USERSCRIPT_LOCALE}"

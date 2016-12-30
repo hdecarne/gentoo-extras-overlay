@@ -1,0 +1,12 @@
+diff -rupN kopanocore-8.3.0.350/configure.ac kopanocore-8.3.0.350.kerberos/configure.ac
+--- kopanocore-8.3.0.350/configure.ac	2016-12-21 09:58:13.000000000 +0100
++++ kopanocore-8.3.0.350.kerberos/configure.ac	2016-12-30 23:22:40.896298281 +0100
+@@ -580,7 +580,7 @@ AC_DEFUN([LIBKRB5_WITH_KRB5_CONFIG],[
+     AC_MSG_RESULT([$KRB5_CONFIG])
+ 
+     KRB5_CFLAGS=`$KRB5_CONFIG --cflags`
+-    KRB5_LIBS=`$KRB5_CONFIG --libs gssapi`
++    KRB5_LIBS=`$KRB5_CONFIG --libs krb5`
+ 
+ 	dnl test if found krb5 is good enough version
+ 	CXXFLAGS="$CXXFLAGS $KRB5_CFLAGS"

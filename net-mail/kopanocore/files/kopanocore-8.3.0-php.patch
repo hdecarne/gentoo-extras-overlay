@@ -1,6 +1,58 @@
+diff -rupN kopanocore-8.3.0.350/php7-ext/ECImportContentsChangesProxy.cpp kopanocore-8.3.0.350.php/php7-ext/ECImportContentsChangesProxy.cpp
+--- kopanocore-8.3.0.350/php7-ext/ECImportContentsChangesProxy.cpp	2016-12-21 09:58:13.000000000 +0100
++++ kopanocore-8.3.0.350.php/php7-ext/ECImportContentsChangesProxy.cpp	2016-12-29 18:31:03.058430754 +0100
+@@ -74,7 +74,8 @@ ECImportContentsChangesProxy::ECImportCo
+ 	Z_ADDREF(m_lpObj);
+ 	this->m_cRef = 1; // Object is in use when created!
+ #ifdef ZTS
+-	this->TSRMLS_C = TSRMLS_C;
++//	No longer needed for PHP7
++//	this->TSRMLS_C = TSRMLS_C;
+ #endif
+ }
+ 
+diff -rupN kopanocore-8.3.0.350/php7-ext/ECImportContentsChangesProxy.h kopanocore-8.3.0.350.php/php7-ext/ECImportContentsChangesProxy.h
+--- kopanocore-8.3.0.350/php7-ext/ECImportContentsChangesProxy.h	2016-12-21 09:58:13.000000000 +0100
++++ kopanocore-8.3.0.350.php/php7-ext/ECImportContentsChangesProxy.h	2016-12-29 18:30:45.457864166 +0100
+@@ -27,7 +27,8 @@ private:
+     ULONG m_cRef;
+ 	zval m_lpObj;
+ #ifdef ZTS
+-	TSRMLS_D;
++//	No longer needed for PHP7
++//	TSRMLS_D;
+ #endif
+ public:
+ 	ECImportContentsChangesProxy(const zval *v TSRMLS_DC);
+diff -rupN kopanocore-8.3.0.350/php7-ext/ECImportHierarchyChangesProxy.cpp kopanocore-8.3.0.350.php/php7-ext/ECImportHierarchyChangesProxy.cpp
+--- kopanocore-8.3.0.350/php7-ext/ECImportHierarchyChangesProxy.cpp	2016-12-21 09:58:13.000000000 +0100
++++ kopanocore-8.3.0.350.php/php7-ext/ECImportHierarchyChangesProxy.cpp	2016-12-29 18:31:30.689320222 +0100
+@@ -71,7 +71,8 @@ ECImportHierarchyChangesProxy::ECImportH
+ 	Z_ADDREF(m_lpObj);
+     this->m_cRef = 1; // Object is in use when created!
+ #ifdef ZTS
+-	this->TSRMLS_C = TSRMLS_C;
++//	No longer needed for PHP7
++//	this->TSRMLS_C = TSRMLS_C;
+ #endif
+ }
+ 
+diff -rupN kopanocore-8.3.0.350/php7-ext/ECImportHierarchyChangesProxy.h kopanocore-8.3.0.350.php/php7-ext/ECImportHierarchyChangesProxy.h
+--- kopanocore-8.3.0.350/php7-ext/ECImportHierarchyChangesProxy.h	2016-12-21 09:58:13.000000000 +0100
++++ kopanocore-8.3.0.350.php/php7-ext/ECImportHierarchyChangesProxy.h	2016-12-29 18:31:16.785539313 +0100
+@@ -27,7 +27,8 @@ private:
+     ULONG m_cRef;
+ 	zval m_lpObj;
+ #ifdef ZTS
+-	TSRMLS_D;
++//	No longer needed for PHP7
++//	TSRMLS_D;
+ #endif
+ public:
+ 	ECImportHierarchyChangesProxy(const zval *v TSRMLS_DC);
 diff -rupN kopanocore-8.3.0.350/php-ext/main.cpp kopanocore-8.3.0.350.php/php-ext/main.cpp
 --- kopanocore-8.3.0.350/php-ext/main.cpp	2016-12-21 09:58:13.000000000 +0100
-+++ kopanocore-8.3.0.350.php/php-ext/main.cpp	2016-12-23 09:55:47.590585597 +0100
++++ kopanocore-8.3.0.350.php/php-ext/main.cpp	2016-12-29 18:28:01.175908759 +0100
 @@ -3079,7 +3079,7 @@ ZEND_FUNCTION(mapi_openpropertytostream)
  
  	RETVAL_FALSE;

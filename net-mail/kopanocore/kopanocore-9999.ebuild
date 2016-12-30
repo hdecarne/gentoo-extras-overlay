@@ -2,23 +2,21 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="5"
+EAPI="6"
 
 PHP_EXT_NAME="mapi"
 PHP_EXT_INI="yes"
-PHP_EXT_ZENDEXT="no"
-USE_PHP="php5-6"
+USE_PHP="php5-6 php7-0 php7-1"
 
-PYTHON_DEPEND="2"
+PYTHON_COMPAT=( python2_7 python3_3 python3_4 python3_5 )
 
-inherit autotools eutils flag-o-matic git-r3 user php-ext-source-r2 python
+inherit autotools eutils flag-o-matic git-r3 user php-ext-source-r3 python-single-r1
 
 DESCRIPTION="Open Source Groupware Solution"
 HOMEPAGE="http://kopano.io/"
 
 EGIT_REPO_URI="https://stash.kopano.io/git/KC/kopanocore.git"
 #EGIT_COMMIT=""
-SRC_URI=""
 
 KOPANO_USER=${KOPANO_USER:-kopano}
 KOPANO_GROUP=${KOPANO_GROUP:-kopano}
@@ -29,38 +27,39 @@ LICENSE="AGPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 RESTRICT="mirror"
-IUSE="debug icu kerberos ldap logrotate static tcmalloc"
+IUSE="debug icu kerberos ldap logrotate s3 static tcmalloc"
 
 RDEPEND="!net-mail/zcp
-	>=dev-libs/libical-0.44
-	>=dev-cpp/libvmime-0.9.3[smtp]
-	virtual/httpd-php
-	virtual/mysql
+	logrotate? ( app-admin/logrotate )
 	dev-libs/boost
+	icu? ( dev-libs/icu )
+	>=dev-cpp/libvmime-0.9.3[smtp]
+	dev-lang/python
+	dev-lang/swig
+	>=dev-libs/libical-0.44
 	dev-libs/libxml2
 	dev-libs/openssl
 	dev-libs/xapian-bindings[python]
-	net-libs/gsoap
+	>=net-libs/gsoap-2.8.39
 	net-misc/curl
 	sys-libs/e2fsprogs-libs
 	sys-libs/zlib
-	icu? ( dev-libs/icu )
-	kerberos? ( virtual/krb5 )
-	ldap? ( net-nds/openldap )
-	logrotate? ( app-admin/logrotate )
-	dev-lang/python
 	>=dev-python/python-daemon-1.6
-	dev-python/bsddb3
+	python_single_target_python2_7? ( dev-python/bsddb3 )
+	!python_single_target_python2_7? ( dev-python/python-magic )
 	dev-python/flask
-	dev-lang/swig
-	tcmalloc? ( dev-util/google-perftools )"
+	tcmalloc? ( dev-util/google-perftools )
+	s3? ( net-libs/libs3 )
+	ldap? ( net-nds/openldap )
+	virtual/httpd-php
+	kerberos? ( virtual/krb5 )
+	virtual/mysql"
 DEPEND="${RDEPEND}
 	dev-util/pkgconfig
 	sys-devel/gettext"
 
 pkg_setup() {
-	python_set_active_version 2
-	python_pkg_setup
+	python-single-r1_pkg_setup
 
 	enewgroup "${KOPANO_GROUP}"
 	enewuser "${KOPANO_USER}" -1 -1 "/var/lib/kopano" "${KOPANO_GROUP}"
@@ -71,14 +70,21 @@ src_unpack() {
 }
 
 src_prepare() {
-	epatch "${FILESDIR}/kopanocore-8.3.0-sysconfig.patch"
-	epatch "${FILESDIR}/kopanocore-8.3.0-bsddb3.patch"
+	# prepare php slot folders to make php-ext-source-r3_createinifiles work
+	use php_targets_php5-6 && ln -s "${S}/php-ext" "${WORKDIR}/php5.6"
+	use php_targets_php7-0 && ln -s "${S}/php7-ext" "${WORKDIR}/php7.0"
+	use php_targets_php7-1 && ln -s "${S}/php7-ext" "${WORKDIR}/php7.1"
+
+	epatch "${FILESDIR}/kopanocore-8.3.0-automake.patch"
 	epatch "${FILESDIR}/kopanocore-8.3.0-php.patch"
+	use kerberos && epatch "${FILESDIR}/kopanocore-8.3.0-kerberos.patch"
+	use python_single_target_python2_7 && epatch "${FILESDIR}/kopanocore-8.3.0-python2_7.patch"
+	eapply_user
 	eautoreconf
 }
 
 src_configure() {
-	append-flags -fpermissive
+	append-flags -fpermissive -fPIC
 	econf \
 		--enable-release \
 		--enable-unicode \
@@ -98,11 +104,13 @@ src_compile() {
 src_install() {
 	make DESTDIR="${D}" install || die "make install failed"
 
-	php-ext-source-r2_createinifiles
+	php-ext-source-r3_createinifiles
 
 	if use logrotate; then
 		insinto /etc/logrotate.d
 		newins "${FILESDIR}"/kopano.logrotate kopano || die "Failed to install logrotate"
+	else
+		rm "${D}/etc/logrotate.d/kopano"
 	fi
 	if use ldap; then
 		insinto /etc/openldap/schema

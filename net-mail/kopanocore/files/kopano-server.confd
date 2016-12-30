@@ -4,9 +4,3 @@
 # See the kopano-server man page for more info.
 
 SERVER_OPTIONS=""
-
-#
-# Define default locales for kopano server and user scripts.
-#
-KOPANO_LOCALE="en_US"
-KOPANO_USERSCRIPT_LOCALE="en_US"
