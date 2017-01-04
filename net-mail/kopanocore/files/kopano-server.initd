@@ -6,7 +6,9 @@
 SERVERCONFIG=/etc/kopano/server.cfg
 SERVERDEFAULTS=/etc/default/kopano
 SERVERPROGRAM=/usr/sbin/kopano-server
-PIDFILE=/var/run/kopano/server.pid
+RUNDIR=/var/run/kopano
+RUNDIROWNER="kopano:kopano"
+PIDFILE=${RUNDIR}/server.pid
 
 [ -x $SERVERPROGRAM ] || exit 0
 
@@ -14,12 +16,16 @@ SERVERCONFIG_OPT=""
 [ ! -z $SERVERCONFIG -a -f $SERVERCONFIG ] && SERVERCONFIG_OPT="-c $SERVERCONFIG"
 
 depend() {
-	after slapd kerberos
+	need localmount
+	after bootmisc
 	need net
+	after slapd kerberos
 }
 
 start() {
 	ebegin "Starting ${SVCNAME}"
+	[ ! -d "${RUNDIR}" ] && mkdir -p -m 0755 "${RUNDIR}"
+	chown "${RUNDIROWNER}" "${RUNDIR}"
 	source ${SERVERDEFAULTS}
 	einfo "Server locale     : ${KOPANO_LOCALE}"
 	export KOPANO_LOCALE

@@ -16,7 +16,7 @@ DESCRIPTION="Open Source Groupware Solution"
 HOMEPAGE="http://kopano.io/"
 
 EGIT_REPO_URI="https://stash.kopano.io/git/KC/kopanocore.git"
-#EGIT_COMMIT=""
+EGIT_COMMIT="kopanocore-8.2.0-beta1"
 
 KOPANO_USER=${KOPANO_USER:-kopano}
 KOPANO_GROUP=${KOPANO_GROUP:-kopano}
@@ -25,7 +25,7 @@ KOPANO_SERVICES="dagent gateway ical monitor presence search server spooler"
 
 LICENSE="AGPL-3"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 RESTRICT="mirror"
 IUSE="debug icu kerberos ldap logrotate s3 static tcmalloc"
 
@@ -77,7 +77,8 @@ src_prepare() {
 
 	epatch "${FILESDIR}/kopanocore-8.2.0-automake.patch"
 	use kerberos && epatch "${FILESDIR}/kopanocore-8.2.0-kerberos.patch"
-	use python_single_target_python2_7 && epatch "${FILESDIR}/kopanocore-8.3.0-python2_7.patch"
+	epatch "${FILESDIR}/kopanocore-8.2.0-php.patch"
+	use python_single_target_python2_7 && epatch "${FILESDIR}/kopanocore-8.2.0-python2_7.patch"
 	eapply_user
 	eautoreconf
 }

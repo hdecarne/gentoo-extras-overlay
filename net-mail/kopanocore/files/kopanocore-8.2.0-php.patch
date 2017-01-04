@@ -1,0 +1,52 @@
+diff -rupN kopanocore-8.2.0/php7-ext/ECImportContentsChangesProxy.cpp kopanocore-8.2.0.php/php7-ext/ECImportContentsChangesProxy.cpp
+--- kopanocore-8.2.0/php7-ext/ECImportContentsChangesProxy.cpp	2017-01-04 11:20:20.689791360 +0100
++++ kopanocore-8.2.0.php/php7-ext/ECImportContentsChangesProxy.cpp	2017-01-04 11:32:07.086016746 +0100
+@@ -73,9 +73,6 @@ ECImportContentsChangesProxy::ECImportCo
+ 	ZVAL_OBJ(&m_lpObj, Z_OBJ_P(v));
+ 	Z_ADDREF(m_lpObj);
+ 	this->m_cRef = 1; // Object is in use when created!
+-#ifdef ZTS
+-	this->TSRMLS_C = TSRMLS_C;
+-#endif
+ }
+ 
+ ECImportContentsChangesProxy::~ECImportContentsChangesProxy() {
+diff -rupN kopanocore-8.2.0/php7-ext/ECImportContentsChangesProxy.h kopanocore-8.2.0.php/php7-ext/ECImportContentsChangesProxy.h
+--- kopanocore-8.2.0/php7-ext/ECImportContentsChangesProxy.h	2017-01-04 11:20:20.689791360 +0100
++++ kopanocore-8.2.0.php/php7-ext/ECImportContentsChangesProxy.h	2017-01-04 11:32:21.033135189 +0100
+@@ -26,9 +26,6 @@ class ECImportContentsChangesProxy _kc_f
+ private:
+     ULONG m_cRef;
+ 	zval m_lpObj;
+-#ifdef ZTS
+-	TSRMLS_D;
+-#endif
+ public:
+ 	ECImportContentsChangesProxy(const zval *v TSRMLS_DC);
+     ~ECImportContentsChangesProxy();
+diff -rupN kopanocore-8.2.0/php7-ext/ECImportHierarchyChangesProxy.cpp kopanocore-8.2.0.php/php7-ext/ECImportHierarchyChangesProxy.cpp
+--- kopanocore-8.2.0/php7-ext/ECImportHierarchyChangesProxy.cpp	2017-01-04 11:20:20.689791360 +0100
++++ kopanocore-8.2.0.php/php7-ext/ECImportHierarchyChangesProxy.cpp	2017-01-04 11:32:50.007407035 +0100
+@@ -70,9 +70,6 @@ ECImportHierarchyChangesProxy::ECImportH
+ 	ZVAL_OBJ(&m_lpObj, Z_OBJ_P(v));
+ 	Z_ADDREF(m_lpObj);
+     this->m_cRef = 1; // Object is in use when created!
+-#ifdef ZTS
+-	this->TSRMLS_C = TSRMLS_C;
+-#endif
+ }
+ 
+ ECImportHierarchyChangesProxy::~ECImportHierarchyChangesProxy() {
+diff -rupN kopanocore-8.2.0/php7-ext/ECImportHierarchyChangesProxy.h kopanocore-8.2.0.php/php7-ext/ECImportHierarchyChangesProxy.h
+--- kopanocore-8.2.0/php7-ext/ECImportHierarchyChangesProxy.h	2017-01-04 11:20:20.689791360 +0100
++++ kopanocore-8.2.0.php/php7-ext/ECImportHierarchyChangesProxy.h	2017-01-04 11:32:35.146925690 +0100
+@@ -26,9 +26,6 @@ class ECImportHierarchyChangesProxy _kc_
+ private:
+     ULONG m_cRef;
+ 	zval m_lpObj;
+-#ifdef ZTS
+-	TSRMLS_D;
+-#endif
+ public:
+ 	ECImportHierarchyChangesProxy(const zval *v TSRMLS_DC);
+     ~ECImportHierarchyChangesProxy();
