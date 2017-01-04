@@ -4,15 +4,17 @@
 
 EAPI=5
 
-inherit git-2 cmake-utils
+inherit cmake-utils
 
 DESCRIPTION="Library for working with MIME messages and Internet messaging services like IMAP, POP or SMTP"
 HOMEPAGE="http://www.vmime.org"
-EGIT_REPO_URI="git://github.com/kisli/vmime"
+
+SRC_URI="https://github.com/kisli/vmime/archive/v0.9.2.tar.gz -> vmime-${PV}.tar.gz"
+S="${WORKDIR}/vmime-${PV}"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="+c++11 debug doc examples gnutls icu +imap +maildir +pop sasl sendmail +smtp ssl"
 
 RDEPEND="!dev-cpp/libvmime-zcp
