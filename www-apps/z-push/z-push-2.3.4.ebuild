@@ -1,10 +1,10 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=5
+EAPI=6
 
-inherit webapp eutils depend.php
+inherit webapp
 
 DESCRIPTION="Z-Push - open source push technology"
 HOMEPAGE="http://z-push.sourceforge.net"
@@ -25,12 +25,7 @@ IUSE=""
 
 BACKENDS="caldav  carddav  combined  imap  ipcmemcached  kopano  ldap  maildir  searchldap  sqlstatemachine  vcarddir"
 
-need_php_httpd
-
-pkg_setup () {
-	webapp_pkg_setup
-	require_php_with_use iconv session xml
-}
+DEPEND=">=virtual/httpd-php-5.4"
 
 src_install() {
 	webapp_src_preinst
