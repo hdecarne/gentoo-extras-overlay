@@ -1,0 +1,41 @@
+diff -rupN kopano-webapp-3.2.0/server/includes/core/class.operations.php kopano-webapp-3.2.0.fixes/server/includes/core/class.operations.php
+--- kopano-webapp-3.2.0/server/includes/core/class.operations.php	2016-12-22 10:07:55.000000000 +0100
++++ kopano-webapp-3.2.0.fixes/server/includes/core/class.operations.php	2017-01-06 18:54:31.332439565 +0100
+@@ -2594,7 +2594,6 @@
+ 
+ 					// Allowing to hook in just before the data sent away to be sent to the client
+ 					$GLOBALS['PluginManager']->triggerHook('server.core.operations.submitmessage', array(
+-						'moduleObject' => $this,
+ 						'store' => $store,
+ 						'entryid' => $entryid,
+ 						'message' => &$message,
+diff -rupN kopano-webapp-3.2.0/server/includes/upload_attachment.php kopano-webapp-3.2.0.fixes/server/includes/upload_attachment.php
+--- kopano-webapp-3.2.0/server/includes/upload_attachment.php	2016-12-22 10:07:55.000000000 +0100
++++ kopano-webapp-3.2.0.fixes/server/includes/upload_attachment.php	2017-01-06 18:53:28.383732540 +0100
+@@ -78,7 +78,6 @@
+ 
+ 					// Allow hooking in to handle uploads in plugins
+ 					$GLOBALS['PluginManager']->triggerHook('server.upload_attachment.upload', array(
+-						'moduleObject' =>& $this,
+ 						'tmpname'  => $attachment_state->getAttachmentPath($attachid),
+ 						'name' => $filename,
+ 						'size' => $FILE['size'],
+diff -rupN kopano-webapp-3.2.0/server/includes/util.php kopano-webapp-3.2.0.fixes/server/includes/util.php
+--- kopano-webapp-3.2.0/server/includes/util.php	2016-12-22 10:07:55.000000000 +0100
++++ kopano-webapp-3.2.0.fixes/server/includes/util.php	2017-01-06 18:53:06.799699595 +0100
+@@ -420,7 +420,6 @@
+ 
+ 				// Allowing to hook in before the signed attachment is removed
+ 				$GLOBALS['PluginManager']->triggerHook('server.util.parse_smime.signed', array(
+-					'moduleObject' =>& $this,
+ 					'store' => $store,
+ 					'props' => $props,
+ 					'message' => &$message,
+@@ -449,7 +448,6 @@
+ 
+ 				// Allowing to hook in before the encrypted attachment is removed
+ 				$GLOBALS['PluginManager']->triggerHook('server.util.parse_smime.encrypted', array(
+-					'moduleObject' =>& $this,
+ 					'store' => $store,
+ 					'props' => $props,
+ 					'message' => &$message,
