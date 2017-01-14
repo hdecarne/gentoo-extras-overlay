@@ -10,15 +10,17 @@ __Please beware__: I am running and hence tested these ebuilds against ~amd64 an
 
 * net-mail/kopanocore: New ebuild for the Kopano (former Zarafa) groupware solution (http://kopano.io). This is the initial version an might still need some tuning.
 
-* dev-cpp/libvmime: New (live) ebuild for the latest vmime lib as needed by the Kopano Core ebuild above.
+* dev-cpp/libvmime: New ebuild for the latest vmime lib as needed by the Kopano Core ebuild above.
 
 * www-apps/kopano-webapp: New ebuild for the Kopano (former Zarafa) WebApp client (http://kopano.io). This is the initial version and might still need some tuning.
 
-* www-apps/kopano-webapp-files: New ebuild for the Kopano WebApp files plugin (http://kopano.io).
+* www-apps/kopano-webapp-filepreviewe: New ebuild for the Kopano WebApp files plugin (http://kopano.io). This is the initial version and might still need some tuning.
 
-* www-apps/kopano-webapp-mdm: New ebuild for the Kopano WebApp smime plugin (http://kopano.io).
+* www-apps/kopano-webapp-files: New ebuild for the Kopano WebApp files plugin (http://kopano.io). This is the initial version and might still need some tuning.
 
-* www-apps/kopano-webapp-smime: New ebuild for the Kopano WebApp mdm plugin (http://kopano.io).
+* www-apps/kopano-webapp-mdm: New ebuild for the Kopano WebApp smime plugin (http://kopano.io). This is the initial version and might still need some tuning.
+
+* www-apps/kopano-webapp-smime: New ebuild for the Kopano WebApp mdm plugin (http://kopano.io). This is the initial version and might still need some tuning.
 
 * www-apps/z-push: New ebuild for the Z-Push ActiveSync solution (http://z-push.org).
 
