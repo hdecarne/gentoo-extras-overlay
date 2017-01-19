@@ -34,7 +34,7 @@ RDEPEND="!net-mail/zcp
 	app-arch/unzip
 	app-text/catdoc
 	app-text/poppler[utils]
-	app-text/xmlto
+	app-text/xmlto[text]
 	dev-libs/boost
 	icu? ( dev-libs/icu )
 	>=dev-cpp/libvmime-0.9.2[smtp]
@@ -84,6 +84,7 @@ src_prepare() {
 	use kerberos && epatch "${FILESDIR}/kopanocore-8.2.0-kerberos.patch"
 	epatch "${FILESDIR}/kopanocore-8.2.0-php.patch"
 	use python_single_target_python2_7 && epatch "${FILESDIR}/kopanocore-8.2.0-python2_7.patch"
+	epatch "${FILESDIR}/kopanocore-8.2.0-search.patch"
 	eapply_user
 	eautoreconf
 }

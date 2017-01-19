@@ -1,0 +1,12 @@
+diff -rupN kopanocore-8.2.0_beta1/ECtools/search/kopano_search/plaintext.py kopanocore-8.2.0_beta1.search/ECtools/search/kopano_search/plaintext.py
+--- kopanocore-8.2.0_beta1/ECtools/search/kopano_search/plaintext.py	2017-01-19 21:47:22.571800837 +0100
++++ kopanocore-8.2.0_beta1.search/ECtools/search/kopano_search/plaintext.py	2017-01-19 21:51:43.936862701 +0100
+@@ -33,7 +33,7 @@ DB = [ # XXX read from file, test encodi
+     ('odp;application/vnd.oasis.opendocument.presentation', CONVERT_ODF),
+     ('doc;application/msword', 'catdoc -s cp1252 -d utf-8 -f ascii -w %(file)s'), # XXX specifying codepage here doesn't look right..
+     ('ppt;application/mspowerpoint;application/powerpoint;application/x-mspowerpoint;application/vnd.ms-powerpoint', 'catppt -s cp1252 -d utf-8 %(file)s'),
+-    ('xls;application/excel;application/x-excel;application/x-msexcel;application/vnd.ms-excel', "xls2csv -s cp1252 -d utf-8 -c ' ' %(file)s"),
++    ('xls;application/excel;application/x-excel;application/x-msexcel;application/vnd.ms-excel', "xls2csv-catdoc -s cp1252 -d utf-8 -c ' ' %(file)s"),
+     ('docx;application/vnd.openxmlformats-officedocument.wordprocessingml.document', CONVERT_OOXML),
+     ('xlsx;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', CONVERT_OOXML),
+     ('pptx;application/vnd.openxmlformats-officedocument.presentationml.presentation', CONVERT_OOXML),

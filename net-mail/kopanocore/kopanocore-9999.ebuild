@@ -16,7 +16,6 @@ DESCRIPTION="Open Source Groupware Solution"
 HOMEPAGE="http://kopano.io/"
 
 EGIT_REPO_URI="https://stash.kopano.io/git/KC/kopanocore.git"
-#EGIT_COMMIT=""
 
 KOPANO_USER=${KOPANO_USER:-kopano}
 KOPANO_GROUP=${KOPANO_GROUP:-kopano}
@@ -31,6 +30,10 @@ IUSE="debug icu kerberos ldap logrotate s3 static tcmalloc"
 
 RDEPEND="!net-mail/zcp
 	logrotate? ( app-admin/logrotate )
+	app-arch/unzip
+	app-text/catdoc
+	app-text/poppler[utils]
+	app-text/xmlto[text]
 	dev-libs/boost
 	icu? ( dev-libs/icu )
 	>=dev-cpp/libvmime-0.9.2[smtp]
@@ -44,10 +47,11 @@ RDEPEND="!net-mail/zcp
 	net-misc/curl
 	sys-libs/e2fsprogs-libs
 	sys-libs/zlib
-	>=dev-python/python-daemon-1.6
 	python_single_target_python2_7? ( dev-python/bsddb3 )
-	!python_single_target_python2_7? ( dev-python/python-magic )
 	dev-python/flask
+	>=dev-python/python-daemon-1.6
+	dev-python/python-dateutil
+	dev-python/python-magic
 	tcmalloc? ( dev-util/google-perftools )
 	s3? ( net-libs/libs3 )
 	ldap? ( net-nds/openldap )
@@ -77,7 +81,9 @@ src_prepare() {
 
 	epatch "${FILESDIR}/kopanocore-8.2.0-automake.patch"
 	use kerberos && epatch "${FILESDIR}/kopanocore-8.2.0-kerberos.patch"
-	use python_single_target_python2_7 && epatch "${FILESDIR}/kopanocore-8.3.0-python2_7.patch"
+	epatch "${FILESDIR}/kopanocore-8.2.0-php.patch"
+	use python_single_target_python2_7 && epatch "${FILESDIR}/kopanocore-8.2.0-python2_7.patch"
+	epatch "${FILESDIR}/kopanocore-8.2.0-search.patch"
 	eapply_user
 	eautoreconf
 }
