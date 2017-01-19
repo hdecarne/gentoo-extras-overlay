@@ -19,7 +19,7 @@ depend() {
 	need localmount
 	after bootmisc
 	need net
-	after slapd kerberos
+	after slapd kerberos samba
 }
 
 start() {
