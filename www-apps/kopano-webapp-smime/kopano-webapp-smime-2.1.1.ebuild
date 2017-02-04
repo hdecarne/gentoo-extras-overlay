@@ -9,9 +9,9 @@ inherit java-pkg-2 java-ant-2
 DESCRIPTION="Open Source Groupware Solution"
 HOMEPAGE="http://kopanoio/"
 
-PLUGIN_NAME="filepreviewer"
+PLUGIN_NAME="smime"
 PLUGIN_REPO="${PLUGIN_NAME}"
-PLUGIN_SRC_URI_TAG="v2.0.0"
+PLUGIN_SRC_URI_TAG="v2.1.1"
 WEBAPP_SRC_URI_TAG="v3.2.0"
 
 SRC_URI="https://stash.kopano.io/rest/archive/latest/projects/KWA/repos/${PLUGIN_REPO}/archive?at=refs%2Ftags%2F${PLUGIN_SRC_URI_TAG}&prefix=${P}/plugins/${PLUGIN_NAME}&format=tar.gz -> ${P}.tar.gz
@@ -32,7 +32,7 @@ HTTPD_OWNER="apache:apache"
 
 src_prepare() {
 	default
-	eapply "${FILESDIR}/kopano-webapp-filepreviewer-2.0.0-build.patch"
+	eapply "${FILESDIR}/kopano-webapp-smime-2.0.0-build.patch"
 	eapply_user
 }
 

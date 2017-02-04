@@ -9,9 +9,9 @@ inherit java-pkg-2 java-ant-2
 DESCRIPTION="Open Source Groupware Solution"
 HOMEPAGE="http://kopanoio/"
 
-PLUGIN_NAME="filepreviewer"
+PLUGIN_NAME="files"
 PLUGIN_REPO="${PLUGIN_NAME}"
-PLUGIN_SRC_URI_TAG="v2.0.0"
+PLUGIN_SRC_URI_TAG="v2.0.0-final"
 WEBAPP_SRC_URI_TAG="v3.2.0"
 
 SRC_URI="https://stash.kopano.io/rest/archive/latest/projects/KWA/repos/${PLUGIN_REPO}/archive?at=refs%2Ftags%2F${PLUGIN_SRC_URI_TAG}&prefix=${P}/plugins/${PLUGIN_NAME}&format=tar.gz -> ${P}.tar.gz
@@ -22,17 +22,28 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 RESTRICT="mirror"
 
+IUSE="backend_owncloud backend_smb"
+
+
+
+RDEPEND="www-apps/kopano-webapp"
 DEPEND=">=virtual/jdk-1.6
-	www-apps/kopano-webapp"
+	${RDEPEND}"
+
+PDEPEND="
+	backend_owncloud? ( www-apps/kopano-webapp-files-owncloud-backend )
+	backend_smb? ( www-apps/kopano-webapp-files-smb-backend )
+"
 
 EANT_EXTRA_ARGS="-Dbuild.sysclasspath=last"
-EANT_BUILD_TARGET="all deploy deploy-plugins"
+EANT_BUILD_TARGET="all deploy-plugins"
 
 HTTPD_OWNER="apache:apache"
 
 src_prepare() {
 	default
-	eapply "${FILESDIR}/kopano-webapp-filepreviewer-2.0.0-build.patch"
+	eapply "${FILESDIR}/kopano-webapp-files-2.0.0-build.patch"
+	eapply "${FILESDIR}/kopano-webapp-files-2.0.0-language.patch"
 	eapply_user
 }
 

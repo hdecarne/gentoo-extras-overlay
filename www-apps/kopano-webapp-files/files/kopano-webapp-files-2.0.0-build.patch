@@ -1,0 +1,11 @@
+diff -rupN kopano-webapp-files-2.0.0/plugins/files/build.xml kopano-webapp-files-2.0.0.build/plugins/files/build.xml
+--- kopano-webapp-files-2.0.0/plugins/files/build.xml	2016-09-26 15:13:34.000000000 +0200
++++ kopano-webapp-files-2.0.0.build/plugins/files/build.xml	2017-02-04 23:28:29.002605812 +0100
+@@ -49,6 +49,7 @@
+ 
+ 	
+ 	<!-- Determine plugin name -->
++	<var name="plugin" unset="true"/>
+ 	<basename file="${basedir}" property="plugin"/>
+ 
+ 	<!-- The Plugin distribution files -->
