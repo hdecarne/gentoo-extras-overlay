@@ -30,6 +30,7 @@ RESTRICT="mirror"
 IUSE="debug icu kerberos ldap logrotate s3 static tcmalloc"
 
 RDEPEND="!net-mail/zcp
+	${PYTHON_DEPS}
 	logrotate? ( app-admin/logrotate )
 	app-arch/unzip
 	app-text/catdoc
