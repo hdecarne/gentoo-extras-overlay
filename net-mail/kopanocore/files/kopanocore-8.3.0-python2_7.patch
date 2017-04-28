@@ -1,24 +1,16 @@
-diff -rupN kopanocore-8.3.0.350/ECtools/search/kopano_search/__init__.py kopanocore-8.3.0.350.python2_7/ECtools/search/kopano_search/__init__.py
---- kopanocore-8.3.0.350/ECtools/search/kopano_search/__init__.py	2016-12-21 09:58:13.000000000 +0100
-+++ kopanocore-8.3.0.350.python2_7/ECtools/search/kopano_search/__init__.py	2017-01-01 18:16:32.436270458 +0100
-@@ -8,13 +8,9 @@ from multiprocessing import Queue, Value
- import time
- import sys
+diff -rupN kopanocore-8.3.0/ECtools/search/kopano_search/__init__.py kopanocore-8.3.0.python2_7/ECtools/search/kopano_search/__init__.py
+--- kopanocore-8.3.0/ECtools/search/kopano_search/__init__.py	2017-04-26 17:13:49.000000000 +0200
++++ kopanocore-8.3.0.python2_7/ECtools/search/kopano_search/__init__.py	2017-04-27 21:58:09.640471897 +0200
+@@ -10,7 +10,7 @@ import sys
  
--# Upgrading from Python 2 to Python 3 is not supported
--try:
+ # Upgrading from Python 2 to Python 3 is not supported
+ try:
 -    import dbhash
--    from Queue import Empty
--except ImportError:
--    import dbm as dbhash
--    from queue import Empty
-+from bsddb3 import db
-+
-+from Queue import Empty
- 
- from kopano_search import plaintext
- import kopano
-@@ -80,15 +76,17 @@ CONFIG = {
++    from bsddb3 import db
+     from Queue import Empty
+ except ImportError:
+     import dbm as dbhash
+@@ -80,15 +80,17 @@ CONFIG = {
  
  def db_get(db_path, key):
      """ get value from db file """
@@ -38,5 +30,5 @@ diff -rupN kopanocore-8.3.0.350/ECtools/search/kopano_search/__init__.py kopanoc
 +            keyDB.open(db_path, None, db.DB_HASH, db.DB_CREATE)
 +            keyDB.put(key, value)
  
- class SearchWorker(kopano.Worker):
-     """ process which handles search requests coming from outlook/webapp, according to our internal protocol """
+ if sys.hexversion >= 0x03000000:
+     def _is_unicode(s):
