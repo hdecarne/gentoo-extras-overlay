@@ -8,19 +8,21 @@ __Please beware__: I am running and hence tested these ebuilds against ~amd64 an
 
 ### List of ebuilds
 
-* net-mail/kopanocore: New ebuild for the Kopano (former Zarafa) groupware solution (http://kopano.io). This is the initial version an might still need some tuning.
+* net-mail/kopanocore: New ebuild for the Kopano (former Zarafa) groupware solution (http://kopano.io).
 
 * dev-cpp/libvmime: New ebuild for the latest vmime lib as needed by the Kopano Core ebuild above.
 
-* www-apps/kopano-webapp: New ebuild for the Kopano (former Zarafa) WebApp client (http://kopano.io). This is the initial version and might still need some tuning.
+* www-apps/kopano-webapp: New ebuild for the Kopano (former Zarafa) WebApp client (http://kopano.io).
 
-* www-apps/kopano-webapp-filepreviewe: New ebuild for the Kopano WebApp files plugin (http://kopano.io). This is the initial version and might still need some tuning.
+* www-apps/kopano-webapp-filepreviewe: New ebuild for the Kopano WebApp files plugin (http://kopano.io).
 
-* www-apps/kopano-webapp-files: New ebuild for the Kopano WebApp files plugin (http://kopano.io). This is the initial version and might still need some tuning.
+* www-apps/kopano-webapp-files: New ebuild for the Kopano WebApp files plugin (http://kopano.io).
 
-* www-apps/kopano-webapp-mdm: New ebuild for the Kopano WebApp smime plugin (http://kopano.io). This is the initial version and might still need some tuning.
+* www-apps/kopano-webapp-files-[owncloud-backend,smb-backend]: New ebuilds for the Kopano WebApp files plugin backends (http://kopano.io).
 
-* www-apps/kopano-webapp-smime: New ebuild for the Kopano WebApp mdm plugin (http://kopano.io). This is the initial version and might still need some tuning.
+* www-apps/kopano-webapp-mdm: New ebuild for the Kopano WebApp smime plugin (http://kopano.io).
+
+* www-apps/kopano-webapp-smime: New ebuild for the Kopano WebApp mdm plugin (http://kopano.io).
 
 * www-apps/z-push: New ebuild for the Z-Push ActiveSync solution (http://z-push.org).
 
@@ -28,15 +30,13 @@ __Please beware__: I am running and hence tested these ebuilds against ~amd64 an
 
 * net-misc/freeswitch: New ebuild for the FreeSWITCH VOIP solution (https://freeswitch.org)
 
-* net-misc/freeswitch-{sounds,sounds-en,sounds-music}: New ebuild for the FreeSWITCH sound files.
+* net-misc/freeswitch-{sounds,sounds-en,sounds-music}: New ebuilds for the FreeSWITCH sound files.
 
 * www-apps/phpsysinfo: Updated ebuild for the phpSysInfo script.
 
 * net-fs/davfs2: Updated ebuild for the DAVFS2 WebDAV client.
 
 * app-admin/aws-cli: New ebuild for the AWS Command Line Interface (https://aws.amazon.com/cli/).
-
-* dev-db/mysqltuner: Updated ebuild for the mysqltuner tool (http://mysqltuner.com).
 
 The following ebuild are no longer actively maintained in this repository and may be dropped in the future.
 
