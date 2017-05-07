@@ -1,6 +1,0 @@
-# /etc/conf.d/zarafa-monitor: config file for /etc/init.d/zarafa-monitor
-
-# Options to pass to the zarfa-monitor daemon.
-# See the zarafa-monitor man page for more info.
-
-MONITOR_OPTIONS=""

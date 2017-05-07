@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=!dev-cpp/libvmime-zcp virtual/libiconv gnutls? ( >=net-libs/gnutls-1.2.0 ) sasl? ( virtual/gsasl ) sendmail? ( virtual/mta ) doc? ( app-doc/doxygen ) sys-devel/make >=dev-util/cmake-3.7.2
+DESCRIPTION=Library for working with MIME messages and Internet messaging services like IMAP, POP or SMTP
+EAPI=5
+HOMEPAGE=http://www.vmime.org
+IUSE=+c++11 debug doc examples gnutls icu +imap +maildir +pop sasl sendmail +smtp ssl
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=!dev-cpp/libvmime-zcp virtual/libiconv gnutls? ( >=net-libs/gnutls-1.2.0 ) sasl? ( virtual/gsasl ) sendmail? ( virtual/mta )
+SLOT=0
+SRC_URI=https://github.com/kisli/vmime/archive/v0.9.2.tar.gz -> vmime-0.9.2.tar.gz
+_eclasses_=cmake-utils	a69f3a404abc4ade0a99e523f51b989d	epatch	8233751dc5105a6ae8fcd86ce2bb0247	estack	43ddf5aaffa7a8d0482df54d25a66a1f	eutils	9c113d6a64826c40154cad7be15d95ea	flag-o-matic	61cad4fb5d800b29d484b27cb033f59b	ltprune	2770eed66a9b8ef944714cd0e968182e	multilib	0236be304ee52e7f179ed2f337075515	multiprocessing	284a473719153462f3e974d86c8cb81c	toolchain-funcs	6eb35f81556258a4bc9182ad3dfd58ee	versionator	c80ccf29e90adea7c5cae94b42eb76d0
+_md5_=c7e5f47c8fc3843635ae343118fb8b32

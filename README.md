@@ -40,22 +40,6 @@ __Please beware__: I am running and hence tested these ebuilds against ~amd64 an
 
 The following ebuild are no longer actively maintained in this repository and may be dropped in the future.
 
-* net-mail/zcp/zcp: New ebuild for the Zarafa groupware solution (http://www.zarafa.com). Now superseded by the Kopano Core ebuild above.
-
-* dev-cpp/libvmime-zcp/libvmime-zcp: New ebuild for Zarafa patched version of libvmime. Required by the zcp ebuild above.
-
-* www-apps/zarafa-webapp: New ebuild for the Zarafa Webapp client. Now superseded by the Kopano Webapp ebuild above.
-
-* www-apps/zarafa-webapp-{extbox,pdfbox}: New ebuild for the Zarafa Webapp file preview plugins (now superseded by the filepreviewer plugin).
-
-* www-apps/zarafa-webapp-files: New ebuild for the Zarafa Webapp files plugin for file access.
-
-* www-apps/zarafa-webapp-plugins-smime: New ebuild for the Zarafa Webapp S/MIME plugin for mail encryption.
-
-* www-apps/zarafa-webapp-plugins-filepreviewer: New ebuild for the Zarafa Webapp file previewer plugin.
-
-* www-apps/zarafa-webapp-plugins-mdm: New ebuild for the Zarafa Webapp Mobile Device Management plugin.
-
 * net-im/prosody: Updated ebuild for the Prosody XMPP server (http://prosody.im/) for SASL support.
 
 * dev-lua/lua-cyrussasl: New ebuild for the Cyrus-SASL LUA binding as used by Prosody.

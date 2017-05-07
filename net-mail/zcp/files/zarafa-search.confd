@@ -1,6 +1,0 @@
-# /etc/conf.d/zarafa-search: config file for /etc/init.d/zarafa-search
-
-# Options to pass to the zarfa-search daemon.
-# See the zarafa-search help for more info.
-
-SEARCH_OPTIONS=""

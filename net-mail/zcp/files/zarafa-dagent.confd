@@ -1,6 +1,0 @@
-# /etc/conf.d/zarafa-dagent: config file for /etc/init.d/zarafa-dagent
-
-# Options to pass to the zarfa-dagent daemon.
-# See the zarafa-dagent man page for more info.
-
-DAGENT_OPTIONS=""
