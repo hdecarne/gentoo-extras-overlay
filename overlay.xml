@@ -1,11 +1,13 @@
-<?xml version="1.0" ?>
-<layman>
-	<overlay
-		type = "git"
-		src  = "https://github.com/hdecarne/gentoo-extras-overlay.git"
-		contact = "hdecarne@gmail.com"
-		name = "gentoo-extras-overlay">
-		<link>https://github.com/hdecarne/gentoo-extras-overlay/wiki</link>
-		<description>optional custom description</description>
-	</overlay>
-</layman> 
+<?xml version="1.0" encoding="UTF-8"?>
+<repositories version="1.0">
+<repo priority="50" quality="experimental" status="unofficial">
+	<name>gentoo-extras-overlay</name>
+	<description>Collection of custom Gentoo ebuilds</description>
+	<homepage>https://github.com/hdecarne/gentoo-extras-overlay</homepage>
+	<owner>
+		<email>hdecarne@gmail.com</email>
+	</owner>
+	<source type="git">https://github.com/hdecarne/gentoo-extras-overlay.git</source>
+	<feed>https://github.com/hdecarne/gentoo-extras-overlay/commits/master.atom</feed>
+</repo>
+</repositories>
