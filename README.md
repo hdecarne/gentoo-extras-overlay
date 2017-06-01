@@ -38,10 +38,6 @@ __Please beware__: I am running and hence tested these ebuilds against ~amd64 an
 
 * app-admin/aws-cli: New ebuild for the AWS Command Line Interface (https://aws.amazon.com/cli/).
 
-The following ebuild are no longer actively maintained in this repository and may be dropped in the future.
+* mail-filter/rspamd: Updated ebuild for rspamd mail filter.
 
-* net-im/prosody: Updated ebuild for the Prosody XMPP server (http://prosody.im/) for SASL support.
-
-* dev-lua/lua-cyrussasl: New ebuild for the Cyrus-SASL LUA binding as used by Prosody.
-
-* net-im/spectrum-transport: New ebuild for the 1.x version of Spectrum XMPP transport (http://spectrum.im/).
+* dev-util/ragel: Updated ebuild for ragel lib.
