@@ -40,4 +40,4 @@ __Please beware__: I am running and hence tested these ebuilds against ~amd64 an
 
 * mail-filter/rspamd: Updated ebuild for rspamd mail filter.
 
-* dev-util/ragel: Updated ebuild for ragel lib.
+* dev-util/ragel: Updated ebuild for ragel lib (as required by mail-filter/rspamd).
