@@ -18,6 +18,8 @@ __Please beware__: I am running and hence tested these ebuilds against ~amd64 or
 
 ### List of ebuilds
 
+* net-fs/samba: Updated ebuild with mit-krb5 adc support.
+
 * www-apps/phpsysinfo: Updated ebuild for the phpSysInfo script.
 
 ### List of no longer maintained ebuilds
