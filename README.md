@@ -3,10 +3,24 @@ This repository hosts a collection of custom gentoo ebuilds that I maintain for 
 The corresponding packages either did not yet find their way into the portage tree or the current portage tree version has something missing I needed. See the package comments below to get the details.
 
 ### How to use these ebuilds
-You can use layman with the URL https://raw.github.com/hdecarne/gentoo-extras-overlay/master/overlay.xml to subscribe to this overlay. Or you can clone the repository and add the path to your PORTDIR\_OVERLAY variable manually.
-__Please beware__: I am running and hence tested these ebuilds against ~amd64 and with my private setup. Use them at your own risk.
+The preferred way to use this overlay is to add a file with the following content to your /etc/portage/repos.conf folder:
+
+	[gentoo-extras-overlay]                 
+	location = /usr/local/gentoo-extras-overlay           
+	sync-type = git                         
+	sync-uri = https://github.com/hdecarne/gentoo-extras-overlay.git                
+	clone-depth = 0                         
+	auto-sync = yes
+
+Alternatively you can use layman with the URL https://raw.github.com/hdecarne/gentoo-extras-overlay/master/overlay.xml to subscribe to this overlay. Or 
+you can clone the repository and add the path to your PORTDIR\_OVERLAY variable manually.
+__Please beware__: I am running and hence tested these ebuilds against ~amd64 or ~aarm64 and with my private setup. Use them at your own risk.
 
 ### List of ebuilds
+
+* www-apps/phpsysinfo: Updated ebuild for the phpSysInfo script.
+
+### List of no longer maintained ebuilds
 
 * net-mail/kopanocore: New ebuild for the Kopano (former Zarafa) groupware solution (http://kopano.io).
 
@@ -31,8 +45,6 @@ __Please beware__: I am running and hence tested these ebuilds against ~amd64 an
 * net-misc/freeswitch: New ebuild for the FreeSWITCH VOIP solution (https://freeswitch.org)
 
 * net-misc/freeswitch-{sounds,sounds-en,sounds-music}: New ebuilds for the FreeSWITCH sound files.
-
-* www-apps/phpsysinfo: Updated ebuild for the phpSysInfo script.
 
 * net-fs/davfs2: Updated ebuild for the DAVFS2 WebDAV client.
 
