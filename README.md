@@ -14,11 +14,13 @@ The preferred way to use this overlay is to add a file with the following conten
 
 Alternatively you can use layman with the URL https://raw.github.com/hdecarne/gentoo-extras-overlay/master/overlay.xml to subscribe to this overlay. Or 
 you can clone the repository and add the path to your PORTDIR\_OVERLAY variable manually.
-__Please beware__: I am running and hence tested these ebuilds against ~amd64 or ~aarm64 and with my private setup. Use them at your own risk.
+__Please beware__: I am running and hence tested these ebuilds against ~amd64 or ~arm64 and with my private setup. Use them at your own risk.
 
 ### List of ebuilds
 
-* net-fs/samba: Updated ebuild with mit-krb5 adc support.
+* net-fs/samba: Updated ebuild with mit-krb5 adc as well as Time Machine (see https://bugzilla.samba.org/show_bug.cgi?id=12380) support.
+
+* net-misc/kea: Updated ebuild with DB backend support (MySQL, PostgreSQL).
 
 * www-apps/phpsysinfo: Updated ebuild for the phpSysInfo script.
 
