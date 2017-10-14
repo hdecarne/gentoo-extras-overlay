@@ -18,8 +18,6 @@ __Please beware__: I am running and hence tested these ebuilds against ~amd64 or
 
 ### List of ebuilds
 
-* net-fs/samba: Updated ebuild with mit-krb5 adc as well as Time Machine (see https://bugzilla.samba.org/show_bug.cgi?id=12380) support.
-
 * net-misc/kea: Updated ebuild with DB backend support (MySQL, PostgreSQL).
 
 * www-apps/phpsysinfo: Updated ebuild for the phpSysInfo script.
