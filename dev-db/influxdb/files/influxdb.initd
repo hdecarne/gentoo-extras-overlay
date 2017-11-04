@@ -1,0 +1,30 @@
+#!/sbin/openrc-run
+# Copyright 1999-2017 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+
+: ${INFLUXDB_USER:=influxdb}
+: ${INFLUXDB_DATADIR:="/var/lib/influxdb"}
+: ${INFLUXDB_CONFIG:="/etc/influxdb/influxdb.conf"}
+: ${INFLUXDB_LOG:="/var/log/influxdb/influxd.log"}
+: ${INFLUXDB_TERMTIMEOUT:="TERM/20/KILL/5"}
+: ${SSD_OPTS:="-1 ${INFLUXDB_LOG} -2 ${INFLUXDB_LOG}"}
+
+name="InfluxDB daemon"
+command="/usr/bin/influxd"
+command_args="-config ${INFLUXDB_CONFIG}"
+command_user="${INFLUXDB_USER}"
+command_background=true
+pidfile="/run/${SVCNAME}.pid"
+required_files="$INFLUXDB_CONFIG"
+retry="${INFLUXDB_TERMTIMEOUT}"
+start_stop_daemon_args="${SSD_OPTS}"
+
+depend() {
+	need net
+	after bootmisc
+}
+
+start_pre() {
+	checkpath -f -m 0600 -o "${INFLUXDB_USER}" "${INFLUXDB_CONFIG}"
+	checkpath -d -m 0750 -o "${INFLUXDB_USER}" "${INFLUXDB_LOG%/*}" "${INFLUXDB_DATADIR}"
+}
