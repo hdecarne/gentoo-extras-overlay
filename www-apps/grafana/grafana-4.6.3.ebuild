@@ -19,6 +19,7 @@ RESTRICT="mirror strip"
 RDEPEND="=net-libs/nodejs-6*[npm]"
 DEPEND="${RDEPEND}
 	!www-apps/grafana-bin
+	media-libs/fontconfig
 	sys-apps/yarn"
 
 QA_EXECSTACK="usr/libexec/grafana/phantomjs"
