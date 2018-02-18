@@ -1,6 +1,0 @@
-# /etc/conf.d/kopano-server: config file for /etc/init.d/kopano-server
-
-# Options to pass to the kopano-server daemon.
-# See the kopano-server man page for more info.
-
-SERVER_OPTIONS=""
