@@ -1,4 +1,4 @@
-<img src="https://www.gentoo.org/assets/img/logo/gentoo-logo.svg" width="128" title="gentoo logo">
+<img src="https://www.gentoo.org/assets/img/logo/gentoo-logo.svg" width="96" title="gentoo logo">
 
 ### gentoo-extras-overlay
 This repository hosts a collection of custom gentoo ebuilds that I maintain for my private setup.
