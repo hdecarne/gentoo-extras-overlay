@@ -1,4 +1,5 @@
 <img src="https://www.gentoo.org/assets/img/logo/gentoo-logo.svg" width="128" title="gentoo logo">
+
 ### gentoo-extras-overlay
 This repository hosts a collection of custom gentoo ebuilds that I maintain for my private setup.
 The corresponding packages either did not yet find their way into the portage tree or the current portage tree version has something missing I needed. See the package comments below to get the details.
