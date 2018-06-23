@@ -2,3 +2,4 @@
 DHCP4="true"
 DHCP6="false"
 DDNS="false"
+CONTROL="false"
