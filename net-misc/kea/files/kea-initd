@@ -9,10 +9,10 @@ dhcp6_command="/usr/sbin/kea-dhcp6"
 ddns_command="/usr/sbin/kea-dhcp-ddns"
 control_command="/usr/sbin/kea-ctrl-agent"
 config_file="/etc/kea/kea.conf"
-dhcp4_pidfile="/run/kea-dhcp4.pid"
-dhcp6_pidfile="/run/kea-dhcp6.pid"
-ddns_pidfile="/run/kea-ddns.pid"
-control_pidfile="/run/kea-control.pid"
+dhcp4_pidfile="/var/lib/kea/kea.kea-dhcp4.pid"
+dhcp6_pidfile="/var/lib/kea/kea.kea-dhcp6.pid"
+ddns_pidfile="/var/lib/kea/kea.kea-dhcp-ddns.pid"
+control_pidfile="/var/lib/kea/kea.kea-ctrl-agent.pid"
 
 depend() {
 	use net mysql postgresql
@@ -47,28 +47,28 @@ start_pre() {
 start() {
 	if ${DHCP4:-false} ; then
 		ebegin "Starting kea dhcp4 service"
-		start-stop-daemon -m -b -p ${dhcp4_pidfile} \
+		start-stop-daemon -b -p ${dhcp4_pidfile} \
 			-x ${dhcp4_command} -- -c ${config_file} \
 			|| return 1
 		eend $?
 	fi
 	if ${DHCP6:-false} ; then
 		ebegin "Starting kea dhcp6 service"
-		start-stop-daemon -m -b -p ${dhcp6_pidfile} \
+		start-stop-daemon -b -p ${dhcp6_pidfile} \
 			-x ${dhcp6_command} -- -c ${config_file} \
 			|| return 1
 		eend $?
 	fi
 	if ${DDNS:-false} ; then
 		ebegin "Starting kea ddns service"
-		start-stop-daemon -m -b -p ${ddns_pidfile} \
+		start-stop-daemon -b -p ${ddns_pidfile} \
 			-x ${ddns_command} -- -c ${config_file} \
 			|| return 1
 		eend $?
 	fi
 	if ${CONTROL:-false} ; then
 		ebegin "Starting kea control service"
-		start-stop-daemon -m -b -p ${control_pidfile} \
+		start-stop-daemon -b -p ${control_pidfile} \
 			-x ${control_command} -- -c ${config_file} \
 			|| return 1
 		eend $?
