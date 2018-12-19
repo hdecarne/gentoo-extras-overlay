@@ -1,0 +1,13 @@
+DEFINED_PHASES=configure install preinst prepare
+DEPEND=dev-libs/boost dev-cpp/gtest dev-libs/log4cplus mysql? ( virtual/libmysqlclient ) !openssl? ( dev-libs/botan:= ) openssl? ( dev-libs/openssl:= ) postgres? ( dev-db/postgresql )
+DESCRIPTION=High-performance production grade DHCPv4 & DHCPv6 server
+EAPI=6
+HOMEPAGE=http://www.isc.org/kea/
+IUSE=mysql openssl postgres samples
+KEYWORDS=~amd64
+LICENSE=ISC BSD SSLeay GPL-2
+RDEPEND=dev-libs/boost dev-cpp/gtest dev-libs/log4cplus mysql? ( virtual/libmysqlclient ) !openssl? ( dev-libs/botan:= ) openssl? ( dev-libs/openssl:= ) postgres? ( dev-db/postgresql )
+SLOT=0
+SRC_URI=ftp://ftp.isc.org/isc/kea/kea-1.5.0.tar.gz ftp://ftp.isc.org/isc/kea/1.5.0/kea-1.5.0.tar.gz
+_eclasses_=multilib	b2f01ad412baf81650c23fcf0975fa33	toolchain-funcs	f164325a2cdb5b3ea39311d483988861	user	8bc2845510e2109af75e3eeac607ec81
+_md5_=16dbd284a6dbf908610c0cfb5c6011ab
