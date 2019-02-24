@@ -20,10 +20,10 @@ __Please beware__: I am running and hence tested these ebuilds against ~amd64 or
 
 ### List of ebuilds
 
-* dev-db/influxdb: New build for InfluxDB metrics database (https://influxdata.com).
+* dev-db/influxdb: Update ebuild for InfluxDB metrics database (https://influxdata.com).
+
+* net-analyzer/telegraf: Update ebuild for Telegraf metric reporter (https://influxdata.com).
 
 * net-misc/kea: Updated ebuild with DB backend support (MySQL, PostgreSQL).
 
 * www-apps/grafana: New ebuild for Grafana dashboard web app (https://grafana.com).
-
-* www-apps/phpsysinfo: Updated ebuild for the phpSysInfo script.
