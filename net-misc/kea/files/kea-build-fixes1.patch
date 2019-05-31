@@ -1,0 +1,33 @@
+diff -Naur kea-1.6.0-beta/src/bin/admin/kea-admin.in kea-1.6.0-beta.patched/src/bin/admin/kea-admin.in
+--- kea-1.6.0-beta/src/bin/admin/kea-admin.in	2019-05-28 15:55:48.000000000 +0200
++++ kea-1.6.0-beta.patched/src/bin/admin/kea-admin.in	2019-05-31 08:28:10.357185027 +0200
+@@ -19,7 +19,7 @@
+ export prefix
+ SCRIPTS_DIR_DEFAULT=@datarootdir@/@PACKAGE@/scripts
+ scripts_dir=${SCRIPTS_DIR_DEFAULT}
+-VERSION=@PACKAGE_VERSION@
++VERSION="@PACKAGE_VERSION@"
+ 
+ # These are the default parameters. They will likely not work in any
+ # specific deployment.
+@@ -38,8 +38,6 @@
+ # shellcheck disable=SC1091
+ if [ -e @datarootdir@/@PACKAGE_NAME@/scripts/admin-utils.sh ]; then
+     . @datarootdir@/@PACKAGE_NAME@/scripts/admin-utils.sh
+-else
+-    . @abs_top_srcdir@/src/bin/admin/admin-utils.sh
+ fi
+ 
+ # Prints out usage version.
+diff -Naur kea-1.6.0-beta/src/bin/keactrl/keactrl.in kea-1.6.0-beta.patched/src/bin/keactrl/keactrl.in
+--- kea-1.6.0-beta/src/bin/keactrl/keactrl.in	2019-05-28 15:55:48.000000000 +0200
++++ kea-1.6.0-beta.patched/src/bin/keactrl/keactrl.in	2019-05-31 08:28:38.494795225 +0200
+@@ -10,7 +10,7 @@
+ # This script is used to run Kea from installation directory,
+ # as well as for running tests.
+ 
+-VERSION=@PACKAGE_VERSION@
++VERSION="@PACKAGE_VERSION@"
+ @HAVE_SYSREPO_FALSE@have_netconf=0
+ @HAVE_SYSREPO_TRUE@have_netconf=1
+ 
