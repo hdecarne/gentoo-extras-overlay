@@ -42,6 +42,7 @@ src_prepare() {
 		-e "/VERSION=/s:'$: Gentoo-${PR}':" \
 		configure || die
 	eapply "${FILESDIR}/${PN}-build-fixes1.patch"
+	eapply "${FILESDIR}/${PN}-build-fixes2.patch"
 	default
 }
 
