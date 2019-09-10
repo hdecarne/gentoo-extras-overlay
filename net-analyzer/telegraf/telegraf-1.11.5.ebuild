@@ -195,4 +195,3 @@ systemd_dounit scripts/telegraf.service
 	keepdir /var/log/telegraf
 	fowners telegraf:telegraf /var/log/telegraf
 }
-

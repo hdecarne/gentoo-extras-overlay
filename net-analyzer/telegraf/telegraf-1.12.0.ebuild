@@ -205,4 +205,3 @@ src_install() {
 	keepdir /var/log/telegraf
 	fowners telegraf:telegraf /var/log/telegraf
 }
-
