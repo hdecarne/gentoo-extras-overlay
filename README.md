@@ -20,10 +20,12 @@ __Please beware__: I am running and hence tested these ebuilds against ~amd64 or
 
 ### List of ebuilds
 
-* dev-db/influxdb: Update ebuild for InfluxDB metrics database (https://influxdata.com).
+* dev-db/influxdb: Updated ebuild for InfluxDB metrics database (https://influxdata.com).
 
-* net-analyzer/telegraf: Update ebuild for Telegraf metric reporter (https://influxdata.com).
+* net-analyzer/telegraf: Updated ebuild for Telegraf metric reporter (https://influxdata.com).
 
 * net-misc/kea: Updated ebuild with DB backend support (MySQL, PostgreSQL).
+
+* sys-auth/google-authenticator: Updated ebuild for Google's two step verification PAM module (https://github.com/google/google-authenticator-libpam).
 
 * www-apps/grafana: New ebuild for Grafana dashboard web app (https://grafana.com).
