@@ -1,0 +1,5 @@
+# The fluent-bit config file
+FLUENT_BIT_CONF="/etc/fluent-bit/fluent-bit.conf"
+
+# Add any extra options to pass to fluent-bit to this setting.
+#FLUENT_BIT_OPTS=""

@@ -1,0 +1,13 @@
+#!/sbin/openrc-run
+
+configfile="${FLUENT_BIT_CONF:-/etc/fluent-bit/fluent-bit.conf}"
+logfile="/var/log/fluent-bit/fluent-bit.log"
+
+command=/usr/bin/fluent-bit
+command_args="--config=${configfile} --log_file=${logfile}
+	${FLUENT_BIT_OPTS}"
+#command_args_backgroupd="--daemon"
+command_background=yes
+command_user=fluent-bit:logger
+make_pidfile=yes
+pidfile=/var/run/fluent-bit.pid

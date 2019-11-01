@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>hdecarne@gmail.com</email>
+		<name>Holger</name>
+	</maintainer>
+	<maintainer type="project">
+		<email>proxy-maint@gentoo.org</email>
+		<name>Proxy Maintainers</name>
+	</maintainer>
+	<use>
+		<flag name="debug">Build binaries with debug symbols</flag>
+		<flag name="examples">Build examples</flag>
+		<flag name="luajit">Enable Lua scripting support</flag>
+		<flag name="jemalloc">Use Jemalloc as default memory allocator</flag>
+		<flag name="tls">Buils with SSL/TLS support</flag>
+		<flag name="fluentbit_input_plugins_stdin">Enable Standard input plugin</flag>
+		<flag name="fluentbit_input_plugins_cpu">Enable CPU input plugin</flag>
+		<flag name="fluentbit_input_plugins_thermal">Enable Thermal plugin</flag>
+		<flag name="fluentbit_input_plugins_disk">Enable Disk input plugin</flag>
+		<flag name="fluentbit_input_plugins_docker">Enable Docker input plugin</flag>
+		<flag name="fluentbit_input_plugins_exec">Enable Exec input plugin</flag>
+		<flag name="fluentbit_input_plugins_forward">Enable Forward input plugin</flag>
+		<flag name="fluentbit_input_plugins_health">Enable Health input plugin</flag>
+		<flag name="fluentbit_input_plugins_http">Enable HTTP input plugin</flag>
+		<flag name="fluentbit_input_plugins_mem">Enable Memory input plugin</flag>
+		<flag name="fluentbit_input_plugins_kmsg">Enable Kernel log input plugin</flag>
+		<flag name="fluentbit_input_plugins_lib">Enable library mode input plugin</flag>
+		<flag name="fluentbit_input_plugins_random">Enable random input plugin</flag>
+		<flag name="fluentbit_input_plugins_serial">Enable Serial input plugin</flag>
+		<flag name="fluentbit_input_plugins_syslog">Enable Syslog input plugin</flag>
+		<flag name="fluentbit_input_plugins_tail">Enable Tail input plugin</flag>
+		<flag name="fluentbit_input_plugins_tcp">Enable TCP input plugin</flag>
+		<flag name="fluentbit_input_plugins_mqtt">Enable MQTT Broker input plugin</flag>
+		<flag name="fluentbit_input_plugins_head">Enable Head input plugin</flag>
+		<flag name="fluentbit_input_plugins_proc">Enable Process input plugin</flag>
+		<flag name="fluentbit_input_plugins_systemd">Enable Systemd input plugin</flag>
+		<flag name="fluentbit_input_plugins_dummy">Enable Dummy input plugin</flag>
+		<flag name="fluentbit_input_plugins_netif">Enable NetworkIF input plugin</flag>
+		<flag name="fluentbit_input_plugins_collectd">Enable Collectd input plugin</flag>
+		<flag name="fluentbit_input_plugins_storage_backlog">Enable storage backlog input plugin</flag>
+		<flag name="fluentbit_output_plugins_stdout">Enable STDOUT output plugin</flag>
+		<flag name="fluentbit_output_plugins_null">Enable dev null output plugin</flag>
+		<flag name="fluentbit_output_plugins_azure">Enable Azure output plugin</flag>
+		<flag name="fluentbit_output_plugins_bigquery">Enable BigQuery output plugin</flag>
+		<flag name="fluentbit_output_plugins_counter">Enable Counter output plugin</flag>
+		<flag name="fluentbit_output_plugins_datadog">Enable DataDog output plugin</flag>
+		<flag name="fluentbit_output_plugins_es">Enable Elasticsearch output plugin</flag>
+		<flag name="fluentbit_output_plugins_exit">Enable Exit output plugin</flag>
+		<flag name="fluentbit_output_plugins_forward">Enable Forward output plugin</flag>
+		<flag name="fluentbit_output_plugins_gelf">Enable GELF output plugin</flag>
+		<flag name="fluentbit_output_plugins_http">Enable HTTP output plugin</flag>
+		<flag name="fluentbit_output_plugins_influxdb">Enable InfluxDB output plugin</flag>
+		<flag name="fluentbit_output_plugins_nats">Enable NATS output plugin</flag>
+		<flag name="fluentbit_output_plugins_tcp">Enable TCP output plugin</flag>
+		<flag name="fluentbit_output_plugins_plot">Enable Plot output plugin</flag>
+		<flag name="fluentbit_output_plugins_file">Enable file output plugin</flag>
+		<flag name="fluentbit_output_plugins_td">Enable Treasure Data output plugin</flag>
+		<flag name="fluentbit_output_plugins_splunk">Enable Splunk output plugin</flag>
+		<flag name="fluentbit_output_plugins_stackdriver">Enable Stackdriver output plugin</flag>
+		<flag name="fluentbit_output_plugins_lib">Enable library mode output plugin</flag>
+		<flag name="fluentbit_output_plugins_flowcounter">Enable flowcount output plugin</flag>
+		<flag name="fluentbit_output_plugins_kafka">Enable Kafka output plugin</flag>
+		<flag name="fluentbit_output_plugins_kafka_rest">Enable Kafka Rest output plugin</flag>
+		<flag name="fluentbit_filters_grep">Enable grep filter</flag>
+		<flag name="fluentbit_filters_modify">Enable modify filter</flag>
+		<flag name="fluentbit_filters_stdout">Enable stdout filter</flag>
+		<flag name="fluentbit_filters_parser">Enable parser filter</flag>
+		<flag name="fluentbit_filters_throttle">Enable throttle filter</flag>
+		<flag name="fluentbit_filters_nest">Enable nest filter"</flag>
+		<flag name="fluentbit_filters_record_modifier">Enable record_modifier filter</flag>
+		<flag name="fluentbit_filters_kubernetes">Enable kubernetes filter</flag>
+		<flag name="fluentbit_filters_lua">Enable Lua scripting filter</flag>
+	</use>
+</pkgmetadata>
