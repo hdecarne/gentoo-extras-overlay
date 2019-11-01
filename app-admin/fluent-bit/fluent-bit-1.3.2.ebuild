@@ -94,4 +94,6 @@ src_install() {
 
 	newconfd "${FILESDIR}/${PN}.confd" "${PN}"
 	newinitd "${FILESDIR}/${PN}.initd" "${PN}"
+
+	fowners fluent-bit:logger "/etc/${PN}"
 }

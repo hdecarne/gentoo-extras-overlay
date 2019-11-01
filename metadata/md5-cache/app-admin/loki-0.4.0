@@ -12,4 +12,4 @@ RESTRICT=mirror strip
 SLOT=0
 SRC_URI=https://github.com/grafana/loki/archive/v0.4.0.tar.gz -> loki-0.4.0.tar.gz
 _eclasses_=golang-base	c57d2c3f9e1a02d0feb8b87c7b689892	golang-vcs-snapshot	12177e83bede6f7fb87eae383864b40b
-_md5_=d656a80593908ae0399b0125dfca4107
+_md5_=71e15a8935e7ed854d95e23b7c5110a2

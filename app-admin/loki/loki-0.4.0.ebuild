@@ -66,6 +66,8 @@ src_install() {
 		doins "${S}/cmd/loki/loki-local-config.yaml"
 		keepdir "/etc/${PN}"
 		keepdir "/var/lib/${PN}"
+		fowners loki:grafana "/etc/${PN}"
+		fowners loki:grafana "/var/lib/${PN}"
 	fi
 	if use tools; then
 		dobin "${S}/cmd/loki/logcli"
@@ -76,6 +78,7 @@ src_install() {
 		insinto "/etc/${PN}"
 		doins "${S}/cmd/promtail/promtail-local-config.yaml"
 		keepdir "/etc/${PN}"
+		fowners loki:grafana "/etc/${PN}"
 	fi
 	if use fluent-bit; then
 		insinto "/usr/$(get_libdir)/loki"
