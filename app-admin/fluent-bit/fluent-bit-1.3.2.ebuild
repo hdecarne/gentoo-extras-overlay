@@ -11,7 +11,7 @@ SRC_URI="https://fluentbit.io/releases/${PV:0:3}/${P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm64"
 
 INPUT_PLUGINS_STD="stdin"
 INPUT_PLUGINS_OPT="cpu thermal disk docker exec forward health http mem kmsg lib random serial syslog tail tcp mqtt head proc systemd dummy netif collectd storage_backlog"
