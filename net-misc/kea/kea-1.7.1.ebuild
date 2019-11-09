@@ -1,9 +1,9 @@
-# Copyright 1999-2019 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
-inherit toolchain-funcs user
+inherit toolchain-funcs
 
 MY_PV="${PV//_alpha/-alpha}"
 MY_PV="${MY_PV//_beta/-beta}"
@@ -17,17 +17,19 @@ SRC_URI="ftp://ftp.isc.org/isc/kea/${MY_P}.tar.gz
 
 LICENSE="ISC BSD SSLeay GPL-2" # GPL-2 only for init script
 SLOT="0"
-KEYWORDS="~amd64 ~arm64"
+KEYWORDS="~amd64"
 IUSE="mysql openssl postgres samples"
 
 DEPEND="
+	acct-group/dhcp
+	acct-user/dhcp
 	dev-libs/boost
 	dev-cpp/gtest
 	dev-libs/log4cplus
-	mysql? ( virtual/libmysqlclient )
+	mysql? ( virtual/mysql )
 	!openssl? ( dev-libs/botan:= )
 	openssl? ( dev-libs/openssl:= )
-	postgres? ( dev-db/postgresql )
+	postgres? ( dev-db/postgresql:= )
 "
 RDEPEND="${DEPEND}"
 
@@ -48,7 +50,7 @@ src_prepare() {
 
 src_configure() {
 	local myeconfargs=(
-		--runstatedir=${EPREFIX}/var/run
+		--runstatedir="${EPREFIX}/var/run"
 		$(use_with openssl)
 		$(use_enable samples install-configurations)
 		--disable-static
@@ -70,11 +72,6 @@ src_install() {
 	done
 	find "${ED}" \( -name "*.a" -o -name "*.la" \) -delete || die
 	keepdir "/var/lib/kea"
-}
-
-pkg_preinst() {
-	enewgroup dhcp
-	enewuser dhcp -1 -1 /var/lib/dhcp dhcp
 }
 
 pkg_postinst() {

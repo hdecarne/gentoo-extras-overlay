@@ -1,4 +1,4 @@
-# Copyright 1999-2019 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -17,17 +17,17 @@ SRC_URI="ftp://ftp.isc.org/isc/kea/${MY_P}.tar.gz
 
 LICENSE="ISC BSD SSLeay GPL-2" # GPL-2 only for init script
 SLOT="0"
-KEYWORDS="~amd64 ~arm64"
+KEYWORDS="~amd64"
 IUSE="mysql openssl postgres samples"
 
 DEPEND="
 	dev-libs/boost
 	dev-cpp/gtest
 	dev-libs/log4cplus
-	mysql? ( virtual/libmysqlclient )
+	mysql? ( virtual/mysql )
 	!openssl? ( dev-libs/botan:= )
 	openssl? ( dev-libs/openssl:= )
-	postgres? ( dev-db/postgresql )
+	postgres? ( dev-db/postgresql:= )
 "
 RDEPEND="${DEPEND}"
 

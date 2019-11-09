@@ -1,13 +1,13 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
-inherit user golang-vcs-snapshot
+inherit golang-vcs-snapshot
 
 EGO_PN="github.com/grafana/grafana"
 
-DESCRIPTION="The tool for beautiful monitoring and metric analytics & dashboards for Graphite, InfluxDB & Prometheus & More"
+DESCRIPTION="The tool for beautiful monitoring and metric analytics & dashboards"
 HOMEPAGE="https://grafana.com"
 
 SRC_PV="${PV/_/-}"
@@ -18,10 +18,12 @@ SLOT="0"
 KEYWORDS="~amd64"
 RESTRICT="mirror network-sandbox strip"
 
-RDEPEND="!www-apps/grafana-bin"
+RDEPEND="acct-group/grafana
+	acct-user/grafana
+	!www-apps/grafana-bin"
 DEPEND="${RDEPEND}
 	media-libs/fontconfig
-	>=net-libs/nodejs-6
+	=net-libs/nodejs-10*
 	sys-apps/yarn"
 
 QA_EXECSTACK="usr/libexec/grafana/phantomjs"
@@ -29,16 +31,13 @@ QA_EXECSTACK="usr/libexec/grafana/phantomjs"
 G="${S}"
 S="${S}/src/${EGO_PN}"
 
-pkg_setup() {
-	enewgroup grafana
-	enewuser grafana -1 -1 /usr/share/grafana grafana
-}
-
 src_prepare() {
 	sed -i "s:;reporting_enabled = .*:reporting_enabled = false:" \
 		conf/sample.ini || die "prepare failed"
 	sed -i "s:;check_for_updates = .*:check_for_updates = false:" \
 		conf/sample.ini || die "prepare failed"
+
+	eapply "${FILESDIR}/${PN}-go-1.13-fix.patch"
 
 	export GOPATH="${G}"
 	go run build.go setup || die "prepare failed"
@@ -51,6 +50,7 @@ src_compile() {
 
 	export GOPATH="${G}"
 	local GOLDFLAGS="-s -w -X main.version=${PV}"
+	go get -u golang.org/x/xerrors
 	go install -ldflags "${GOLDFLAGS}" ./pkg/cmd/grafana-{cli,server} || die "compile failed"
 	npm run build || die "compile failed"
 }

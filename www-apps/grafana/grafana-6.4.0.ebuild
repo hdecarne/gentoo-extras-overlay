@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -7,7 +7,7 @@ inherit user golang-vcs-snapshot
 
 EGO_PN="github.com/grafana/grafana"
 
-DESCRIPTION="The tool for beautiful monitoring and metric analytics & dashboards for Graphite, InfluxDB & Prometheus & More"
+DESCRIPTION="The tool for beautiful monitoring and metric analytics & dashboards"
 HOMEPAGE="https://grafana.com"
 
 SRC_PV="${PV/_/-}"

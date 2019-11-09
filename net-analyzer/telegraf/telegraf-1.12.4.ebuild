@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 #
 # egrep -e " name = " -e " revision = " Gopkg.lock | tr -d '\n' | sed s/\ \ name\ =\ /\\n/g | sed s/\"\ \ revision\ =\ \"/\ / | sort
@@ -154,7 +154,7 @@ EGO_VENDOR=(
 "gopkg.in/yaml.v2 5420a8b6744d3b0345ab293f6fcba19c978f1183 github.com/go-yaml/yaml"
 )
 
-inherit golang-build golang-vcs-snapshot systemd user
+inherit golang-build golang-vcs-snapshot systemd
 
 MY_PV="${PV/_rc/-rc}"
 
@@ -168,10 +168,8 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 
-pkg_setup() {
-	enewgroup telegraf
-	enewuser telegraf -1 -1 -1 telegraf
-}
+RDEPEND="acct-group/telegraf
+	acct-user/telegraf"
 
 src_compile() {
 	pushd "src/${EGO_PN}" || die

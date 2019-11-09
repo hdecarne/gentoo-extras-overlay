@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>hdecarne@gmail.com</email>
+		<name>Holger</name>
+	</maintainer>
+	<maintainer type="project">
+		<email>proxy-maint@gentoo.org</email>
+		<name>Proxy Maintainers</name>
+	</maintainer>
+	<use>
+		<flag name="mysql">Build Kea with code to allow it to store leases and host reservations in a MySQL database</flag>
+		<flag name="openssl">Replace Botan by the OpenSSL the cryptographic library</flag>
+		<flag name="postgres">Build Kea with code to allow it to store leases and host reservations in a PostgreSQL database</flag>
+		<flag name="samples">Install sample configuration</flag>
+	</use>
+</pkgmetadata>

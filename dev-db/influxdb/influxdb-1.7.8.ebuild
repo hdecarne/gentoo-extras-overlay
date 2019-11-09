@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 #
 # egrep -e " name = " -e " revision = " Gopkg.lock | tr -d '\n' | sed s/\ \ name\ =\ /\\n/g | sed s/\"\ \ revision\ =\ \"/\ /
@@ -9,14 +9,11 @@ EAPI=6
 EGO_VENDOR=(
 "collectd.org 2ce144541b8903101fb8f1483cc0497a68798122 github.com/collectd/go-collectd"
 "github.com/BurntSushi/toml a368813c5e648fee92e5f6c30e3944ff9d5e8895"
-"github.com/Masterminds/semver c7af12943936e8c39859482e61f0574c2fd7fc75"
-"github.com/RoaringBitmap/roaring 3d677d3262197ee558b85029301eb69b8239f91a"
 "github.com/alecthomas/kingpin 947dcec5ba9c011838740e680966fd7087a71d0d"
 "github.com/alecthomas/template a0175ee3bccc567396460bf5acd36800cb10c49c"
 "github.com/alecthomas/units 2efee857e7cfd4f3d0138cc3cbb1b4966962b93a"
-"github.com/apache/arrow c6d97c59ef047cc9d5e2836b1945df26cd7c4622"
+"github.com/apache/arrow 338c62a2a20574072fde5c478fcd42bf27a2d4b6"
 "github.com/apex/log 941dea75d3ebfbdd905a5d8b7b232965c5e5c684"
-"github.com/aws/aws-sdk-go dd947f47decb37a7c3bee72501bfc790701ab5ad"
 "github.com/beorn7/perks 3a771d992973f24aa725d07868b467d1ddfceafb"
 "github.com/blakesmith/ar 8bd4349a67f2533b078dbc524689d15dba0f4659"
 "github.com/bmizerany/pat 6226ea591a40176dd3ff9cd8eff81ed6ca721a00"
@@ -30,34 +27,32 @@ EGO_VENDOR=(
 "github.com/dgryski/go-bitstream 3522498ce2c8ea06df73e55df58edfbfb33cfdd6"
 "github.com/fatih/color 570b54cabe6b8eb0bc2dfce68d964677d63b5260"
 "github.com/glycerine/go-unsnap-stream 9f0cb55181dd3a0a4c168d3dbc72d4aca4853126"
-"github.com/go-ini/ini 7b294651033cd7d9e7f0d9ffa1b75ed1e198e737"
-"github.com/go-sql-driver/mysql d523deb1b23d913de5bdada721a6071e71283618"
+"github.com/go-sql-driver/mysql 72cd26f257d44c1114970e19afddcd812016007e"
 "github.com/gogo/protobuf 636bf0302bc95575d69441b25a2603156ffdddf1"
 "github.com/golang/protobuf b4deda0973fb4c70b50d226b1af49f3da59f5265"
 "github.com/golang/snappy d9eb7a3d35ec988b8585d4a0068e462c27d28380"
 "github.com/google/go-cmp 3af367b6b30c263d47e8895973edcca9a49cf029"
 "github.com/google/go-github dd29b543e14c33e6373773f2c5ea008b29aeac95"
 "github.com/google/go-querystring 44c6ddd0a2342c386950e880b658017258da92fc"
-"github.com/goreleaser/goreleaser f99940ff5397b099bf606cf1323c00c63afcd153"
-"github.com/goreleaser/nfpm de75d679901371e3ed0c0a606e160539d5a4b45e"
+"github.com/goreleaser/archive 9c6b0c177751034bab579499b81c69993ddfe563"
+"github.com/goreleaser/goreleaser ad118b0f7c64c46265a3a05737c3e0d4d6d1c2be"
+"github.com/goreleaser/nfpm 8faa8e2e621115b3b560688a72d9c37bff4acb9f"
 "github.com/imdario/mergo 9f23e2d6bd2a77f959b2bf6acdbefd708a83a4a4"
-"github.com/influxdata/flux 8c9d0ad49204d3bbb171e96d872cf663ee7f1b4d"
-"github.com/influxdata/influxql c661ab7db8ad858626cc7a2114e786f4e7463564"
-"github.com/influxdata/line-protocol 32c6aa80de5eb09d190ad284a8214a531c6bce57"
-"github.com/influxdata/platform 0f79e4ea3248354c789cba274542e0a8e55971db"
+"github.com/influxdata/flux b25312b5fc12e5709f8d31e9ad9dca75a8acf56b"
+"github.com/influxdata/influxql 1cbfca8e56b6eaa120f5b5161e4f0d5edcc9e513"
+"github.com/influxdata/line-protocol a3afd890113fb9f0337e05808bb06fb0ca4c685a"
 "github.com/influxdata/roaring fc520f41fab6dcece280e8d4853d87a09a67f9e0"
-"github.com/influxdata/tdigest a7d76c6f093a59b94a01c6c2b8429122d444a8cc"
+"github.com/influxdata/tdigest bf2b5ad3c0a925c44a0d2842c5d8182113cd248e"
 "github.com/influxdata/usage-client 6d3895376368aa52a3a81d2a16e90f0f52371967"
-"github.com/jmespath/go-jmespath 0b12d6b5"
 "github.com/jsternberg/zap-logfmt ac4bd917e18a4548ce6e0e765b29a4e7f397b0b6"
 "github.com/jwilder/encoding b4e1701a28efcc637d9afcca7d38e495fe909a09"
-"github.com/kevinburke/go-bindata 06af60a4461b70d84a2b173d92f9f425d78baf55"
 "github.com/kisielk/gotool 80517062f582ea3340cd4baf70e86d539ae7d84d"
 "github.com/klauspost/compress b939724e787a27c0005cabe3f78e7ed7987ac74f"
 "github.com/klauspost/cpuid ae7887de9fa5d2db4eaa8174a7eff2c1ac00f2da"
 "github.com/klauspost/crc32 cb6bfca970f6908083f26f39a79009d608efd5cd"
 "github.com/klauspost/pgzip 0bf5dcad4ada2814c3c00f996a982270bb81a506"
 "github.com/lib/pq 4ded0e9383f75c197b3a2aaa6d590ac52df6fd79"
+"github.com/masterminds/semver c7af12943936e8c39859482e61f0574c2fd7fc75"
 "github.com/mattn/go-colorable 167de6bfdfba052fa6b2d3664c8f5272e23c9072"
 "github.com/mattn/go-isatty 6ca4dbf54d38eea1a992b3c722a76a5d1c4cb25c"
 "github.com/mattn/go-runewidth 9e777a8366cce605130a531d2cd6363d07ad7317"
@@ -65,7 +60,6 @@ EGO_VENDOR=(
 "github.com/mattn/go-zglob 2ea3427bfa539cca900ca2768d8663ecc8a708c1"
 "github.com/matttproud/golang_protobuf_extensions c12348ce28de40eed0136aa2b644d0ee0650e56c"
 "github.com/mitchellh/go-homedir ae18d6b8b3205b561c79e8e5f69bff09736185f4"
-"github.com/mna/pigeon 9df264905d4734c0133161d8c67828ff522b154a"
 "github.com/mschoch/smat 90eadee771aeab36e8bf796039b8c261bebebe4f"
 "github.com/opentracing/opentracing-go bd9c3193394760d98b2fa6ebb2291f0cd1d06a7d"
 "github.com/paulbellamy/ratecounter 524851a93235ac051e3540563ed7909357fe24ab"
@@ -79,7 +73,8 @@ EGO_VENDOR=(
 "github.com/prometheus/procfs ae68e2d4c00fed4943b5f6698d504a5fe083da8a"
 "github.com/retailnext/hllpp 101a6d2f8b52abfc409ac188958e7e7be0116331"
 "github.com/satori/go.uuid f58768cc1a7a7e77a3bd49e98cdd21419399b6a3"
-"github.com/segmentio/kafka-go c6db9435477f3cb658e2dd0fa93e02118c870251"
+"github.com/segmentio/kafka-go 0b3aacc527812d4040e51211146a43545e82d670"
+"github.com/spf13/cast 8c9545af88b134710ab1cd196795e7f2388358d7"
 "github.com/tinylib/msgp b2b6a672cf1e5b90748f79b8b81fc8c5cf0571a1"
 "github.com/willf/bitset d860f346b89450988a379d7d705e83c58d1ea227"
 "github.com/xlab/treeprint d6fb6747feb6e7cfdc44682a024bddf87ef07ec2"
@@ -101,7 +96,7 @@ EGO_VENDOR=(
 "honnef.co/go/tools d73ab98e7c39fdcf9ba65062e43d34310f198353 github.com/dominikh/go-tools"
 )
 
-inherit user golang-vcs-snapshot
+inherit golang-vcs-snapshot
 
 EGO_PN="github.com/influxdata/influxdb"
 
@@ -117,18 +112,15 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="man"
 
-DEPEND="man? ( app-text/asciidoc
-		app-text/xmlto )"
+DEPEND="acct-group/influxdb
+	acct-user/influxdb
+	man? ( app-text/asciidoc
+	app-text/xmlto )"
 
 RESTRICT="mirror strip"
 
 G="${S}"
 S="${S}/src/${EGO_PN}"
-
-pkg_setup() {
-	enewgroup influxdb
-	enewuser influxdb -1 -1 /var/lib/influxdb influxdb
-}
 
 src_prepare() {
 	sed -i "s:# reporting-disabled = .*:reporting-disabled = true:" \

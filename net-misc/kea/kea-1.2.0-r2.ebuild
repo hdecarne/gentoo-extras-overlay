@@ -1,4 +1,4 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -24,10 +24,10 @@ DEPEND="
 	dev-libs/boost
 	dev-cpp/gtest
 	dev-libs/log4cplus
-	mysql? ( virtual/libmysqlclient )
+	mysql? ( virtual/mysql )
 	!openssl? ( dev-libs/botan:= )
 	openssl? ( dev-libs/openssl:= )
-	postgres? ( dev-db/postgresql )
+	postgres? ( dev-db/postgresql:= )
 "
 RDEPEND="${DEPEND}"
 
