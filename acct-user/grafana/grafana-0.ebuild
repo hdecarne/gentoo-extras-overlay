@@ -5,9 +5,9 @@ EAPI=7
 
 inherit acct-user
 
-DESCRIPTION="loki program user"
+DESCRIPTION="Grafana program user"
 ACCT_USER_ID=200
-ACCT_USER_HOME=/var/lib/loki
+ACCT_USER_HOME=/var/lib/grafana
 ACCT_USER_HOME_PERMS=0755
 ACCT_USER_GROUPS=( grafana )
 acct-user_add_deps
