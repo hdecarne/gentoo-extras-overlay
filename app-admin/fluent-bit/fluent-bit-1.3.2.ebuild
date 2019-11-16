@@ -90,7 +90,7 @@ src_configure() {
 src_install() {
 	cmake-utils_src_install
 
-	keepdir "/etc/${PN}"
+	keepdir "/var/log/${PN}"
 
 	newconfd "${FILESDIR}/${PN}.confd" "${PN}"
 	newinitd "${FILESDIR}/${PN}.initd" "${PN}"
