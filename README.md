@@ -32,4 +32,6 @@ __Please beware__: I am running and hence tested these ebuilds against ~amd64 or
 
 * app-admin/loki: New ebuild for Loki log aggregator (https://grafana.com/loki).
 
+* dev-php/pecl-msgpack: New ebuild for msgpack PHP extension (https://github.com/msgpack/msgpack-php).
+
 * www-apps/grafana: New ebuild for Grafana dashboard web app (https://grafana.com).
