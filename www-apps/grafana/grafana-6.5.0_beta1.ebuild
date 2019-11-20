@@ -37,8 +37,6 @@ src_prepare() {
 	sed -i "s:;check_for_updates = .*:check_for_updates = false:" \
 		conf/sample.ini || die "prepare failed"
 
-#	eapply "${FILESDIR}/${PN}-go-1.13-fix.patch"
-
 	export GOPATH="${G}"
 	go run build.go setup || die "prepare failed"
 	yarn install --pure-lockfile --no-progress || die "prepare failed"
@@ -50,7 +48,6 @@ src_compile() {
 
 	export GOPATH="${G}"
 	local GOLDFLAGS="-s -w -X main.version=${PV}"
-#	go get -u golang.org/x/xerrors
 	go install -ldflags "${GOLDFLAGS}" ./pkg/cmd/grafana-{cli,server} || die "compile failed"
 	npm run build || die "compile failed"
 }
