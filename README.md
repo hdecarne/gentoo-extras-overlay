@@ -26,8 +26,6 @@ __Please beware__: I am running and hence tested these ebuilds against ~amd64 or
 
 * net-misc/kea: Updated ebuild with DB backend support (MySQL, PostgreSQL).
 
-* sys-auth/google-authenticator: Updated ebuild for Google's two step verification PAM module (https://github.com/google/google-authenticator-libpam).
-
 * app-admin/fluent-bit: New ebuild for fluent-bit log processor and forwarder (https://fluentbit.io).
 
 * app-admin/loki: New ebuild for Loki log aggregator (https://grafana.com/loki).
