@@ -112,7 +112,7 @@ EGO_VENDOR=(
 "github.com/rcrowley/go-metrics e2704e165165ec55d062f5919b4b29494e9fa790"
 "github.com/safchain/ethtool 42ed695e3de80b9d695f280295fd7994639f209d"
 "github.com/samuel/go-zookeeper c4fab1ac1bec58281ad0667dc3f0907a9476ac47"
-"github.com/satori/go.uuid f58768cc1a7a7e77a3bd49e98cdd21419399b6a3"
+"github.com/satori/go.uuid b2ce2384e17bbe0c6d34077efa39dbab3e09123b"
 "github.com/shirou/gopsutil fc7e5e7af6052e36e83e5539148015ed2c09d8f9"
 "github.com/shirou/w32 bb4de0191aa41b5507caa14b0650cdbddcd9280b"
 "github.com/Shopify/sarama v1.24.1"
