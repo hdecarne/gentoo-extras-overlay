@@ -1,0 +1,13 @@
+DEFINED_PHASES=configure install postinst prepare
+DEPEND=acct-group/dhcp acct-user/dhcp dev-libs/boost dev-cpp/gtest dev-libs/log4cplus mysql? ( virtual/mysql ) !openssl? ( dev-libs/botan:= ) openssl? ( dev-libs/openssl:= ) postgres? ( dev-db/postgresql:= )
+DESCRIPTION=High-performance production grade DHCPv4 & DHCPv6 server
+EAPI=7
+HOMEPAGE=http://www.isc.org/kea/
+IUSE=mysql openssl postgres samples
+KEYWORDS=~amd64
+LICENSE=ISC BSD SSLeay GPL-2
+RDEPEND=acct-group/dhcp acct-user/dhcp dev-libs/boost dev-cpp/gtest dev-libs/log4cplus mysql? ( virtual/mysql ) !openssl? ( dev-libs/botan:= ) openssl? ( dev-libs/openssl:= ) postgres? ( dev-db/postgresql:= )
+SLOT=0
+SRC_URI=ftp://ftp.isc.org/isc/kea/kea-1.7.3.tar.gz ftp://ftp.isc.org/isc/kea/1.7.3/kea-1.7.3.tar.gz
+_eclasses_=multilib	1d91b03d42ab6308b5f4f6b598ed110e	toolchain-funcs	512eb3367f507ebaa1d1d43ab7d66e6c
+_md5_=352bb58644908d8d2c8462cb80bb5543
