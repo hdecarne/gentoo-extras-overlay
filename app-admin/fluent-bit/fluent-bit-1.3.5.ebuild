@@ -21,7 +21,7 @@ OUTPUT_PLUGINS_OPT="azure bigquery counter datadog es exit forward gelf http inf
 FILTER_STD="grep modify stdout parser throttle nest record_modifier"
 FILTER_OPT="kubernetes lua"
 
-IUSE="debug examples luajit jemalloc tls"
+IUSE="debug examples luajit jemalloc loki tls"
 for plugin in ${INPUT_PLUGINS_STD}; do
 	IUSE="${IUSE} +fluentbit_input_plugins_${plugin}"
 done
@@ -52,6 +52,13 @@ DEPEND="${RDEPEND}"
 BUILD_DIR="${S}/build"
 CMAKE_BUILD_TYPE="Release"
 CMAKE_MAKEFILE_GENERATOR="emake"
+
+src_prepare() {
+	cmake-utils_src_prepare
+	if use loki; then
+		eapply "${FILESDIR}/${P}-json_loki.patch"
+	fi
+}
 
 src_configure() {
 	local mycmakeargs=(
