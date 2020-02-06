@@ -1,0 +1,14 @@
+BDEPEND=>=dev-lang/go-1.10
+DEFINED_PHASES=compile install prepare unpack
+DEPEND=acct-group/grafana acct-user/grafana !www-apps/grafana-bin media-libs/fontconfig =net-libs/nodejs-12* sys-apps/yarn
+DESCRIPTION=The tool for beautiful monitoring and metric analytics & dashboards
+EAPI=7
+HOMEPAGE=https://grafana.com
+KEYWORDS=~amd64
+LICENSE=Apache-2.0
+RDEPEND=acct-group/grafana acct-user/grafana !www-apps/grafana-bin
+RESTRICT=mirror network-sandbox strip
+SLOT=0
+SRC_URI=https://github.com/grafana/grafana/archive/v6.6.1.tar.gz -> grafana-6.6.1.tar.gz
+_eclasses_=golang-base	c57d2c3f9e1a02d0feb8b87c7b689892	golang-vcs-snapshot	12177e83bede6f7fb87eae383864b40b
+_md5_=4ba9f254b9eaae8071c009c5fb9c734f
