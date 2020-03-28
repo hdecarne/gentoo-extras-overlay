@@ -1,9 +1,9 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
-inherit toolchain-funcs user
+inherit toolchain-funcs
 
 MY_PV="${PV//_alpha/-alpha}"
 MY_PV="${MY_PV//_beta/-beta}"
@@ -20,15 +20,15 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="mysql openssl postgres samples"
 
-DEPEND="
+DEPEND="acct-group/dhcp
+	acct-user/dhcp
 	dev-libs/boost
 	dev-cpp/gtest
 	dev-libs/log4cplus
 	mysql? ( virtual/mysql )
 	!openssl? ( dev-libs/botan:= )
 	openssl? ( dev-libs/openssl:= )
-	postgres? ( dev-db/postgresql:= )
-"
+	postgres? ( dev-db/postgresql:= )"
 RDEPEND="${DEPEND}"
 
 S="${WORKDIR}/${MY_P}"
@@ -61,11 +61,6 @@ src_install() {
 		newinitd "${FILESDIR}"/${PN}-${service}-initd ${PN}-${service}
 	done
 	find "${ED}" \( -name "*.a" -o -name "*.la" \) -delete || die
-}
-
-pkg_preinst() {
-	enewgroup dhcp
-	enewuser dhcp -1 -1 /var/lib/dhcp dhcp
 }
 
 pkg_postinst() {

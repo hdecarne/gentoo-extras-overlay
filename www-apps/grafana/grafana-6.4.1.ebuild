@@ -1,9 +1,9 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
-inherit user golang-vcs-snapshot
+inherit golang-vcs-snapshot
 
 EGO_PN="github.com/grafana/grafana"
 
@@ -18,7 +18,9 @@ SLOT="0"
 KEYWORDS="~amd64"
 RESTRICT="mirror network-sandbox strip"
 
-RDEPEND="!www-apps/grafana-bin"
+RDEPEND="acct-group/grafana
+	acct-user/grafana
+	!www-apps/grafana-bin"
 DEPEND="${RDEPEND}
 	media-libs/fontconfig
 	=net-libs/nodejs-10*
@@ -28,11 +30,6 @@ QA_EXECSTACK="usr/libexec/grafana/phantomjs"
 
 G="${S}"
 S="${S}/src/${EGO_PN}"
-
-pkg_setup() {
-	enewgroup grafana
-	enewuser grafana -1 -1 /usr/share/grafana grafana
-}
 
 src_prepare() {
 	sed -i "s:;reporting_enabled = .*:reporting_enabled = false:" \

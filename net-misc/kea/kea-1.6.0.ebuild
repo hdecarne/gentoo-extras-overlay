@@ -1,4 +1,4 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -20,7 +20,8 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="mysql openssl postgres samples"
 
-DEPEND="
+DEPEND="acct-group/dhcp
+	acct-user/dhcp
 	acct-group/dhcp
 	acct-user/dhcp
 	dev-libs/boost
@@ -29,8 +30,7 @@ DEPEND="
 	mysql? ( virtual/mysql )
 	!openssl? ( dev-libs/botan:= )
 	openssl? ( dev-libs/openssl:= )
-	postgres? ( dev-db/postgresql:= )
-"
+	postgres? ( dev-db/postgresql:= )"
 RDEPEND="${DEPEND}"
 
 S="${WORKDIR}/${MY_P}"

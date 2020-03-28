@@ -1,7 +1,7 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 #
 # egrep -e " name = " -e " revision = " Gopkg.lock | tr -d '\n' | sed s/\ \ name\ =\ /\\n/g | sed s/\"\ \ revision\ =\ \"/\ /
@@ -101,7 +101,7 @@ EGO_VENDOR=(
 "honnef.co/go/tools d73ab98e7c39fdcf9ba65062e43d34310f198353 github.com/dominikh/go-tools"
 )
 
-inherit user golang-vcs-snapshot
+inherit golang-vcs-snapshot
 
 EGO_PN="github.com/influxdata/influxdb"
 
@@ -117,18 +117,15 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="man"
 
-DEPEND="man? ( app-text/asciidoc
-		app-text/xmlto )"
+DEPEND="acct-group/influxdb
+	acct-user/influxdb
+	man? ( app-text/asciidoc
+	app-text/xmlto )"
 
 RESTRICT="mirror strip"
 
 G="${S}"
 S="${S}/src/${EGO_PN}"
-
-pkg_setup() {
-	enewgroup influxdb
-	enewuser influxdb -1 -1 /var/lib/influxdb influxdb
-}
 
 src_prepare() {
 	sed -i "s:# reporting-disabled = .*:reporting-disabled = true:" \

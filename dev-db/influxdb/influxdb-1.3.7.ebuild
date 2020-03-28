@@ -1,7 +1,7 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 EGO_VENDOR=(
 	"collectd.org e84e8af github.com/collectd/go-collectd"
@@ -25,7 +25,7 @@ EGO_VENDOR=(
 	"golang.org/x/crypto 9477e0b github.com/golang/crypto"
 )
 
-inherit user golang-vcs-snapshot
+inherit golang-vcs-snapshot
 
 EGO_PN="github.com/influxdata/influxdb"
 
@@ -39,18 +39,15 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="man"
 
-DEPEND="man? ( app-text/asciidoc
-		app-text/xmlto )"
+DEPEND="acct-group/influxdb
+	acct-user/influxdb
+	man? ( app-text/asciidoc
+	app-text/xmlto )"
 
 RESTRICT="mirror strip"
 
 G="${S}"
 S="${S}/src/${EGO_PN}"
-
-pkg_setup() {
-	enewgroup influxdb
-	enewuser influxdb -1 -1 /var/lib/influxdb influxdb
-}
 
 src_prepare() {
 	sed -i "s:# reporting-disabled = .*:reporting-disabled = true:" \

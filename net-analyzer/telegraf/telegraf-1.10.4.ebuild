@@ -1,7 +1,7 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 #
 # egrep -e " name = " -e " revision = " Gopkg.lock | tr -d '\n' | sed s/\ \ name\ =\ /\\n/g | sed s/\"\ \ revision\ =\ \"/\ /
@@ -143,7 +143,7 @@ EGO_VENDOR=(
 "gopkg.in/yaml.v2 5420a8b6744d3b0345ab293f6fcba19c978f1183 github.com/go-yaml/yaml"
 )
 
-inherit golang-build golang-vcs-snapshot systemd user
+inherit golang-build golang-vcs-snapshot systemd
 
 MY_PV="${PV/_rc/-rc.}"
 
@@ -155,11 +155,12 @@ SRC_URI="https://${EGO_PN}/archive/${MY_PV}.tar.gz -> ${P}.tar.gz
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
+IUSE="systemd"
 
-pkg_setup() {
-	enewgroup telegraf
-	enewuser telegraf -1 -1 -1 telegraf
-}
+DEPEND="acct-group/influxdb
+	acct-user/influxdb"
+
+RESTRICT="mirror"
 
 src_compile() {
 	pushd "src/${EGO_PN}" || die
@@ -182,7 +183,10 @@ src_install() {
 	insinto /etc/logrotate.d
 	doins etc/logrotate.d/telegraf
 
-systemd_dounit scripts/telegraf.service
+	if use systemd; then
+		systemd_dounit scripts/telegraf.service
+	fi
+
 	newconfd "${FILESDIR}"/telegraf.confd telegraf
 	newinitd "${FILESDIR}"/telegraf.rc telegraf
 
