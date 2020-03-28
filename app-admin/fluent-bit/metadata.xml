@@ -14,6 +14,7 @@
 		<flag name="examples">Build examples</flag>
 		<flag name="luajit">Enable Lua scripting support</flag>
 		<flag name="jemalloc">Use Jemalloc as default memory allocator</flag>
+		<flag name="loki">Apply json_loki support path for HTTP output plugin (https://github.com/fluent/fluent-bit/pull/1853)</flag>
 		<flag name="tls">Buils with SSL/TLS support</flag>
 		<flag name="fluentbit_input_plugins_stdin">Enable Standard input plugin</flag>
 		<flag name="fluentbit_input_plugins_cpu">Enable CPU input plugin</flag>
@@ -38,8 +39,10 @@
 		<flag name="fluentbit_input_plugins_systemd">Enable Systemd input plugin</flag>
 		<flag name="fluentbit_input_plugins_dummy">Enable Dummy input plugin</flag>
 		<flag name="fluentbit_input_plugins_netif">Enable NetworkIF input plugin</flag>
+		<flag name="fluentbit_input_plugins_winlog">Enable Windows Log input plugin</flag>
 		<flag name="fluentbit_input_plugins_collectd">Enable Collectd input plugin</flag>
 		<flag name="fluentbit_input_plugins_storage_backlog">Enable storage backlog input plugin</flag>
+		<flag name="fluentbit_input_plugins_emitter">Enable emitter input plugin</flag>
 		<flag name="fluentbit_output_plugins_stdout">Enable STDOUT output plugin</flag>
 		<flag name="fluentbit_output_plugins_null">Enable dev null output plugin</flag>
 		<flag name="fluentbit_output_plugins_azure">Enable Azure output plugin</flag>
@@ -57,12 +60,16 @@
 		<flag name="fluentbit_output_plugins_plot">Enable Plot output plugin</flag>
 		<flag name="fluentbit_output_plugins_file">Enable file output plugin</flag>
 		<flag name="fluentbit_output_plugins_td">Enable Treasure Data output plugin</flag>
+		<flag name="fluentbit_output_plugins_retry">Enable Retry test output plugin</flag>
+		<flag name="fluentbit_output_plugins_pgsql">Enable PostgreSQL output plugin</flag>
 		<flag name="fluentbit_output_plugins_splunk">Enable Splunk output plugin</flag>
 		<flag name="fluentbit_output_plugins_stackdriver">Enable Stackdriver output plugin</flag>
 		<flag name="fluentbit_output_plugins_lib">Enable library mode output plugin</flag>
 		<flag name="fluentbit_output_plugins_flowcounter">Enable flowcount output plugin</flag>
 		<flag name="fluentbit_output_plugins_kafka">Enable Kafka output plugin</flag>
 		<flag name="fluentbit_output_plugins_kafka_rest">Enable Kafka Rest output plugin</flag>
+		<flag name="fluentbit_filters_aws">Enable aws filter</flag>
+		<flag name="fluentbit_filters_expect">Enable expect filter</flag>
 		<flag name="fluentbit_filters_grep">Enable grep filter</flag>
 		<flag name="fluentbit_filters_modify">Enable modify filter</flag>
 		<flag name="fluentbit_filters_stdout">Enable stdout filter</flag>
@@ -71,6 +78,7 @@
 		<flag name="fluentbit_filters_nest">Enable nest filter"</flag>
 		<flag name="fluentbit_filters_record_modifier">Enable record_modifier filter</flag>
 		<flag name="fluentbit_filters_kubernetes">Enable kubernetes filter</flag>
+		<flag name="fluentbit_filters_rewrite_tag">Enable tag rewrite filter</flag>
 		<flag name="fluentbit_filters_lua">Enable Lua scripting filter</flag>
 	</use>
 </pkgmetadata>
