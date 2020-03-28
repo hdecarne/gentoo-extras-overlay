@@ -21,7 +21,7 @@ OUTPUT_PLUGINS_OPT="azure bigquery counter datadog es exit forward gelf http inf
 FILTER_STD="grep modify stdout parser throttle nest record_modifier"
 FILTER_OPT="aws expect kubernetes lua rewrite_tag"
 
-IUSE="debug examples luajit jemalloc loki tls"
+IUSE="debug examples luajit jemalloc loki +tls"
 for plugin in ${INPUT_PLUGINS_STD}; do
 	IUSE="${IUSE} +fluentbit_input_plugins_${plugin}"
 done
