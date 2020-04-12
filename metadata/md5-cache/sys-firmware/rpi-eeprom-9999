@@ -8,4 +8,4 @@ LICENSE=BSD raspberrypi-eeprom-firmware
 PROPERTIES=live
 SLOT=0
 _eclasses_=git-r3	86a0188f2ad9eb3d65e4d031ab8a0422
-_md5_=2bdf3e3f4281f0f27b42f03172bc6968
+_md5_=a2888e16cfd6cafa2659ff11e360379f
