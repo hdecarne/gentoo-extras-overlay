@@ -32,4 +32,6 @@ __Please beware__: I am running and hence tested these ebuilds against ~amd64 or
 
 * dev-php/pecl-msgpack: New ebuild for msgpack PHP extension (https://github.com/msgpack/msgpack-php).
 
+* media-libs/raspberrypi-userland: Derived ebuild for 64 bit Raspberry Pi userland tools.
+
 * www-apps/grafana: New ebuild for Grafana dashboard web app (https://grafana.com).
