@@ -24,13 +24,7 @@ CMAKE_MAKEFILE_GENERATOR="emake"
 
 QA_SONAME="usr/bin/dtmerge
 	usr/bin/dtoverlay
-	usr/lib/libdtovl.so
-	usr/lib/libfdt.so
-	libfdt.so"
-
-#pkg_setup() {
-#	append-ldflags $(no-as-needed)
-#}
+	usr/lib/libdtovl.so"
 
 src_prepare() {
 	cmake-utils_src_prepare
