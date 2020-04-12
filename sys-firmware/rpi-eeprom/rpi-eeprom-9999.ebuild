@@ -15,9 +15,9 @@ LICENSE="BSD raspberrypi-eeprom-firmware"
 SLOT="0"
 KEYWORDS="~arm64"
 
-RDEPENDS="|| ( media-libs/raspberrypi-userland
-			   media-libs/raspberrypi-userland-bin
-			   media-libs/raspberrypi-userland64 )"
+DEPENDS="|| ( media-libs/raspberrypi-userland
+			  media-libs/raspberrypi-userland-bin
+			  media-libs/raspberrypi-userland64 )"
 
 QA_PRESTRIPPED="lib/firmware/raspberrypi/bootloader/vl805"
 
