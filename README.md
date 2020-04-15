@@ -8,7 +8,7 @@ The corresponding packages either did not yet find their way into the portage tr
 The preferred way to use this overlay is to add a file with the following content to your /etc/portage/repos.conf folder:
 
 	[gentoo-extras-overlay]                 
-	location = /usr/local/gentoo-extras-overlay           
+	location = /var/db/repos/gentoo-extras-overlay           
 	sync-type = git                         
 	sync-uri = https://github.com/hdecarne/gentoo-extras-overlay.git                
 	clone-depth = 0                         
@@ -32,8 +32,8 @@ __Please beware__: I am running and hence tested these ebuilds against ~amd64 or
 
 * dev-php/pecl-msgpack: New ebuild for msgpack PHP extension (https://github.com/msgpack/msgpack-php).
 
-* media-libs/raspberrypi-userland: Derived ebuild for 64 bit Raspberry Pi userland tools.
+* media-libs/raspberrypi-userland: Derived ebuild for 64 bit Raspberry Pi userland tools (https://github.com/raspberrypi/userland).
 
-* sys-firmware/rpi-eeprom: New ebuild for Raspberry Pi4 bootloader EEPROM updates.
+* sys-firmware/rpi-eeprom: New ebuild for Raspberry Pi4 bootloader EEPROM updates (https://github.com/raspberrypi/rpi-eeprom).
 
 * www-apps/grafana: New ebuild for Grafana dashboard web app (https://grafana.com).
