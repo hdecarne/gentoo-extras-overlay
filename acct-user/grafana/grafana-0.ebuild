@@ -7,7 +7,6 @@ inherit acct-user
 
 DESCRIPTION="Grafana program user"
 ACCT_USER_ID=200
-ACCT_USER_HOME=/var/lib/grafana
-ACCT_USER_HOME_PERMS=0755
-ACCT_USER_GROUPS=( grafana )
+ACCT_USER_GROUPS=( "${PN}" )
+
 acct-user_add_deps
