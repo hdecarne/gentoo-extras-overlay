@@ -1,0 +1,85 @@
+# This file is deprecated as per GLEP 56 in favor of metadata.xml. Please add
+# your descriptions to your package's metadata.xml ONLY.
+# * generated automatically using egencache *
+
+app-admin/fluent-bit:debug - Build binaries with debug symbols
+app-admin/fluent-bit:examples - Build examples
+app-admin/fluent-bit:fluentbit_filters_aws - Enable aws filter
+app-admin/fluent-bit:fluentbit_filters_expect - Enable expect filter
+app-admin/fluent-bit:fluentbit_filters_grep - Enable grep filter
+app-admin/fluent-bit:fluentbit_filters_kubernetes - Enable kubernetes filter
+app-admin/fluent-bit:fluentbit_filters_lua - Enable Lua scripting filter
+app-admin/fluent-bit:fluentbit_filters_modify - Enable modify filter
+app-admin/fluent-bit:fluentbit_filters_nest - Enable nest filter"
+app-admin/fluent-bit:fluentbit_filters_parser - Enable parser filter
+app-admin/fluent-bit:fluentbit_filters_record_modifier - Enable record_modifier filter
+app-admin/fluent-bit:fluentbit_filters_rewrite_tag - Enable tag rewrite filter
+app-admin/fluent-bit:fluentbit_filters_stdout - Enable stdout filter
+app-admin/fluent-bit:fluentbit_filters_throttle - Enable throttle filter
+app-admin/fluent-bit:fluentbit_input_plugins_collectd - Enable Collectd input plugin
+app-admin/fluent-bit:fluentbit_input_plugins_cpu - Enable CPU input plugin
+app-admin/fluent-bit:fluentbit_input_plugins_disk - Enable Disk input plugin
+app-admin/fluent-bit:fluentbit_input_plugins_docker - Enable Docker input plugin
+app-admin/fluent-bit:fluentbit_input_plugins_dummy - Enable Dummy input plugin
+app-admin/fluent-bit:fluentbit_input_plugins_emitter - Enable emitter input plugin
+app-admin/fluent-bit:fluentbit_input_plugins_exec - Enable Exec input plugin
+app-admin/fluent-bit:fluentbit_input_plugins_forward - Enable Forward input plugin
+app-admin/fluent-bit:fluentbit_input_plugins_head - Enable Head input plugin
+app-admin/fluent-bit:fluentbit_input_plugins_health - Enable Health input plugin
+app-admin/fluent-bit:fluentbit_input_plugins_http - Enable HTTP input plugin
+app-admin/fluent-bit:fluentbit_input_plugins_kmsg - Enable Kernel log input plugin
+app-admin/fluent-bit:fluentbit_input_plugins_lib - Enable library mode input plugin
+app-admin/fluent-bit:fluentbit_input_plugins_mem - Enable Memory input plugin
+app-admin/fluent-bit:fluentbit_input_plugins_mqtt - Enable MQTT Broker input plugin
+app-admin/fluent-bit:fluentbit_input_plugins_netif - Enable NetworkIF input plugin
+app-admin/fluent-bit:fluentbit_input_plugins_proc - Enable Process input plugin
+app-admin/fluent-bit:fluentbit_input_plugins_random - Enable random input plugin
+app-admin/fluent-bit:fluentbit_input_plugins_serial - Enable Serial input plugin
+app-admin/fluent-bit:fluentbit_input_plugins_stdin - Enable Standard input plugin
+app-admin/fluent-bit:fluentbit_input_plugins_storage_backlog - Enable storage backlog input plugin
+app-admin/fluent-bit:fluentbit_input_plugins_syslog - Enable Syslog input plugin
+app-admin/fluent-bit:fluentbit_input_plugins_systemd - Enable Systemd input plugin
+app-admin/fluent-bit:fluentbit_input_plugins_tail - Enable Tail input plugin
+app-admin/fluent-bit:fluentbit_input_plugins_tcp - Enable TCP input plugin
+app-admin/fluent-bit:fluentbit_input_plugins_thermal - Enable Thermal plugin
+app-admin/fluent-bit:fluentbit_input_plugins_winlog - Enable Windows Log input plugin
+app-admin/fluent-bit:fluentbit_output_plugins_azure - Enable Azure output plugin
+app-admin/fluent-bit:fluentbit_output_plugins_bigquery - Enable BigQuery output plugin
+app-admin/fluent-bit:fluentbit_output_plugins_counter - Enable Counter output plugin
+app-admin/fluent-bit:fluentbit_output_plugins_datadog - Enable DataDog output plugin
+app-admin/fluent-bit:fluentbit_output_plugins_es - Enable Elasticsearch output plugin
+app-admin/fluent-bit:fluentbit_output_plugins_exit - Enable Exit output plugin
+app-admin/fluent-bit:fluentbit_output_plugins_file - Enable file output plugin
+app-admin/fluent-bit:fluentbit_output_plugins_flowcounter - Enable flowcount output plugin
+app-admin/fluent-bit:fluentbit_output_plugins_forward - Enable Forward output plugin
+app-admin/fluent-bit:fluentbit_output_plugins_gelf - Enable GELF output plugin
+app-admin/fluent-bit:fluentbit_output_plugins_http - Enable HTTP output plugin
+app-admin/fluent-bit:fluentbit_output_plugins_influxdb - Enable InfluxDB output plugin
+app-admin/fluent-bit:fluentbit_output_plugins_kafka - Enable Kafka output plugin
+app-admin/fluent-bit:fluentbit_output_plugins_kafka_rest - Enable Kafka Rest output plugin
+app-admin/fluent-bit:fluentbit_output_plugins_lib - Enable library mode output plugin
+app-admin/fluent-bit:fluentbit_output_plugins_nats - Enable NATS output plugin
+app-admin/fluent-bit:fluentbit_output_plugins_null - Enable dev null output plugin
+app-admin/fluent-bit:fluentbit_output_plugins_pgsql - Enable PostgreSQL output plugin
+app-admin/fluent-bit:fluentbit_output_plugins_plot - Enable Plot output plugin
+app-admin/fluent-bit:fluentbit_output_plugins_retry - Enable Retry test output plugin
+app-admin/fluent-bit:fluentbit_output_plugins_splunk - Enable Splunk output plugin
+app-admin/fluent-bit:fluentbit_output_plugins_stackdriver - Enable Stackdriver output plugin
+app-admin/fluent-bit:fluentbit_output_plugins_stdout - Enable STDOUT output plugin
+app-admin/fluent-bit:fluentbit_output_plugins_tcp - Enable TCP output plugin
+app-admin/fluent-bit:fluentbit_output_plugins_td - Enable Treasure Data output plugin
+app-admin/fluent-bit:jemalloc - Use Jemalloc as default memory allocator
+app-admin/fluent-bit:loki - Apply json_loki support path for HTTP output plugin (https://github.com/fluent/fluent-bit/pull/1853)
+app-admin/fluent-bit:luajit - Enable Lua scripting support
+app-admin/fluent-bit:tls - Buils with SSL/TLS support
+app-admin/loki:fluent-bit - Build the fluent-bit plugin to publish from app-admin/fluent-bit
+app-admin/loki:promtail - Build the promtail log gathering agent
+app-admin/loki:server - Build the loki server
+app-admin/loki:tools - Build the loki tools logcli and loki-canary
+dev-db/influxdb:man - Install manual pages
+media-libs/raspberrypi-userland64:tools-only - Only install tools (vcgcmd and the like but no libs, headers, plugins)
+net-analyzer/telegraf:systemd - Install systemd service file
+net-misc/kea:mysql - Build Kea with code to allow it to store leases and host reservations in a MySQL database
+net-misc/kea:openssl - Replace Botan by the OpenSSL the cryptographic library
+net-misc/kea:postgres - Build Kea with code to allow it to store leases and host reservations in a PostgreSQL database
+net-misc/kea:samples - Install sample configuration

@@ -1,0 +1,20 @@
+acct-group/grafana 0: Grafana program group
+acct-group/hydra 0: Hydra program group
+acct-group/influxdb 0: InfluxDB program group
+acct-group/logger 0: Logger program group
+acct-user/fluent-bit 0: fluent-bit program user
+acct-user/grafana 0: Grafana program user
+acct-user/hydra 0: Hydra program user
+acct-user/influxdb 0: InfluxDB program user
+acct-user/loki 0: Loki program user
+app-admin/fluent-bit 1.3.2 1.3.3 1.3.4 1.3.5 1.3.6 1.3.7 1.3.8 1.3.9 1.3.10 1.3.11 1.4.1 1.4.2 1.4.5: Fast and Lightweight Log processor and forwarder for Linux, BSD and OSX
+app-admin/loki 1.0.0 1.1.0 1.2.0 1.3.0 1.4.0 1.4.1 1.5.0: Like Prometheus, but for logs.
+dev-db/influxdb 1.3.7 1.4.2 1.4.3 1.5.0 1.5.1 1.5.2 1.5.4 1.6.0 1.6.2 1.6.3 1.6.4 1.7.0 1.7.1 1.7.2 1.7.4 1.7.6 1.7.8 1.7.9: Scalable datastore for metrics, events, and real-time analytics
+dev-php/pecl-msgpack 2.0.3 2.1.0: PHP extension for interfacing with MessagePack
+media-libs/raspberrypi-userland64 9999: Raspberry Pi userspace tools and libraries for 64bit
+net-analyzer/telegraf 1.9.4 1.10.0 1.10.1 1.10.3 1.10.4 1.11.0 1.11.1 1.11.4 1.11.5 1.12.0 1.12.1 1.12.2 1.12.3 1.12.4 1.12.5 1.12.6 1.13.0 1.13.1 1.13.2 1.13.3 1.13.4 1.14.0 1.14.1 1.14.2 1.14.3: The plugin-driven server agent for collecting & reporting metrics.
+net-misc/kea 1.2.0-r2 1.3.0 1.4.0 1.4.0_p1 1.5.0 1.5.0-r1 1.6.0 1.7.0 1.7.1 1.7.2 1.7.3 1.7.4 1.7.5 1.7.6 1.7.7 1.7.8: High-performance production grade DHCPv4 & DHCPv6 server
+net-proxy/traefik 2.2.0: The Cloud Native Edge Router
+sys-auth/hydra 1.4.9: OAuth2 Server and OpenID Connect Provider
+sys-firmware/rpi-eeprom 9999: Scripts and pre-compiled binaries to update Raspberry Pi4 bootloader EEPROM
+www-apps/grafana 6.3.0 6.3.2 6.3.3 6.3.4 6.3.5 6.3.6 6.3.7 6.4.0 6.4.1 6.4.2 6.4.3 6.4.4 6.4.5 6.5.0 6.5.1 6.5.2 6.5.3 6.6.0 6.6.1 6.6.2 6.7.0 6.7.1 6.7.2 6.7.3 7.0.0 7.0.1: The tool for beautiful monitoring and metric analytics & dashboards
