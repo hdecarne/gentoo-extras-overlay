@@ -32,8 +32,10 @@ src_prepare() {
 }
 
 src_configure() {
+	append-cflags "-Wno-error=format-overflow"
 	local mycmakeargs=(
 		-DARM64=ON
+		-DSKIP_TAINTED_CHECK=ON
 		-DVMCS_INSTALL_PREFIX="/usr"
 	)
 	cmake-utils_src_configure
