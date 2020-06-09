@@ -12,7 +12,7 @@ app-admin/loki 1.0.0 1.1.0 1.2.0 1.3.0 1.4.0 1.4.1 1.5.0: Like Prometheus, but f
 dev-db/influxdb 1.3.7 1.4.2 1.4.3 1.5.0 1.5.1 1.5.2 1.5.4 1.6.0 1.6.2 1.6.3 1.6.4 1.7.0 1.7.1 1.7.2 1.7.4 1.7.6 1.7.8 1.7.9: Scalable datastore for metrics, events, and real-time analytics
 dev-php/pecl-msgpack 2.0.3 2.1.0: PHP extension for interfacing with MessagePack
 media-libs/raspberrypi-userland64 9999: Raspberry Pi userspace tools and libraries for 64bit
-net-analyzer/telegraf 1.9.4 1.10.0 1.10.1 1.10.3 1.10.4 1.11.0 1.11.1 1.11.4 1.11.5 1.12.0 1.12.1 1.12.2 1.12.3 1.12.4 1.12.5 1.12.6 1.13.0 1.13.1 1.13.2 1.13.3 1.13.4 1.14.0 1.14.1 1.14.2 1.14.3: The plugin-driven server agent for collecting & reporting metrics.
+net-analyzer/telegraf 1.9.4 1.10.0 1.10.1 1.10.3 1.10.4 1.11.0 1.11.1 1.11.4 1.11.5 1.12.0 1.12.1 1.12.2 1.12.3 1.12.4 1.12.5 1.12.6 1.13.0 1.13.1 1.13.2 1.13.3 1.13.4 1.14.0 1.14.1 1.14.2 1.14.3 1.14.4: The plugin-driven server agent for collecting & reporting metrics.
 net-misc/kea 1.2.0-r2 1.3.0 1.4.0 1.4.0_p1 1.5.0 1.5.0-r1 1.6.0 1.7.0 1.7.1 1.7.2 1.7.3 1.7.4 1.7.5 1.7.6 1.7.7 1.7.8: High-performance production grade DHCPv4 & DHCPv6 server
 net-proxy/traefik 2.2.0: The Cloud Native Edge Router
 sys-auth/hydra 1.4.9: OAuth2 Server and OpenID Connect Provider
