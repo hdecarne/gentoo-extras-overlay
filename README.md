@@ -34,6 +34,8 @@ __Please beware__: I am running and hence tested these ebuilds against ~amd64 or
 
 * media-libs/raspberrypi-userland: Derived ebuild for 64 bit Raspberry Pi userland tools (https://github.com/raspberrypi/userland).
 
+* sys-kernel/raspberrypi-sources: Ebuild for latest Raspberry Pi kernel.
+
 * sys-firmware/rpi-eeprom: New ebuild for Raspberry Pi4 bootloader EEPROM updates (https://github.com/raspberrypi/rpi-eeprom).
 
 * www-apps/grafana: New ebuild for Grafana dashboard web app (https://grafana.com).
