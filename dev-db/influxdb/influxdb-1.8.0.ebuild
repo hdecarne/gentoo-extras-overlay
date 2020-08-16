@@ -465,7 +465,7 @@ DESCRIPTION="Scalable datastore for metrics, events, and real-time analytics"
 HOMEPAGE="https://influxdata.com"
 
 SRC_PV="${PV/_/}"
-SRC_URI="https://${EGO_PN}/archive/v${SRC_PV}.tar.gz -> ${P}.tar.gz
+SRC_URI="https://github.com/influxdata/influxdb/archive/v${SRC_PV}.tar.gz -> ${P}.tar.gz
 		${EGO_SUM_SRC_URI}"
 
 LICENSE="MIT"
