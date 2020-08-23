@@ -55,8 +55,8 @@ src_compile() {
 src_install() {
 	if use server; then
 		dobin "${S}/cmd/loki/loki"
-		newconfd "${FILESDIR}/loki.confd" "${PN}"
-		newinitd "${FILESDIR}/loki.initd" "${PN}"
+		newconfd "${FILESDIR}/loki.confd" "loki"
+		newinitd "${FILESDIR}/loki.initd" "loki"
 		insinto "/etc/${PN}"
 		doins "${S}/cmd/loki/loki-local-config.yaml"
 		keepdir "/etc/${PN}"
@@ -70,10 +70,14 @@ src_install() {
 	fi
 	if use promtail; then
 		dobin "${S}/cmd/promtail/promtail"
+		newconfd "${FILESDIR}/promtail.confd" "promtail"
+		newinitd "${FILESDIR}/promtail.initd" "promtail"
 		insinto "/etc/${PN}"
 		doins "${S}/cmd/promtail/promtail-local-config.yaml"
 		keepdir "/etc/${PN}"
+		keepdir "/var/lib/${PN}"
 		fowners loki:grafana "/etc/${PN}"
+		fowners loki:grafana "/var/lib/${PN}"
 	fi
 	if use fluent-bit; then
 		insinto "/usr/$(get_libdir)/loki"
