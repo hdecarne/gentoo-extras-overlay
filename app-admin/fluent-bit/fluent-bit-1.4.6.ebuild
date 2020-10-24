@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake-utils flag-o-matic
+inherit cmake flag-o-matic
 
 DESCRIPTION="Fast and Lightweight Log processor and forwarder for Linux, BSD and OSX"
 HOMEPAGE="http://fluentbit.io/"
@@ -55,7 +55,7 @@ CMAKE_BUILD_TYPE="Release"
 CMAKE_MAKEFILE_GENERATOR="emake"
 
 src_prepare() {
-	cmake-utils_src_prepare
+	cmake_src_prepare
 	if use loki; then
 		eapply "${FILESDIR}/${PN}-json_loki.patch"
 	fi
@@ -94,11 +94,11 @@ src_configure() {
 		mycmakeargs+=("-DFLB_FILTER_${filter^^}=$(usex fluentbit_filters_${filter})")
 	done
 
-	cmake-utils_src_configure
+	cmake_src_configure
 }
 
 src_install() {
-	cmake-utils_src_install
+	cmake_src_install
 
 	keepdir "/var/log/${PN}"
 
