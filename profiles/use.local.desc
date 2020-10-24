@@ -4,6 +4,7 @@
 
 app-admin/fluent-bit:debug - Build binaries with debug symbols
 app-admin/fluent-bit:examples - Build examples
+app-admin/fluent-bit:fluentbit_filters_alter_size - Enable alter_size filter
 app-admin/fluent-bit:fluentbit_filters_aws - Enable aws filter
 app-admin/fluent-bit:fluentbit_filters_expect - Enable expect filter
 app-admin/fluent-bit:fluentbit_filters_grep - Enable grep filter
@@ -15,11 +16,14 @@ app-admin/fluent-bit:fluentbit_filters_parser - Enable parser filter
 app-admin/fluent-bit:fluentbit_filters_record_modifier - Enable record_modifier filter
 app-admin/fluent-bit:fluentbit_filters_rewrite_tag - Enable tag rewrite filter
 app-admin/fluent-bit:fluentbit_filters_stdout - Enable stdout filter
+app-admin/fluent-bit:fluentbit_filters_tensorflow - Enable tensorflow filter
 app-admin/fluent-bit:fluentbit_filters_throttle - Enable throttle filter
+app-admin/fluent-bit:fluentbit_filters_throttle_size - Enable throttle size filter
 app-admin/fluent-bit:fluentbit_input_plugins_collectd - Enable Collectd input plugin
 app-admin/fluent-bit:fluentbit_input_plugins_cpu - Enable CPU input plugin
 app-admin/fluent-bit:fluentbit_input_plugins_disk - Enable Disk input plugin
 app-admin/fluent-bit:fluentbit_input_plugins_docker - Enable Docker input plugin
+app-admin/fluent-bit:fluentbit_input_plugins_docker_events - Enable Docker events input plugin
 app-admin/fluent-bit:fluentbit_input_plugins_dummy - Enable Dummy input plugin
 app-admin/fluent-bit:fluentbit_input_plugins_emitter - Enable emitter input plugin
 app-admin/fluent-bit:fluentbit_input_plugins_exec - Enable Exec input plugin
@@ -35,6 +39,7 @@ app-admin/fluent-bit:fluentbit_input_plugins_netif - Enable NetworkIF input plug
 app-admin/fluent-bit:fluentbit_input_plugins_proc - Enable Process input plugin
 app-admin/fluent-bit:fluentbit_input_plugins_random - Enable random input plugin
 app-admin/fluent-bit:fluentbit_input_plugins_serial - Enable Serial input plugin
+app-admin/fluent-bit:fluentbit_input_plugins_statsd - Enable StatsD input plugin
 app-admin/fluent-bit:fluentbit_input_plugins_stdin - Enable Standard input plugin
 app-admin/fluent-bit:fluentbit_input_plugins_storage_backlog - Enable storage backlog input plugin
 app-admin/fluent-bit:fluentbit_input_plugins_syslog - Enable Syslog input plugin
@@ -44,7 +49,9 @@ app-admin/fluent-bit:fluentbit_input_plugins_tcp - Enable TCP input plugin
 app-admin/fluent-bit:fluentbit_input_plugins_thermal - Enable Thermal plugin
 app-admin/fluent-bit:fluentbit_input_plugins_winlog - Enable Windows Log input plugin
 app-admin/fluent-bit:fluentbit_output_plugins_azure - Enable Azure output plugin
+app-admin/fluent-bit:fluentbit_output_plugins_azure_blob - Enable Azure output plugin
 app-admin/fluent-bit:fluentbit_output_plugins_bigquery - Enable BigQuery output plugin
+app-admin/fluent-bit:fluentbit_output_plugins_cloudwatch_logs - Enable AWS CloudWatch output plugin
 app-admin/fluent-bit:fluentbit_output_plugins_counter - Enable Counter output plugin
 app-admin/fluent-bit:fluentbit_output_plugins_datadog - Enable DataDog output plugin
 app-admin/fluent-bit:fluentbit_output_plugins_es - Enable Elasticsearch output plugin
@@ -57,15 +64,22 @@ app-admin/fluent-bit:fluentbit_output_plugins_http - Enable HTTP output plugin
 app-admin/fluent-bit:fluentbit_output_plugins_influxdb - Enable InfluxDB output plugin
 app-admin/fluent-bit:fluentbit_output_plugins_kafka - Enable Kafka output plugin
 app-admin/fluent-bit:fluentbit_output_plugins_kafka_rest - Enable Kafka Rest output plugin
+app-admin/fluent-bit:fluentbit_output_plugins_kinesis_firehose - Enable AWS Firehose output plugin
 app-admin/fluent-bit:fluentbit_output_plugins_lib - Enable library mode output plugin
+app-admin/fluent-bit:fluentbit_output_plugins_logdna - Enable LogDNA output plugin
+app-admin/fluent-bit:fluentbit_output_plugins_loki - Enable Loki output plugin
 app-admin/fluent-bit:fluentbit_output_plugins_nats - Enable NATS output plugin
+app-admin/fluent-bit:fluentbit_output_plugins_nrlogs - Enable New Relic output plugin
 app-admin/fluent-bit:fluentbit_output_plugins_null - Enable dev null output plugin
 app-admin/fluent-bit:fluentbit_output_plugins_pgsql - Enable PostgreSQL output plugin
 app-admin/fluent-bit:fluentbit_output_plugins_plot - Enable Plot output plugin
 app-admin/fluent-bit:fluentbit_output_plugins_retry - Enable Retry test output plugin
+app-admin/fluent-bit:fluentbit_output_plugins_s3 - Enable AWS S3 output plugin
+app-admin/fluent-bit:fluentbit_output_plugins_slack - Enable Slack output plugin
 app-admin/fluent-bit:fluentbit_output_plugins_splunk - Enable Splunk output plugin
 app-admin/fluent-bit:fluentbit_output_plugins_stackdriver - Enable Stackdriver output plugin
 app-admin/fluent-bit:fluentbit_output_plugins_stdout - Enable STDOUT output plugin
+app-admin/fluent-bit:fluentbit_output_plugins_syslog - Enable Syslog output plugin
 app-admin/fluent-bit:fluentbit_output_plugins_tcp - Enable TCP output plugin
 app-admin/fluent-bit:fluentbit_output_plugins_td - Enable Treasure Data output plugin
 app-admin/fluent-bit:jemalloc - Use Jemalloc as default memory allocator
