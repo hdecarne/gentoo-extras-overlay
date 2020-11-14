@@ -1,0 +1,294 @@
+# InfluxDB 2 configuration file
+#
+# https://docs.influxdata.com/influxdb/v2.0/reference/config-options/
+
+#bolt-path
+#
+#Path to the BoltDB database. BoltDB is a key value store written in Go.
+#InfluxDB uses BoltDB to store data including organization and user
+#information, UI data, REST resources, and other key value data.
+bolt-path: /var/lib/influxdb2/influxd.bolt
+
+#engine-path
+#
+#Path to persistent storage engine files where InfluxDB stores all
+#Time-Structure Merge Tree (TSM) data on disk.
+engine-path: /var/lib/influxdb2/engine
+
+#http-bind-address
+#
+#Bind address for the InfluxDB HTTP API. Customize the URL and port
+#for the InfluxDB API and UI.
+#http-bind-address: ":8086"
+
+#influxql-max-select-buckets
+#
+#Maximum number of group by time buckets a SELECT statement can
+#create. 0 allows an unlimited number of buckets.
+#influxql-max-select-buckets: 0
+
+#influxql-max-select-point
+#
+#Maximum number of points a SELECT statement can process. 0 allows
+#an unlimited number of points. This is only checked every second
+#so queries will not be aborted immediately when hitting the limit.
+#influxql-max-select-point: 0
+
+#influxql-max-select-series
+#
+#Maximum number of series a SELECT statement can return. 0 allows
+#an unlimited number of series.
+#influxql-max-select-series: 0
+
+#log-level
+#
+#Log output level. InfluxDB outputs log entries with severity levels
+#greater than or equal to the level specified.
+#log-level: info
+
+#new-meta-store
+#
+#Enable the new meta store.
+#new-meta-store: false
+
+#new-meta-store-read-only
+#
+#Toggle read-only mode for the new meta store. If true, reads are
+#duplicated between old and new meta stores (if new meta store is enabled).
+#new-meta-store-read-only: true
+
+#no-tasks
+#
+#Disable the task scheduler. If problematic tasks prevent InfluxDB from
+#starting, use this option to start InfluxDB without scheduling or executing tasks.
+#no-tasks: false
+
+#query-concurrency
+#
+#Number of queries allowed to execute concurrently.
+#query-concurrency: 10
+
+#query-initial-memory-bytes
+#
+#Initial bytes of memory allocated for a query.
+#query-initial-memory-bytes: 10485760
+
+#query-max-memory-bytes
+#
+#Maximum total bytes of memory allowed for queries.
+#query-max-memory-bytes: 10485760
+
+#query-memory-bytes
+#
+#Maximum bytes of memory allowed for a single query.
+#query-memory-bytes: 10485760
+
+#query-queue-size
+#
+#Maximum number of queries allowed in execution queue. When queue limit is
+#reached, new queries are rejected.
+#query-queue-size: 10
+
+#reporting-disabled
+#
+#Disables sending telemetry data to InfluxData. The InfluxData telemetry page
+#provides information about what data is collected and how InfluxData uses it.
+reporting-disabled: true
+
+#secret-store
+#
+#Specifies the data store for secrets such as passwords and tokens. Store secrets
+#in either the InfluxDB internal BoltDB or in Vault.
+#secret-store: bolt
+
+#session-length
+#
+#Specifies the Time to Live (TTL) in minutes for newly created user sessions.
+#session-length: 60
+
+#session-renew-disabled
+#
+#Disables automatically extending a user’s session TTL on each request.
+#By default, every request sets the session’s expiration time to five minutes
+#from now. When disabled, sessions expire after the specified session length
+#and the user is redirected to the login page, even if recently active.
+#session-renew-disabled: false
+
+#storage-cache-max-memory-size
+#
+#Maximum size (in bytes) a shard’s cache can reach before it starts rejecting writes.
+#storage-cache-max-memory-size: 1073741824
+
+#storage-cache-snapshot-memory-size
+#
+#Size (in bytes) at which the storage engine will snapshot the cache and write it
+#to a TSM file to make more memory available.
+#storage-cache-snapshot-memory-size: 26214400
+
+#storage-cache-snapshot-write-cold-duration
+#
+#Duration at which the storage engine will snapshot the cache and write it to a new
+#TSM file if the shard hasn’t received writes or deletes.
+#storage-cache-snapshot-write-cold-duration: 10m0s
+
+#storage-compact-full-write-cold-duration
+#
+#Duration at which the storage engine will compact all TSM files in a shard if it
+#hasn’t received writes or deletes.
+#storage-compact-full-write-cold-duration: 4h0m0s
+
+#storage-compact-throughput-burst#
+#
+#Rate limit (in bytes per second) that TSM compactions can write to disk.
+#storage-compact-throughput-burst: 50331648
+
+#storage-max-concurrent-compactions
+#
+#Maximum number of full and level compactions that can run concurrently.
+#A value of 0 results in 50% of runtime.GOMAXPROCS(0) used at runtime.
+#Any number greater than zero limits compactions to that value. This setting
+#does not apply to cache snapshotting.
+#storage-max-concurrent-compactions: 0
+
+#storage-max-index-log-file-size
+#
+#Size (in bytes) at which an index write-ahead log (WAL) file will compact into an
+#index file. Lower sizes will cause log files to be compacted more quickly and result
+#in lower heap usage at the expense of write throughput.
+#storage-max-index-log-file-size: 1048576
+
+#storage-retention-check-interval
+#
+#Interval of retention policy enforcement checks.
+#storage-retention-check-interval: 30m0s
+
+#storage-series-file-max-concurrent-snapshot-compactions
+#
+#Maximum number of snapshot compactions that can run concurrently across all series
+#partitions in a database.
+#storage-series-file-max-concurrent-snapshot-compactions: 0
+
+#storage-series-id-set-cache-size
+#
+#Size of the internal cache used in the TSI index to store previously calculated series
+#results. Cached results are returned quickly rather than needing to be recalculated
+#when a subsequent query with the same tag key/value predicate is executed. Setting
+#this value to 0 will disable the cache and may decrease query performance.
+#storage-series-id-set-cache-size: 100
+
+#storage-shard-precreator-advance-period
+#
+#The time before a shard group’s end-time that the successor shard group is created.
+#storage-shard-precreator-advance-period: 30m0s
+
+#storage-shard-precreator-check-interval
+#
+#Interval of pre-create new shards check.
+#storage-shard-precreator-check-interval: 10m0s
+
+#storage-tsm-use-madv-willneed
+#
+#Inform the kernel that InfluxDB intends to page in mmap’d sections of TSM files.
+#storage-tsm-use-madv-willneed: false
+
+#storage-validate-keys
+#
+#Validate incoming writes to ensure keys have only valid unicode characters.
+#storage-validate-keys: false
+
+#storage-wal-fsync-delay
+#
+#Duration a write will wait before fsyncing. A duration greater than 0 batches
+#multiple fsync calls. This is useful for slower disks or when WAL write contention is present.
+#storage-wal-fsync-delay: 0s
+
+#store
+#
+#Specifies the data store for REST resources.
+#store: bolt
+
+#tls-cert
+#
+#Path to TLS certificate file. Requires the tls-key to be set.
+#tls-cert: /path/to/influxdb.crt
+
+#tls-key
+#
+#Path to TLS key file. Requires the tls-cert to be set.
+#tls-key: /path/to/influxdb.key
+
+#tls-min-version
+#
+#Minimum accepted TLS version.
+#tls-min-version: "1.2"
+
+#tls-strict-ciphers
+#
+#Restrict accepted TLS ciphers to:
+# ECDHE_RSA_WITH_AES_256_GCM_SHA384
+# ECDHE_RSA_WITH_AES_256_CBC_SHA
+# RSA_WITH_AES_256_GCM_SHA384
+# RSA_WITH_AES_256_CBC_SHA
+#tls-strict-ciphers: false
+
+#tracing-type
+#
+#Enable tracing in InfluxDB and specifies the tracing type. Tracing is disabled by default.
+#tracing-type: log
+
+#vault-addr
+#
+#Specifies the address of the Vault server expressed as a URL and port. For example: https://127.0.0.1:8200/.
+#vault-addr: https://127.0.0.1:8200/
+
+#vault-cacert
+#
+#Specifies the path to a PEM-encoded CA certificate file on the local disk. This file is
+#used to verify the Vault server’s SSL certificate. This setting takes precedence over
+#the --vault-capath setting.
+#vault-cacert: /path/to/ca.pem
+
+#vault-capath
+#
+#Specifies the path to a directory of PEM-encoded CA certificate files on the local disk.
+#These certificates are used to verify the Vault server’s SSL certificate.
+#vault-capath: /path/to/certs/
+
+#vault-client-cert
+#
+#Specifies the path to a PEM-encoded client certificate on the local disk. This file is
+#used for TLS communication with the Vault server.
+#vault-client-cert: /path/to/client_cert.pem
+
+#vault-client-key
+#
+#Specifies the path to an unencrypted, PEM-encoded private key on disk which corresponds
+#to the matching client certificate.
+#vault-client-key: /path/to/private_key.pem
+
+#vault-max-retries
+#
+#Specifies the maximum number of retries when encountering a 5xx error code. The default
+#is 2 (for three attempts in total). Set this to 0 or less to disable retrying.
+#vault-max-retries: 2
+
+#vault-client-timeout
+#
+#Specifies the Vault client timeout.
+#vault-client-timeout: 60s
+
+#vault-skip-verify
+#
+#Skip certificate verification when communicating with Vault. Setting this variable
+#voids Vault’s security model and is not recommended.
+#vault-skip-verify: false
+
+#vault-tls-server-name
+#
+#Specifies the name to use as the Server Name Indication (SNI) host when connecting via TLS.
+#vault-tls-server-name: secure.example.com
+
+#vault-token
+#
+#Specifies the Vault authentication token use when authenticating with Vault.
+#vault-token: exAmple-t0ken-958a-f490-c7fd0eda5e9e
