@@ -5,7 +5,7 @@
 : ${INFLUXDB_USER:=influxdb}
 : ${INFLUXDB_DATADIR:="/var/lib/influxdb2"}
 : ${INFLUXDB_CONFIG_PATH:="/etc/influxdb2"}
-: ${INFLUXDB_CONFIG:="${INFLUXD_CONFIG_PATH}/config.yml"}
+: ${INFLUXDB_CONFIG:="${INFLUXDB_CONFIG_PATH}/config.yml"}
 : ${INFLUXDB_LOG:="/var/log/influxdb2/influxd.log"}
 : ${INFLUXDB_TERMTIMEOUT:="TERM/20/KILL/5"}
 : ${SSD_OPTS:="-1 ${INFLUXDB_LOG} -2 ${INFLUXDB_LOG} -e INFLUXD_CONFIG_PATH=${INFLUXDB_CONFIG_PATH}"}
