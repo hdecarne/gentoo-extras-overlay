@@ -918,24 +918,31 @@ DEPEND="acct-group/influxdb
 	acct-user/influxdb"
 
 BDEPEND="virtual/rust
-	sys-devel/clang"
+	sys-devel/clang
+	>=net-libs/nodejs-10.5.0
+	>=sys-apps/yarn-1.16.0"
 
-RESTRICT="mirror stripped network-sandbox"
+RESTRICT="mirror network-sandbox"
+
+src_prepare() {
+	eapply "${FILESDIR}/${PN}2-build.patch"
+	default
+}
 
 src_compile() {
-	einfo "Building tools..."
-	go build -o "${S}/bin/pkg-config" github.com/influxdata/pkg-config || die "compile failed"
-	export PKG_CONFIG="${S}/bin/pkg-config"
-	local GOLDFLAGS="-s -w -X main.commit=N/A -X main.version=${PV}"
-	einfo "Building influx backend..."
-	go build -tags "" -ldflags "${GOLDFLAGS}" -o "${S}/bin/influxd" ./cmd/influxd || die "compile failed"
-	einfo "Building influx CLI..."
-	go build -tags "" -ldflags "${GOLDFLAGS}" -o "${S}/bin/influx" ./cmd/influx || die "compile failed"
+	go build -o "${S}/bin/linux/pkg-config" github.com/influxdata/pkg-config || die "compile failed"
+
+	LDFLAGS="" \
+	YARN_INSTALL_OPTIONS="--pure-lockfile --no-progress --network-timeout 600000" \
+	VERSION="${PV}" \
+	COMMIT="N/A" \
+	INFLUXDB_SHA="N/A" \
+	emake -j1
 }
 
 src_install() {
-	dobin "${S}/bin/influx"
-	dobin "${S}/bin/influxd"
+	dobin "${S}/bin/linux/influx"
+	dobin "${S}/bin/linux/influxd"
 
 	newinitd "${FILESDIR}/${PN}-2.initd" "${PN}2"
 
