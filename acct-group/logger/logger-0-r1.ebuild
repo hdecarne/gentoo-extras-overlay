@@ -6,4 +6,5 @@ EAPI=7
 inherit acct-group
 
 DESCRIPTION="Logger program group"
+
 ACCT_GROUP_ID=200
