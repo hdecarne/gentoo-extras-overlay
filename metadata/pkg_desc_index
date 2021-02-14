@@ -9,7 +9,7 @@ dev-db/influxdb 1.3.7 1.4.2 1.4.3 1.5.0 1.5.1 1.5.2 1.5.4 1.6.0 1.6.2 1.6.3 1.6.
 dev-php/pecl-msgpack 2.0.3 2.1.0 2.1.1 2.1.2: PHP extension for interfacing with MessagePack
 media-libs/raspberrypi-userland64 9999: Raspberry Pi userspace tools and libraries for 64bit
 net-analyzer/telegraf 1.9.4 1.10.0 1.10.1 1.10.3 1.10.4 1.11.0 1.11.1 1.11.4 1.11.5 1.12.0 1.12.1 1.12.2 1.12.3 1.12.4 1.12.5 1.12.6 1.13.0 1.13.1 1.13.2 1.13.3 1.13.4 1.14.0 1.14.1 1.14.2 1.14.3 1.14.4 1.14.5 1.15.1 1.15.2 1.15.3 1.15.4 1.16.0 1.16.1 1.16.2 1.17.0: The plugin-driven server agent for collecting & reporting metrics.
-net-misc/kea 1.2.0-r2 1.3.0 1.4.0 1.4.0_p1 1.5.0 1.5.0-r1 1.6.0 1.7.0 1.7.1 1.7.2 1.7.3 1.7.4 1.7.5 1.7.6 1.7.7 1.7.8 1.7.9 1.7.10 1.8.0 1.9.0 1.9.1 1.9.2 1.9.3: High-performance production grade DHCPv4 & DHCPv6 server
+net-misc/kea 1.2.0-r2 1.3.0 1.4.0 1.4.0_p1 1.5.0 1.5.0-r1 1.6.0 1.7.0 1.7.1 1.7.2 1.7.3 1.7.4 1.7.5 1.7.6 1.7.7 1.7.8 1.7.9 1.7.10 1.8.0 1.8.2 1.9.0 1.9.1 1.9.2 1.9.3 1.9.4: High-performance production grade DHCPv4 & DHCPv6 server
 net-proxy/traefik 2.2.0: The Cloud Native Edge Router
 sys-auth/hydra 1.8.5: OAuth2 Server and OpenID Connect Provider
 sys-firmware/rpi-eeprom 9999: Scripts and pre-compiled binaries to update Raspberry Pi4 bootloader EEPROM
