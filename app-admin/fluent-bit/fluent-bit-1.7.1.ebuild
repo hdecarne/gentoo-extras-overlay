@@ -39,7 +39,6 @@ INPUT_PLUGINS_OPT=(
 'random'
 'serial'
 'statsd'
-'stdin'
 'storage_backlog'
 'syslog'
 'systemd'
@@ -72,6 +71,7 @@ OUTPUT_PLUGINS_OPT=(
 'kafka'
 'kafka_rest'
 'kinesis_firehose'
+'kinesis_streams'
 'lib'
 'logdna'
 'loki'
@@ -87,6 +87,7 @@ OUTPUT_PLUGINS_OPT=(
 'syslog'
 'tcp'
 'td'
+'websocket'
 )
 OUTPUT_PLUGINS_STD=(
 'null'
@@ -99,6 +100,7 @@ FILTER_OPT=(
 'alter_size'
 'aws'
 'expect'
+'geoip2'
 'kubernetes'
 'lua'
 'rewrite_tag'
@@ -115,7 +117,7 @@ FILTER_STD=(
 'throttle'
 )
 
-IUSE="debug examples luajit jemalloc"
+IUSE="debug examples luajit jemalloc +tls"
 for plugin in ${INPUT_PLUGINS_OPT[@]}; do
 	IUSE="${IUSE} fluentbit_input_plugins_${plugin}"
 done
@@ -139,6 +141,7 @@ RESTRICT="mirror"
 
 RDEPEND="acct-group/logger
 	acct-user/fluent-bit
+	dev-libs/openssl
 	luajit? ( dev-lang/luajit )
 	jemalloc? ( dev-libs/jemalloc )
 	fluentbit_output_plugins_pgsql? ( >=dev-db/postgresql-9.4:= )"
@@ -156,6 +159,7 @@ src_configure() {
 		-DBUILD_SHARED_LIBS=no
 		-DFLB_DEBUG="$(usex debug)"
 		-DFLB_JEMALLOC="$(usex jemalloc)"
+		-DFLB_TLS="$(usex tls)"
 		-DFLB_EXAMPLES="$(usex examples)"
 		-DFLB_BACKTRACE="$(usex debug)"
 		-DFLB_LUAJIT="$(usex luajit)"
