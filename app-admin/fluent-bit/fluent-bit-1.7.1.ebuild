@@ -117,7 +117,7 @@ FILTER_STD=(
 'throttle'
 )
 
-IUSE="debug examples luajit jemalloc +tls"
+IUSE="debug examples luajit jemalloc"
 for plugin in ${INPUT_PLUGINS_OPT[@]}; do
 	IUSE="${IUSE} fluentbit_input_plugins_${plugin}"
 done
@@ -144,7 +144,8 @@ RDEPEND="acct-group/logger
 	dev-libs/openssl
 	luajit? ( dev-lang/luajit )
 	jemalloc? ( dev-libs/jemalloc )
-	fluentbit_output_plugins_pgsql? ( >=dev-db/postgresql-9.4:= )"
+	fluentbit_output_plugins_pgsql? ( >=dev-db/postgresql-9.4:= )
+	fluentbit_filters_geoip2? ( dev-libs/libmaxminddb )"
 DEPEND="${RDEPEND}"
 
 BUILD_DIR="${S}/build"
@@ -159,7 +160,6 @@ src_configure() {
 		-DBUILD_SHARED_LIBS=no
 		-DFLB_DEBUG="$(usex debug)"
 		-DFLB_JEMALLOC="$(usex jemalloc)"
-		-DFLB_TLS="$(usex tls)"
 		-DFLB_EXAMPLES="$(usex examples)"
 		-DFLB_BACKTRACE="$(usex debug)"
 		-DFLB_LUAJIT="$(usex luajit)"
