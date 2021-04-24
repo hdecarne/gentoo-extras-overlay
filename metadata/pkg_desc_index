@@ -3,15 +3,14 @@ acct-group/logger 0-r1: Logger program group
 acct-user/fluent-bit 0-r1: fluent-bit program user
 acct-user/hydra 0: Hydra program user
 acct-user/loki 0-r1: Loki program user
-app-admin/fluent-bit 1.3.2 1.3.3 1.3.4 1.3.5 1.3.6 1.3.7 1.3.8 1.3.9 1.3.10 1.3.11 1.4.1 1.4.2 1.4.5 1.4.6 1.5.1 1.5.2 1.5.3 1.5.4 1.6.1 1.6.3 1.6.4 1.6.6 1.6.8 1.6.9 1.7.1 1.7.2 1.7.3: Fast and Lightweight Log processor and forwarder for Linux, BSD and OSX
+app-admin/fluent-bit 1.3.2 1.3.3 1.3.4 1.3.5 1.3.6 1.3.7 1.3.8 1.3.9 1.3.10 1.3.11 1.4.1 1.4.2 1.4.5 1.4.6 1.5.1 1.5.2 1.5.3 1.5.4 1.6.1 1.6.3 1.6.4 1.6.6 1.6.8 1.6.9 1.7.1 1.7.2 1.7.3 1.7.4: Fast and Lightweight Log processor and forwarder for Linux, BSD and OSX
 app-admin/loki 1.0.0 1.1.0 1.2.0 1.3.0 1.4.0 1.4.1 1.5.0 1.6.0 1.6.1 2.0.0 2.0.1 2.1.0 2.2.0 2.2.1: Like Prometheus, but for logs.
 dev-db/influxdb 1.3.7 1.4.2 1.4.3 1.5.0 1.5.1 1.5.2 1.5.4 1.6.0 1.6.2 1.6.3 1.6.4 1.7.0 1.7.1 1.7.2 1.7.4 1.7.6 1.7.8 1.7.9 1.8.0 1.8.1 1.8.2 1.8.3 2.0.1 2.0.2 2.0.3 2.0.4: Scalable datastore for metrics, events, and real-time analytics
 dev-php/pecl-msgpack 2.0.3 2.1.0 2.1.1 2.1.2: PHP extension for interfacing with MessagePack
 media-libs/raspberrypi-userland64 9999: Raspberry Pi userspace tools and libraries for 64bit
 net-analyzer/telegraf 1.9.4 1.10.0 1.10.1 1.10.3 1.10.4 1.11.0 1.11.1 1.11.4 1.11.5 1.12.0 1.12.1 1.12.2 1.12.3 1.12.4 1.12.5 1.12.6 1.13.0 1.13.1 1.13.2 1.13.3 1.13.4 1.14.0 1.14.1 1.14.2 1.14.3 1.14.4 1.14.5 1.15.1 1.15.2 1.15.3 1.15.4 1.16.0 1.16.1 1.16.2 1.17.0 1.17.3 1.18.0 1.18.1: The plugin-driven server agent for collecting & reporting metrics.
 net-misc/kea 1.2.0-r2 1.3.0 1.4.0 1.4.0_p1 1.5.0 1.5.0-r1 1.6.0 1.7.0 1.7.1 1.7.2 1.7.3 1.7.4 1.7.5 1.7.6 1.7.7 1.7.8 1.7.9 1.7.10 1.8.0 1.8.2 1.9.0 1.9.1 1.9.2 1.9.3 1.9.4 1.9.5: High-performance production grade DHCPv4 & DHCPv6 server
-net-proxy/traefik 2.2.0: The Cloud Native Edge Router
-sys-auth/hydra 1.8.5: OAuth2 Server and OpenID Connect Provider
+sys-auth/hydra 1.10.1: OAuth2 Server and OpenID Connect Provider
 sys-firmware/rpi-eeprom 9999: Scripts and pre-compiled binaries to update Raspberry Pi4 bootloader EEPROM
 sys-kernel/raspberrypi-sources 5.7.9999 5.8.9999 5.9.9999 5.10.9999: Raspberry PI kernel sources
 www-apps/grafana 6.3.0 6.3.2 6.3.3 6.3.4 6.3.5 6.3.6 6.3.7 6.4.0 6.4.1 6.4.2 6.4.3 6.4.4 6.4.5 6.5.0 6.5.1 6.5.2 6.5.3 6.6.0 6.6.1 6.6.2 6.7.0 6.7.1 6.7.2 6.7.3 6.7.4 6.7.6 7.0.0 7.0.1 7.0.3 7.0.4 7.0.5 7.0.6 7.1.0 7.1.1 7.1.2 7.1.3 7.1.4 7.1.5 7.2.0 7.2.1 7.2.2 7.3.0 7.3.1 7.3.2 7.3.3 7.3.4 7.3.5 7.3.6 7.3.7 7.3.10 7.4.0 7.4.1 7.4.2 7.4.3 7.4.5 7.5.0 7.5.1 7.5.2 7.5.3 7.5.4: The tool for beautiful monitoring and metric analytics & dashboards
