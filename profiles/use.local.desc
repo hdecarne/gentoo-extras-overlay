@@ -97,3 +97,4 @@ net-misc/kea:mysql - Build Kea with code to allow it to store leases and host re
 net-misc/kea:openssl - Replace Botan by the OpenSSL the cryptographic library
 net-misc/kea:postgres - Build Kea with code to allow it to store leases and host reservations in a PostgreSQL database
 net-misc/kea:samples - Install sample configuration
+www-apps/grafana:systemd - Install systemd service file
