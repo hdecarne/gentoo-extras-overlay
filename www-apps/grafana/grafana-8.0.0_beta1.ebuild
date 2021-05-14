@@ -12,7 +12,7 @@ DESCRIPTION="The tool for beautiful monitoring and metric analytics & dashboards
 HOMEPAGE="https://grafana.com"
 SRC_URI="https://github.com/grafana/grafana/archive/v${MY_PV}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="Apache-2.0"
+LICENSE="AGPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 RESTRICT="mirror network-sandbox"
