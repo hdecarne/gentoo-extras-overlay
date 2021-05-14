@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit go-module
+inherit go-module systemd
 
 MY_PV=${PV/_beta/-beta}
 S=${WORKDIR}/${PN}-${MY_PV}
@@ -16,6 +16,7 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
 RESTRICT="mirror network-sandbox"
+IUSE="systemd"
 
 DEPEND="!www-apps/grafana-bin
 	acct-group/grafana
@@ -63,6 +64,10 @@ src_install() {
 
 	newconfd "${FILESDIR}/grafana.confd" "${PN}"
 	newinitd "${FILESDIR}/grafana.initd" "${PN}"
+  
+  if use systemd; then
+	    systemd_newunit "${FILESDIR}/grafana.service" "${PN}.service"
+  fi
 
 	keepdir /var/{lib,log}/grafana
 	fowners grafana:grafana /var/{lib,log}/grafana
