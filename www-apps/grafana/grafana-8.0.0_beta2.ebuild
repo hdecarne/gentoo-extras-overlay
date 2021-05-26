@@ -64,10 +64,10 @@ src_install() {
 
 	newconfd "${FILESDIR}/grafana.confd" "${PN}"
 	newinitd "${FILESDIR}/grafana.initd" "${PN}"
-  
-  if use systemd; then
-	    systemd_newunit "${FILESDIR}/grafana.service" "${PN}.service"
-  fi
+
+	if use systemd; then
+		systemd_newunit "${FILESDIR}/grafana.service" "${PN}.service"
+	fi
 
 	keepdir /var/{lib,log}/grafana
 	fowners grafana:grafana /var/{lib,log}/grafana

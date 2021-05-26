@@ -11,5 +11,5 @@ RDEPEND=acct-group/grafana acct-user/loki
 RESTRICT=mirror strip
 SLOT=0
 SRC_URI=https://github.com/grafana/loki/archive/v1.6.0.tar.gz -> loki-1.6.0.tar.gz
-_eclasses_=go-module	92660621959e7fab813173772987588b
+_eclasses_=go-module	bf028003684a8b018e4de9e3c272ed33
 _md5_=ca0915a693eacfc3797bffc1742d82e9

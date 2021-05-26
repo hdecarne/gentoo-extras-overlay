@@ -5,7 +5,7 @@ EAPI=7
 
 PHP_EXT_NAME="msgpack"
 DOCS="ChangeLog LICENSE README.md"
-USE_PHP="php7-2 php7-3 php7-4"
+USE_PHP="php7-3 php7-4"
 
 inherit php-ext-pecl-r3
 

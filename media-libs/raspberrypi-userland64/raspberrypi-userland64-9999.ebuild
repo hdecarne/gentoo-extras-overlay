@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake-utils flag-o-matic git-r3
+inherit cmake flag-o-matic git-r3
 
 DESCRIPTION="Raspberry Pi userspace tools and libraries for 64bit"
 HOMEPAGE="https://github.com/raspberrypi/userland"
@@ -27,7 +27,7 @@ QA_SONAME="usr/bin/dtmerge
 	usr/lib/libdtovl.so"
 
 src_prepare() {
-	cmake-utils_src_prepare
+	cmake_src_prepare
 	eapply "${FILESDIR}/${PN}-cmake.patch"
 }
 
@@ -38,12 +38,11 @@ src_configure() {
 		-DSKIP_TAINTED_CHECK=ON
 		-DVMCS_INSTALL_PREFIX="/usr"
 	)
-	cmake-utils_src_configure
+	cmake_src_configure
 }
 
 src_install() {
-	cmake-utils_src_install
-
+	cmake_src_install
 	if use tools-only; then
 		rm "${D}"/usr/bin/containers*
 		rm "${D}"/usr/bin/mmal_vc_diag
