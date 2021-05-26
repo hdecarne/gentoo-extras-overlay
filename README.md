@@ -39,3 +39,7 @@ __Please beware__: I am running and hence tested these ebuilds against ~amd64 or
 * sys-firmware/rpi-eeprom: New ebuild for Raspberry Pi4 bootloader EEPROM updates (https://github.com/raspberrypi/rpi-eeprom).
 
 * www-apps/grafana: New ebuild for Grafana dashboard web app (https://grafana.com).
+
+* sys-aut/hydra: New ebuild for Ory Hydra OAuth provider (https://github.com/ory/hydra).
+
+* www-apache/mod_auth_openidc: New ebuild for Apache OIDC module (https://github.com/zmartzone/mod_auth_openidc).
