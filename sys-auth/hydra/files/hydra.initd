@@ -1,0 +1,15 @@
+#!/sbin/openrc-run
+
+error_log="${logfile:-/var/log/hydra/hydra.log}"
+command=/usr/bin/hydra
+command_args="${hydra_command:-serve all} ${hydra_opts:---config /etc/hydra/config.yaml}"
+command_background=yes
+command_user=hydra:hydra
+make_pidfile=yes
+pidfile=/var/run/hydra.pid
+
+reload() {
+	ebegin "Reloading ${RC_SVCNAME}"
+	start-stop-daemon --signal HUP --pidfile "${PIDFILE}"
+	eend $?
+}
