@@ -98,6 +98,10 @@ dev-libs/cjose:doc - Generate Doxygen API documentation
 dev-libs/cjose:test - Execute the unit tests
 media-libs/raspberrypi-userland64:tools-only - Only install tools (vcgcmd and the like but no libs, headers, plugins)
 net-analyzer/telegraf:systemd - Install systemd service file
+net-libs/liboauth2:apache2 - Enable Apache 2.x support
+net-libs/liboauth2:memcached - Enable memcached support
+net-libs/liboauth2:nginx - Enable nginx support
+net-libs/liboauth2:redis - Enable Redis support
 net-misc/kea:mysql - Build Kea with code to allow it to store leases and host reservations in a MySQL database
 net-misc/kea:openssl - Replace Botan by the OpenSSL the cryptographic library
 net-misc/kea:postgres - Build Kea with code to allow it to store leases and host reservations in a PostgreSQL database
