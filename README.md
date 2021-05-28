@@ -43,3 +43,5 @@ __Please beware__: I am running and hence tested these ebuilds against ~amd64 or
 * sys-aut/hydra: New ebuild for Ory Hydra OAuth provider (https://github.com/ory/hydra).
 
 * www-apache/mod_auth_openidc: New ebuild for Apache OIDC module (https://github.com/zmartzone/mod_auth_openidc).
+
+* www-apache/mod_authnz_pam: New ebuild for Apache PAM module (https://github.com/adelton/mod_authnz_pam).
