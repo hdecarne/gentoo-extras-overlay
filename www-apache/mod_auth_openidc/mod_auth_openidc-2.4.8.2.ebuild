@@ -22,9 +22,8 @@ RDEPEND="net-misc/curl
 	dev-libs/libpcre
 	redis? ( >=dev-libs/hiredis-0.9.0 )
 	jq? ( app-misc/jq )"
-DEPEND="
-	${RDEPEND}
-	virtual/pkgconfig"
+DEPEND="${RDEPEND}"
+BDEPEND="virtual/pkgconfig"
 
 RESTRICT="mirror"
 
@@ -40,8 +39,11 @@ pkg_setup() {
 	_init_apache2_late
 }
 
+src_prepare() {
+	./autogen.sh || die "prepare failed"
+}
+
 src_configure() {
-	./autogen.sh
 	econf \
 		--with-apxs2="${APXS}" \
 		$(use_with redis hiredis) \
