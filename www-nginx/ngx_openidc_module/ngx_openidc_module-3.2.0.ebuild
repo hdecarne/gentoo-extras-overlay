@@ -7,7 +7,12 @@ EAPI=7
 
 DESCRIPTION="OpenID Connect Relying Party module for NGINX"
 HOMEPAGE="https://github.com/zmartzone/ngx_openidc_module"
-SRC_URI="https://github.com/zmartzone/ngx_openidc_module/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+
+NGINX_PV="1.20.1"
+NGINX_P="nginx-${NGINX_PV}"
+
+SRC_URI="https://github.com/zmartzone/ngx_openidc_module/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
+	https://nginx.org/download/${NGINX_P}.tar.gz"
 
 LICENSE="AGPL-3"
 
@@ -20,7 +25,7 @@ IUSE=""
 RESTRICT="mirror"
 
 RDEPEND=">=net-libs/liboauth2-1.4.0[nginx]
-	www-servers/nginx:mainline"
+	>=www-servers/${NGINX_P}"
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
@@ -30,5 +35,8 @@ src_prepare() {
 }
 
 src_configure() {
-	econf
+	pushd ${WORKDIR}/${NGINX_P}
+	./configure
+	popd
+	econf --with-nginx=${WORKDIR}/${NGINX_P}
 }
