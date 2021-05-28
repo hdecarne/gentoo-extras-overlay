@@ -39,6 +39,6 @@ src_configure() {
 	econf \
 		--with-apache=$(usex apache2) \
 		--with-memcache=$(usex memcached) \
-		$(usex nginx --with-nginx=/usr/sbin/nginx) \
+		$(usex nginx --with-nginx=/usr/include/nghttp2) \
 		--with-redis=$(usex redis)
 }
