@@ -7,7 +7,12 @@ EAPI=7
 
 DESCRIPTION="OAuth 2.x and OpenID Connect C library"
 HOMEPAGE="https://github.com/zmartzone/liboauth2"
-SRC_URI="https://github.com/zmartzone/liboauth2/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+
+NGINX_PV="1.20.1"
+NGINX_P="nginx-${NGINX_PV}"
+
+SRC_URI="https://github.com/zmartzone/liboauth2/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
+	nginx? ( https://nginx.org/download/${NGINX_P}.tar.gz )"
 
 LICENSE="AGPL-3"
 
@@ -25,7 +30,7 @@ RDEPEND="net-misc/curl
 	>=dev-libs/cjose-0.6.1
 	apache2? ( www-servers/apache:2 )
 	memcached? ( >=dev-libs/libmemcached-1.0.14 )
-	nginx? ( www-servers/nginx:mainline )
+	nginx? ( >=www-servers/${NGINX_P} )
 	redis? ( >=dev-libs/hiredis-0.9.0 )"
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
@@ -36,9 +41,12 @@ src_prepare() {
 }
 
 src_configure() {
+	pushd ${WORKDIR}/${NGINX_P}
+	./configure
+	popd
 	econf \
 		--with-apache=$(usex apache2) \
 		--with-memcache=$(usex memcached) \
-		$(usex nginx --with-nginx=/usr/include/nghttp2) \
+		$(usex nginx --with-nginx=${WORKDIR}/${NGINX_P}) \
 		--with-redis=$(usex redis)
 }
