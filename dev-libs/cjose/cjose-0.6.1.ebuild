@@ -12,7 +12,7 @@ SRC_URI="https://github.com/cisco/cjose/archive/refs/tags/0.6.1.tar.gz -> ${P}.t
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~arm64"
 IUSE="doc test"
 
 RESTRICT="mirror"

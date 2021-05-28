@@ -11,15 +11,15 @@ SRC_URI="https://github.com/zmartzone/ngx_openidc_module/archive/refs/tags/v${PV
 
 LICENSE="AGPL-3"
 
-SLOT="0"
+SLOT="mainline"
 
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm64"
 
 IUSE=""
 
 RESTRICT="mirror"
 
-RDEPEND=">=net-libs/liboauth2-1.4.0
+RDEPEND=">=net-libs/liboauth2-1.4.0[nginx]
 	www-servers/nginx:mainline"
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"

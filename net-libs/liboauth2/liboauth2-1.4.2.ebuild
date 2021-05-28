@@ -13,7 +13,7 @@ LICENSE="AGPL-3"
 
 SLOT="0"
 
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm64"
 
 IUSE="apache2 memcached nginx redis"
 
@@ -37,8 +37,8 @@ src_prepare() {
 
 src_configure() {
 	econf \
-		{use_with apache2} \
-		{use_with memcached memcache} \
-		{use_with nginx} \
-		{use_with redis}
+		--with-apache=$(usex apache2) \
+		--with-memcache=$(usex memcached) \
+		$(usex nginx --with-nginx=/usr/sbin/nginx) \
+		--with-redis=$(usex redis)
 }
