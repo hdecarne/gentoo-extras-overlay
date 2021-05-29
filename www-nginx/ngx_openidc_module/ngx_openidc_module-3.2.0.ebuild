@@ -42,6 +42,6 @@ src_configure() {
 }
 
 src_install() {
-	insinto "/usr/$(get_libdir)/nginx/modules"
+	exeinto "/usr/$(get_libdir)/nginx/modules"
 	doexe "${S}/.libs/ngx_openidc_module.so"
 }
