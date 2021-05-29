@@ -8,7 +8,7 @@ EAPI=7
 DESCRIPTION="OAuth 2.x and OpenID Connect C library"
 HOMEPAGE="https://github.com/zmartzone/liboauth2"
 
-NGINX_PV="1.20.1"
+NGINX_PV="1.21.0"
 NGINX_P="nginx-${NGINX_PV}"
 
 SRC_URI="https://github.com/zmartzone/liboauth2/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
