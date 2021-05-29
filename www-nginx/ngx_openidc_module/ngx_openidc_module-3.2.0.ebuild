@@ -42,7 +42,7 @@ src_configure() {
 	pushd ${WORKDIR}/${P}
 	econf
 	popd
-	econf --with-compat --add-dynamic-module="${WORKDIR}/${P}/src"
+	./configure --with-compat --add-dynamic-module="${WORKDIR}/${P}/src"
 }
 
 src_compile() {
