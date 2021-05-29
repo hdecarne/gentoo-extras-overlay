@@ -30,7 +30,6 @@ DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
 src_prepare() {
-	sed -i -E "s:(.*)sudo cp (.*) /usr/local/nginx/modules/:\\1cp \\2 \${DESTDIR}/usr/$(get_libdir)/nginx/modules/:" Makefile.am || die "prepare failed"
 	./autogen.sh || die "prepare failed"
 	eapply_user
 }
@@ -40,4 +39,9 @@ src_configure() {
 	./configure
 	popd
 	econf --with-nginx=${WORKDIR}/${NGINX_P}
+}
+
+src_install() {
+	insinto "/usr/$(get_libdir)/nginx/modules"
+	doexe "${S}/.libs/ngx_openidc_module.so"
 }
