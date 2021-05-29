@@ -14,6 +14,8 @@ NGINX_P="nginx-${NGINX_PV}"
 SRC_URI="https://github.com/zmartzone/ngx_openidc_module/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 	https://nginx.org/download/${NGINX_P}.tar.gz"
 
+S="${WORKDIR}/${NGINX_P}"
+
 LICENSE="AGPL-3"
 
 SLOT="mainline"
@@ -30,18 +32,24 @@ DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
 src_prepare() {
-	./autogen.sh || die "prepare failed"
 	eapply_user
+	pushd ${WORKDIR}/${P}
+	./autogen.sh || die "prepare failed"
+	popd
 }
 
 src_configure() {
-	pushd ${WORKDIR}/${NGINX_P}
-	./configure
+	pushd ${WORKDIR}/${P}
+	econf
 	popd
-	econf --with-nginx=${WORKDIR}/${NGINX_P}
+	econf --with-compat --add-dynamic-module="${WORKDIR}/${P}/src"
+}
+
+src_compile() {
+	emake module
 }
 
 src_install() {
 	exeinto "/usr/$(get_libdir)/nginx/modules"
-	doexe "${S}/.libs/ngx_openidc_module.so"
+	doexe "${S}/objs/ngx_openidc_module.so"
 }
