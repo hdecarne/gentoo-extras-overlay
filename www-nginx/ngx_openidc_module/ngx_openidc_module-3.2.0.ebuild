@@ -46,7 +46,7 @@ src_configure() {
 }
 
 src_compile() {
-	emake module
+	emake modules
 }
 
 src_install() {
