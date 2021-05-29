@@ -8,7 +8,7 @@ EAPI=7
 DESCRIPTION="OpenID Connect Relying Party module for NGINX"
 HOMEPAGE="https://github.com/zmartzone/ngx_openidc_module"
 
-NGINX_PV="1.20.1"
+NGINX_PV="1.21.0"
 NGINX_P="nginx-${NGINX_PV}"
 
 SRC_URI="https://github.com/zmartzone/ngx_openidc_module/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
@@ -30,8 +30,9 @@ DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
 src_prepare() {
-	eapply_user
+	sed -i -E "s:(.*)sudo cp (.*) /usr/local/nginx/modules/:\\1cp \\2 \${DESTDIR}/usr/$(get_libdir)/nginx/modules/:" Makefile.am || die "prepare failed"
 	./autogen.sh || die "prepare failed"
+	eapply_user
 }
 
 src_configure() {
