@@ -122,12 +122,16 @@ EGO_SUM=(
 'github.com/cockroachdb/apd v1.1.0/go.mod'
 'github.com/cockroachdb/cockroach-go v0.0.0-20181001143604-e0a95dfd547c/go.mod'
 'github.com/cockroachdb/cockroach-go v0.0.0-20190925194419-606b3d062051/go.mod'
+'github.com/cockroachdb/cockroach-go v0.0.0-20200312223839-f565e4789405'
 'github.com/cockroachdb/cockroach-go v0.0.0-20200312223839-f565e4789405/go.mod'
+'github.com/cockroachdb/cockroach-go/v2 v2.1.1'
+'github.com/cockroachdb/cockroach-go/v2 v2.1.1/go.mod'
 'github.com/cockroachdb/datadriven v0.0.0-20190809214429-80d97fb3cbaa/go.mod'
 'github.com/codahale/hdrhistogram v0.0.0-20161010025455-3a0bb77429bd/go.mod'
 'github.com/codegangsta/negroni v1.0.0/go.mod'
-'github.com/containerd/containerd v1.4.3'
 'github.com/containerd/containerd v1.4.3/go.mod'
+'github.com/containerd/containerd v1.4.4'
+'github.com/containerd/containerd v1.4.4/go.mod'
 'github.com/containerd/continuity v0.0.0-20181203112020-004b46473808/go.mod'
 'github.com/containerd/continuity v0.0.0-20190827140505-75bee3e2ccb6/go.mod'
 'github.com/containerd/continuity v0.0.0-20200107194136-26c1120b8d41'
@@ -155,8 +159,9 @@ EGO_SUM=(
 'github.com/creack/pty v1.1.9/go.mod'
 'github.com/cucumber/godog v0.8.1'
 'github.com/cucumber/godog v0.8.1/go.mod'
-'github.com/DataDog/datadog-go v4.0.0+incompatible'
 'github.com/DataDog/datadog-go v4.0.0+incompatible/go.mod'
+'github.com/DataDog/datadog-go v4.6.0+incompatible'
+'github.com/DataDog/datadog-go v4.6.0+incompatible/go.mod'
 'github.com/DATA-DOG/go-sqlmock v1.3.3/go.mod'
 'github.com/davecgh/go-spew v1.1.0/go.mod'
 'github.com/davecgh/go-spew v1.1.1'
@@ -168,8 +173,6 @@ EGO_SUM=(
 'github.com/dgraph-io/ristretto v0.0.2/go.mod'
 'github.com/dgraph-io/ristretto v0.0.3'
 'github.com/dgraph-io/ristretto v0.0.3/go.mod'
-'github.com/dgrijalva/jwt-go v3.2.0+incompatible'
-'github.com/dgrijalva/jwt-go v3.2.0+incompatible/go.mod'
 'github.com/dgryski/go-farm v0.0.0-20190423205320-6a90982ecee2'
 'github.com/dgryski/go-farm v0.0.0-20190423205320-6a90982ecee2/go.mod'
 'github.com/dgryski/go-sip13 v0.0.0-20181026042036-e10d5fee7954/go.mod'
@@ -214,6 +217,10 @@ EGO_SUM=(
 'github.com/felixge/httpsnoop v1.0.1/go.mod'
 'github.com/fogleman/gg v1.2.1-0.20190220221249-0403632d5b90/go.mod'
 'github.com/fogleman/gg v1.3.0/go.mod'
+'github.com/form3tech-oss/jwt-go v3.2.1+incompatible'
+'github.com/form3tech-oss/jwt-go v3.2.1+incompatible/go.mod'
+'github.com/form3tech-oss/jwt-go v3.2.2+incompatible'
+'github.com/form3tech-oss/jwt-go v3.2.2+incompatible/go.mod'
 'github.com/franela/goblin v0.0.0-20200105215937-c9ffbefa60db/go.mod'
 'github.com/franela/goreq v0.0.0-20171204163338-bcd34c9993f8/go.mod'
 'github.com/fsnotify/fsnotify v1.4.7/go.mod'
@@ -515,11 +522,8 @@ EGO_SUM=(
 'github.com/go-gl/glfw/v3.3/glfw v0.0.0-20191125211704-12ad95a8df72/go.mod'
 'github.com/go-gl/glfw/v3.3/glfw v0.0.0-20200222043503-6f7a984d4dc4/go.mod'
 'github.com/gogo/googleapis v1.1.0/go.mod'
-'github.com/gogo/protobuf v1.1.1/go.mod'
-'github.com/gogo/protobuf v1.2.0/go.mod'
-'github.com/gogo/protobuf v1.2.1/go.mod'
-'github.com/gogo/protobuf v1.3.1'
-'github.com/gogo/protobuf v1.3.1/go.mod'
+'github.com/gogo/protobuf v1.3.2'
+'github.com/gogo/protobuf v1.3.2/go.mod'
 'github.com/go-kit/kit v0.10.0/go.mod'
 'github.com/go-kit/kit v0.8.0/go.mod'
 'github.com/go-kit/kit v0.9.0/go.mod'
@@ -865,17 +869,20 @@ EGO_SUM=(
 'github.com/jackc/puddle v1.1.0/go.mod'
 'github.com/jackc/puddle v1.1.1/go.mod'
 'github.com/jackc/puddle v1.1.3/go.mod'
-'github.com/jandelgado/gcov2lcov v1.0.4-0.20210120124023-b83752c6dc08'
+'github.com/jandelgado/gcov2lcov v1.0.4'
 'github.com/jandelgado/gcov2lcov v1.0.4-0.20210120124023-b83752c6dc08/go.mod'
+'github.com/jandelgado/gcov2lcov v1.0.4/go.mod'
 'github.com/jessevdk/go-flags v1.4.0'
 'github.com/jessevdk/go-flags v1.4.0/go.mod'
+'github.com/jinzhu/inflection v1.0.0/go.mod'
+'github.com/jinzhu/now v1.1.1/go.mod'
 'github.com/jmespath/go-jmespath/internal/testify v1.5.1/go.mod'
 'github.com/jmespath/go-jmespath v0.0.0-20180206201540-c2b33e8439af/go.mod'
 'github.com/jmespath/go-jmespath v0.4.0/go.mod'
 'github.com/jmoiron/sqlx v0.0.0-20180614180643-0dae4fefe7c0/go.mod'
 'github.com/jmoiron/sqlx v1.2.0/go.mod'
-'github.com/jmoiron/sqlx v1.2.1-0.20190826204134-d7d95172beb5'
-'github.com/jmoiron/sqlx v1.2.1-0.20190826204134-d7d95172beb5/go.mod'
+'github.com/jmoiron/sqlx v1.3.1'
+'github.com/jmoiron/sqlx v1.3.1/go.mod'
 'github.com/joeshaw/multierror v0.0.0-20140124173710-69b34d4ec901'
 'github.com/joeshaw/multierror v0.0.0-20140124173710-69b34d4ec901/go.mod'
 'github.com/joho/godotenv v1.2.0/go.mod'
@@ -913,8 +920,8 @@ EGO_SUM=(
 'github.com/karrick/godirwalk v1.8.0/go.mod'
 'github.com/kballard/go-shellquote v0.0.0-20180428030007-95032a82bc51'
 'github.com/kballard/go-shellquote v0.0.0-20180428030007-95032a82bc51/go.mod'
-'github.com/kisielk/errcheck v1.1.0/go.mod'
 'github.com/kisielk/errcheck v1.2.0/go.mod'
+'github.com/kisielk/errcheck v1.5.0/go.mod'
 'github.com/kisielk/gotool v1.0.0/go.mod'
 'github.com/klauspost/compress v1.9.5/go.mod'
 'github.com/knadh/koanf v0.14.1-0.20201201075439-e0853799f9ec'
@@ -942,9 +949,10 @@ EGO_SUM=(
 'github.com/leodido/go-urn v1.2.1/go.mod'
 'github.com/lib/pq v0.0.0-20180327071824-d34b9ff171c2/go.mod'
 'github.com/lib/pq v1.0.0/go.mod'
+'github.com/lib/pq v1.10.0'
+'github.com/lib/pq v1.10.0/go.mod'
 'github.com/lib/pq v1.1.0/go.mod'
 'github.com/lib/pq v1.2.0/go.mod'
-'github.com/lib/pq v1.3.0'
 'github.com/lib/pq v1.3.0/go.mod'
 'github.com/lightstep/lightstep-tracer-common/golang/gogo v0.0.0-20190605223551-bc2310a04743/go.mod'
 'github.com/lightstep/lightstep-tracer-go v0.18.1/go.mod'
@@ -1139,8 +1147,8 @@ EGO_SUM=(
 'github.com/ory/analytics-go/v4 v4.0.1/go.mod'
 'github.com/ory/cli v0.0.35/go.mod'
 'github.com/ory/cli v0.0.41/go.mod'
-'github.com/ory/cli v0.0.48'
-'github.com/ory/cli v0.0.48/go.mod'
+'github.com/ory/cli v0.0.49'
+'github.com/ory/cli v0.0.49/go.mod'
 'github.com/ory/dockertest v3.3.5+incompatible'
 'github.com/ory/dockertest v3.3.5+incompatible/go.mod'
 'github.com/ory/dockertest/v3 v3.5.4/go.mod'
@@ -1200,8 +1208,8 @@ EGO_SUM=(
 'github.com/ory/x v0.0.189/go.mod'
 'github.com/ory/x v0.0.205/go.mod'
 'github.com/ory/x v0.0.207/go.mod'
-'github.com/ory/x v0.0.211'
-'github.com/ory/x v0.0.211/go.mod'
+'github.com/ory/x v0.0.232'
+'github.com/ory/x v0.0.232/go.mod'
 'github.com/ory/x v0.0.84/go.mod'
 'github.com/ory/x v0.0.85/go.mod'
 'github.com/ory/x v0.0.93/go.mod'
@@ -1221,8 +1229,9 @@ EGO_SUM=(
 'github.com/performancecopilot/speed v3.0.0+incompatible/go.mod'
 'github.com/phayes/freeport v0.0.0-20180830031419-95f893ade6f2'
 'github.com/phayes/freeport v0.0.0-20180830031419-95f893ade6f2/go.mod'
-'github.com/philhofer/fwd v1.0.0'
 'github.com/philhofer/fwd v1.0.0/go.mod'
+'github.com/philhofer/fwd v1.1.1'
+'github.com/philhofer/fwd v1.1.1/go.mod'
 'github.com/pierrec/lz4 v1.0.2-0.20190131084431-473cd7ce01a1/go.mod'
 'github.com/pierrec/lz4 v2.0.5+incompatible/go.mod'
 'github.com/pkg/errors v0.8.0/go.mod'
@@ -1328,8 +1337,9 @@ EGO_SUM=(
 'github.com/Shopify/sarama v1.19.0/go.mod'
 'github.com/Shopify/toxiproxy v2.1.4+incompatible/go.mod'
 'github.com/shopspring/decimal v0.0.0-20180709203117-cd690d0c9e24/go.mod'
-'github.com/shopspring/decimal v0.0.0-20200227202807-02e2044944cc'
 'github.com/shopspring/decimal v0.0.0-20200227202807-02e2044944cc/go.mod'
+'github.com/shopspring/decimal v1.2.0'
+'github.com/shopspring/decimal v1.2.0/go.mod'
 'github.com/shurcooL/go-goon v0.0.0-20170922171312-37c2f522c041/go.mod'
 'github.com/shurcooL/go v0.0.0-20180423040247-9e1955d9fb6e'
 'github.com/shurcooL/go v0.0.0-20180423040247-9e1955d9fb6e/go.mod'
@@ -1539,8 +1549,9 @@ EGO_SUM=(
 'golang.org/x/crypto v0.0.0-20200604202706-70a84ac30bf9/go.mod'
 'golang.org/x/crypto v0.0.0-20200622213623-75b288015ac9/go.mod'
 'golang.org/x/crypto v0.0.0-20201124201722-c8d3bf9c5392/go.mod'
-'golang.org/x/crypto v0.0.0-20201203163018-be400aefbc4c'
 'golang.org/x/crypto v0.0.0-20201203163018-be400aefbc4c/go.mod'
+'golang.org/x/crypto v0.0.0-20210322153248-0c34fe9e7dc2'
+'golang.org/x/crypto v0.0.0-20210322153248-0c34fe9e7dc2/go.mod'
 'golang.org/x/exp v0.0.0-20180321215751-8460e604b9de/go.mod'
 'golang.org/x/exp v0.0.0-20180807140117-3d87b88a115f/go.mod'
 'golang.org/x/exp v0.0.0-20190121172915-509febef88a4/go.mod'
@@ -1634,6 +1645,7 @@ EGO_SUM=(
 'golang.org/x/net v0.0.0-20201202161906-c7110b5ffcbb/go.mod'
 'golang.org/x/net v0.0.0-20201224014010-6772e930b67b/go.mod'
 'golang.org/x/net v0.0.0-20210119194325-5f4716e94777/go.mod'
+'golang.org/x/net v0.0.0-20210226172049-e18ecbb05110/go.mod'
 'golang.org/x/net v0.0.0-20210316092652-d523dce5a7f4'
 'golang.org/x/net v0.0.0-20210316092652-d523dce5a7f4/go.mod'
 'golang.org/x/oauth2 v0.0.0-20180821212333-d2e6202438be/go.mod'
@@ -1756,7 +1768,6 @@ EGO_SUM=(
 'golang.org/x/time v0.0.0-20190308202827-9d24e82272b4/go.mod'
 'golang.org/x/time v0.0.0-20191024005414-555d28b269f0'
 'golang.org/x/time v0.0.0-20191024005414-555d28b269f0/go.mod'
-'golang.org/x/tools v0.0.0-20180221164845-07fd8470d635/go.mod'
 'golang.org/x/tools v0.0.0-20180525024113-a5b4c53f6e8b/go.mod'
 'golang.org/x/tools v0.0.0-20180828015842-6cd1fcedba52/go.mod'
 'golang.org/x/tools v0.0.0-20180917221912-90fa682c2a6e/go.mod'
@@ -1847,11 +1858,13 @@ EGO_SUM=(
 'golang.org/x/tools v0.0.0-20200515010526-7d3b6ebf133d/go.mod'
 'golang.org/x/tools v0.0.0-20200522201501-cb1345f3a375/go.mod'
 'golang.org/x/tools v0.0.0-20200618134242-20370b0cb4b2/go.mod'
+'golang.org/x/tools v0.0.0-20200619180055-7c47624df98f/go.mod'
 'golang.org/x/tools v0.0.0-20200721223218-6123e77877b2/go.mod'
 'golang.org/x/tools v0.0.0-20200729194436-6467de6f59a7/go.mod'
 'golang.org/x/tools v0.0.0-20200804011535-6c149bb5ef0d/go.mod'
 'golang.org/x/tools v0.0.0-20200825202427-b303f430e36d/go.mod'
 'golang.org/x/tools v0.0.0-20201125231158-b5590deeca9b/go.mod'
+'golang.org/x/tools v0.0.0-20210106214847-113979e3529a/go.mod'
 'golang.org/x/tools v0.1.0'
 'golang.org/x/tools v0.1.0/go.mod'
 'golang.org/x/xerrors v0.0.0-20190410155217-1f06c39b4373/go.mod'
@@ -2048,6 +2061,9 @@ EGO_SUM=(
 'gopkg.in/yaml.v3 v3.0.0-20200615113413-eeeca48fe776/go.mod'
 'gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b'
 'gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b/go.mod'
+'gorm.io/driver/postgres v1.0.8/go.mod'
+'gorm.io/gorm v1.20.12/go.mod'
+'gorm.io/gorm v1.21.4/go.mod'
 'gotest.tools v2.2.0+incompatible'
 'gotest.tools v2.2.0+incompatible/go.mod'
 'gotest.tools/v3 v3.0.2'
@@ -2100,14 +2116,21 @@ SRC_URI="https://github.com/ory/hydra/archive/v${PV}.tar.gz -> ${P}.tar.gz
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
-
-IUSE=""
+IUSE="cockroach mysql postgres +sqlite"
+REQUIRED_USE="|| ( cockroach mysql postgres sqlite )"
 
 RESTRICT="mirror"
 
 RDEPEND="acct-group/hydra
-	acct-user/hydra"
+	acct-user/hydra
+	cockroach? ( dev-db/cockroach )
+	mysql? ( virtual/mysql )
+	postgres? ( dev-db/postgresql:* )
+	sqlite? ( dev-db/sqlite:3 )"
+
 DEPEND="${RDEPEND}"
+
+BDEPEND="virtual/pkgconfig"
 
 src_compile() {
 	local GOTAGS="sqlite"
@@ -2120,16 +2143,16 @@ src_install() {
 	dobin "${S}/bin/hydra"
 	dobin "${S}/bin/hydracli"
 
-	insinto /etc/hydra
-	doins internal/config/config.yaml
+	insinto "/etc/hydra"
+	doins "internal/config/config.yaml"
 
-	newconfd "${FILESDIR}"/hydra.confd hydra
-	newinitd "${FILESDIR}"/hydra.initd hydra
+	newconfd "${FILESDIR}/hydra.confd" "hydra"
+	newinitd "${FILESDIR}/hydra.initd" "hydra"
 
-	fowners hydra:hydra /etc/hydra
-	fowners hydra:hydra /etc/hydra/config.yaml
-	fperms 600 /etc/hydra/config.yaml
+	fowners hydra:hydra "/etc/hydra"
+	fowners hydra:hydra "/etc/hydra/config.yaml"
+	fperms 600 "/etc/hydra/config.yaml"
 
-	keepdir /var/log/hydra
-	fowners hydra:hydra /var/log/hydra
+	keepdir "/var/log/hydra"
+	fowners hydra:hydra "/var/log/hydra"
 }

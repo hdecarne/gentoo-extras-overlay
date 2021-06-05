@@ -2116,14 +2116,21 @@ SRC_URI="https://github.com/ory/hydra/archive/v${PV}.tar.gz -> ${P}.tar.gz
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
-
-IUSE=""
+IUSE="cockroach mysql postgres +sqlite"
+REQUIRED_USE="|| ( cockroach mysql postgres sqlite )"
 
 RESTRICT="mirror"
 
 RDEPEND="acct-group/hydra
-	acct-user/hydra"
+	acct-user/hydra
+	cockroach? ( dev-db/cockroach )
+	mysql? ( virtual/mysql )
+	postgres? ( dev-db/postgresql:* )
+	sqlite? ( dev-db/sqlite:3 )"
+
 DEPEND="${RDEPEND}"
+
+BDEPEND="virtual/pkgconfig"
 
 src_compile() {
 	local GOTAGS="sqlite"
@@ -2136,16 +2143,16 @@ src_install() {
 	dobin "${S}/bin/hydra"
 	dobin "${S}/bin/hydracli"
 
-	insinto /etc/hydra
-	doins internal/config/config.yaml
+	insinto "/etc/hydra"
+	doins "internal/config/config.yaml"
 
-	newconfd "${FILESDIR}"/hydra.confd hydra
-	newinitd "${FILESDIR}"/hydra.initd hydra
+	newconfd "${FILESDIR}/hydra.confd" "hydra"
+	newinitd "${FILESDIR}/hydra.initd" "hydra"
 
-	fowners hydra:hydra /etc/hydra
-	fowners hydra:hydra /etc/hydra/config.yaml
-	fperms 600 /etc/hydra/config.yaml
+	fowners hydra:hydra "/etc/hydra"
+	fowners hydra:hydra "/etc/hydra/config.yaml"
+	fperms 600 "/etc/hydra/config.yaml"
 
-	keepdir /var/log/hydra
-	fowners hydra:hydra /var/log/hydra
+	keepdir "/var/log/hydra"
+	fowners hydra:hydra "/var/log/hydra"
 }

@@ -110,6 +110,10 @@ net-nds/authelia:mysql - Enable MySQL support
 net-nds/authelia:postgres - Enable PostgreSQL support
 net-nds/authelia:redis - Enable redis support
 net-nds/authelia:sqlite - Enable sqlite support
+sys-auth/hydra:cockroach - Enable CockroachDB support
+sys-auth/hydra:mysql - Enable MySQL support
+sys-auth/hydra:postgres - Enable PostgreSQL support
+sys-auth/hydra:sqlite - Enable sqlite support
 www-apache/mod_auth_openidc:jq - Use libjq for JSON processing
 www-apache/mod_auth_openidc:redis - Enable Redis support
 www-apps/grafana:systemd - Install systemd service file

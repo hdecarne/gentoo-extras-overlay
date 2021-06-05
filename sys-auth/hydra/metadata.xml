@@ -9,4 +9,10 @@
 		<email>proxy-maint@gentoo.org</email>
 		<name>Proxy Maintainers</name>
 	</maintainer>
+	<use>
+		<flag name="cockroach">Enable CockroachDB support</flag>
+		<flag name="mysql">Enable MySQL support</flag>
+		<flag name="postgres">Enable PostgreSQL support</flag>
+		<flag name="sqlite">Enable sqlite support</flag>
+	</use>
 </pkgmetadata>
