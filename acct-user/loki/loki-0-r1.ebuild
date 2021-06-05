@@ -5,9 +5,8 @@ EAPI=7
 
 inherit acct-user
 
-DESCRIPTION="Loki program user"
-
+DESCRIPTION="${PN} program user"
 ACCT_USER_ID=200
-ACCT_USER_GROUPS=( grafana )
+ACCT_USER_GROUPS=( "grafana" )
 
 acct-user_add_deps
