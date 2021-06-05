@@ -1,0 +1,2 @@
+# The authelia command options to use
+#authelia_opts="--conf /etc/authelia/config.yml"

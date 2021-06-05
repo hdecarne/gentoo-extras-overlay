@@ -1,0 +1,15 @@
+#!/sbin/openrc-run
+
+error_log="${logfile:-/var/log/authelia/authelia-error.log}"
+command=/usr/bin/authelia
+command_args="${authelia_opts:---config /etc/authelia/config.yml}"
+command_background=yes
+command_user=authelia:authelia
+make_pidfile=yes
+pidfile=/var/run/authelia.pid
+
+reload() {
+	ebegin "Reloading ${RC_SVCNAME}"
+	start-stop-daemon --signal HUP --pidfile "${PIDFILE}"
+	eend $?
+}
