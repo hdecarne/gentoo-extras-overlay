@@ -116,4 +116,8 @@ sys-auth/hydra:postgres - Enable PostgreSQL support
 sys-auth/hydra:sqlite - Enable sqlite support
 www-apache/mod_auth_openidc:jq - Use libjq for JSON processing
 www-apache/mod_auth_openidc:redis - Enable Redis support
+www-apps/filebrowser:mysql - Enable MySQL support
+www-apps/filebrowser:postgres - Enable PostgreSQL support
+www-apps/filebrowser:redis - Enable redis support
+www-apps/filebrowser:sqlite - Enable sqlite support
 www-apps/grafana:systemd - Install systemd service file
