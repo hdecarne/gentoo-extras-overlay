@@ -1,0 +1,28 @@
+# The filebrowser options to use
+
+# filebrowser user
+filebrowser_user="nobody:users"
+
+# filebrowser command line options
+filebrowser_opts=""
+
+# address to listen on (default "127.0.0.1")
+#filebrowser_opts="${filebrowser_opts} --address 127.0.0.1"
+
+# port to listen on (default "8080")
+#filebrowser_opts="${filebrowser_opts} --port 8080"
+
+# base url
+#filebrowser_opts="${filebrowser_opts} --baseurl /browse"
+
+# config file path
+#filebrowser_opts="${filebrowser_opts} --config /etc/filebrowser.json"
+
+# database path (default "./filebrowser.db")
+#filebrowser_opts="${filebrowser_opts} --database ./filebrowser.db"
+
+# root to prepend to relative paths (default ".")
+#filebrowser_opts="${filebrowser_opts} --root ."
+
+# extra options
+#filebrowser_opts="${filebrowser_opts} --help"

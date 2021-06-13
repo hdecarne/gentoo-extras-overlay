@@ -1,0 +1,16 @@
+#!/sbin/openrc-run
+# Copyright 1999-2021 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+
+command=/usr/bin/filebrowser
+command_args="${filebrowser_opts:---help}"
+command_background=yes
+command_user="${filebrowser_user:-nobody:users}"
+make_pidfile=yes
+pidfile=/var/run/${RC_SVCNAME}.pid
+
+reload() {
+	ebegin "Reloading ${RC_SVCNAME}"
+	start-stop-daemon --signal HUP --pidfile "${PIDFILE}"
+	eend $?
+}

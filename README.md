@@ -40,6 +40,8 @@ __Please beware__: I am running and hence tested these ebuilds against ~amd64 or
 
 * www-apps/grafana: New ebuild for Grafana dashboard web app (https://grafana.com).
 
+* www-apps/filebrowser: New ebuild for Web File Browser (https://filebrowser.org).
+
 * sys-aut/hydra: New ebuild for Ory Hydra OAuth provider (https://github.com/ory/hydra).
 
 * net-nds/authelia: New ebuild for Authelia Single Sign-On Multi-Factor portal for web apps (https://www.authelia.com/).
