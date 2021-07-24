@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst prepare setup
+DEPEND=net-misc/curl >=dev-libs/openssl-0.9.8 >=dev-libs/jansson-2.0 >=dev-libs/cjose-0.6.1 dev-libs/libpcre redis? ( >=dev-libs/hiredis-0.9.0 ) jq? ( app-misc/jq ) =www-servers/apache-2*
+DESCRIPTION=OpenID Connect Relying Party implementation for Apache HTTP Server 2.x
+EAPI=7
+HOMEPAGE=https://github.com/zmartzone/mod_auth_openidc
+IUSE=+jq redis
+KEYWORDS=amd64
+LICENSE=Apache-2.0
+RDEPEND=net-misc/curl >=dev-libs/openssl-0.9.8 >=dev-libs/jansson-2.0 >=dev-libs/cjose-0.6.1 dev-libs/libpcre redis? ( >=dev-libs/hiredis-0.9.0 ) jq? ( app-misc/jq ) =www-servers/apache-2*
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://github.com/zmartzone/mod_auth_openidc/archive/refs/tags/v2.4.9.tar.gz -> mod_auth_openidc-2.4.9.tar.gz
+_eclasses_=apache-module	46dd6706a4df4d5086a9c2b19dc2c344	depend.apache	d54e0d0bd6b36c476594edc2cee2e332
+_md5_=848a309124918bd57a3b29e09af06a7e
