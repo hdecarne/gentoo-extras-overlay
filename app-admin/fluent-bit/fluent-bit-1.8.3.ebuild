@@ -153,7 +153,7 @@ CMAKE_BUILD_TYPE="Release"
 CMAKE_MAKEFILE_GENERATOR="emake"
 
 src_configure() {
-	append-cflags -fcommon -Wno-array-parameter -Wno-stringop-overflow
+	append-cflags -fcommon -Wno-array-parameter -Wno-stringop-overflow -Wno-error=format-truncation
 	local mycmakeargs=(
 		-Wno-dev
 		-DCMAKE_INSTALL_SYSCONFDIR="${EPREFIX}/etc"
