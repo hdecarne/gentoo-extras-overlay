@@ -9,6 +9,6 @@ KEYWORDS=~amd64
 LICENSE=AGPL-3
 RESTRICT=mirror network-sandbox
 SLOT=0
-SRC_URI=https://github.com/grafana/grafana/archive/v8.1.0-beta3.tar.gz -> grafana-8.1.0_beta3.tar.gz
+SRC_URI=https://github.com/grafana/grafana/archive/v8.1.0.tar.gz -> grafana-8.1.0.tar.gz
 _eclasses_=go-module	8aabf8812bab7a6f07e7a32958c505ef	multilib	97566c1a256d07b00848aa767e38a352	systemd	c846b9e02ac8293bfc9ca38a195c2a18	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa
 _md5_=79b6ea4899173e5d433da945b12f7c79
