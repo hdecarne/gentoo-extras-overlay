@@ -1,4 +1,4 @@
-BDEPEND=dev-util/ninja dev-util/cmake
+BDEPEND=dev-util/ninja >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=acct-group/logger acct-user/fluent-bit luajit? ( dev-lang/luajit ) jemalloc? ( dev-libs/jemalloc )
 DESCRIPTION=Fast and Lightweight Log processor and forwarder for Linux, BSD and OSX
@@ -11,5 +11,5 @@ RDEPEND=acct-group/logger acct-user/fluent-bit luajit? ( dev-lang/luajit ) jemal
 RESTRICT=mirror
 SLOT=0
 SRC_URI=https://github.com/fluent/fluent-bit/archive/v1.3.11.tar.gz -> fluent-bit-1.3.11.tar.gz
-_eclasses_=cmake	518e4c9a6a38dfd7afc54b6a7c5de3da	edos2unix	33e347e171066657f91f8b0c72ec8773	eutils	2d5b3f4b315094768576b6799e4f926e	flag-o-matic	bc2e7662a4a9a8643be851982a837ddc	l10n	8cdd85e169b835d518bc2fd59f780d8e	multilib	d410501a125f99ffb560b0c523cd3d1e	multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	wrapper	4251d4c84c25f59094fd557e0063a974	xdg-utils	ff2ff954e6b17929574eee4efc5152ba
+_eclasses_=cmake	11fee991ab428a3370e5c20fa8231fb6	edos2unix	33e347e171066657f91f8b0c72ec8773	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	multilib	4b66d835ec72e021e359bb81eacfe988	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	wrapper	4251d4c84c25f59094fd557e0063a974	xdg-utils	27f9a2f19502b925ac117bd657aa2979
 _md5_=41b264b94e7a68d97c0ad7ddc87085a7
