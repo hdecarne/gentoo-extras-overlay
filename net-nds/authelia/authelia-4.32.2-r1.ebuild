@@ -6,7 +6,7 @@ EAPI=7
 inherit go-module
 
 #
-# awk '{print "\x27" $1 " " $2 "\x27"}' go.sum | sort
+# awk '{print "\x27" $1 " " $2 "\x27"}' go.sum | sort -u
 #
 EGO_SUM=(
 'bazil.org/fuse v0.0.0-20160811212531-371fbbdaa898/go.mod'
@@ -2025,7 +2025,7 @@ DESCRIPTION="The Single Sign-On Multi-Factor portal for web apps"
 
 HOMEPAGE="https://www.authelia.com/"
 
-SWAGGER_PV="3.52.3"
+SWAGGER_PV="3.52.4"
 SWAGGER_P="swagger-ui-${SWAGGER_PV}"
 
 SRC_URI="https://github.com/authelia/authelia/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
@@ -2051,25 +2051,23 @@ DEPEND="${RDEPEND}"
 
 BDEPEND="dev-go/broccoli
 	net-libs/nodejs
-	sys-apps/yarn
 	virtual/pkgconfig"
 
-YARN_OPTIONS="--no-progress --network-concurrency 1 --network-timeout 3000000"
-
-src_configure() {
+src_prepare() {
 	pushd "./web"
-	yarn ${YARN_OPTIONS} install || die "configure failed"
+	npx pnpm install --loglevel verbose || die "prepare failed"
 	popd
+	eapply_user
 }
 
 src_compile() {
 	pushd "./web"
-	INLINE_RUNTIME_CHUNK=false yarn ${YARN_OPTIONS} build || die "compile failed"
+	npx pnpm build --loglevel verbose || die "compile failed"
 	popd
-	mkdir -p "./internal/server/public_html/api/" || die "compile failed"
+	sed -i -e 's/{{.[a-zA-Z]*}}/\"&\"/g' "./internal/server/public_html/index.html"
 	cp -R "${WORKDIR}/${SWAGGER_P}/dist/"* "./internal/server/public_html/api/" || die "compile failed"
 	cp -R "./api/"* "./internal/server/public_html/api/" || die "compile failed"
-	GOOS=linux GOARCH=amd64 CGO_ENABLED=1 go build ./cmd/authelia || die "compile failed"
+	GOOS=linux GOARCH=amd64 CGO_ENABLED=1 CGO_LDFLAGS="-Wl,-z,relro,-z,now" go build -buildmode=pie -trimpath -ldflags "-linkmode=external -s -w" ./cmd/authelia || die "compile failed"
 }
 
 src_install() {
