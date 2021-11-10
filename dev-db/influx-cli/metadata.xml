@@ -9,10 +9,4 @@
 		<email>proxy-maint@gentoo.org</email>
 		<name>Proxy Maintainers</name>
 	</maintainer>
-	<use>
-		<flag name="cli">Install CLI</flag>
-	</use>
-	<use>
-		<flag name="man">Install manual pages</flag>
-	</use>
 </pkgmetadata>
