@@ -1,0 +1,15 @@
+BDEPEND=>=dev-lang/go-1.12 app-arch/unzip virtual/pkgconfig
+DEFINED_PHASES=compile install unpack
+DESCRIPTION=The plugin-driven server agent for collecting & reporting metrics.
+EAPI=8
+HOMEPAGE=https://github.com/influxdata/telegraf
+INHERIT=go-module systemd
+IUSE=systemd
+KEYWORDS=~amd64 ~arm64
+LICENSE=MIT
+RDEPEND=acct-group/telegraf acct-user/telegraf
+RESTRICT=mirror network-sandbox strip
+SLOT=0
+SRC_URI=https://github.com/influxdata/telegraf/archive/v1.20.4.tar.gz -> telegraf-1.20.4.tar.gz
+_eclasses_=go-module	34c2d0a98b291ac9acda0cb54c9ffd61	multilib	4b66d835ec72e021e359bb81eacfe988	systemd	2736b403a83f194b59b767f3b344c2c1	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa
+_md5_=573bb9e1c15e0d07af4b1065f2159ea2

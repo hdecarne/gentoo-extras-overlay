@@ -93,6 +93,7 @@ app-admin/loki:fluent-bit - Build the fluent-bit plugin to publish from app-admi
 app-admin/loki:promtail - Build the promtail log gathering agent
 app-admin/loki:server - Build the loki server
 app-admin/loki:tools - Build the loki tools logcli and loki-canary
+dev-db/influxdb:cli - Install CLI
 dev-db/influxdb:man - Install manual pages
 dev-libs/cjose:doc - Generate Doxygen API documentation
 dev-libs/cjose:test - Execute the unit tests
