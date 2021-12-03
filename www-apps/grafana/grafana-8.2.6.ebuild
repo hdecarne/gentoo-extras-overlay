@@ -22,12 +22,15 @@ DEPEND="!www-apps/grafana-bin
 	acct-group/grafana
 	acct-user/grafana
 	media-libs/fontconfig
-	=net-libs/nodejs-16*[icu]
+	=net-libs/nodejs-14*[icu]
 	sys-apps/yarn"
 BDEPEND="virtual/pkgconfig
 	dev-go/wire"
 
 QA_PRESTRIPPED="usr/bin/grafana-*"
+
+MY_YARN_OPTIONS="--scripts-prepend-node-path --network-concurrency 1 --network-timeout 3000000"
+MY_NODE_OPTIONS="--max-old-space-size=4096"
 
 src_prepare() {
 	sed -i "s:;reporting_enabled = .*:reporting_enabled = false:" \
@@ -35,10 +38,9 @@ src_prepare() {
 	sed -i "s:;check_for_updates = .*:check_for_updates = false:" \
 		conf/sample.ini || die "prepare failed"
 
-	NODE_OPTIONS="--max-old-space-size=4096" \
-	YARN_ENABLE_PROGRESS_BARS=false \
-	yarn install --immutable || die "prepare failed"
+	mkdir "plugins-bundled/external"
 
+	NODE_OPTIONS=${MY_NODE_OPTIONS} yarn ${MY_YARN_OPTIONS} install --pure-lockfile --no-progress || die "prepare failed"
 	default
 }
 
@@ -46,13 +48,11 @@ src_compile() {
 	addpredict /etc/npm
 
 	einfo "Build go files"
-	wire gen -tags oss ./pkg/server ./pkg/cmd/grafana-cli/runner || die "compile failed"
+	wire gen -tags oss ./pkg/server || die "compile failed"
 	go run build.go build || die "compile failed"
 	einfo "Build frontend "
-	NODE_OPTIONS="--max-old-space-size=4096" \
-	yarn run build || die "compile failed"
-	NODE_OPTIONS="--max-old-space-size=4096" \
-	yarn run plugins:build-bundled || die "compile failed"
+	NODE_OPTIONS=${MY_NODE_OPTIONS} yarn ${MY_YARN_OPTIONS} run build || die "compile failed"
+	NODE_OPTIONS=${MY_NODE_OPTIONS} yarn ${MY_YARN_OPTIONS} run plugins:build-bundled || die "compile failed"
 }
 
 src_install() {
