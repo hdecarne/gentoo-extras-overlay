@@ -15,7 +15,7 @@ HOMEPAGE="http://www.isc.org/kea/"
 SRC_URI="ftp://ftp.isc.org/isc/kea/${MY_P}.tar.gz
 	ftp://ftp.isc.org/isc/kea/${MY_PV}/${MY_P}.tar.gz"
 
-LICENSE="ISC BSD SSLeay GPL-2" # GPL-2 only for init script
+LICENSE="MPL-2.0 GPL-2" # GPL-2 only for init script
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="mysql openssl postgres samples"
