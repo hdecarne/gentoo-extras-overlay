@@ -2064,16 +2064,16 @@ BDEPEND="dev-go/broccoli
 
 src_prepare() {
 	pushd "./web"
-	npx pnpm install --loglevel verbose || die "prepare failed"
+	npx pnpm install || die "prepare failed"
 	popd
 	eapply_user
 }
 
 src_compile() {
 	pushd "./web"
-	npx pnpm build --loglevel verbose || die "compile failed"
+	npx pnpm build || die "compile failed"
 	popd
-	sed -i -e 's/{{.[a-zA-Z]*}}/\"&\"/g' "./internal/server/public_html/index.html"
+	sed -i -e 's/{{.[a-zA-Z]*}}/\"&\"/g' "./web/index.html" || die "compile failed"
 	cp -R "${WORKDIR}/${SWAGGER_P}/dist/"* "./internal/server/public_html/api/" || die "compile failed"
 	cp -R "./api/"* "./internal/server/public_html/api/" || die "compile failed"
 	GOOS=linux GOARCH=amd64 CGO_ENABLED=1 CGO_LDFLAGS="-Wl,-z,relro,-z,now" go build -buildmode=pie -trimpath -ldflags "-linkmode=external -s -w" ./cmd/authelia || die "compile failed"
