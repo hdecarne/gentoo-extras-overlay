@@ -1,0 +1,19 @@
+# The snort config file
+
+# The directory to run snort in and place the PID file
+SNORT_RUN_DIR="/var/run"
+
+# The config file to use
+SNORT_OPTS="-c /etc/snort/snort.lua"
+
+# The interface to listen on
+SNORT_OPTS="${SNORT_OPTS} -i eth0"
+
+# The uid to use
+SNORT_OPTS="${SNORT_OPTS} -u snort"
+
+# Log to syslog
+SNORT_OPTS="${SNORT_OPTS} -M"
+
+# The extra options to use
+SNORT_OPTS="${SNORT_OPTS} -s 65535 -k none"

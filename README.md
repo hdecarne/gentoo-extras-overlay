@@ -24,6 +24,8 @@ __Please beware__: I am running and hence tested these ebuilds against ~amd64 or
 
 * net-analyzer/telegraf: Updated ebuild for Telegraf metric reporter (https://influxdata.com).
 
+* net-analyzer/snort3: Updated ebuild for Snort IDS (https://snort.org).
+
 * net-misc/kea: Updated ebuild with DB backend support (MySQL, PostgreSQL).
 
 * app-admin/fluent-bit: New ebuild for fluent-bit log processor and forwarder (https://fluentbit.io).
@@ -42,10 +44,6 @@ __Please beware__: I am running and hence tested these ebuilds against ~amd64 or
 
 * www-apps/filebrowser: New ebuild for Web File Browser (https://filebrowser.org).
 
-* sys-aut/hydra: New ebuild for Ory Hydra OAuth provider (https://github.com/ory/hydra).
-
 * net-nds/authelia: New ebuild for Authelia Single Sign-On Multi-Factor portal for web apps (https://www.authelia.com/).
 
 * www-apache/mod_auth_openidc: New ebuild for Apache OIDC module (https://github.com/zmartzone/mod_auth_openidc).
-
-* www-apache/mod_authnz_pam: New ebuild for Apache PAM module (https://github.com/adelton/mod_authnz_pam).

@@ -1,0 +1,11 @@
+diff -ruN libdaq-3.0.5/Makefile.am libdaq-3.0.5.disable-example/Makefile.am
+--- libdaq-3.0.5/Makefile.am	2021-08-24 18:25:43.000000000 +0200
++++ libdaq-3.0.5.disable-example/Makefile.am	2021-12-20 20:18:24.623263531 +0100
+@@ -7,6 +7,6 @@
+ if BUILD_MODULES
+     MODULES_DIR = modules
+ endif
+-SUBDIRS = api $(MODULES_DIR) example test
++SUBDIRS = api $(MODULES_DIR) test
+ 
+ ACLOCAL_AMFLAGS = -I m4

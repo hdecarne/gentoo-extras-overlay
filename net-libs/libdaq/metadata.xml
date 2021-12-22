@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>hdecarne@gmail.com</email>
+		<name>Holger</name>
+	</maintainer>
+	<maintainer type="project">
+		<email>proxy-maint@gentoo.org</email>
+		<name>Proxy Maintainers</name>
+	</maintainer>
+	<use>
+		<flag name="af-packet">Build the bundled AFPacket module</flag>
+		<flag name="bpf">Build the bundled BPF wrapper module</flag>
+		<flag name="divert">Build the bundled Divert module</flag>
+		<flag name="dump">Build the bundled Dump module</flag>
+		<flag name="fst">Build the bundled FST module</flag>
+		<flag name="netmap">Build the bundled netmap module</flag>
+		<flag name="nfq">Build the bundled NFQ module</flag>
+		<flag name="pcap">Build the bundled PCAP module</flag>
+		<flag name="savefile">Build the bundled Savefile module</flag>
+		<flag name="trace">Build the bundled Trace module</flag>
+	</use>
+</pkgmetadata>

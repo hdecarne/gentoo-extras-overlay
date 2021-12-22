@@ -98,7 +98,28 @@ dev-db/influxdb:man - Install manual pages
 dev-libs/cjose:doc - Generate Doxygen API documentation
 dev-libs/cjose:test - Execute the unit tests
 media-libs/raspberrypi-userland64:tools-only - Only install tools (vcgcmd and the like but no libs, headers, plugins)
+net-analyzer/snort3:flatbuffers - Use dev-libs/flatbuffers for serialization
+net-analyzer/snort3:hyperscan - Use dev-libs/hyperscan for regular expression matching
+net-analyzer/snort3:iconv - Enable support for the iconv character set conversion library
+net-analyzer/snort3:jemalloc - Use dev-libs/jemalloc for memory management
+net-analyzer/snort3:large-pcap - Enable support for pcaps larger than 2 GB
+net-analyzer/snort3:lzma - Support for LZMA (de)compression algorithm
+net-analyzer/snort3:tcmalloc - Use the dev-util/google-perftools libraries to replace the malloc() implementation with a possibly faster one
+net-analyzer/snort3:tirpc - Use net-libs/libtirpc for RPC
+net-analyzer/snort3:tsc - Use timestamp counter register clock (x86 and arm only)
+net-analyzer/snort3:unwind - Add support for call stack unwinding and function name resolution
+net-analyzer/snort3:uuid - UUID support via sys-apps/util-linux
 net-analyzer/telegraf:systemd - Install systemd service file
+net-libs/libdaq:af-packet - Build the bundled AFPacket module
+net-libs/libdaq:bpf - Build the bundled BPF wrapper module
+net-libs/libdaq:divert - Build the bundled Divert module
+net-libs/libdaq:dump - Build the bundled Dump module
+net-libs/libdaq:fst - Build the bundled FST module
+net-libs/libdaq:netmap - Build the bundled netmap module
+net-libs/libdaq:nfq - Build the bundled NFQ module
+net-libs/libdaq:pcap - Build the bundled PCAP module
+net-libs/libdaq:savefile - Build the bundled Savefile module
+net-libs/libdaq:trace - Build the bundled Trace module
 net-libs/liboauth2:apache2 - Enable Apache 2.x support
 net-libs/liboauth2:memcached - Enable memcached support
 net-libs/liboauth2:nginx - Enable nginx support

@@ -1,0 +1,17 @@
+#!/sbin/openrc-run
+
+command=/usr/bin/snort
+command_args="${SNORT_OPTS} -D --create-pidfile"
+directory="${SNORT_RUN_DIR:-/var/run}"
+pidpath="${directory}"
+extra_started_commands="reload"
+
+depend() {
+	need net
+}
+
+reload() {
+	ebegin "Reloading configuration"
+	start-stop-daemon --signal HUP --pidfile "${directory}/snort.pid"
+	eend $?
+}

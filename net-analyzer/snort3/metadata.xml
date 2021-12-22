@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>hdecarne@gmail.com</email>
+		<name>Holger</name>
+	</maintainer>
+	<maintainer type="project">
+		<email>proxy-maint@gentoo.org</email>
+		<name>Proxy Maintainers</name>
+	</maintainer>
+	<use>
+		<flag name="flatbuffers">Use dev-libs/flatbuffers for serialization</flag>
+		<flag name="hyperscan">Use dev-libs/hyperscan for regular expression matching</flag>
+		<flag name="iconv">Enable support for the iconv character set conversion library</flag>
+		<flag name="jemalloc">Use dev-libs/jemalloc for memory management</flag>
+		<flag name="large-pcap">Enable support for pcaps larger than 2 GB</flag>
+		<flag name="lzma">Support for LZMA (de)compression algorithm</flag>
+		<flag name="tcmalloc">Use the dev-util/google-perftools libraries to replace the malloc() implementation with a possibly faster one</flag>
+		<flag name="tirpc">Use net-libs/libtirpc for RPC</flag>
+		<flag name="tsc">Use timestamp counter register clock (x86 and arm only)</flag>
+		<flag name="unwind">Add support for call stack unwinding and function name resolution</flag>
+		<flag name="uuid">UUID support via sys-apps/util-linux</flag>
+	</use>
+</pkgmetadata>
