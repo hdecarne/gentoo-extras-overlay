@@ -24,7 +24,9 @@ __Please beware__: I am running and hence tested these ebuilds against ~amd64 or
 
 * net-analyzer/telegraf: Updated ebuild for Telegraf metric reporter (https://influxdata.com).
 
-* net-analyzer/snort3: Updated ebuild for Snort IDS (https://snort.org).
+* net-analyzer/snort3: Updated ebuild for Snort IDS v3 (https://snort.org).
+
+* net-analyzer/pulledpork3: Updated ebuild for Pulled Pork (beta) for Snort v3 (https://github.com/shirkdog/pulledpork3).
 
 * net-misc/kea: Updated ebuild with DB backend support (MySQL, PostgreSQL).
 
