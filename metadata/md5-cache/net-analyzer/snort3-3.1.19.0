@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig sys-devel/make >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=!net-analyzer/snort acct-user/snort acct-group/snort lzma? ( app-arch/xz-utils ) jemalloc? ( dev-libs/jemalloc ) flatbuffers? ( dev-libs/flatbuffers ) hyperscan? ( dev-libs/hyperscan ) dev-libs/libdnet iconv? ( virtual/libiconv ) dev-libs/libpcre dev-libs/openssl tcmalloc? ( dev-util/google-perftools ) net-libs/libdaq[pcap] tirpc? ( net-libs/libtirpc ) sys-apps/hwloc unwind? ( sys-libs/libunwind ) uuid? ( sys-apps/util-linux ) sys-libs/zlib lua_single_target_luajit? ( dev-lang/luajit:= )
+DESCRIPTION=Snort++
+EAPI=8
+HOMEPAGE=https://github.com/snort3/snort3
+INHERIT=cmake flag-o-matic lua-single
+IUSE=flatbuffers hyperscan iconv large-pcap lzma jemalloc tcmalloc tirpc tsc unwind uuid +lua_single_target_luajit
+KEYWORDS=~amd64
+LICENSE=GPL-2
+RDEPEND=!net-analyzer/snort acct-user/snort acct-group/snort lzma? ( app-arch/xz-utils ) jemalloc? ( dev-libs/jemalloc ) flatbuffers? ( dev-libs/flatbuffers ) hyperscan? ( dev-libs/hyperscan ) dev-libs/libdnet iconv? ( virtual/libiconv ) dev-libs/libpcre dev-libs/openssl tcmalloc? ( dev-util/google-perftools ) net-libs/libdaq[pcap] tirpc? ( net-libs/libtirpc ) sys-apps/hwloc unwind? ( sys-libs/libunwind ) uuid? ( sys-apps/util-linux ) sys-libs/zlib lua_single_target_luajit? ( dev-lang/luajit:= )
+REQUIRED_USE=jemalloc? ( !tcmalloc ) tcmalloc? ( !jemalloc )
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://github.com/snort3/snort3/archive/refs/tags/3.1.19.0.tar.gz -> snort3-3.1.19.0.tar.gz
+_eclasses_=cmake	11fee991ab428a3370e5c20fa8231fb6	flag-o-matic	d5e1306543bc457213f68bb18f830d14	lua-single	ba92a0c9d413e015c6625cdb0b9aaf99	lua-utils	7b7cd623ac8b9dd4a7a6ee27219cada6	multilib	8a0248f83ae77f945d376ff4a7953257	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	xdg-utils	4f29a8b760a594a212abe9c2ba957c31
+_md5_=a7bf868eb465d1da39795db951261f29

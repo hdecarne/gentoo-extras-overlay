@@ -15,7 +15,8 @@ dev-go/wire 0.5.0: Compile-time Dependency Injection for Go
 dev-libs/cjose 0.6.1: C library implementing the Javascript Object Signing and Encryption (JOSE
 dev-php/pecl-msgpack 2.0.3 2.1.0 2.1.1 2.1.2: PHP extension for interfacing with MessagePack
 media-libs/raspberrypi-userland64 9999: Raspberry Pi userspace tools and libraries for 64bit
-net-analyzer/snort3 3.1.18.0: Snort++
+net-analyzer/pulledpork3 9999: Pulled Pork for Snort3 rule management
+net-analyzer/snort3 3.1.18.0 3.1.19.0: Snort++
 net-analyzer/telegraf 1.9.4 1.10.0 1.10.1 1.10.3 1.10.4 1.11.0 1.11.1 1.11.4 1.11.5 1.12.0 1.12.1 1.12.2 1.12.3 1.12.4 1.12.5 1.12.6 1.13.0 1.13.1 1.13.2 1.13.3 1.13.4 1.14.0 1.14.1 1.14.2 1.14.3 1.14.4 1.14.5 1.15.1 1.15.2 1.15.3 1.15.4 1.16.0 1.16.1 1.16.2 1.17.0 1.17.3 1.18.0 1.18.1 1.18.2 1.18.3 1.19.0 1.19.3 1.20.4 1.21.0 1.21.1: The plugin-driven server agent for collecting & reporting metrics.
 net-libs/libdaq 3.0.5: LibDAQ: The Data AcQuisition Library
 net-libs/liboauth2 1.4.2: OAuth 2.x and OpenID Connect C library
