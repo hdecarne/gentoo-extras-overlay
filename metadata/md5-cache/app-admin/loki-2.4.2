@@ -1,0 +1,16 @@
+BDEPEND=>=dev-lang/go-1.12 app-arch/unzip
+DEFINED_PHASES=compile install unpack
+DEPEND=acct-group/grafana acct-user/loki fluent-bit? ( app-admin/fluent-bit )
+DESCRIPTION=Like Prometheus, but for logs.
+EAPI=7
+HOMEPAGE=https://grafana.com/loki/
+INHERIT=go-module
+IUSE=fluent-bit promtail +server tools
+KEYWORDS=~amd64
+LICENSE=Apache-2.0
+RDEPEND=acct-group/grafana acct-user/loki fluent-bit? ( app-admin/fluent-bit )
+RESTRICT=mirror strip
+SLOT=0
+SRC_URI=https://github.com/grafana/loki/archive/v2.4.2.tar.gz -> loki-2.4.2.tar.gz
+_eclasses_=go-module	82631624a3653e595cf9c18164a8c500
+_md5_=2003358b99e06da7e6fb96c9ed6cd448
