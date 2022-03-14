@@ -23,6 +23,8 @@ src_install() {
 	insinto /lib/firmware/raspberrypi/bootloader
 	doins -r firmware/*
 	dosbin rpi-eeprom-config
+	dosbin rpi-eeprom-digest
 	dosbin rpi-eeprom-update
-	dosbin rpi-eeprom-update-default
+	mkdir -p ${D}/etc/default
+	cp rpi-eeprom-update-default ${D}/etc/default/rpi-eeprom-update || die "install failed"
 }
