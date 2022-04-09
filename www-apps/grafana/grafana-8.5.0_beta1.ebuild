@@ -37,7 +37,7 @@ src_prepare() {
 
 	mkdir "plugins-bundled/external"
 
-	NODE_OPTIONS="--max-old-space-size=4096" \
+	NODE_OPTIONS="--max-old-space-size=8192" \
 	YARN_ENABLE_PROGRESS_BARS=false \
 	yarn install --immutable || die "prepare failed"
 
@@ -51,7 +51,7 @@ src_compile() {
 	wire gen -tags oss ./pkg/server ./pkg/cmd/grafana-cli/runner || die "compile failed"
 	go run build.go build || die "compile failed"
 	einfo "Build frontend "
-	NODE_OPTIONS="--max-old-space-size=4096" \
+	NODE_OPTIONS="--max-old-space-size=8192" \
 	yarn run build || die "compile failed"
 	NODE_OPTIONS="--max-old-space-size=4096" \
 	yarn run plugins:build-bundled || die "compile failed"
