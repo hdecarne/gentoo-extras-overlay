@@ -1,5 +1,0 @@
-# The hydra command to run
-#hydra_command="serve all"
-
-# The hydra command options to use
-#hydra_opts="--conf /etc/hydra/config.yaml"
