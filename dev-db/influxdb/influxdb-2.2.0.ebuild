@@ -1456,7 +1456,7 @@ PDEPEND="cli? ( dev-db/influx-cli )"
 RESTRICT="mirror network-sandbox"
 
 src_prepare() {
-	eapply "${FILESDIR}/${PN}2-build-r3.patch"
+	eapply "${FILESDIR}/${PN}2-build-r4.patch"
 	default
 }
 
