@@ -11,5 +11,5 @@ RDEPEND=acct-group/grafana acct-user/grafana !www-apps/grafana-bin
 RESTRICT=mirror network-sandbox strip
 SLOT=0
 SRC_URI=https://github.com/grafana/grafana/archive/v6.3.0.tar.gz -> grafana-6.3.0.tar.gz
-_eclasses_=golang-base	701bf25399a8bb1be2c97aabbccc91c9	golang-vcs-snapshot	7ff6c1586fadbbe43a294f4e9dfabd19
+_eclasses_=golang-base	9f0e420ab37bc55a318d74bab3aae891	golang-vcs-snapshot	6864f899c6843043ba23620fcd4a908c
 _md5_=e259ade125a4aba5b387e2ccbdc1a487
