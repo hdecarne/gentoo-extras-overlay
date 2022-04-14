@@ -45,6 +45,16 @@
 		<flag name="fluentbit_input_plugins_statsd">Enable StatsD input plugin</flag>
 		<flag name="fluentbit_input_plugins_storage_backlog">Enable storage backlog input plugin</flag>
 		<flag name="fluentbit_input_plugins_emitter">Enable emitter input plugin</flag>
+		<flag name="fluentbit_input_plugins_dummy_thread">Enable Threaded dummy input plugin</flag>
+		<flag name="fluentbit_input_plugins_fluentbit_metrics">Enable Fluent Bit metrics input plugin</flag>
+		<flag name="fluentbit_input_plugins_kafka">Enable Kafka input plugin</flag>
+		<flag name="fluentbit_input_plugins_nginx_exporter_metrics">Enable Nginx Metrics input plugin</flag>
+		<flag name="fluentbit_input_plugins_node_exporter_metrics">Enable node exporter metrics input plugin</flag>
+		<flag name="fluentbit_input_plugins_opentelemetry">Enable OpenTelemetry input plugin</flag>
+		<flag name="fluentbit_input_plugins_prometheus_scrape">Enable Promeheus Scrape input plugin</flag>
+		<flag name="fluentbit_input_plugins_windows_exporter_metrics">Enable windows exporter metrics input plugin</flag>
+		<flag name="fluentbit_input_plugins_winevtlog">Enable Windows EvtLog input plugin</flag>
+		<flag name="fluentbit_input_plugins_winstat">Enable XXX Windows Stat input plugin</flag>
 		<flag name="fluentbit_output_plugins_azure">Enable Azure output plugin</flag>
 		<flag name="fluentbit_output_plugins_azure_blob">Enable Azure output plugin</flag>
 		<flag name="fluentbit_output_plugins_bigquery">Enable BigQuery output plugin</flag>
@@ -81,6 +91,12 @@
 		<flag name="fluentbit_output_plugins_kinesis_firehose">Enable AWS Firehose output plugin</flag>
 		<flag name="fluentbit_output_plugins_s3">Enable AWS S3 output plugin</flag>
 		<flag name="fluentbit_output_plugins_websocket">Enable Websocket output plugin</flag>
+		<flag name="fluentbit_output_plugins_calyptia">Enable Calyptia monitoring output plugin</flag>
+		<flag name="fluentbit_output_plugins_opensearch">Enable OpenSearch output plugin</flag>
+		<flag name="fluentbit_output_plugins_opentelemetry">Enable OpenTelemetry output plugin</flag>
+		<flag name="fluentbit_output_plugins_prometheus_exporter">Enable Prometheus exporter output plugin</flag>
+		<flag name="fluentbit_output_plugins_prometheus_remote_write">Enable Prometheus remote write output plugin</flag>
+		<flag name="fluentbit_output_plugins_skywalking">Enable Apache SkyWalking output plugin</flag>
 		<flag name="fluentbit_filters_alter_size">Enable alter_size filter</flag>
 		<flag name="fluentbit_filters_aws">Enable aws filter</flag>
 		<flag name="fluentbit_filters_expect">Enable expect filter</flag>
@@ -97,5 +113,10 @@
 		<flag name="fluentbit_filters_tensorflow">Enable tensorflow filter</flag>
 		<flag name="fluentbit_filters_kubernetes">Enable kubernetes filter</flag>
 		<flag name="fluentbit_filters_rewrite_tag">Enable tag rewrite filter</flag>
+		<flag name="fluentbit_filters_checklist">Enable checklist filter</flag>
+		<flag name="fluentbit_filters_lua_use_mpack">Enable mpack on the lua filter</flag>
+		<flag name="fluentbit_filters_multiline">Enable multiline filter</flag>
+		<flag name="fluentbit_filters_nightfall">Enable Nightfall filter</flag>
+		<flag name="fluentbit_filters_type_converter">Enable type converter filter</flag>
 	</use>
 </pkgmetadata>
