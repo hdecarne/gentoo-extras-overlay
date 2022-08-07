@@ -11,9 +11,10 @@ HOMEPAGE="https://influxdata.com"
 SRC_PV="${PV/_/}"
 
 SRC_URI="https://github.com/influxdata/${PN}/archive/v${SRC_PV}.tar.gz -> ${P}.tar.gz
-		https://github.com/hdecarne/gentoo-extras-overlay/releases/download/${P}/${P}-deps.tar.xz"
+	https://github.com/hdecarne/gentoo-extras-overlay/releases/download/${P}/${P}-deps.tar.xz
+	https://github.com/hdecarne/gentoo-extras-overlay/releases/download/${P}/${P}-deps.txt"
 
-LICENSE="MIT Apache-2.0 BSD"
+LICENSE="Apache-2.0 BSD MIT"
 
 SLOT="0"
 KEYWORDS="~amd64"
@@ -23,7 +24,7 @@ RDEPEND=">=dev-db/influxdb-2.1.0"
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
-RESTRICT="mirror"
+RESTRICT="strip"
 
 src_compile() {
 	CGO_ENABLED=0 \

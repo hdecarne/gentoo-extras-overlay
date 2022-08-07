@@ -15,7 +15,7 @@ SRC_URI="https://github.com/grafana/grafana/archive/v${MY_PV}.tar.gz -> ${P}.tar
 LICENSE="AGPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
-RESTRICT="mirror network-sandbox"
+RESTRICT="strip network-sandbox"
 IUSE="systemd"
 
 DEPEND="!www-apps/grafana-bin

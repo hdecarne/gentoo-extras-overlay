@@ -14,8 +14,6 @@
 		<flag name="examples">Build examples</flag>
 		<flag name="luajit">Enable Lua scripting support</flag>
 		<flag name="jemalloc">Use Jemalloc as default memory allocator</flag>
-		<flag name="loki">Apply json_loki support path for HTTP output plugin (https://github.com/fluent/fluent-bit/pull/1853)</flag>
-		<flag name="tls">Buils with SSL/TLS support</flag>
 		<flag name="fluentbit_input_plugins_cpu">Enable CPU input plugin</flag>
 		<flag name="fluentbit_input_plugins_thermal">Enable Thermal plugin</flag>
 		<flag name="fluentbit_input_plugins_disk">Enable Disk input plugin</flag>

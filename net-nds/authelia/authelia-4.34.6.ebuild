@@ -21,7 +21,7 @@ KEYWORDS="~amd64"
 IUSE="mysql postgres redis sqlite"
 REQUIRED_USE="|| ( mysql postgres sqlite )"
 
-RESTRICT="mirror network-sandbox"
+RESTRICT="strip network-sandbox"
 
 RDEPEND="acct-group/authelia
 	acct-user/authelia

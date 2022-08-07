@@ -11,7 +11,7 @@ S=${WORKDIR}/${PN}-${MY_PV}
 DESCRIPTION="The plugin-driven server agent for collecting & reporting metrics."
 HOMEPAGE="https://github.com/influxdata/telegraf"
 SRC_URI="https://github.com/influxdata/telegraf/archive/v${MY_PV}.tar.gz -> ${P}.tar.gz"
-RESTRICT="mirror network-sandbox"
+RESTRICT="network-sandbox"
 
 LICENSE="MIT"
 SLOT="0"

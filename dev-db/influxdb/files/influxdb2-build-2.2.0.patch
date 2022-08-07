@@ -1,0 +1,101 @@
+diff -ruN influxdb-2.2.0/env influxdb-2.2.0.patch/env
+--- influxdb-2.2.0/env	2022-03-29 23:09:26.000000000 +0200
++++ influxdb-2.2.0.patch/env	2022-04-11 09:22:11.840370875 +0200
+@@ -14,7 +14,8 @@
+ done
+ shift $((OPTIND-1))
+ 
+-export PKG_CONFIG="${DIR}/scripts/pkg-config.sh"
++#export PKG_CONFIG="${DIR}/scripts/pkg-config.sh"
++export PKG_CONFIG="${DIR}/bin/linux/pkg-config"
+ 
+ # If this script is being executed, it will be executed under bash
+ # so the bash source variable should be present. If the variable
+diff -ruN influxdb-2.2.0/GNUmakefile influxdb-2.2.0.patch/GNUmakefile
+--- influxdb-2.2.0/GNUmakefile	2022-03-29 23:09:26.000000000 +0200
++++ influxdb-2.2.0.patch/GNUmakefile	2022-04-11 11:58:54.535476956 +0200
+@@ -9,6 +9,7 @@
+ #    * All binaries are placed in ./bin, its recommended to add this directory to your PATH.
+ #
+ export GOPATH=$(shell go env GOPATH)
++export GOROOT=$(shell go env GOROOT)
+ export GOOS=$(shell go env GOOS)
+ export GOARCH=$(shell go env GOARCH)
+ 
+@@ -36,12 +37,12 @@
+ GO_BUILD_ARGS += -gcflags "$(GCFLAGS)"
+ endif
+ 
+-ifeq ($(OS), Windows_NT)
+-	VERSION := $(shell git describe --exact-match --tags 2>nil)
+-else
+-	VERSION := $(shell git describe --exact-match --tags 2>/dev/null)
+-endif
+-COMMIT := $(shell git rev-parse --short HEAD)
++#ifeq ($(OS), Windows_NT)
++#	VERSION := $(shell git describe --exact-match --tags 2>nil)
++#else
++#	VERSION := $(shell git describe --exact-match --tags 2>/dev/null)
++#endif
++#COMMIT := $(shell git rev-parse --short HEAD)
+ 
+ LDFLAGS := $(LDFLAGS) -X main.commit=$(COMMIT)
+ ifdef VERSION
+@@ -54,7 +55,8 @@
+ GO_TEST_PATHS=./...
+ 
+ # Test vars can be used by all recursive Makefiles
+-export PKG_CONFIG:=$(PWD)/scripts/pkg-config.sh
++#export PKG_CONFIG:=$(PWD)/scripts/pkg-config.sh
++export PKG_CONFIG:=${PWD}/bin/linux/pkg-config
+ export GO_BUILD=env GO111MODULE=on go build $(GO_BUILD_ARGS) -ldflags "$(LDFLAGS)"
+ export GO_INSTALL=env GO111MODULE=on go install $(GO_BUILD_ARGS) -ldflags "$(LDFLAGS)"
+ export GO_TEST=env GOTRACEBACK=all GO111MODULE=on $(GO_TEST_CMD) $(GO_TEST_ARGS)
+@@ -62,8 +64,8 @@
+ export GO_GENERATE=go generate $(GO_BUILD_ARGS)
+ export GO_VET=env GO111MODULE=on go vet $(GO_TEST_ARGS)
+ export GO_RUN=env GO111MODULE=on go run $(GO_BUILD_ARGS)
+-export PATH := $(PWD)/bin/$(GOOS):$(PATH)
+-
++#export PATH := $(PWD)/bin/$(GOOS):$(PATH)
++export PATH := $(PWD)/bin/$(GOOS):$(GOPATH)/bin:$(GOROOT)/bin:$(PATH)
+ 
+ # All go source files
+ SOURCES := $(shell find . -name '*.go' -not -name '*_test.go') go.mod go.sum
+@@ -86,10 +88,13 @@
+ influxd: bin/$(GOOS)/influxd
+ 
+ static/data/build: scripts/fetch-ui-assets.sh
+-	./scripts/fetch-ui-assets.sh
++#	./scripts/fetch-ui-assets.sh
++	mkdir ./static/data
++	cp -R ../build ./static/data/
+ 
+ static/data/swagger.json: scripts/fetch-swagger.sh
+-	./scripts/fetch-swagger.sh
++#	./scripts/fetch-swagger.sh
++	cp ../openapi-*/contracts/oss.json ./static/data/swagger.json
+ 
+ # static/static_gen.go is the output of go-bindata, embedding all assets used by the UI.
+ static/static_gen.go: static/data/build static/data/swagger.json
+@@ -130,16 +135,16 @@
+ generate: generate-web-assets generate-sources
+ 
+ protoc:
+-	$(GO_INSTALL) google.golang.org/protobuf/cmd/protoc-gen-go@v1.27.1
++#	$(GO_INSTALL) google.golang.org/protobuf/cmd/protoc-gen-go@v1.27.1
+ 
+ tmpl:
+-	$(GO_INSTALL) github.com/benbjohnson/tmpl
++#	$(GO_INSTALL) github.com/benbjohnson/tmpl
+ 
+ stringer:
+-	$(GO_INSTALL) golang.org/x/tools/cmd/stringer
++#	$(GO_INSTALL) golang.org/x/tools/cmd/stringer
+ 
+ goimports:
+-	$(GO_INSTALL) golang.org/x/tools/cmd/goimports
++#	$(GO_INSTALL) golang.org/x/tools/cmd/goimports
+ 
+ test-go:
+ 	$(GO_TEST) $(GO_TEST_PATHS)

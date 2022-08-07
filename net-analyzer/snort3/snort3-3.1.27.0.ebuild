@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -27,8 +27,6 @@ IUSE="flatbuffers hyperscan iconv large-pcap lzma jemalloc tcmalloc tirpc tsc un
 REQUIRED_USE="jemalloc? ( !tcmalloc )
 	tcmalloc? ( !jemalloc )"
 
-RESTRICT="mirror"
-
 RDEPEND="!net-analyzer/snort
 	acct-user/snort
 	acct-group/snort
@@ -48,9 +46,7 @@ RDEPEND="!net-analyzer/snort
 	uuid? ( sys-apps/util-linux )
 	sys-libs/zlib
 	${LUA_DEPS}"
-
 DEPEND="${RDEPEND}"
-
 BDEPEND="virtual/pkgconfig"
 
 src_configure() {

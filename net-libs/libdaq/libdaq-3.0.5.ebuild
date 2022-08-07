@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -19,16 +19,12 @@ KEYWORDS="~amd64"
 
 IUSE="+af-packet +bpf divert +dump fst netmap nfq +pcap savefile trace"
 
-RESTRICT="mirror"
-
 RDEPEND="!net-libs/daq
 	af-packet? ( net-libs/libpcap )
 	bpf? ( net-libs/libpcap )
 	dump? ( net-libs/libpcap )
 	pcap? ( net-libs/libpcap )"
-
 DEPEND="${RDEPEND}"
-
 BDEPEND="virtual/pkgconfig"
 
 PATCHES=(

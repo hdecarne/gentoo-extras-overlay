@@ -10,8 +10,7 @@ KEYWORDS=~amd64
 LICENSE=GPL-2
 RDEPEND=!net-analyzer/snort acct-user/snort acct-group/snort lzma? ( app-arch/xz-utils ) jemalloc? ( dev-libs/jemalloc ) flatbuffers? ( dev-libs/flatbuffers ) hyperscan? ( dev-libs/hyperscan ) dev-libs/libdnet iconv? ( virtual/libiconv ) dev-libs/libpcre dev-libs/openssl tcmalloc? ( dev-util/google-perftools ) net-libs/libdaq[pcap] tirpc? ( net-libs/libtirpc ) sys-apps/hwloc unwind? ( sys-libs/libunwind ) uuid? ( sys-apps/util-linux ) sys-libs/zlib lua_single_target_luajit? ( dev-lang/luajit:= )
 REQUIRED_USE=jemalloc? ( !tcmalloc ) tcmalloc? ( !jemalloc )
-RESTRICT=mirror
 SLOT=0
 SRC_URI=https://github.com/snort3/snort3/archive/refs/tags/3.1.20.0.tar.gz -> snort3-3.1.20.0.tar.gz
-_eclasses_=cmake	3c38df051095289667b6f09ebd0cc149	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	lua-single	f2c2fb82c912dd65d53bdae3613a331f	lua-utils	e69ff116248d78546ae1a234c086fe80	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	fef481272d4a8e136a7d8a0fb1329384	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e
-_md5_=a7bf868eb465d1da39795db951261f29
+_eclasses_=cmake	44afbf15c35884f7c840470f1cf05d0d	flag-o-matic	38d6ec96711cea42a5cb1cc723a6e906	lua-single	f2c2fb82c912dd65d53bdae3613a331f	lua-utils	e69ff116248d78546ae1a234c086fe80	multilib	5ca4e49abed8e3a2f7b56920eadee157	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	toolchain-funcs	1542e649be915f43f6908a9e93909961	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e
+_md5_=3b237eac86b3569f2df750e106fbabb3

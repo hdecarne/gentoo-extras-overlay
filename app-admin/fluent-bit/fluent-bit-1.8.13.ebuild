@@ -1,7 +1,11 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
+
+BUILD_DIR="${S}/build"
+CMAKE_BUILD_TYPE="Release"
+CMAKE_MAKEFILE_GENERATOR="emake"
 
 inherit cmake flag-o-matic
 
@@ -137,8 +141,6 @@ for filter in ${FILTER_OPT[@]}; do
 	IUSE="${IUSE} fluentbit_filters_${filter}"
 done
 
-RESTRICT="mirror"
-
 RDEPEND="acct-group/logger
 	acct-user/fluent-bit
 	dev-libs/openssl
@@ -147,10 +149,6 @@ RDEPEND="acct-group/logger
 	fluentbit_output_plugins_pgsql? ( >=dev-db/postgresql-9.4:= )
 	fluentbit_filters_geoip2? ( dev-libs/libmaxminddb )"
 DEPEND="${RDEPEND}"
-
-BUILD_DIR="${S}/build"
-CMAKE_BUILD_TYPE="Release"
-CMAKE_MAKEFILE_GENERATOR="emake"
 
 src_configure() {
 	append-cflags -fcommon -Wno-array-parameter -Wno-stringop-overflow -Wno-error=format-truncation

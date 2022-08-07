@@ -107,9 +107,7 @@ app-admin/fluent-bit:fluentbit_output_plugins_tcp - Enable TCP output plugin
 app-admin/fluent-bit:fluentbit_output_plugins_td - Enable Treasure Data output plugin
 app-admin/fluent-bit:fluentbit_output_plugins_websocket - Enable Websocket output plugin
 app-admin/fluent-bit:jemalloc - Use Jemalloc as default memory allocator
-app-admin/fluent-bit:loki - Apply json_loki support path for HTTP output plugin (https://github.com/fluent/fluent-bit/pull/1853)
 app-admin/fluent-bit:luajit - Enable Lua scripting support
-app-admin/fluent-bit:tls - Buils with SSL/TLS support
 app-admin/loki:fluent-bit - Build the fluent-bit plugin to publish from app-admin/fluent-bit
 app-admin/loki:promtail - Build the promtail log gathering agent
 app-admin/loki:server - Build the loki server

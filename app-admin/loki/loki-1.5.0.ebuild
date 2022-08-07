@@ -15,7 +15,7 @@ KEYWORDS="~amd64"
 
 IUSE="fluent-bit promtail +server tools"
 
-RESTRICT="mirror strip"
+RESTRICT="strip"
 
 RDEPEND="acct-group/grafana
 	acct-user/loki"

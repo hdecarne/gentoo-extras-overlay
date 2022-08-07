@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -24,8 +24,6 @@ RDEPEND="net-misc/curl
 	jq? ( app-misc/jq )"
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
-
-RESTRICT="mirror"
 
 APACHE2_MOD_CONF="48_mod_auth_openidc"
 APACHE2_MOD_DEFINE="OPENIDC"
