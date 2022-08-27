@@ -147,6 +147,7 @@ net-misc/kea:mysql - Build Kea with code to allow it to store leases and host re
 net-misc/kea:openssl - Replace Botan by the OpenSSL the cryptographic library
 net-misc/kea:postgres - Build Kea with code to allow it to store leases and host reservations in a PostgreSQL database
 net-misc/kea:samples - Install sample configuration
+net-misc/kea:shell - Install kea-shell
 net-nds/authelia:mysql - Enable MySQL support
 net-nds/authelia:postgres - Enable PostgreSQL support
 net-nds/authelia:redis - Enable redis support

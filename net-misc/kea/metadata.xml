@@ -14,5 +14,6 @@
 		<flag name="openssl">Replace Botan by the OpenSSL the cryptographic library</flag>
 		<flag name="postgres">Build Kea with code to allow it to store leases and host reservations in a PostgreSQL database</flag>
 		<flag name="samples">Install sample configuration</flag>
+		<flag name="shell">Install kea-shell</flag>
 	</use>
 </pkgmetadata>
