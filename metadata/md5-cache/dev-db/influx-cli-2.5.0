@@ -10,6 +10,6 @@ LICENSE=Apache-2.0 BSD-2 MIT
 RDEPEND=>=dev-db/influxdb-2.1.0
 RESTRICT=strip strip
 SLOT=0
-SRC_URI=https://github.com/influxdata/influx-cli/archive/v2.4.0.tar.gz -> influx-cli-2.4.0.tar.gz https://github.com/hdecarne/gentoo-extras-overlay/releases/download/influx-cli-2.4.0/influx-cli-2.4.0-deps.tar.xz https://github.com/hdecarne/gentoo-extras-overlay/releases/download/influx-cli-2.4.0/influx-cli-2.4.0-deps.txt
+SRC_URI=https://github.com/influxdata/influx-cli/archive/v2.5.0.tar.gz -> influx-cli-2.5.0.tar.gz https://github.com/hdecarne/gentoo-extras-overlay/releases/download/influx-cli-2.5.0/influx-cli-2.5.0-deps.tar.xz https://github.com/hdecarne/gentoo-extras-overlay/releases/download/influx-cli-2.5.0/influx-cli-2.5.0-deps.txt
 _eclasses_=go-module	15312495dc4fd84f8c37bbe228ea2abd
 _md5_=8c36e4916723e7b99ba8b35413e5cb29
