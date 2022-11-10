@@ -8,6 +8,6 @@ KEYWORDS=~amd64
 LICENSE=Apache-2.0 BSD-2 BSD-3 MIT MPL-2.0
 RESTRICT=strip network-sandbox strip
 SLOT=0
-SRC_URI=https://github.com/filebrowser/filebrowser/archive/refs/tags/v2.21.0.tar.gz -> filebrowser-2.21.0.tar.gz
+SRC_URI=https://github.com/filebrowser/filebrowser/archive/refs/tags/v2.23.0.tar.gz -> filebrowser-2.23.0.tar.gz
 _eclasses_=go-module	15312495dc4fd84f8c37bbe228ea2abd
 _md5_=3ad6d072cfaaf0879feb8775a5e07c23
