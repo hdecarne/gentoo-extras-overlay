@@ -3,7 +3,7 @@ acct-group/logger 0-r1: logger program group
 acct-user/authelia 0: authelia program user
 acct-user/fluent-bit 0-r1: fluent-bit program user
 acct-user/loki 0-r1: loki program user
-app-admin/fluent-bit 1.8.0 1.8.1 1.8.2 1.8.3 1.8.4 1.8.5 1.8.6 1.8.7 1.8.8 1.8.9 1.8.10 1.8.11 1.8.12 1.8.13 1.8.14 1.9.0 1.9.1 1.9.2 1.9.3 1.9.4 1.9.5 1.9.6 1.9.7 1.9.8 1.9.9 2.0.0 2.0.2 2.0.3 2.0.4 2.0.5 2.0.6: Fast and Lightweight Log processor and forwarder for Linux, BSD and OSX
+app-admin/fluent-bit 1.8.0 1.8.1 1.8.2 1.8.3 1.8.4 1.8.5 1.8.6 1.8.7 1.8.8 1.8.9 1.8.10 1.8.11 1.8.12 1.8.13 1.8.14 1.9.0 1.9.1 1.9.2 1.9.3 1.9.4 1.9.5 1.9.6 1.9.7 1.9.8 1.9.9 1.9.10 2.0.0 2.0.2 2.0.3 2.0.4 2.0.5 2.0.6: Fast and Lightweight Log processor and forwarder for Linux, BSD and OSX
 app-admin/loki 1.4.0 1.4.1 1.5.0 1.6.0 1.6.1 2.0.0 2.0.1 2.1.0 2.2.0 2.2.1 2.3.0 2.4.0 2.4.1 2.4.2 2.5.0 2.6.0 2.6.1 2.7.0: Like Prometheus, but for logs.
 dev-db/influx-cli 2.2.1 2.3.0 2.4.0 2.5.0: CLI for managing resources in InfluxDB v2
 dev-db/influxdb 2.1.1 2.2.0 2.3.0 2.4.0 2.5.0 2.5.1: Scalable datastore for metrics, events, and real-time analytics
