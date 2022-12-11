@@ -12,5 +12,5 @@ RDEPEND=acct-group/grafana acct-user/loki fluent-bit? ( app-admin/fluent-bit )
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://github.com/grafana/loki/archive/v2.2.0.tar.gz -> loki-2.2.0.tar.gz
-_eclasses_=go-module	15312495dc4fd84f8c37bbe228ea2abd
+_eclasses_=go-module	4c4b34f361efda91762ffeda8f632c02
 _md5_=9a0ed7f10ec1d87d2db7b29e4c2ff9f5
