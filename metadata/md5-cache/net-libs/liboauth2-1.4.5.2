@@ -1,0 +1,13 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=configure prepare
+DEPEND=net-misc/curl >=dev-libs/openssl-0.9.8 >=dev-libs/jansson-2.0 >=dev-libs/cjose-0.6.1 apache2? ( www-servers/apache:2 ) memcached? ( >=dev-libs/libmemcached-1.0.14 ) nginx? ( >=www-servers/nginx-1.21.0 ) redis? ( >=dev-libs/hiredis-0.9.0 )
+DESCRIPTION=OAuth 2.x and OpenID Connect C library
+EAPI=8
+HOMEPAGE=https://github.com/zmartzone/liboauth2
+IUSE=apache2 memcached nginx redis
+KEYWORDS=~amd64 ~arm64
+LICENSE=AGPL-3
+RDEPEND=net-misc/curl >=dev-libs/openssl-0.9.8 >=dev-libs/jansson-2.0 >=dev-libs/cjose-0.6.1 apache2? ( www-servers/apache:2 ) memcached? ( >=dev-libs/libmemcached-1.0.14 ) nginx? ( >=www-servers/nginx-1.21.0 ) redis? ( >=dev-libs/hiredis-0.9.0 )
+SLOT=0
+SRC_URI=https://github.com/zmartzone/liboauth2/archive/refs/tags/v1.4.5.2.tar.gz -> liboauth2-1.4.5.2.tar.gz nginx? ( https://nginx.org/download/nginx-1.21.0.tar.gz )
+_md5_=7c50efe57976ec18d77e8a6252b0782f
