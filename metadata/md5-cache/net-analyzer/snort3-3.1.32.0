@@ -12,5 +12,5 @@ RDEPEND=!net-analyzer/snort acct-user/snort acct-group/snort lzma? ( app-arch/xz
 REQUIRED_USE=jemalloc? ( !tcmalloc ) tcmalloc? ( !jemalloc )
 SLOT=0
 SRC_URI=https://github.com/snort3/snort3/archive/refs/tags/3.1.32.0.tar.gz -> snort3-3.1.32.0.tar.gz
-_eclasses_=cmake	44afbf15c35884f7c840470f1cf05d0d	flag-o-matic	29a755b1291d64133634d80b0328f153	lua-single	aee383a0de35701b9eb0b27077a1c143	lua-utils	e69ff116248d78546ae1a234c086fe80	multilib	5ca4e49abed8e3a2f7b56920eadee157	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	xdg-utils	ac0e315a3688929e34ac75b139e7349a
+_eclasses_=cmake	646b7a2a63596361551a6c1fabf28057	flag-o-matic	69394e25812406faa1f90edaf4969395	lua-single	aee383a0de35701b9eb0b27077a1c143	lua-utils	e69ff116248d78546ae1a234c086fe80	multilib	5ca4e49abed8e3a2f7b56920eadee157	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	xdg-utils	ac0e315a3688929e34ac75b139e7349a
 _md5_=3b237eac86b3569f2df750e106fbabb3
