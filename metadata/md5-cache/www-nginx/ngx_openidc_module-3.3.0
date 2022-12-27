@@ -1,0 +1,12 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile configure install prepare
+DEPEND=>=net-libs/liboauth2-1.4.0[nginx] >=www-servers/nginx-1.21.0
+DESCRIPTION=OpenID Connect Relying Party module for NGINX
+EAPI=8
+HOMEPAGE=https://github.com/zmartzone/ngx_openidc_module
+KEYWORDS=~amd64 ~arm64
+LICENSE=AGPL-3
+RDEPEND=>=net-libs/liboauth2-1.4.0[nginx] >=www-servers/nginx-1.21.0
+SLOT=mainline
+SRC_URI=https://github.com/zmartzone/ngx_openidc_module/archive/refs/tags/v3.3.0.tar.gz -> ngx_openidc_module-3.3.0.tar.gz https://nginx.org/download/nginx-1.21.0.tar.gz
+_md5_=610f267041931689d6fa7719d29c39f2
