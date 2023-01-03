@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig >=dev-lang/go-1.18 app-arch/unzip
+DEFINED_PHASES=compile install unpack
+DEPEND=acct-group/traefik acct-user/traefik
+DESCRIPTION=The Cloud Native Application Proxy
+EAPI=8
+HOMEPAGE=https://traefik.io
+INHERIT=go-module
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=acct-group/traefik acct-user/traefik
+RESTRICT=strip network-sandbox strip
+SLOT=0
+SRC_URI=https://github.com/traefik/traefik/releases/download/v3.0.0-beta2/traefik-v3.0.0-beta2.src.tar.gz -> traefik-3.0.0_beta2.tar.gz
+_eclasses_=go-module	4c4b34f361efda91762ffeda8f632c02
+_md5_=3c5109314c9392bb90ec084ecf44e628

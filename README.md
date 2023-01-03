@@ -49,3 +49,5 @@ __Please beware__: I am running and hence tested these ebuilds against ~amd64 or
 * net-nds/authelia: New ebuild for Authelia Single Sign-On Multi-Factor portal for web apps (https://www.authelia.com/).
 
 * www-apache/mod_auth_openidc: New ebuild for Apache OIDC module (https://github.com/zmartzone/mod_auth_openidc).
+
+* net-proxy/traefik: New ebuild for Traefik Application Proxy (https://github.com/traefik/traefik)
