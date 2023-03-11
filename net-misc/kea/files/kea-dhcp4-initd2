@@ -10,6 +10,7 @@ service_pidfile="/var/run/kea/kea-dhcp4.kea-dhcp4.pid"
 
 depend() {
 	use net mysql postgresql ntpd kea-dhcp-ddns
+	need kea-ctrl-agent
 }
 
 start_pre() {

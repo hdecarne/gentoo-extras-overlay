@@ -10,6 +10,7 @@ service_pidfile="/var/run/kea/kea-dhcp-ddns.kea-dhcp-ddns.pid"
 
 depend() {
 	use net
+	need kea-ctrl-agent
 }
 
 start_pre() {

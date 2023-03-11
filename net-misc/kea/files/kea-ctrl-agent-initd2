@@ -9,7 +9,7 @@ config_file="/etc/kea/kea-ctrl-agent.conf"
 service_pidfile="/var/run/kea/kea-ctrl-agent.kea-ctrl-agent.pid"
 
 depend() {
-	use net kea-dhcp4 kea-dhcp6
+	use net
 }
 
 start_pre() {
