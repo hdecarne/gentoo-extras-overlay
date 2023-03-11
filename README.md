@@ -25,8 +25,6 @@ The following ebuilds are are in use by myself and therefore are actively mainta
 
 * dev-db/influxdb: Updated ebuild for the latest InfluxDB metrics database (https://influxdata.com).
 
-* dev-php/pecl-msgpack: New ebuild for msgpack PHP extension (https://github.com/msgpack/msgpack-php).
-
 * media-libs/raspberrypi-userland: Derived ebuild for 64 bit Raspberry Pi userland tools (https://github.com/raspberrypi/userland).
 
 * net-analyzer/snort3: Updated ebuild for the latest Snort IDS (https://snort.org).
@@ -51,6 +49,8 @@ The following ebuilds are are in use by myself and therefore are actively mainta
 
 ### List of active ebuilds
 The following ebuilds are no longer used by myself and will receive no updates.
+
+* dev-php/pecl-msgpack: New ebuild for msgpack PHP extension (https://github.com/msgpack/msgpack-php).
 
 * www-apache/mod_auth_openidc: New ebuild for Apache OIDC module (https://github.com/zmartzone/mod_auth_openidc).
 
