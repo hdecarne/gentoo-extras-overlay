@@ -14,40 +14,44 @@ The preferred way to use this overlay is to add a file with the following conten
 	clone-depth = 0                         
 	auto-sync = yes
 
-Alternatively you can use layman with the URL https://raw.github.com/hdecarne/gentoo-extras-overlay/master/overlay.xml to subscribe to this overlay. Or 
-you can clone the repository and add the path to your PORTDIR\_OVERLAY variable manually.
 __Please beware__: I am running and hence tested these ebuilds against ~amd64 or ~arm64 and with my private setup. Use them at your own risk.
 
-### List of ebuilds
-
-* dev-db/influxdb: Updated ebuild for InfluxDB metrics database (https://influxdata.com).
-
-* net-analyzer/telegraf: Updated ebuild for Telegraf metric reporter (https://influxdata.com).
-
-* net-analyzer/snort3: Updated ebuild for Snort IDS v3 (https://snort.org).
-
-* net-analyzer/pulledpork3: Updated ebuild for Pulled Pork (beta) for Snort v3 (https://github.com/shirkdog/pulledpork3).
-
-* net-misc/kea: Updated ebuild with DB backend support (MySQL, PostgreSQL).
+### List of active ebuilds
+The following ebuilds are are in use by myself and therefore are actively maintained.
 
 * app-admin/fluent-bit: New ebuild for fluent-bit log processor and forwarder (https://fluentbit.io).
 
 * app-admin/loki: New ebuild for Loki log aggregator (https://grafana.com/loki).
 
+* dev-db/influxdb: Updated ebuild for the latest InfluxDB metrics database (https://influxdata.com).
+
 * dev-php/pecl-msgpack: New ebuild for msgpack PHP extension (https://github.com/msgpack/msgpack-php).
 
 * media-libs/raspberrypi-userland: Derived ebuild for 64 bit Raspberry Pi userland tools (https://github.com/raspberrypi/userland).
 
-* sys-kernel/raspberrypi-sources: Ebuild for latest Raspberry Pi kernel.
+* net-analyzer/snort3: Updated ebuild for the latest Snort IDS (https://snort.org).
 
-* sys-firmware/rpi-eeprom: New ebuild for Raspberry Pi4 bootloader EEPROM updates (https://github.com/raspberrypi/rpi-eeprom).
+* net-analyzer/telegraf: Updated ebuild for Telegraf metric reporter (https://influxdata.com).
 
-* www-apps/grafana: New ebuild for Grafana dashboard web app (https://grafana.com).
+* net-analyzer/pulledpork3: Updated ebuild for the latest Pulled Pork (beta) for Snort v3 (https://github.com/shirkdog/pulledpork3).
 
-* www-apps/filebrowser: New ebuild for Web File Browser (https://filebrowser.org).
+* net-misc/kea: Updated ebuild with DB backend support (MySQL, PostgreSQL).
 
 * net-nds/authelia: New ebuild for Authelia Single Sign-On Multi-Factor portal for web apps (https://www.authelia.com/).
 
+* net-proxy/traefik: New ebuild for Traefik Application Proxy (https://github.com/traefik/traefik)
+
+* sys-firmware/rpi-eeprom: New ebuild for Raspberry Pi4 bootloader EEPROM updates (https://github.com/raspberrypi/rpi-eeprom).
+
+* sys-kernel/raspberrypi-sources: Updated ebuild for the latest Raspberry Pi kernel.
+
+* www-apps/grafana: New ebuild for Grafana dashboard web app (https://grafana.com).
+
+* www-apps/ocis: New ebuild for ownCloud Infinite Scale Stack (https://doc.owncloud.com/ocis/next/).
+
+### List of active ebuilds
+The following ebuilds are no longer used by myself and will receive no updates.
+
 * www-apache/mod_auth_openidc: New ebuild for Apache OIDC module (https://github.com/zmartzone/mod_auth_openidc).
 
-* net-proxy/traefik: New ebuild for Traefik Application Proxy (https://github.com/traefik/traefik)
+* www-apps/filebrowser: New ebuild for Web File Browser (https://filebrowser.org).
