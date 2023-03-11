@@ -1,0 +1,7 @@
+# command_user="http:http"
+# command_args="server"
+
+# Use extra_ssd_args to pass environment variables to the oCIS server.
+# E.g. to run oCIS behind a reverse proxy: extra_ssd_args="-e PROXY_TLS=false -e OCIS_INSECURE=true -e OCIS_URL=https://ocis.owncloud.test"
+
+# extra_ssd_args=""

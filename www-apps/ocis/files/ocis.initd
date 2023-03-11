@@ -1,0 +1,27 @@
+#!/sbin/openrc-run
+
+description="ownCloud Infinite Scale Stack"
+pidfile=${pidfile:-"/run/${RC_SVCNAME}.pid"}
+command="/usr/bin/ocis"
+command_user="${command_user:-"http:http"}"
+command_args="${command_args:-"server"}"
+command_background="true"
+logfile=/var/log/${RC_SVCNAME}/${RC_SVCNAME}.log
+extra_ssd_args="${extra_ssd_args:-""}"
+start_stop_daemon_args="--user ${command_user%:*} --group ${command_user#*:}
+	--stdout ${logfile} --stderr ${logfile} ${extra_ssd_args}"
+
+: "${supervisor:=supervise-daemon}"
+: "${respawn_delay:=5}"
+: "${respawn_max:=10}"
+: "${respawn_period:=60}"
+
+depend() {
+	need net
+}
+
+start() {
+	checkpath --directory --mode 755 --owner root "${pidfile%/*}"
+	checkpath --directory --mode 755 --owner "${command_user}" "${logfile%/*}"
+	default_start
+}
