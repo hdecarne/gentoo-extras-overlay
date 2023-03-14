@@ -1,0 +1,17 @@
+diff -rupN telegraf-1.26.0/Makefile telegraf-1.26.0.build/Makefile
+--- telegraf-1.26.0/Makefile	2023-03-13 20:53:21.000000000 +0100
++++ telegraf-1.26.0.build/Makefile	2023-03-14 19:10:41.573023459 +0100
+@@ -4,10 +4,10 @@ endif
+ 
+ cat := $(if $(filter $(OS),sh.exe),type,cat)
+ next_version := $(shell $(cat) build_version.txt)
+-tag := $(shell git describe --exact-match --tags 2>/dev/null)
++tag := ""
+ 
+-branch := $(shell git rev-parse --abbrev-ref HEAD)
+-commit := $(shell git rev-parse --short=8 HEAD)
++branch := "n/a"
++commit := "n/a"
+ 
+ ifdef NIGHTLY
+ 	version := $(next_version)
