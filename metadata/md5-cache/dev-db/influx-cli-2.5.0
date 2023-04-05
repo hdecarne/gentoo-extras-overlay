@@ -11,5 +11,5 @@ RDEPEND=>=dev-db/influxdb-2.1.0
 RESTRICT=strip strip
 SLOT=0
 SRC_URI=https://github.com/influxdata/influx-cli/archive/v2.5.0.tar.gz -> influx-cli-2.5.0.tar.gz https://github.com/hdecarne/gentoo-extras-overlay/releases/download/influx-cli-2.5.0/influx-cli-2.5.0-deps.tar.xz https://github.com/hdecarne/gentoo-extras-overlay/releases/download/influx-cli-2.5.0/influx-cli-2.5.0-deps.txt
-_eclasses_=go-module	4c4b34f361efda91762ffeda8f632c02
+_eclasses_=go-module	f9700c7efec1fd4955363169e9930c1c	multilib	d1408425c7c4a7669b9b17735404b693	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e
 _md5_=8c36e4916723e7b99ba8b35413e5cb29
