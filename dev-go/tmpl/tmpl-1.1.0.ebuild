@@ -5,8 +5,8 @@ EAPI=8
 
 inherit go-module
 
-DESCRIPTION="Compile-time Dependency Injection for Go"
-HOMEPAGE="https://github.com/google/wire"
+DESCRIPTION="Command line interface to Go's text/template library"
+HOMEPAGE="https://github.com/benbjohnson/tmpl"
 
 SRC_URI="https://github.com/benbjohnson/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 	https://github.com/hdecarne/gentoo-extras-overlay/releases/download/${P}/${P}-deps.tar.xz
