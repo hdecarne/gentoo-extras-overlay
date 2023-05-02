@@ -11,5 +11,5 @@ RDEPEND=acct-group/http acct-user/http
 RESTRICT=network-sandbox strip
 SLOT=0
 SRC_URI=https://github.com/owncloud/ocis/archive/refs/tags/v3.0.0-alpha.2.tar.gz -> ocis-3.0.0_alpha2.tar.gz https://github.com/owncloud/web/releases/download/v7.0.0-rc.27/web.tar.gz -> ocis-3.0.0_alpha2-web.tar.gz https://github.com/owncloud/assets/raw/e8b6aeadbcee1865b9df682e9bd78083842d2b5c/favicon.ico -> ocis-favicon-e8b6aeadbcee1865b9df682e9bd78083842d2b5c.ico https://raw.githubusercontent.com/owncloud/assets/e8b6aeadbcee1865b9df682e9bd78083842d2b5c/logo.svg -> ocis-logo-e8b6aeadbcee1865b9df682e9bd78083842d2b5c.svg
-_eclasses_=go-module	f9700c7efec1fd4955363169e9930c1c	multilib	d1408425c7c4a7669b9b17735404b693	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e
-_md5_=a2a5520192625b0745eb5451199250fd
+_eclasses_=go-module	9c75e51a48520b2f01471c1f91762882	multilib	d1408425c7c4a7669b9b17735404b693	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e
+_md5_=8b74f37cad577e750966df0d6ff4b7a8
