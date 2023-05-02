@@ -5,8 +5,8 @@ EAPI=8
 
 inherit go-module
 
-DESCRIPTION="Compile-time Dependency Injection for Go"
-HOMEPAGE="https://github.com/google/wire"
+DESCRIPTION="Go support for Google's protocol buffers"
+HOMEPAGE="https://github.com/protocolbuffers/protobuf-go"
 
 SRC_URI="https://github.com/protocolbuffers/protobuf-go/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 	https://github.com/hdecarne/gentoo-extras-overlay/releases/download/${P}/${P}-deps.tar.xz"

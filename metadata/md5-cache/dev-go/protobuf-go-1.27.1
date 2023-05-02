@@ -1,13 +1,13 @@
-BDEPEND=virtual/pkgconfig >=dev-lang/go-1.16 app-arch/unzip
+BDEPEND=virtual/pkgconfig >=dev-lang/go-1.18 app-arch/unzip
 DEFINED_PHASES=compile install unpack
-DESCRIPTION=Compile-time Dependency Injection for Go
+DESCRIPTION=Go support for Google's protocol buffers
 EAPI=8
-HOMEPAGE=https://github.com/google/wire
+HOMEPAGE=https://github.com/protocolbuffers/protobuf-go
 INHERIT=go-module
 KEYWORDS=~amd64
 LICENSE=Apache-2.0
 RESTRICT=strip strip
 SLOT=0
 SRC_URI=https://github.com/protocolbuffers/protobuf-go/archive/refs/tags/v1.27.1.tar.gz -> protobuf-go-1.27.1.tar.gz https://github.com/hdecarne/gentoo-extras-overlay/releases/download/protobuf-go-1.27.1/protobuf-go-1.27.1-deps.tar.xz
-_eclasses_=go-module	a13d34fe4e2996720e1ca6c53b9ea95a
-_md5_=52958d6ca60d3ac2006205e919872e44
+_eclasses_=go-module	9c75e51a48520b2f01471c1f91762882	multilib	d1408425c7c4a7669b9b17735404b693	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e
+_md5_=7dd78f622ba3ed893f4effd611315c2c
