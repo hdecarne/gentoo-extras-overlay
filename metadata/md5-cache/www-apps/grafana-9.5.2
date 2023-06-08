@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig dev-go/wire >=dev-lang/go-1.18 app-arch/unzip virtual/pkgconfig
+DEFINED_PHASES=compile install prepare unpack
+DEPEND=!www-apps/grafana-bin acct-group/grafana acct-user/grafana media-libs/fontconfig >=net-libs/nodejs-16.18.0[icu] sys-apps/yarn
+DESCRIPTION=The tool for beautiful monitoring and metric analytics & dashboards
+EAPI=8
+HOMEPAGE=https://grafana.com
+INHERIT=go-module systemd
+IUSE=systemd
+KEYWORDS=~amd64
+LICENSE=AGPL-3
+RESTRICT=strip network-sandbox strip
+SLOT=0
+SRC_URI=https://github.com/grafana/grafana/archive/v9.5.2.tar.gz -> grafana-9.5.2.tar.gz
+_eclasses_=go-module	9c75e51a48520b2f01471c1f91762882	multilib	c19072c3cd7ac5cb21de013f7e9832e0	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	systemd	5f4bb0758df2e483babf68cd517078ca	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e
+_md5_=09f8db2ec183426c7374b1ff7f898fd2
