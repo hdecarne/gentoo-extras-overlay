@@ -10,5 +10,5 @@ LICENSE=ISC BSD SSLeay GPL-2
 RDEPEND=acct-group/dhcp acct-user/dhcp dev-libs/boost dev-cpp/gtest dev-libs/log4cplus mysql? ( virtual/mysql ) !openssl? ( dev-libs/botan:= ) openssl? ( dev-libs/openssl:= ) postgres? ( dev-db/postgresql:= )
 SLOT=0
 SRC_URI=ftp://ftp.isc.org/isc/kea/kea-1.4.0-P1.tar.gz ftp://ftp.isc.org/isc/kea/1.4.0-P1/kea-1.4.0-P1.tar.gz
-_eclasses_=multilib	d1408425c7c4a7669b9b17735404b693	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e
+_eclasses_=multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c
 _md5_=fa66a3743f3884428107c5f94ed60350
