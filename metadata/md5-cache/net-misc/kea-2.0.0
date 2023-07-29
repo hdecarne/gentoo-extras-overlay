@@ -10,5 +10,5 @@ LICENSE=MPL-2.0 GPL-2
 RDEPEND=acct-group/dhcp acct-user/dhcp dev-libs/boost dev-cpp/gtest dev-libs/log4cplus mysql? ( virtual/mysql ) !openssl? ( dev-libs/botan:= ) openssl? ( dev-libs/openssl:= ) postgres? ( dev-db/postgresql:= )
 SLOT=0
 SRC_URI=ftp://ftp.isc.org/isc/kea/kea-2.0.0.tar.gz ftp://ftp.isc.org/isc/kea/2.0.0/kea-2.0.0.tar.gz
-_eclasses_=multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c
+_eclasses_=multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	8e3fb781f3258ae2757d1dfc2c7c170e
 _md5_=8ccfc75909e273a6c90c333082bffb7d
