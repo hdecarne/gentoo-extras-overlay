@@ -9,7 +9,7 @@ DESCRIPTION="ownCloud Infinite Scale Stack"
 
 HOMEPAGE="https://doc.owncloud.com/ocis/next/"
 
-OCIS_PV="3.0.0-rc.5"
+OCIS_PV="3.0.0"
 OCIS_P="${PN}-${OCIS_PV}"
 
 WEB_ASSETS_VERSION="v7.0.0"
