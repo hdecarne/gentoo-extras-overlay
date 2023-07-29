@@ -11,5 +11,5 @@ LICENSE=AGPL-3
 RESTRICT=strip network-sandbox strip
 SLOT=0
 SRC_URI=https://github.com/grafana/grafana/archive/v8.4.0.tar.gz -> grafana-8.4.0.tar.gz
-_eclasses_=go-module	8624eede24936fd7666e5298e5332f22	multilib	c19072c3cd7ac5cb21de013f7e9832e0	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	systemd	5f4bb0758df2e483babf68cd517078ca	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c
+_eclasses_=go-module	8624eede24936fd7666e5298e5332f22	multilib	c19072c3cd7ac5cb21de013f7e9832e0	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	systemd	5f4bb0758df2e483babf68cd517078ca	toolchain-funcs	8e3fb781f3258ae2757d1dfc2c7c170e
 _md5_=e91e1548866a9e0aa36fa532a76c9e55
