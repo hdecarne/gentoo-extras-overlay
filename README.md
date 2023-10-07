@@ -23,6 +23,8 @@ The following ebuilds are are in use by myself and therefore are actively mainta
 
 * app-admin/loki: New ebuild for Loki log aggregator (https://grafana.com/loki).
 
+* app-containers/podman-tui: New ebuild for Podman Terminal UI (https://github.com/containers/podman-tui).
+
 * dev-db/influxdb: Updated ebuild for the latest InfluxDB metrics database (https://influxdata.com).
 
 * media-libs/raspberrypi-userland: Derived ebuild for 64 bit Raspberry Pi userland tools (https://github.com/raspberrypi/userland).
