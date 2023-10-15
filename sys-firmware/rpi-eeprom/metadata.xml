@@ -9,4 +9,8 @@
 		<email>proxy-maint@gentoo.org</email>
 		<name>Proxy Maintainers</name>
 	</maintainer>
+	<use>
+		<flag name="bcm2711">Install BCM2711 (RPI4) firmware files</flag>
+		<flag name="bcm2712">Install BCM2712 (RPI5) firmware files</flag>
+	</use>
 </pkgmetadata>

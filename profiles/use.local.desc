@@ -152,6 +152,8 @@ net-nds/authelia:mysql - Enable MySQL support
 net-nds/authelia:postgres - Enable PostgreSQL support
 net-nds/authelia:redis - Enable redis support
 net-nds/authelia:sqlite - Enable sqlite support
+sys-firmware/rpi-eeprom:bcm2711 - Install BCM2711 (RPI4) firmware files
+sys-firmware/rpi-eeprom:bcm2712 - Install BCM2712 (RPI5) firmware files
 www-apache/mod_auth_openidc:jq - Use libjq for JSON processing
 www-apache/mod_auth_openidc:redis - Enable Redis support
 www-apps/filebrowser:mysql - Enable MySQL support
