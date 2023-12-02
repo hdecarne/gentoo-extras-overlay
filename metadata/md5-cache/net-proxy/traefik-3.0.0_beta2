@@ -13,5 +13,5 @@ RDEPEND=acct-group/traefik acct-user/traefik
 RESTRICT=strip network-sandbox strip
 SLOT=0
 SRC_URI=https://github.com/traefik/traefik/releases/download/v3.0.0-beta2/traefik-v3.0.0-beta2.src.tar.gz -> traefik-3.0.0_beta2.tar.gz
-_eclasses_=fcaps	c0a086b957a1b183a8d136eabf02f191	go-module	8624eede24936fd7666e5298e5332f22	multilib	c19072c3cd7ac5cb21de013f7e9832e0	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc
+_eclasses_=fcaps	c0a086b957a1b183a8d136eabf02f191	go-env	96e1747610bbb2f5c5d3fb16f0f3a83a	go-module	9e5a8f7b134fd3ed3785755097fe8ef0	multilib	c19072c3cd7ac5cb21de013f7e9832e0	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc
 _md5_=f7212373b8bb7b50de921e10ab44d5ab
