@@ -9,10 +9,10 @@ DESCRIPTION="ownCloud Infinite Scale Stack"
 
 HOMEPAGE="https://doc.owncloud.com/ocis/next/"
 
-OCIS_PV="5.0.0-alpha.4"
+OCIS_PV="5.0.0-beta.1"
 OCIS_P="${PN}-${OCIS_PV}"
 
-WEB_ASSETS_VERSION="v8.0.0-alpha.11"
+WEB_ASSETS_VERSION="v8.0.0-beta.1"
 ASSET_COMMIT="e8b6aeadbcee1865b9df682e9bd78083842d2b5c"
 
 SRC_URI="https://github.com/owncloud/ocis/archive/refs/tags/v${OCIS_PV}.tar.gz -> ${P}.tar.gz
