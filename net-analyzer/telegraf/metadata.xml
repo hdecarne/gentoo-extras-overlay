@@ -10,6 +10,9 @@
 		<name>Proxy Maintainers</name>
 	</maintainer>
 	<use>
+		<flag name="savedconfig">Build only configured plugins</flag>
+	</use>
+	<use>
 		<flag name="systemd">Install systemd service file</flag>
 	</use>
 </pkgmetadata>

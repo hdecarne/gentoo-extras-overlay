@@ -128,6 +128,7 @@ net-analyzer/snort3:tirpc - Use net-libs/libtirpc for RPC
 net-analyzer/snort3:tsc - Use timestamp counter register clock (x86 and arm only)
 net-analyzer/snort3:unwind - Add support for call stack unwinding and function name resolution
 net-analyzer/snort3:uuid - UUID support via sys-apps/util-linux
+net-analyzer/telegraf:savedconfig - Build only configured plugins
 net-analyzer/telegraf:systemd - Install systemd service file
 net-libs/libdaq:af-packet - Build the bundled AFPacket module
 net-libs/libdaq:bpf - Build the bundled BPF wrapper module
