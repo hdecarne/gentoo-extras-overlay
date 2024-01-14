@@ -1,4 +1,4 @@
-BDEPEND=virtual/rust sys-devel/clang dev-libs/protobuf dev-go/protobuf-go dev-go/tmpl dev-go/go-tools >=dev-lang/go-1.18 app-arch/unzip
+BDEPEND=virtual/rust sys-devel/clang dev-libs/protobuf dev-go/protobuf-go dev-go/tmpl dev-go/go-tools >=dev-lang/go-1.20:= app-arch/unzip
 DEFINED_PHASES=compile install postinst prepare unpack
 DEPEND=acct-group/influxdb acct-user/influxdb
 DESCRIPTION=Scalable datastore for metrics, events, and real-time analytics
@@ -13,5 +13,5 @@ RDEPEND=acct-group/influxdb acct-user/influxdb
 RESTRICT=strip network-sandbox strip
 SLOT=0
 SRC_URI=https://github.com/influxdata/influxdb/archive/v2.4.0.tar.gz -> influxdb-2.4.0.tar.gz https://github.com/influxdata/ui/releases/download/OSS-Master/build.tar.gz -> influxdb-ui-2.4.0.tar.gz https://github.com/influxdata/openapi/archive/8b5f1bbb2cd388eb454dc9da19e3d2c4061cdf5f.tar.gz -> influxdb-openapi-8b5f1bbb2cd388eb454dc9da19e3d2c4061cdf5f.tar.gz
-_eclasses_=go-module	8624eede24936fd7666e5298e5332f22	multilib	c19072c3cd7ac5cb21de013f7e9832e0	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc
+_eclasses_=go-env	96e1747610bbb2f5c5d3fb16f0f3a83a	go-module	09ccb1fdea4f1f3f718e27b756636097	multilib	c19072c3cd7ac5cb21de013f7e9832e0	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084
 _md5_=8ea3e7467b0152000342b5058b7056b6
