@@ -22,7 +22,7 @@ DEPEND="!www-apps/grafana-bin
 	acct-group/grafana
 	acct-user/grafana
 	media-libs/fontconfig
-	>=net-libs/nodejs-16.18.0[icu]
+	=net-libs/nodejs-20*[icu]
 	sys-apps/yarn"
 BDEPEND="virtual/pkgconfig
 	dev-go/wire"
