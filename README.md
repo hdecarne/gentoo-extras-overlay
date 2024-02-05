@@ -19,13 +19,11 @@ __Please beware__: I am running and hence tested these ebuilds against ~amd64 or
 ### List of active ebuilds
 The following ebuilds are are in use by myself and therefore are actively maintained.
 
-* app-admin/fluent-bit: New ebuild for fluent-bit log processor and forwarder (https://fluentbit.io).
-
 * app-admin/loki: New ebuild for Loki log aggregator (https://grafana.com/loki).
 
-* app-containers/podman-tui: New ebuild for Podman Terminal UI (https://github.com/containers/podman-tui).
+* app-metrics/agent: New ebuild for Grafana Agent telemetry collector (https://github.com/grafana/agent).
 
-* dev-db/influxdb: Updated ebuild for the latest InfluxDB metrics database (https://influxdata.com).
+* app-metrics/mimir: New ebuild for Grafana Mimir high scalable Prometheus storage backend (https://github.com/grafana/mimir)
 
 * media-libs/raspberrypi-userland: Derived ebuild for 64 bit Raspberry Pi userland tools (https://github.com/raspberrypi/userland).
 
@@ -34,6 +32,10 @@ The following ebuilds are are in use by myself and therefore are actively mainta
 * net-analyzer/telegraf: Updated ebuild for Telegraf metric reporter (https://influxdata.com).
 
 * net-analyzer/pulledpork3: Updated ebuild for the latest Pulled Pork (beta) for Snort v3 (https://github.com/shirkdog/pulledpork3).
+
+* net-fs/mc: New ebuild for the MinIO cluster management tool (https://github.com/minio/mc).
+
+* net-fs/minio: New ebuild for the MinIO object store (https://github.com/minio/minio).
 
 * net-misc/kea: Updated ebuild with DB backend support (MySQL, PostgreSQL).
 
@@ -51,6 +53,10 @@ The following ebuilds are are in use by myself and therefore are actively mainta
 
 ### List of active ebuilds
 The following ebuilds are no longer used by myself and will receive no updates.
+
+* app-admin/fluent-bit: New ebuild for fluent-bit log processor and forwarder (https://fluentbit.io).
+
+* dev-db/influxdb: Updated ebuild for the latest InfluxDB metrics database (https://influxdata.com).
 
 * dev-php/pecl-msgpack: New ebuild for msgpack PHP extension (https://github.com/msgpack/msgpack-php).
 
