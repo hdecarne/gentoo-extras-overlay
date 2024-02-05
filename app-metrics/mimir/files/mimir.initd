@@ -1,0 +1,11 @@
+#!/sbin/openrc-run
+
+configfile="${MIMIR_CONF:-/etc/mimir/mimir-local-config.yaml}"
+
+command=/usr/bin/mimir
+command_args="-config.file=${configfile} ${MIMIR_OPTS}"
+command_background=yes
+command_user=mimir:grafana
+make_pidfile=yes
+pidfile=/var/run/mimir.pid
+start_stop_daemon_args="--chdir /var/lib/mimir --stdout /var/log/${SVCNAME}/${SVCNAME}.log --stderr /var/log/${SVCNAME}/${SVCNAME}.log"

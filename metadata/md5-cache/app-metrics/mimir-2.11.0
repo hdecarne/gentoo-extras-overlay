@@ -1,0 +1,15 @@
+BDEPEND=>=dev-lang/go-1.20:= app-arch/unzip
+DEFINED_PHASES=compile install unpack
+DEPEND=acct-group/grafana acct-user/mimir
+DESCRIPTION=Horizontally scalable, highly available, multi-tenant, long-term storage for Prometheus.
+EAPI=8
+HOMEPAGE=https://grafana.com/loki/
+INHERIT=go-module
+KEYWORDS=~amd64
+LICENSE=AGPL-3
+RDEPEND=acct-group/grafana acct-user/mimir
+RESTRICT=strip strip
+SLOT=0
+SRC_URI=https://github.com/grafana/mimir/archive/refs/tags/mimir-2.11.0.tar.gz
+_eclasses_=go-env	96e1747610bbb2f5c5d3fb16f0f3a83a	go-module	09ccb1fdea4f1f3f718e27b756636097	multilib	c19072c3cd7ac5cb21de013f7e9832e0	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084
+_md5_=bd7d86994f2e7b85a9174c41a4e1f7bf
