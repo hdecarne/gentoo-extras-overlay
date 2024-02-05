@@ -1,0 +1,9 @@
+#!/sbin/openrc-run
+
+command=/usr/bin/minio
+command_args="server ${MINIO_OPTS}"
+command_background=yes
+command_user=minio:minio
+make_pidfile=yes
+pidfile="/var/run/${SVCNAME}.pid"
+start_stop_daemon_args="--env MINIO_CONFIG_ENV_FILE=${MINIO_CONFIG_ENV_FILE:-/etc/minio/minio} --stdout /var/log/${SVCNAME}/${SVCNAME}.log --stderr /var/log/${SVCNAME}/${SVCNAME}.log"

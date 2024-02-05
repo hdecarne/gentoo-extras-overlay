@@ -1,0 +1,5 @@
+# Specifies the full path to the file the MinIO server process uses for loading environment variables.
+MINIO_CONFIG_ENV_FILE=/etc/minio/minio
+
+# Add any additional options to pass to minio to this setting.
+#MINIO_OPTS=""
