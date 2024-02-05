@@ -1,0 +1,5 @@
+# The grafan-agent config file
+AGENT_CONF="/etc/agent/agent-local-config.yaml"
+
+# Add any extra options to pass to agent to this setting.
+#AGENT_OPTS=""

@@ -1,0 +1,11 @@
+#!/sbin/openrc-run
+
+configfile="${AGENT_CONF:-/etc/agent/agent-local-config.yaml}"
+
+command=/usr/bin/grafana-agent
+command_args="-config.file=${configfile} ${AGENT_OPTS}"
+command_background=yes
+command_user=agent:grafana
+make_pidfile=yes
+pidfile=/var/run/${SVCNAME}.pid
+start_stop_daemon_args="--chdir /var/lib/agent --stdout /var/log/agent/${SVCNAME}.log --stderr /var/log/agent/${SVCNAME}.log"
