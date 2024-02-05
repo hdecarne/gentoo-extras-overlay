@@ -1,4 +1,4 @@
-BDEPEND=net-libs/nodejs virtual/pkgconfig >=dev-lang/go-1.18 app-arch/unzip
+BDEPEND=net-libs/nodejs virtual/pkgconfig >=dev-lang/go-1.20:= app-arch/unzip
 DEFINED_PHASES=compile configure install unpack
 DESCRIPTION=Web File Browser
 EAPI=8
@@ -9,5 +9,5 @@ LICENSE=Apache-2.0 BSD-2 BSD-3 MIT MPL-2.0
 RESTRICT=strip network-sandbox strip
 SLOT=0
 SRC_URI=https://github.com/filebrowser/filebrowser/archive/refs/tags/v2.23.0.tar.gz -> filebrowser-2.23.0.tar.gz
-_eclasses_=go-module	15312495dc4fd84f8c37bbe228ea2abd
+_eclasses_=go-env	96e1747610bbb2f5c5d3fb16f0f3a83a	go-module	09ccb1fdea4f1f3f718e27b756636097	multilib	c19072c3cd7ac5cb21de013f7e9832e0	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084
 _md5_=3ad6d072cfaaf0879feb8775a5e07c23

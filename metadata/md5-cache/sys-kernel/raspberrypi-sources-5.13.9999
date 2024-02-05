@@ -7,8 +7,8 @@ INHERIT=kernel-2 git-r3
 IUSE=symlink build
 LICENSE=GPL-2
 PROPERTIES=live
-RDEPEND=!build? ( app-arch/cpio dev-lang/perl sys-devel/bc sys-devel/bison sys-devel/flex sys-devel/make >=sys-libs/ncurses-5.2 virtual/libelf virtual/pkgconfig )
+RDEPEND=!build? ( app-alternatives/cpio dev-lang/perl app-alternatives/bc dev-build/make sys-devel/bison sys-devel/flex >=sys-libs/ncurses-5.2 virtual/libelf virtual/pkgconfig )
 RESTRICT=binchecks strip
 SLOT=5.13.9999
-_eclasses_=crossdev	f04338ff78f213a4a55c5c37b3c6563e	estack	c61c368a76fdf3a82fdf8dbaebea3804	git-r3	2358a7b20091609e24bd3a83b3ac5991	kernel-2	5f1a05e8ec7196f00c7754b57f927f06	multilib	c19072c3cd7ac5cb21de013f7e9832e0	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	70ec42843fec87d20fd94c67e77cdbff
+_eclasses_=crossdev	f04338ff78f213a4a55c5c37b3c6563e	estack	c61c368a76fdf3a82fdf8dbaebea3804	git-r3	86fa1f157b70b9d2ff340c4633b1cf4b	kernel-2	d7063ec2420394c5b29ed142f15b5033	multilib	c19072c3cd7ac5cb21de013f7e9832e0	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084
 _md5_=3eb9da528a564979ebfb3482a036d189

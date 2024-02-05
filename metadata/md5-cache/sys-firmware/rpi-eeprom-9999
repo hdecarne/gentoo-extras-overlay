@@ -11,5 +11,5 @@ PROPERTIES=live
 RDEPEND=|| ( media-libs/raspberrypi-userland media-libs/raspberrypi-userland-bin media-libs/raspberrypi-userland64 )
 REQUIRED_USE=^^ ( bcm2711 bcm2712 )
 SLOT=0
-_eclasses_=git-r3	2358a7b20091609e24bd3a83b3ac5991
+_eclasses_=git-r3	86fa1f157b70b9d2ff340c4633b1cf4b
 _md5_=84dd1e909743349b6a7704c97a776e5c

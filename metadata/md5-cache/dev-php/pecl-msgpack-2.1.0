@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 sys-devel/m4 sys-devel/libtool php_targets_php7-3? ( dev-lang/php:7.3 ) php_targets_php7-4? ( dev-lang/php:7.4 )
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7 sys-devel/m4 dev-build/libtool php_targets_php7-3? ( dev-lang/php:7.3 ) php_targets_php7-4? ( dev-lang/php:7.4 )
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=php_targets_php7-3? ( dev-lang/php:7.3 ) php_targets_php7-4? ( dev-lang/php:7.4 )
 DESCRIPTION=PHP extension for interfacing with MessagePack
@@ -12,5 +12,5 @@ RDEPEND=php_targets_php7-3? ( dev-lang/php:7.3 ) php_targets_php7-4? ( dev-lang/
 REQUIRED_USE=|| ( php_targets_php7-3 php_targets_php7-4 )
 SLOT=0
 SRC_URI=https://pecl.php.net/get/msgpack-2.1.0.tgz
-_eclasses_=autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	241a8f577b9781a42a7421e53448a44e	multilib	5ca4e49abed8e3a2f7b56920eadee157	php-ext-pecl-r3	5db9384543980900b5ecbac76136b6a8	php-ext-source-r3	3c26d87acac034aedf8bf126f7010c8a	toolchain-funcs	1542e649be915f43f6908a9e93909961
+_eclasses_=autotools	e4cf390b19033d5ca443765bc8537b81	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	9d3a9a889a6fa62ae794f817c156491b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	php-ext-pecl-r3	4ca93611caa4190394eb13cc22aedbd0	php-ext-source-r3	57493651a3540d6ef7bff5e1c97c8dd3	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084
 _md5_=d6a6d30b94cb89960f72c69393379a84
