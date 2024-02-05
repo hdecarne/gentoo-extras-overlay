@@ -51,7 +51,7 @@ The following ebuilds are are in use by myself and therefore are actively mainta
 
 * www-apps/ocis: New ebuild for ownCloud Infinite Scale Stack (https://doc.owncloud.com/ocis/next/).
 
-### List of active ebuilds
+### List of inactive ebuilds
 The following ebuilds are no longer used by myself and will receive no updates.
 
 * app-admin/fluent-bit: New ebuild for fluent-bit log processor and forwarder (https://fluentbit.io).
