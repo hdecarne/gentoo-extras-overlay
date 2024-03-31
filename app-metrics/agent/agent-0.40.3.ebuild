@@ -5,9 +5,12 @@ EAPI=8
 
 inherit go-module
 
+MY_PV=${PV/_rc/-rc.}
+S=${WORKDIR}/${PN}-${MY_PV}
+
 DESCRIPTION="Vendor-neutral programmable observability pipelines."
 HOMEPAGE="https://grafana.com/agent/"
-SRC_URI="https://github.com/grafana/agent/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/grafana/agent/archive/v${MY_PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="AGPL-3"
 SLOT="0"
