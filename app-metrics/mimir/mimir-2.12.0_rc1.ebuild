@@ -3,13 +3,14 @@
 
 EAPI=8
 
-S=${WORKDIR}/${PN}-${P}
+MY_PV=${PV/_rc/-rc.}
+S=${WORKDIR}/${PN}-${PN}-${MY_PV}
 
 inherit go-module
 
 DESCRIPTION="Horizontally scalable, highly available, multi-tenant, long-term storage for Prometheus."
 HOMEPAGE="https://grafana.com/loki/"
-SRC_URI="https://github.com/grafana/mimir/archive/refs/tags/${P}.tar.gz"
+SRC_URI="https://github.com/grafana/mimir/archive/refs/tags/${PN}-${MY_PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="AGPL-3"
 SLOT="0"
