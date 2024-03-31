@@ -18,6 +18,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 IUSE="systemd"
 
+BDEPEND=">=dev-lang/go-1.22:="
 DEPEND="acct-group/telegraf
 	acct-user/telegraf"
 RDEPEND="${DEPEND}"
