@@ -11,7 +11,7 @@ acct-user/minio 0: minio program user
 acct-user/traefik 0: traefik program user
 app-admin/fluent-bit 1.8.0 1.8.1 1.8.2 1.8.3 1.8.4 1.8.5 1.8.6 1.8.7 1.8.8 1.8.9 1.8.10 1.8.11 1.8.12 1.8.13 1.8.14 1.9.0 1.9.1 1.9.2 1.9.3 1.9.4 1.9.5 1.9.6 1.9.7 1.9.8 1.9.9 1.9.10 2.0.0 2.0.2 2.0.3 2.0.4 2.0.5 2.0.6 2.0.8 2.0.9 2.0.10 2.0.11 2.1.0 2.1.1 2.1.2 2.1.3 2.1.4 2.1.5 2.1.6 2.1.7 2.1.8 2.1.9 2.1.10 2.2.0 2.2.1 2.2.2: Fast and Lightweight Log processor and forwarder for Linux, BSD and OSX
 app-admin/loki 2.9.2 2.9.3 2.9.4 2.9.5 2.9.6 2.9.7 2.9.8 3.0.0: Like Prometheus, but for logs.
-app-metrics/agent 0.39.1 0.39.2 0.40.0 0.40.1 0.40.2 0.40.3 0.40.4: Vendor-neutral programmable observability pipelines.
+app-metrics/agent 0.39.1 0.39.2 0.40.0 0.40.1 0.40.2 0.40.3 0.40.4 0.40.5: Vendor-neutral programmable observability pipelines.
 app-metrics/mimir 2.11.0 2.12.0: Horizontally scalable, highly available, multi-tenant, long-term storage for Prometheus.
 dev-db/influx-cli 2.2.1 2.3.0 2.4.0 2.5.0 2.6.0 2.6.1 2.7.1 2.7.2: CLI for managing resources in InfluxDB v2
 dev-db/influxdb 2.1.1 2.2.0 2.3.0 2.4.0 2.5.0 2.5.1 2.6.0 2.6.1 2.6.1-r1 2.7.0 2.7.1 2.7.3 2.7.5: Scalable datastore for metrics, events, and real-time analytics
@@ -26,16 +26,16 @@ net-analyzer/pulledpork3 9999: Pulled Pork for Snort3 rule management
 net-analyzer/snort3 3.1.70.0 3.1.71.0 3.1.72.0 3.1.73.0 3.1.74.0 3.1.75.0 3.1.76.0 3.1.77.0 3.1.78.0 3.1.79.0 3.1.82.0 3.1.83.0 3.1.84.0: Snort++
 net-analyzer/telegraf 1.29.0 1.29.1 1.29.2 1.29.3 1.29.4 1.29.5 1.30.0 1.30.1: The plugin-driven server agent for collecting & reporting metrics.
 net-fs/mc 2024.01.18.07.03.39: Simple | Fast tool to manage MinIO clusters.
-net-fs/minio 2024.01.18.22.51.28 2024.01.29.03.56.32 2024.02.04.22.36.13 2024.02.06.21.36.22 2024.02.09.21.25.16 2024.02.12.21.02.27 2024.02.13.15.35.11 2024.02.24.17.11.14 2024.02.26.09.33.48 2024.03.07.00.43.48 2024.03.10.02.53.48 2024.03.15.01.07.19 2024.03.21.23.13.43 2024.03.26.22.10.45 2024.03.30.09.41.56 2024.04.06.05.26.02 2024.04.18.19.09.19 2024.05.01.01.11.10: The Object Store for AI Data Infrastructure.
+net-fs/minio 2024.01.18.22.51.28 2024.01.29.03.56.32 2024.02.04.22.36.13 2024.02.06.21.36.22 2024.02.09.21.25.16 2024.02.12.21.02.27 2024.02.13.15.35.11 2024.02.24.17.11.14 2024.02.26.09.33.48 2024.03.07.00.43.48 2024.03.10.02.53.48 2024.03.15.01.07.19 2024.03.21.23.13.43 2024.03.26.22.10.45 2024.03.30.09.41.56 2024.04.06.05.26.02 2024.04.18.19.09.19 2024.05.01.01.11.10 2024.05.10.01.41.38: The Object Store for AI Data Infrastructure.
 net-libs/libdaq 3.0.5 3.0.6 3.0.7 3.0.8 3.0.9 3.0.10 3.0.11 3.0.12 3.0.13 3.0.14: LibDAQ: The Data AcQuisition Library
 net-libs/liboauth2 1.4.2 1.4.5 1.4.5.2: OAuth 2.x and OpenID Connect C library
 net-misc/kea 1.2.0-r2 1.3.0 1.4.0 1.4.0_p1 1.5.0 1.5.0-r1 1.6.0 1.7.0 1.7.1 1.7.2 1.7.3 1.7.4 1.7.5 1.7.6 1.7.7 1.7.8 1.7.9 1.7.10 1.8.0 1.8.2 1.9.0 1.9.1 1.9.2 1.9.3 1.9.4 1.9.5 1.9.7 1.9.8 1.9.9 1.9.10 1.9.11 2.0.0 2.1.0 2.1.1 2.1.2 2.1.3 2.1.4 2.1.5 2.1.6 2.1.7 2.2.0 2.3.0 2.3.1 2.3.2 2.3.3 2.3.4 2.3.5 2.3.7 2.3.8 2.4.0 2.5.2 2.5.3 2.5.4 2.5.5 2.5.6 2.5.8: High-performance production grade DHCPv4 & DHCPv6 server
 net-nds/authelia 4.29.4 4.30.5 4.31.0 4.32.2-r1 4.33.2 4.34.6 4.35.6 4.36.3 4.36.4 4.36.5 4.36.6 4.36.7 4.36.8 4.36.9 4.37.0 4.37.1 4.37.2 4.37.3 4.37.4 4.37.5 4.38.0 4.38.1 4.38.2 4.38.3 4.38.4 4.38.5 4.38.7 4.38.8: The Single Sign-On Multi-Factor portal for web apps
-net-proxy/traefik 3.0.0_beta2 3.0.0_beta3 3.0.0_beta4 3.0.0_beta5 3.0.0_rc1 3.0.0_rc2 3.0.0_rc3 3.0.0_rc4 3.0.0_rc5 3.0.0: The Cloud Native Application Proxy
+net-proxy/traefik 3.0.0: The Cloud Native Application Proxy
 sys-firmware/rpi-eeprom 9999: Scripts and pre-compiled binaries to update Raspberry Pi4 bootloader EEPROM
 sys-kernel/raspberrypi-sources 5.7.9999 5.8.9999 5.9.9999 5.10.9999 5.13.9999 5.14.9999 5.15.9999 5.19.9999 6.0.9999 6.1.9999 6.6.9999: Raspberry Pi kernel sources
 www-apache/mod_auth_openidc 2.4.8.2 2.4.8.3 2.4.8.4 2.4.9 2.4.9.1 2.4.9.2 2.4.9.3 2.4.9.4 2.4.10 2.4.11 2.4.11.1 2.4.11.2 2.4.11.3 2.4.12 2.4.12.1 2.4.12.2 2.4.12.3: OpenID Connect Relying Party implementation for Apache HTTP Server 2.x
 www-apps/filebrowser 2.21.0 2.21.1 2.22.0 2.22.1 2.22.2 2.22.3 2.22.4 2.23.0: Web File Browser
-www-apps/grafana 10.0.10 10.0.11 10.0.12 10.0.13 10.1.6 10.1.7 10.1.8 10.1.9 10.2.3 10.2.4 10.2.5 10.2.6 10.3.1 10.3.3 10.3.4 10.3.5 10.4.0 10.4.1 10.4.2: The tool for beautiful monitoring and metric analytics & dashboards
-www-apps/ocis 3.0.0 4.0.0 4.0.1 4.0.2 4.0.4 4.0.5 5.0.0 5.0.1 5.0.2 5.0.3: ownCloud Infinite Scale Stack
+www-apps/grafana 10.1.6 10.1.7 10.1.8 10.1.9 10.2.3 10.2.4 10.2.5 10.2.6 10.2.7 10.3.1 10.3.3 10.3.4 10.3.5 10.3.6 10.4.0 10.4.1 10.4.2 10.4.2-r1 10.4.3 11.0.0: The tool for beautiful monitoring and metric analytics & dashboards
+www-apps/ocis 3.0.0 4.0.0 4.0.1 4.0.2 4.0.4 4.0.5 5.0.0 5.0.1 5.0.2 5.0.3 5.0.4: ownCloud Infinite Scale Stack
 www-nginx/ngx_openidc_module 3.2.0 3.2.1 3.3.0 3.3.1: OpenID Connect Relying Party module for NGINX
