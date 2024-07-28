@@ -1,0 +1,37 @@
+diff '--color=auto' -ruN ocis-6.0.0/services/idp/Makefile ocis-6.0.0.build/services/idp/Makefile
+--- ocis-6.0.0/services/idp/Makefile	2024-06-19 20:21:38.000000000 +0200
++++ ocis-6.0.0.build/services/idp/Makefile	2024-06-23 12:00:07.225909735 +0200
+@@ -42,13 +42,15 @@
+ 
+ .PHONY: assets/identifier/static/logo.svg # force overwrite
+ assets/identifier/static/logo.svg:
+-	curl --fail -o assets/identifier/static/logo.svg ${LOGO_URL}
++#	curl --fail -o assets/identifier/static/logo.svg ${LOGO_URL}
++	cp ../../../logo.svg assets/identifier/static/logo.svg
+ 
+ FAVICON_URL = https://raw.githubusercontent.com/owncloud/assets/main/favicon.ico
+ 
+ .PHONY: assets/identifier/static/favicon.ico # force overwrite
+ assets/identifier/static/favicon.ico:
+-	curl --fail -o assets/identifier/static/favicon.ico ${FAVICON_URL}
++#	curl --fail -o assets/identifier/static/favicon.ico ${FAVICON_URL}
++	cp ../../../favicon.ico assets/identifier/static/favicon.ico
+ 
+ .PHONY: pnpm-build
+ pnpm-build: node_modules
+diff '--color=auto' -ruN ocis-6.0.0/services/web/Makefile ocis-6.0.0.build/services/web/Makefile
+--- ocis-6.0.0/services/web/Makefile	2024-06-19 20:21:38.000000000 +0200
++++ ocis-6.0.0.build/services/web/Makefile	2024-06-25 06:17:02.361363190 +0200
+@@ -32,8 +32,10 @@
+ 
+ .PHONY: pull-assets
+ pull-assets:
+-	git clean -xfd assets
+-	curl --fail -slL -o- https://github.com/owncloud/web/releases/download/$(WEB_ASSETS_VERSION)/web.tar.gz | tar xzf - -C assets/core/
++#	git clean -xfd assets
++#	curl --fail -slL -o- https://github.com/owncloud/web/releases/download/$(WEB_ASSETS_VERSION)/web.tar.gz | tar xzf - -C assets/core/
++	rm -rf assets/core/*
++	cp -r ../../../web/* assets/core/
+ 
+ ############ licenses ############
+ .PHONY: ci-node-check-licenses
