@@ -1,0 +1,55 @@
+#!/sbin/openrc-run
+# Copyright 1999-2024 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+
+description="Bitwarden password manager container"
+
+RUN_PATH="/run/${RC_SVCNAME}"
+pidfile="${RUN_PATH}/${RC_SVCNAME}.pid"
+
+container_name="${RC_SVCNAME}"
+container_env="${CONTAINER_ENV:-/etc/bitwarden/settings.env}"
+container_volume="${CONTAINER_VOLUME:-/var/lib/bitwarden}"
+container_image="${CONTAINER_IMAGE:-docker.io/bitwarden/self-host:beta}"
+container_healthcheck="${CONTAINER_HEALTHCHECK:-curl -fsSo - http://localhost:8080}"
+
+podman_command="/usr/bin/podman"
+podman_args="${PODMAN_ARGS:---memory 2g}"
+
+depend() {
+	use net mysql postgresql ntpd
+}
+
+start() {
+    ebegin "Starting Bitwarden container [${container_name}]"
+	"${podman_command}" run \
+		--replace \
+		--name "${container_name}" \
+		--detach \
+		--health-cmd "${container_healthcheck}" \
+		--env-file "${container_env}" \
+		--volume "${container_volume}":/etc/bitwarden \
+		${podman_args} \
+		"${container_image}" >/dev/null
+
+	local retval=$?
+
+	if [ $retval -eq 0 ] ; then
+		"${podman_command}" wait --condition=running "${container_name}" >/dev/null
+		retval=$?
+	fi
+
+    eend $retval
+}
+
+stop() {
+    ebegin "Stopping Bitwarden container [${container_name}]"
+	"${podman_command}" stop "${container_name}" >/dev/null
+    eend $?
+}
+
+status() {
+    ebegin "Checking Bitwarden container status [${container_name}]"
+	"${podman_command}" healthcheck run "${container_name}" >/dev/null
+    eend $?
+}
