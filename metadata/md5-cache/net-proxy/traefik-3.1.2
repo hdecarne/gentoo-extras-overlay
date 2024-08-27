@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig >=dev-lang/go-1.20:= app-arch/unzip
+DEFINED_PHASES=compile install postinst unpack
+DEPEND=acct-group/traefik acct-user/traefik
+DESCRIPTION=The Cloud Native Application Proxy
+EAPI=8
+HOMEPAGE=https://traefik.io
+IDEPEND=filecaps? ( sys-libs/libcap )
+INHERIT=go-module fcaps
+IUSE=+filecaps
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=acct-group/traefik acct-user/traefik
+RESTRICT=strip network-sandbox strip
+SLOT=0
+SRC_URI=https://github.com/traefik/traefik/releases/download/v3.1.2/traefik-v3.1.2.src.tar.gz -> traefik-3.1.2.tar.gz
+_eclasses_=fcaps	c0a086b957a1b183a8d136eabf02f191	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	go-env	7eb56e61e641d6db098d57fb37477c44	go-module	83fd3ed1657cfc316c93d6a37018290d	multilib	c19072c3cd7ac5cb21de013f7e9832e0	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084
+_md5_=481186de13556448b63f52ade82e970b
