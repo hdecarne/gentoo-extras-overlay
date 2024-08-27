@@ -21,6 +21,8 @@ The following ebuilds are are in use by myself and therefore are actively mainta
 
 * app-admin/loki: New ebuild for Loki log aggregator (https://grafana.com/loki).
 
+* app-crypt/bitwarden-container: New ebuild for running Bitwarden (https://bitwarden.com/help/install-and-deploy-unified-beta/) container via podman.
+
 * app-metrics/agent: New ebuild for Grafana Agent telemetry collector (https://github.com/grafana/agent).
 
 * app-metrics/mimir: New ebuild for Grafana Mimir high scalable Prometheus storage backend (https://github.com/grafana/mimir)
@@ -50,6 +52,8 @@ The following ebuilds are are in use by myself and therefore are actively mainta
 * www-apps/grafana: New ebuild for Grafana dashboard web app (https://grafana.com).
 
 * www-apps/ocis: New ebuild for ownCloud Infinite Scale Stack (https://doc.owncloud.com/ocis/next/).
+
+* www-apps/paperless-ngx-container: New ebuild for running Paperless-ngx (https://docs.paperless-ngx.com/) container via podman.
 
 ### List of inactive ebuilds
 The following ebuilds are no longer used by myself and will receive no updates.

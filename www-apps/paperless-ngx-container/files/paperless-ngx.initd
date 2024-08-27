@@ -1,0 +1,61 @@
+#!/sbin/openrc-run
+# Copyright 1999-2024 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+
+description="Document management system"
+
+RUN_PATH="/run/${RC_SVCNAME}"
+pidfile="${RUN_PATH}/${RC_SVCNAME}.pid"
+
+container_name="${RC_SVCNAME}"
+container_env="${CONTAINER_ENV:-/etc/paperless/settings.env}"
+container_volume_consume="${CONTAINER_VOLUME:-/var/lib/paperless/consume}"
+container_volume_data="${CONTAINER_VOLUME:-/var/lib/paperless/data}"
+container_volume_export="${CONTAINER_VOLUME:-/var/lib/paperless/export}"
+container_volume_media="${CONTAINER_VOLUME:-/var/lib/paperless/media}"
+container_image="${CONTAINER_IMAGE:-docker.io/paperlessngx/paperless-ngx}"
+container_healthcheck="${CONTAINER_HEALTHCHECK:-curl -fsSo - http://localhost:8000}"
+
+podman_command="/usr/bin/podman"
+podman_args="${PODMAN_ARGS:---memory 2g}"
+
+depend() {
+	use net mysql postgresql
+}
+
+start() {
+    ebegin "Starting Paperless-ngx container [${container_name}]"
+	"${podman_command}" run \
+		--replace \
+		--name "${container_name}" \
+		--detach \
+		--health-cmd "${container_healthcheck}" \
+		--env-file "${container_env}" \
+		--volume "${container_volume_consume}":/usr/src/paperless/consume \
+		--volume "${container_volume_data}":/usr/src/paperless/data \
+		--volume "${container_volume_export}":/usr/src/paperless/export \
+		--volume "${container_volume_media}":/usr/src/paperless/media \
+		${podman_args} \
+		"${container_image}" >/dev/null
+
+	local retval=$?
+
+	if [ $retval -eq 0 ] ; then
+		"${podman_command}" wait --condition=running "${container_name}" >/dev/null
+		retval=$?
+	fi
+
+    eend $retval
+}
+
+stop() {
+    ebegin "Stopping Paperless-ngx container [${container_name}]"
+	"${podman_command}" stop --time 60 "${container_name}" >/dev/null
+    eend $?
+}
+
+status() {
+    ebegin "Checking Paperless-ngx container status [${container_name}]"
+	"${podman_command}" healthcheck run "${container_name}" >/dev/null
+    eend $?
+}

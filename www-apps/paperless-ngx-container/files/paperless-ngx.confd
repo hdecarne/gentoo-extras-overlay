@@ -1,0 +1,19 @@
+# config file for /etc/init.d/paperless-ngx
+
+# name of the settings environment file
+#CONTAINER_ENV="/etc/paperless/settings.env"
+
+# data volume path
+#CONTAINER_VOLUME_DATA="/var/lib/paperless/consume"
+#CONTAINER_VOLUME_DATA="/var/lib/paperless/data"
+#CONTAINER_VOLUME_DATA="/var/lib/paperless/export"
+#CONTAINER_VOLUME_DATA="/var/lib/paperless/media"
+
+# container image
+#CONTAINER_IMAGE="docker.io/paperlessngx/paperless-ngx"
+
+# container healthcheck
+#CONTAINER_HEALTHCHECK="curl -fsSo - http://localhost:8000"
+
+# additional podman run arguments
+#PODMAN_ARGS="--memory 2g"
