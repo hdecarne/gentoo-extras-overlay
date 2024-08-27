@@ -4,5 +4,6 @@ DESCRIPTION=Installs init scripts to run bitwarden via podman
 EAPI=8
 HOMEPAGE=https://bitwarden.com/help/install-and-deploy-unified-beta/
 KEYWORDS=~amd64
+LICENSE=GPL-2
 SLOT=0
-_md5_=92eeb30db5f1b542048c8828d89d4d60
+_md5_=aa3453861bf9d3681a733271cb2250dc

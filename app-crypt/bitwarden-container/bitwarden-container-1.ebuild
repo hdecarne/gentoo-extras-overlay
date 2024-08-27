@@ -9,7 +9,7 @@ DESCRIPTION="Installs init scripts to run bitwarden via podman"
 HOMEPAGE="https://bitwarden.com/help/install-and-deploy-unified-beta/"
 SRC_URI=""
 
-LICENSE=""
+LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
 

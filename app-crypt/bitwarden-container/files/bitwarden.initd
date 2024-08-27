@@ -44,7 +44,7 @@ start() {
 
 stop() {
     ebegin "Stopping Bitwarden container [${container_name}]"
-	"${podman_command}" stop "${container_name}" >/dev/null
+	"${podman_command}" stop --time 60 "${container_name}" >/dev/null
     eend $?
 }
 
