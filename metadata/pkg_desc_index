@@ -41,7 +41,7 @@ sys-firmware/rpi-eeprom 9999: Scripts and pre-compiled binaries to update Raspbe
 sys-kernel/raspberrypi-sources 5.7.9999 5.8.9999 5.9.9999 5.10.9999 5.13.9999 5.14.9999 5.15.9999 5.19.9999 6.0.9999 6.1.9999 6.6.9999: Raspberry Pi kernel sources
 www-apache/mod_auth_openidc 2.4.8.2 2.4.8.3 2.4.8.4 2.4.9 2.4.9.1 2.4.9.2 2.4.9.3 2.4.9.4 2.4.10 2.4.11 2.4.11.1 2.4.11.2 2.4.11.3 2.4.12 2.4.12.1 2.4.12.2 2.4.12.3: OpenID Connect Relying Party implementation for Apache HTTP Server 2.x
 www-apps/filebrowser 2.21.0 2.21.1 2.22.0 2.22.1 2.22.2 2.22.3 2.22.4 2.23.0: Web File Browser
-www-apps/grafana 10.2.3 10.2.4 10.2.5 10.2.6 10.2.7 10.2.8 10.3.1 10.3.3 10.3.4 10.3.5 10.3.6 10.3.7 10.4.0 10.4.1 10.4.2 10.4.2-r1 10.4.3 10.4.5 10.4.6 10.4.7 11.0.0 11.0.1 11.0.2 11.0.3 11.1.0 11.1.1 11.1.2 11.1.3 11.1.4: The tool for beautiful monitoring and metric analytics & dashboards
+www-apps/grafana 10.2.3 10.2.4 10.2.5 10.2.6 10.2.7 10.2.8 10.3.1 10.3.3 10.3.4 10.3.5 10.3.6 10.3.7 10.3.9 10.4.0 10.4.1 10.4.2 10.4.2-r1 10.4.3 10.4.5 10.4.6 10.4.7 10.4.8 11.0.0 11.0.1 11.0.2 11.0.3 11.0.4 11.1.0 11.1.1 11.1.2 11.1.3 11.1.4 11.1.5 11.2.0: The tool for beautiful monitoring and metric analytics & dashboards
 www-apps/ocis 3.0.0 4.0.0 4.0.1 4.0.2 4.0.4 4.0.5 5.0.0 5.0.1 5.0.2 5.0.3 5.0.4 5.0.5 6.0.0 6.1.0 6.2.0 6.3.0: ownCloud Infinite Scale Stack
 www-apps/paperless-ngx-container 1: Installs init scripts to run paperless-ngx via podman
 www-nginx/ngx_openidc_module 3.2.0 3.2.1 3.3.0 3.3.1: OpenID Connect Relying Party module for NGINX
