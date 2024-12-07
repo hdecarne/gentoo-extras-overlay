@@ -1,0 +1,12 @@
+diff '--color=auto' -ruN kea-2.7.3/src/lib/dhcpsrv/Makefile.in kea-2.7.3.patched/src/lib/dhcpsrv/Makefile.in
+--- kea-2.7.3/src/lib/dhcpsrv/Makefile.in	2024-09-23 09:36:46.000000000 +0200
++++ kea-2.7.3.patched/src/lib/dhcpsrv/Makefile.in	2024-10-12 07:39:23.488793852 +0200
+@@ -797,7 +797,7 @@
+ 
+ # DATA_DIR is the directory where to put default CSV files and the DHCPv6
+ # server ID file (i.e. the file where the server finds its DUID at startup).
+-dhcp_data_dir = @localstatedir@/lib/@PACKAGE@
++dhcp_data_dir = @localstatedir@/@PACKAGE@
+ kea_lfc_location = @sbindir@/kea-lfc
+ # Set location of the kea-lfc binary.
+ AM_CPPFLAGS = -I$(top_builddir)/src/lib -I$(top_srcdir)/src/lib \

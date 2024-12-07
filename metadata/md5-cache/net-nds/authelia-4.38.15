@@ -1,0 +1,17 @@
+BDEPEND=dev-go/broccoli net-libs/nodejs virtual/pkgconfig >=dev-lang/go-1.20:= app-arch/unzip
+DEFINED_PHASES=compile install prepare unpack
+DEPEND=acct-group/authelia acct-user/authelia mysql? ( virtual/mysql ) postgres? ( dev-db/postgresql:* ) sqlite? ( dev-db/sqlite:3 ) redis? ( dev-db/redis )
+DESCRIPTION=The Single Sign-On Multi-Factor portal for web apps
+EAPI=8
+HOMEPAGE=https://www.authelia.com/
+INHERIT=go-module
+IUSE=mysql postgres redis sqlite
+KEYWORDS=~amd64
+LICENSE=Apache-2.0
+RDEPEND=acct-group/authelia acct-user/authelia mysql? ( virtual/mysql ) postgres? ( dev-db/postgresql:* ) sqlite? ( dev-db/sqlite:3 ) redis? ( dev-db/redis )
+REQUIRED_USE=|| ( mysql postgres sqlite )
+RESTRICT=strip network-sandbox strip
+SLOT=0
+SRC_URI=https://github.com/authelia/authelia/archive/refs/tags/v4.38.15.tar.gz -> authelia-4.38.15.tar.gz https://github.com/swagger-api/swagger-ui/archive/refs/tags/v4.10.3.tar.gz -> swagger-ui-4.10.3.tar.gz
+_eclasses_=flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	go-env	90efbc8636d2f02d9654183330e84cf7	go-module	df32d29550d40a92da723d3b8e17b467	multilib	b2a329026f2e404e9e371097dda47f96	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87
+_md5_=88fccc4c46e32f8ad1560c914f597851

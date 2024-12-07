@@ -11,5 +11,5 @@ LICENSE=AGPL-3
 RESTRICT=strip network-sandbox strip
 SLOT=0
 SRC_URI=https://github.com/grafana/grafana/archive/v11.1.0.tar.gz -> grafana-11.1.0.tar.gz
-_eclasses_=flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	go-env	90efbc8636d2f02d9654183330e84cf7	go-module	83fd3ed1657cfc316c93d6a37018290d	multilib	c19072c3cd7ac5cb21de013f7e9832e0	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	systemd	c8b03e8df84486aa991d4396686e8942	toolchain-funcs	333970c740aa7b1a92e4fcdc52f612bd
+_eclasses_=flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	go-env	90efbc8636d2f02d9654183330e84cf7	go-module	df32d29550d40a92da723d3b8e17b467	multilib	b2a329026f2e404e9e371097dda47f96	multiprocessing	1e32df7deee68372153dca65f4a7c21f	systemd	54bd206bb5c4efac6ae28b6b006713b0	toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87
 _md5_=19ca24f9e94d409c65e1716d31179267
