@@ -10,6 +10,6 @@ LICENSE=AGPL-3
 RDEPEND=acct-group/minio acct-user/minio
 RESTRICT=strip network-sandbox strip
 SLOT=0
-SRC_URI=https://github.com/minio/minio/archive/refs/tags/RELEASE.2024-02-26T09-33-48Z.tar.gz -> minio-2024.02.26.09.33.48.tar.gz
+SRC_URI=https://github.com/minio/minio/archive/refs/tags/RELEASE.2025-01-18T00-31-37Z.tar.gz -> minio-2025.01.18.00.31.37.tar.gz
 _eclasses_=flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	go-env	0e2babf96e7d0b045fc07ad199eb2399	go-module	df32d29550d40a92da723d3b8e17b467	multilib	b2a329026f2e404e9e371097dda47f96	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1
 _md5_=8a71269ed9a5e2e022810f848daf1197
