@@ -10,7 +10,7 @@ pidfile="${RUN_PATH}/${RC_SVCNAME}.pid"
 container_name="${RC_SVCNAME}"
 container_env="${CONTAINER_ENV:-/etc/bitwarden/settings.env}"
 container_volume="${CONTAINER_VOLUME:-/var/lib/bitwarden}"
-container_image="${CONTAINER_IMAGE:-docker.io/bitwarden/self-host:beta}"
+container_image="${CONTAINER_IMAGE:-ghcr.io/bitwarden/self-host:beta}"
 container_healthcheck="${CONTAINER_HEALTHCHECK:-curl -fsSo - http://localhost:8080}"
 
 podman_command="/usr/bin/podman"

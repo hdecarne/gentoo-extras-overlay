@@ -7,7 +7,7 @@
 #CONTAINER_VOLUME="/var/lib/bitwarden"
 
 # container image
-#CONTAINER_IMAGE="docker.io/bitwarden/self-host:beta"
+#CONTAINER_IMAGE="ghcr.io/bitwarden/self-host:beta"
 
 # container healthcheck
 #CONTAINER_HEALTHCHECK="curl -fsSo - http://localhost:8080"
