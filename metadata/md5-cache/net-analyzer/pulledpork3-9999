@@ -1,16 +1,16 @@
 BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=install unpack
-DEPEND=net-analyzer/snort3 dev-python/requests python_targets_python3_10? ( dev-lang/python:3.10 )
+DEPEND=net-analyzer/snort3 dev-python/requests python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 )
 DESCRIPTION=Pulled Pork for Snort3 rule management
 EAPI=8
 HOMEPAGE=https://github.com/shirkdog/pulledpork3
 INHERIT=git-r3 python-r1
-IUSE=python_targets_python3_10
+IUSE=python_targets_python3_11 python_targets_python3_12 python_targets_python3_13
 KEYWORDS=~amd64
 LICENSE=GPL-2
 PROPERTIES=live
-RDEPEND=net-analyzer/snort3 dev-python/requests python_targets_python3_10? ( dev-lang/python:3.10 )
-REQUIRED_USE=|| ( python_targets_python3_10 )
+RDEPEND=net-analyzer/snort3 dev-python/requests python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 )
+REQUIRED_USE=|| ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 )
 SLOT=0
-_eclasses_=git-r3	86fa1f157b70b9d2ff340c4633b1cf4b	multibuild	d67e78a235f541871c7dfe4cf7931489	multilib	c19072c3cd7ac5cb21de013f7e9832e0	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f	python-utils-r1	042f4cc53680245bf99a84669b94155a	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084
-_md5_=1246aadabf869b374d417c2072bfb8ab
+_eclasses_=git-r3	875eb471682d3e1f18da124be97dcc81	multibuild	4650a65187015567b4e041bb9bfdb364	multiprocessing	1e32df7deee68372153dca65f4a7c21f	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	python-r1	0e15b2ab9cfc87d7474678201d6bca38	python-utils-r1	b6ad054ea5bb201ed2fec9cac7a8d12b	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169
+_md5_=0c65a09ddf13cd20fdd66118abd62258
