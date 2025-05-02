@@ -40,10 +40,6 @@ S="${WORKDIR}/${MY_P}"
 SERVICES="kea-dhcp4 kea-dhcp6 kea-dhcp-ddns kea-ctrl-agent"
 CONFS="kea-dhcp4.conf kea-dhcp6.conf kea-dhcp-ddns.conf kea-ctrl-agent.conf keactrl.conf"
 
-PATCHES=(
-	"${FILESDIR}/${PN}-build-fixes3.patch"
-)
-
 pkg_setup() {
 	use shell && python-single-r1_pkg_setup
 }
