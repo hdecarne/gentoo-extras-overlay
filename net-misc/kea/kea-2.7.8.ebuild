@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -14,8 +14,7 @@ MY_P="${PN}-${MY_PV}"
 DESCRIPTION="High-performance production grade DHCPv4 & DHCPv6 server"
 HOMEPAGE="http://www.isc.org/kea/"
 
-SRC_URI="ftp://ftp.isc.org/isc/kea/${MY_P}.tar.gz
-	ftp://ftp.isc.org/isc/kea/${MY_PV}/${MY_P}.tar.gz"
+SRC_URI="https://downloads.isc.org/isc/kea/${MY_PV}/${MY_P}.tar.xz"
 
 LICENSE="ISC BSD SSLeay GPL-2" # GPL-2 only for init script
 SLOT="0"
@@ -42,7 +41,7 @@ SERVICES="kea-dhcp4 kea-dhcp6 kea-dhcp-ddns kea-ctrl-agent"
 CONFS="kea-dhcp4.conf kea-dhcp6.conf kea-dhcp-ddns.conf kea-ctrl-agent.conf keactrl.conf"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-build-fixes2.patch"
+	"${FILESDIR}/${PN}-build-fixes3.patch"
 )
 
 pkg_setup() {
