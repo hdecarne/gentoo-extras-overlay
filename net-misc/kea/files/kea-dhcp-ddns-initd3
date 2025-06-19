@@ -1,0 +1,48 @@
+#!/sbin/openrc-run
+# Copyright 1999-2021 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+description="kea dhcp ddns service"
+
+service_command="/usr/sbin/kea-dhcp-ddns"
+config_file="/etc/kea/kea-dhcp-ddns.conf"
+service_pidfile="/run/kea/kea-dhcp-ddns.kea-dhcp-ddns.pid"
+
+depend() {
+	use net
+	need kea-ctrl-agent
+}
+
+start_pre() {
+	if [ ! -f "${config_file}" ] ; then
+		eerror "Please create config file ${config_file}."
+		eend 1
+		return 1
+	fi
+	if ! ${service_command} -t ${config_file} 1>/dev/null 2>/dev/null ; then
+		eerror "Error in config file ${config_file}."
+		eend 1
+		return 1
+	fi
+	piddir="${service_pidfile%/*}"
+	checkpath -q -d -o root:root -m 0750 "${piddir}" || {
+		eerror "Failed to create PID directory at $piddir"
+		eend 1
+		return 1
+	}
+}
+
+start() {
+	ebegin "Starting ${description}"
+	start-stop-daemon -b -p ${service_pidfile} \
+		-x ${service_command} -- -c ${config_file} \
+		|| return 1
+	eend $?
+}
+
+stop() {
+	ebegin "Stopping ${description}"
+	start-stop-daemon --stop -p ${service_pidfile} \
+		|| return 1
+	eend $?
+}
