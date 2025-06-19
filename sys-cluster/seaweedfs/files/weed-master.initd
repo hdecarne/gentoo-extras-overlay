@@ -1,0 +1,21 @@
+#!/sbin/openrc-run
+# Copyright 1999-2025 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+description="SeaweedFS master service"
+pidfile=${pidfile:-"/run/${RC_SVCNAME}.pid"}
+command="/usr/bin/weed"
+command_user="${command_user:-"seaweedfs:seaweedfs"}"
+command_args="${command_args:-"master"}"
+command_background="true"
+logfile="${logfile:-"/var/log/seaweedfs/${RC_SVCNAME}.log"}"
+start_stop_daemon_args="--user ${command_user%:*} --group ${command_user#*:} --stdout ${logfile} --stderr ${logfile}"
+
+: "${supervisor:=supervise-daemon}"
+: "${respawn_delay:=5}"
+: "${respawn_max:=10}"
+: "${respawn_period:=60}"
+
+depend() {
+	need net
+}

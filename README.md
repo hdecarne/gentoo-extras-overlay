@@ -27,27 +27,17 @@ The following ebuilds are are in use by myself and therefore are actively mainta
 
 * app-metrics/mimir: New ebuild for Grafana Mimir high scalable Prometheus storage backend (https://github.com/grafana/mimir)
 
-* media-libs/raspberrypi-userland: Derived ebuild for 64 bit Raspberry Pi userland tools (https://github.com/raspberrypi/userland).
-
 * net-analyzer/snort3: Updated ebuild for the latest Snort IDS (https://snort.org).
 
 * net-analyzer/telegraf: Updated ebuild for Telegraf metric reporter (https://influxdata.com).
 
 * net-analyzer/pulledpork3: Updated ebuild for the latest Pulled Pork (beta) for Snort v3 (https://github.com/shirkdog/pulledpork3).
 
-* net-fs/mc: New ebuild for the MinIO cluster management tool (https://github.com/minio/mc).
-
-* net-fs/minio: New ebuild for the MinIO object store (https://github.com/minio/minio).
-
 * net-misc/kea: Updated ebuild with DB backend support (MySQL, PostgreSQL).
 
 * net-nds/authelia: New ebuild for Authelia Single Sign-On Multi-Factor portal for web apps (https://www.authelia.com/).
 
-* net-proxy/traefik: New ebuild for Traefik Application Proxy (https://github.com/traefik/traefik)
-
-* sys-firmware/rpi-eeprom: New ebuild for Raspberry Pi4 bootloader EEPROM updates (https://github.com/raspberrypi/rpi-eeprom).
-
-* sys-kernel/raspberrypi-sources: Updated ebuild for the latest Raspberry Pi kernel.
+* sys-cluster/seaweedfs: New ebuild for SeaweedFS fast distributed storage system (https://github.com/seaweedfs/seaweedfs).
 
 * www-apps/grafana: New ebuild for Grafana dashboard web app (https://grafana.com).
 
@@ -63,6 +53,18 @@ The following ebuilds are no longer used by myself and will receive no updates.
 * dev-db/influxdb: Updated ebuild for the latest InfluxDB metrics database (https://influxdata.com).
 
 * dev-php/pecl-msgpack: New ebuild for msgpack PHP extension (https://github.com/msgpack/msgpack-php).
+
+* media-libs/raspberrypi-userland: Derived ebuild for 64 bit Raspberry Pi userland tools (https://github.com/raspberrypi/userland).
+
+* net-fs/mc: New ebuild for the MinIO cluster management tool (https://github.com/minio/mc).
+
+* net-fs/minio: New ebuild for the MinIO object store (https://github.com/minio/minio).
+
+* net-proxy/traefik: New ebuild for Traefik Application Proxy (https://github.com/traefik/traefik)
+
+* sys-firmware/rpi-eeprom: New ebuild for Raspberry Pi4 bootloader EEPROM updates (https://github.com/raspberrypi/rpi-eeprom).
+
+* sys-kernel/raspberrypi-sources: Updated ebuild for the latest Raspberry Pi kernel.
 
 * www-apache/mod_auth_openidc: New ebuild for Apache OIDC module (https://github.com/zmartzone/mod_auth_openidc).
 

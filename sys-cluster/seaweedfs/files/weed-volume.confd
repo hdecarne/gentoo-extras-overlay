@@ -1,0 +1,4 @@
+# command_user="seaweedfs:seaweedfs"
+# logfile="/var/log/seaweedfs/weed-volume.log"
+#
+# command_args="volume"
