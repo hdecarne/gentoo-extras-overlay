@@ -1,0 +1,5 @@
+# The tempo config file
+TEMPO_CONF="/etc/tempo/tempo-local-config.yaml"
+
+# Add any extra options to pass to tempo to this setting.
+#TEMPO_OPTS=""
