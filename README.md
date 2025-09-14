@@ -23,17 +23,17 @@ The following ebuilds are are in use by myself and therefore are actively mainta
 
 * app-crypt/bitwarden-container: New ebuild for running Bitwarden (https://bitwarden.com/help/install-and-deploy-unified-beta/) container via podman.
 
-* app-metrics/agent: New ebuild for Grafana Agent telemetry collector (https://github.com/grafana/agent).
+* app-metrics/alloy: New ebuild for Grafana Alloy OpenTelemetry Collector distribution with programmable pipelines (https://github.com/grafana/alloy).
 
-* app-metrics/mimir: New ebuild for Grafana Mimir high scalable Prometheus storage backend (https://github.com/grafana/mimir)
+* app-metrics/mimir: New ebuild for Grafana Mimir high scalable Prometheus storage backend (https://github.com/grafana/mimir).
+
+* app-metrics/tempo: New ebuild for Grafana Tempo a high volume, minimal dependency distributed tracing backend (https://github.com/grafana/tempo).
 
 * net-analyzer/snort3: Updated ebuild for the latest Snort IDS (https://snort.org).
 
 * net-analyzer/telegraf: Updated ebuild for Telegraf metric reporter (https://influxdata.com).
 
 * net-analyzer/pulledpork3: Updated ebuild for the latest Pulled Pork (beta) for Snort v3 (https://github.com/shirkdog/pulledpork3).
-
-* net-misc/kea: Updated ebuild with DB backend support (MySQL, PostgreSQL).
 
 * net-nds/authelia: New ebuild for Authelia Single Sign-On Multi-Factor portal for web apps (https://www.authelia.com/).
 
@@ -46,11 +46,13 @@ The following ebuilds are are in use by myself and therefore are actively mainta
 * www-apps/paperless-ngx-container: New ebuild for running Paperless-ngx (https://docs.paperless-ngx.com/) container via podman.
 
 ### List of inactive ebuilds
-The following ebuilds are no longer used by myself and will receive no updates.
+The following ebuilds are no longer used by myself, will receive no updates and will be removed at some point in time.
 
 * app-admin/fluent-bit: New ebuild for fluent-bit log processor and forwarder (https://fluentbit.io).
 
 * dev-db/influxdb: Updated ebuild for the latest InfluxDB metrics database (https://influxdata.com).
+
+* app-metrics/agent: New ebuild for Grafana Agent telemetry collector (https://github.com/grafana/agent).
 
 * dev-php/pecl-msgpack: New ebuild for msgpack PHP extension (https://github.com/msgpack/msgpack-php).
 
@@ -59,6 +61,8 @@ The following ebuilds are no longer used by myself and will receive no updates.
 * net-fs/mc: New ebuild for the MinIO cluster management tool (https://github.com/minio/mc).
 
 * net-fs/minio: New ebuild for the MinIO object store (https://github.com/minio/minio).
+
+* net-misc/kea: Updated ebuild with DB backend support (MySQL, PostgreSQL).
 
 * net-proxy/traefik: New ebuild for Traefik Application Proxy (https://github.com/traefik/traefik)
 

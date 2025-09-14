@@ -112,6 +112,10 @@ app-admin/loki:fluent-bit - Build the fluent-bit plugin to publish from app-admi
 app-admin/loki:promtail - Build the promtail log gathering agent
 app-admin/loki:server - Build the loki server
 app-admin/loki:tools - Build the loki tools logcli and loki-canary
+app-metrics/tempo:fluent-bit - Build the fluent-bit plugin to publish from app-admin/fluent-bit
+app-metrics/tempo:promtail - Build the promtail log gathering agent
+app-metrics/tempo:server - Build the loki server
+app-metrics/tempo:tools - Build the loki tools logcli and loki-canary
 dev-db/influxdb:cli - Install CLI
 dev-db/influxdb:man - Install manual pages
 dev-libs/cjose:doc - Generate Doxygen API documentation
@@ -144,9 +148,10 @@ net-libs/liboauth2:apache2 - Enable Apache 2.x support
 net-libs/liboauth2:memcached - Enable memcached support
 net-libs/liboauth2:nginx - Enable nginx support
 net-libs/liboauth2:redis - Enable Redis support
-net-misc/kea:mysql - Build Kea with code to allow it to store leases and host reservations in a MySQL database
-net-misc/kea:openssl - Replace Botan by the OpenSSL the cryptographic library
-net-misc/kea:postgres - Build Kea with code to allow it to store leases and host reservations in a PostgreSQL database
+net-misc/kea:krb5 - Enable support for GSS-TSIG. Requires krb5 with gssapi.
+net-misc/kea:mysql - Enable support for MySQL backends.
+net-misc/kea:openssl - Use OpenSSL instead of Botan as backend for cryptographical operations.
+net-misc/kea:postgres - Enable support for PostgreSQL backends.
 net-misc/kea:samples - Install sample configuration
 net-misc/kea:shell - Install kea-shell
 net-nds/authelia:mysql - Enable MySQL support

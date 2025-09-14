@@ -1,0 +1,33 @@
+# Holger <hdecarne@gmail.com> (2025-09-14)
+# Archived: Replaced by Caddy+Authelia.
+www-nginx/ngx_openidc_module
+www-apache/mod_auth_openidc
+net-proxy/traefik
+
+# Holger <hdecarne@gmail.com> (2025-09-14)
+# Archived: Replaced by SeaweedFS.
+net-fs/mc
+net-fs/minio
+
+# Holger <hdecarne@gmail.com> (2025-09-14)
+# Archived: Raspberry PI no longer in active use.
+media-libs/raspberrypi-userland64
+sys-firmware/rpi-eeprom
+sys-kernel/raspberrypi-sources
+
+# Holger <hdecarne@gmail.com> (2025-09-14)
+# Archived: Replaced by oCIS.
+www-apps/filebrowser
+
+# Holger <hdecarne@gmail.com> (2025-09-14)
+# Archived: Replaced by Grafana Mimir.
+dev-db/influx-cli
+dev-db/influxdb
+
+# Holger <hdecarne@gmail.com> (2025-09-14)
+# Archived: Deprecated and replaced by Grafana Alloy by upstream.
+app-metrics/agent
+
+# Holger <hdecarne@gmail.com> (2025-09-14)
+# Archived: Replaced by Grafana Alloy.
+app-admin/fluent-bit
