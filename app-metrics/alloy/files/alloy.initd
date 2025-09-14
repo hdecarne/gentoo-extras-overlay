@@ -1,0 +1,11 @@
+#!/sbin/openrc-run
+
+configfile="${ALLOY_CONF:-/etc/alloy/config.alloy}"
+
+command=/usr/bin/alloy
+command_args="run ${ALLOY_OPTS} ${configfile}"
+command_background=yes
+command_user=alloy:grafana
+make_pidfile=yes
+pidfile=/var/run/${SVCNAME}.pid
+start_stop_daemon_args="--chdir /var/lib/alloy --stdout /var/log/alloy/${SVCNAME}.log --stderr /var/log/alloy/${SVCNAME}.log"

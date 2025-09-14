@@ -1,0 +1,7 @@
+# The alloy config file
+ALLOY_CONF="/etc/alloy/config.alloy"
+
+# Add any extra options to pass to alloy to this setting.
+ALLOY_OPTS="--disable-reporting"
+
+rc_use="mimir loki tempo"
