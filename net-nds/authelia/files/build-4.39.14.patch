@@ -1,0 +1,132 @@
+diff '--color=auto' -ruN authelia-4.39.14/cmd/authelia-scripts/cmd/build.go authelia-4.39.14.patch/cmd/authelia-scripts/cmd/build.go
+--- authelia-4.39.14/cmd/authelia-scripts/cmd/build.go	2025-11-09 08:01:47.000000000 +0100
++++ authelia-4.39.14.patch/cmd/authelia-scripts/cmd/build.go	2025-12-02 20:00:01.293107127 +0100
+@@ -121,7 +121,7 @@
+ }
+ 
+ func buildFrontend() {
+-	cmd := utils.CommandWithStdout("pnpm", "install", "--ignore-scripts")
++	cmd := utils.CommandWithStdout("npx", "pnpm", "install", "--ignore-scripts")
+ 	cmd.Dir = webDirectory
+ 
+ 	err := cmd.Run()
+@@ -129,7 +129,7 @@
+ 		log.Fatal(err)
+ 	}
+ 
+-	cmd = utils.CommandWithStdout("pnpm", "build")
++	cmd = utils.CommandWithStdout("npx", "pnpm", "build")
+ 	cmd.Dir = webDirectory
+ 
+ 	err = cmd.Run()
+diff '--color=auto' -ruN authelia-4.39.14/cmd/authelia-scripts/cmd/helpers.go authelia-4.39.14.patch/cmd/authelia-scripts/cmd/helpers.go
+--- authelia-4.39.14/cmd/authelia-scripts/cmd/helpers.go	2025-11-09 08:01:47.000000000 +0100
++++ authelia-4.39.14.patch/cmd/authelia-scripts/cmd/helpers.go	2025-12-02 06:24:59.845950031 +0100
+@@ -4,13 +4,9 @@
+ 	"fmt"
+ 	"strconv"
+ 	"time"
+-
+-	"github.com/authelia/authelia/v4/internal/utils"
+ )
+ 
+ func getBuild(branch, buildNumber, extra string) (b *Build, err error) {
+-	var out string
+-
+ 	b = &Build{
+ 		Branch: branch,
+ 		Extra:  extra,
+@@ -23,41 +19,13 @@
+ 	}
+ 
+ 	if b.Branch == "" {
+-		if out, _, err = utils.RunCommandAndReturnOutput("git rev-parse --abbrev-ref HEAD"); err != nil {
+-			return nil, fmt.Errorf("error getting branch with git rev-parse: %w", err)
+-		}
+-
+-		if out == "" {
+-			b.Branch = "master"
+-		} else {
+-			b.Branch = out
+-		}
+-	}
+-
+-	var (
+-		gitTagCommit string
+-	)
+-
+-	if gitTagCommit, _, err = utils.RunCommandAndReturnOutput("git rev-list --tags --max-count=1"); err != nil {
+-		return nil, fmt.Errorf("error getting tag commit with git rev-list: %w", err)
+-	}
+-
+-	if b.Tag, _, err = utils.RunCommandAndReturnOutput(fmt.Sprintf("git describe --tags --abbrev=0 %s", gitTagCommit)); err != nil {
+-		return nil, fmt.Errorf("error getting tag with git describe: %w", err)
+-	}
+-
+-	if b.Commit, _, err = utils.RunCommandAndReturnOutput("git rev-parse HEAD"); err != nil {
+-		return nil, fmt.Errorf("error getting commit with git rev-parse: %w", err)
+-	}
+-
+-	if gitTagCommit == b.Commit {
+-		b.Tagged = true
+-	}
+-
+-	if _, exitCode, _ := utils.RunCommandAndReturnOutput("git diff --quiet"); exitCode == 0 {
+-		b.Clean = true
++		b.Branch = "master"
+ 	}
+ 
++	b.Tag = "n/a"
++	b.Commit = "n/a"
++	b.Tagged = true
++	b.Clean = true
+ 	b.Date = time.Now()
+ 
+ 	return b, nil
+diff '--color=auto' -ruN authelia-4.39.14/internal/utils/exec.go authelia-4.39.14.patch/internal/utils/exec.go
+--- authelia-4.39.14/internal/utils/exec.go	2025-11-09 08:01:47.000000000 +0100
++++ authelia-4.39.14.patch/internal/utils/exec.go	2025-12-01 20:16:37.005893996 +0100
+@@ -7,7 +7,6 @@
+ 	"os"
+ 	"os/exec"
+ 	"os/signal"
+-	"path/filepath"
+ 	"strings"
+ 	"sync"
+ 	"syscall"
+@@ -22,15 +21,6 @@
+ 	if errors.Is(cmd.Err, exec.ErrDot) {
+ 		cmd.Err = nil
+ 	}
+-
+-	// By default set the working directory to the project root directory.
+-	wd, _ := os.Getwd()
+-	for !strings.HasSuffix(wd, "authelia") {
+-		wd = filepath.Dir(wd)
+-	}
+-
+-	cmd.Dir = wd
+-
+ 	return cmd
+ }
+ 
+diff '--color=auto' -ruN authelia-4.39.14/web/package.json authelia-4.39.14.patch/web/package.json
+--- authelia-4.39.14/web/package.json	2025-11-09 08:01:47.000000000 +0100
++++ authelia-4.39.14.patch/web/package.json	2025-12-01 19:56:11.227351994 +0100
+@@ -34,7 +34,6 @@
+     },
+     "onlyBuiltDependencies": [
+       "esbuild",
+-      "lefthook",
+       "unrs-resolver"
+     ]
+   },
+@@ -65,7 +64,7 @@
+     "zxcvbn": "4.4.2"
+   },
+   "scripts": {
+-    "prepare": "lefthook install",
++    "prepare": "true",
+     "start": "vite --host",
+     "build": "vite build",
+     "coverage": "VITE_COVERAGE=true vite build",

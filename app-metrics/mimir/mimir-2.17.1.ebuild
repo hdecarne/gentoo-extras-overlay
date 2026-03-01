@@ -1,22 +1,23 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-MY_PV=${PV/_rc/-rc.}
-S=${WORKDIR}/${PN}-${PN}-${MY_PV}
-
 inherit go-module
 
-DESCRIPTION="Horizontally scalable, highly available, multi-tenant, long-term storage for Prometheus."
-HOMEPAGE="https://grafana.com/loki/"
+MY_PV=${PV/_rc/-rc.}
+
+DESCRIPTION="Prometheus long-term storage."
+HOMEPAGE="https://grafana.com/oss/mimir/"
 SRC_URI="https://github.com/grafana/mimir/archive/refs/tags/${PN}-${MY_PV}.tar.gz -> ${P}.tar.gz"
+
+S=${WORKDIR}/${PN}-${PN}-${MY_PV}
 
 LICENSE="AGPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 
-IUSE=""
+#IUSE=""
 
 RESTRICT="strip"
 
@@ -29,7 +30,8 @@ TOOLS="mark-blocks"
 
 src_prepare() {
 	default
-	mv "docs/configurations/single-process-config-blocks.yaml" "docs/configurations/mimir-local-config.yaml" || die "prepare failed"
+	mv "docs/configurations/single-process-config-blocks.yaml" \
+		"docs/configurations/mimir-local-config.yaml" || die "prepare failed"
 }
 
 src_compile() {
@@ -39,11 +41,13 @@ src_compile() {
 	GOLDFLAGS="-X ${MIMIR_VERSION}.Branch=${GIT_BRANCH} -X ${MIMIR_VERSION}.Revision=${GIT_REVISION} -X ${MIMIR_VERSION}.Version=${VERSION} -s -w"
 	for cmd in ${CMDS}; do
 		einfo "Building ${cmd}..."
-		CGO_ENABLED=1 go build -ldflags "${GOLDFLAGS}" -tags stringlabels -o ./dist/${cmd} ./cmd/${cmd} || die "compile failed"
+		CGO_ENABLED=1 \
+			go build -ldflags "${GOLDFLAGS}" -tags stringlabels -o ./dist/${cmd} ./cmd/${cmd} || die "compile failed"
 	done
 	for tool in ${TOOLS}; do
 		einfo "Building ${cmd}..."
-		CGO_ENABLED=1 go build -ldflags "${GOLDFLAGS}" -tags stringlabels -o ./dist/${tool} ./tools/${tool} || die "compile failed"
+		CGO_ENABLED=1 \
+			go build -ldflags "${GOLDFLAGS}" -tags stringlabels -o ./dist/${tool} ./tools/${tool} || die "compile failed"
 	done
 }
 

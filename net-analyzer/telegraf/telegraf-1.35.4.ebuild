@@ -5,18 +5,20 @@ EAPI=8
 
 inherit go-module savedconfig systemd
 
-MY_PV="${PV/_rc/-rc}"
-S=${WORKDIR}/${PN}-${MY_PV}
-
 DESCRIPTION="The plugin-driven server agent for collecting & reporting metrics."
 HOMEPAGE="https://github.com/influxdata/telegraf"
 SRC_URI="https://github.com/influxdata/telegraf/archive/v${MY_PV}.tar.gz -> ${P}.tar.gz"
-RESTRICT="network-sandbox"
+
+MY_PV="${PV/_rc/-rc}"
+S=${WORKDIR}/${PN}-${MY_PV}
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
+
 IUSE="systemd"
+
+RESTRICT="network-sandbox"
 
 BDEPEND=">=dev-lang/go-1.24:="
 DEPEND="acct-group/telegraf
@@ -24,8 +26,8 @@ DEPEND="acct-group/telegraf
 RDEPEND="${DEPEND}"
 
 src_prepare() {
+	eapply_user
 	eapply "${FILESDIR}/telegraf-build-1.26.0.patch"
-	default
 }
 
 src_compile() {

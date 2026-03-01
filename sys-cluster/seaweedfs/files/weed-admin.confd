@@ -2,3 +2,5 @@
 # logfile="/var/log/seaweedfs/weed-admin.log"
 #
 # command_args="admin"
+
+rc_use="weed-master"

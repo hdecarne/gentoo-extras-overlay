@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig net-libs/nodejs[npm] >=dev-lang/go-1.20:= app-arch/unzip
+DEFINED_PHASES=compile install postinst prepare unpack
+DEPEND=acct-group/http acct-user/http
+DESCRIPTION=ownCloud Infinite Scale Stack
+EAPI=8
+HOMEPAGE=https://doc.owncloud.com/ocis/next/
+INHERIT=go-module
+KEYWORDS=~amd64
+LICENSE=Apache-2.0 BSD-2 BSD-3 MIT MPL-2.0 ISC
+RDEPEND=acct-group/http acct-user/http
+RESTRICT=network-sandbox
+SLOT=0
+SRC_URI=https://github.com/owncloud/ocis/archive/refs/tags/v8.0.0.tar.gz -> ocis-8.0.0.tar.gz https://github.com/owncloud/web/releases/download/v12.3.0/web.tar.gz -> ocis-8.0.0-web.tar.gz https://github.com/owncloud/assets/raw/e8b6aeadbcee1865b9df682e9bd78083842d2b5c/favicon.ico -> ocis-favicon-e8b6aeadbcee1865b9df682e9bd78083842d2b5c.ico
+_eclasses_=flag-o-matic	ed1eda86c8f746a2a75f7f9f7478f5f4	go-env	0e2babf96e7d0b045fc07ad199eb2399	go-module	d96f2a2fd6d8fbad6d94516bf238f885	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	7e440a20ac11dece04e3334622e6e5da
+_md5_=f07fd4297721513140a54fc6a2c55b02

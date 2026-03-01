@@ -10,10 +10,11 @@
 		<name>Proxy Maintainers</name>
 	</maintainer>
 	<use>
-		<flag name="mysql">Build Kea with code to allow it to store leases and host reservations in a MySQL database</flag>
-		<flag name="openssl">Replace Botan by the OpenSSL the cryptographic library</flag>
-		<flag name="postgres">Build Kea with code to allow it to store leases and host reservations in a PostgreSQL database</flag>
+		<flag name="mysql">Enable support for MySQL backends.</flag>
+		<flag name="postgres">Enable support for PostgreSQL backends.</flag>
+		<flag name="openssl">Use OpenSSL instead of Botan as backend for cryptographical operations.</flag>
 		<flag name="samples">Install sample configuration</flag>
 		<flag name="shell">Install kea-shell</flag>
+		<flag name="krb5">Enable support for GSS-TSIG. Requires krb5 with gssapi.</flag>
 	</use>
 </pkgmetadata>

@@ -2,3 +2,5 @@
 # logfile="/var/log/seaweedfs/weed-filer.log"
 #
 # command_args="filer -localSocket=/run/seaweedfs/weed-filer.sock"
+
+rc_use="weed-master"

@@ -13,7 +13,7 @@ LICENSE="AGPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 
-IUSE=""
+#IUSE=""
 
 RESTRICT="strip"
 
@@ -34,11 +34,13 @@ src_compile() {
 	GOLDFLAGS="-X ${VPREFIX}.Branch=${GIT_BRANCH} -X ${VPREFIX}.Version=${IMAGE_TAG} -X ${VPREFIX}.Revision=${GIT_REVISION} -X ${VPREFIX}.BuildUser=${BUILD_USER} -X ${VPREFIX}.BuildDate=${BUILD_DATE}"
 	for cmd in ${CMDS}; do
 		einfo "Building ${cmd}..."
-		CGO_ENABLED=1 go build -ldflags "-s -w ${GOLDFLAGS}" -o cmd/${cmd}/${cmd} ./cmd/${cmd} || die "compile failed"
+		CGO_ENABLED=1 \
+			go build -ldflags "-s -w ${GOLDFLAGS}" -o cmd/${cmd}/${cmd} ./cmd/${cmd} || die "compile failed"
 	done
 	for cmd in ${CLIENT_CMDS}; do
 		einfo "Building ${cmd}..."
-		CGO_ENABLED=1 go build -ldflags "-s -w ${GOLDFLAGS}" -o clients/cmd/${cmd}/${cmd} ./clients/cmd/${cmd} || die "compile failed"
+		CGO_ENABLED=1 \
+			go build -ldflags "-s -w ${GOLDFLAGS}" -o clients/cmd/${cmd}/${cmd} ./clients/cmd/${cmd} || die "compile failed"
 	done
 }
 

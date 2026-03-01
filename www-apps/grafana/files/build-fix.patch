@@ -1,0 +1,115 @@
+diff --git a/e2e/test-plugins/grafana-extensionstest-app/webpack.config.ts b/e2e/test-plugins/grafana-extensionstest-app/webpack.config.ts
+index 6268c183d3553..564555396a5e4 100644
+--- a/e2e/test-plugins/grafana-extensionstest-app/webpack.config.ts
++++ b/e2e/test-plugins/grafana-extensionstest-app/webpack.config.ts
+@@ -1,5 +1,5 @@
+ import CopyWebpackPlugin from 'copy-webpack-plugin';
+-import grafanaConfig from '@grafana/plugin-configs/webpack.config.ts';
++import grafanaConfig, { type Env } from '@grafana/plugin-configs/webpack.config.ts';
+ import { mergeWithCustomize, unique } from 'webpack-merge';
+ import { type Configuration } from 'webpack';
+ 
+@@ -19,7 +19,7 @@ function skipFiles(f: string): boolean {
+   return true;
+ }
+ 
+-const config = async (env: Record<string, unknown>): Promise<Configuration> => {
++const config = async (env: Env): Promise<Configuration> => {
+   const baseConfig = await grafanaConfig(env);
+   const customConfig = {
+     plugins: [
+diff --git a/e2e/test-plugins/grafana-test-datasource/webpack.config.ts b/e2e/test-plugins/grafana-test-datasource/webpack.config.ts
+index 6268c183d3553..564555396a5e4 100644
+--- a/e2e/test-plugins/grafana-test-datasource/webpack.config.ts
++++ b/e2e/test-plugins/grafana-test-datasource/webpack.config.ts
+@@ -1,5 +1,5 @@
+ import CopyWebpackPlugin from 'copy-webpack-plugin';
+-import grafanaConfig from '@grafana/plugin-configs/webpack.config.ts';
++import grafanaConfig, { type Env } from '@grafana/plugin-configs/webpack.config.ts';
+ import { mergeWithCustomize, unique } from 'webpack-merge';
+ import { type Configuration } from 'webpack';
+ 
+@@ -19,7 +19,7 @@ function skipFiles(f: string): boolean {
+   return true;
+ }
+ 
+-const config = async (env: Record<string, unknown>): Promise<Configuration> => {
++const config = async (env: Env): Promise<Configuration> => {
+   const baseConfig = await grafanaConfig(env);
+   const customConfig = {
+     plugins: [
+diff --git a/packages/grafana-plugin-configs/webpack.config.ts b/packages/grafana-plugin-configs/webpack.config.ts
+index 86c1d1eafc992..c1bfc469d7b5b 100644
+--- a/packages/grafana-plugin-configs/webpack.config.ts
++++ b/packages/grafana-plugin-configs/webpack.config.ts
+@@ -31,7 +31,7 @@ function skipFiles(f: string): boolean {
+   return true;
+ }
+ 
+-type Env = {
++export type Env = {
+   [key: string]: true | string | Env;
+ };
+ 
+diff --git a/public/app/plugins/datasource/azuremonitor/webpack.config.ts b/public/app/plugins/datasource/azuremonitor/webpack.config.ts
+index 301bafbd1f90f..875ef0a489376 100644
+--- a/public/app/plugins/datasource/azuremonitor/webpack.config.ts
++++ b/public/app/plugins/datasource/azuremonitor/webpack.config.ts
+@@ -1,9 +1,9 @@
+ import type { Configuration } from 'webpack';
+ import { merge } from 'webpack-merge';
+ 
+-import grafanaConfig from '@grafana/plugin-configs/webpack.config.ts';
++import grafanaConfig, { type Env } from '@grafana/plugin-configs/webpack.config.ts';
+ 
+-const config = async (env: Record<string, unknown>): Promise<Configuration> => {
++const config = async (env: Env): Promise<Configuration> => {
+   const baseConfig = await grafanaConfig(env);
+ 
+   return merge(baseConfig, {
+diff --git a/public/app/plugins/datasource/grafana-pyroscope-datasource/webpack.config.ts b/public/app/plugins/datasource/grafana-pyroscope-datasource/webpack.config.ts
+index 7a579fa172b60..f48f8b1a69353 100644
+--- a/public/app/plugins/datasource/grafana-pyroscope-datasource/webpack.config.ts
++++ b/public/app/plugins/datasource/grafana-pyroscope-datasource/webpack.config.ts
+@@ -1,6 +1,6 @@
+-import config from '@grafana/plugin-configs/webpack.config.ts';
++import config, { type Env } from '@grafana/plugin-configs/webpack.config.ts';
+ 
+-const configWithFallback = async (env: Record<string, unknown>) => {
++const configWithFallback = async (env: Env) => {
+   const response = await config(env);
+   if (response !== undefined && response.resolve !== undefined) {
+     response.resolve.fallback = {
+diff --git a/public/app/plugins/datasource/jaeger/webpack.config.ts b/public/app/plugins/datasource/jaeger/webpack.config.ts
+index 9ff90fccf0c3d..0346a64c5f22e 100644
+--- a/public/app/plugins/datasource/jaeger/webpack.config.ts
++++ b/public/app/plugins/datasource/jaeger/webpack.config.ts
+@@ -1,10 +1,10 @@
+ import { createRequire } from 'node:module';
+ 
+-import config from '@grafana/plugin-configs/webpack.config.ts';
++import config, { type Env } from '@grafana/plugin-configs/webpack.config.ts';
+ 
+ const require = createRequire(import.meta.url);
+ 
+-const configWithFallback = async (env: Record<string, unknown>) => {
++const configWithFallback = async (env: Env) => {
+   const response = await config(env);
+   if (response !== undefined && response.resolve !== undefined) {
+     response.resolve.fallback = {
+diff --git a/public/app/plugins/datasource/mssql/webpack.config.ts b/public/app/plugins/datasource/mssql/webpack.config.ts
+index af2e94ddecf42..8a119f88315bd 100644
+--- a/public/app/plugins/datasource/mssql/webpack.config.ts
++++ b/public/app/plugins/datasource/mssql/webpack.config.ts
+@@ -1,9 +1,9 @@
+ import type { Configuration } from 'webpack';
+ import { merge } from 'webpack-merge';
+ 
+-import grafanaConfig from '@grafana/plugin-configs/webpack.config.ts';
++import grafanaConfig, { type Env } from '@grafana/plugin-configs/webpack.config.ts';
+ 
+-const config = async (env: Record<string, unknown>): Promise<Configuration> => {
++const config = async (env: Env): Promise<Configuration> => {
+   const baseConfig = await grafanaConfig(env);
+ 
+   return merge(baseConfig, {

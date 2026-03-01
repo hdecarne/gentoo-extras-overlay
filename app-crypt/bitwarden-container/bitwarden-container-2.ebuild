@@ -3,11 +3,11 @@
 
 EAPI=8
 
-S=${WORKDIR}
-
 DESCRIPTION="Installs init scripts to run bitwarden via podman"
 HOMEPAGE="https://bitwarden.com/help/install-and-deploy-unified-beta/"
-SRC_URI=""
+#SRC_URI=""
+
+S=${WORKDIR}
 
 LICENSE="GPL-2"
 SLOT="0"

@@ -13,7 +13,7 @@ LICENSE="AGPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 
-IUSE=""
+#IUSE=""
 
 RESTRICT="strip network-sandbox"
 

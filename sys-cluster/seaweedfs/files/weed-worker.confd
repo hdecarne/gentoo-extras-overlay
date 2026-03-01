@@ -1,0 +1,6 @@
+# command_user="seaweedfs:seaweedfs"
+# logfile="/var/log/seaweedfs/weed-worker.log"
+#
+# command_args="worker"
+
+rc_use="weed-admin"

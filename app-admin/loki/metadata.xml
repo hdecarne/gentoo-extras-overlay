@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
+	<upstream>
+		<remote-id type="github">grafana/loki</remote-id>
+	</upstream>
 	<maintainer type="person">
 		<email>hdecarne@gmail.com</email>
 		<name>Holger</name>
@@ -9,10 +12,4 @@
 		<email>proxy-maint@gentoo.org</email>
 		<name>Proxy Maintainers</name>
 	</maintainer>
-	<use>
-		<flag name="fluent-bit">Build the fluent-bit plugin to publish from <pkg>app-admin/fluent-bit</pkg></flag>
-		<flag name="promtail">Build the promtail log gathering agent</flag>
-		<flag name="server">Build the loki server</flag>
-		<flag name="tools">Build the loki tools logcli and loki-canary</flag>
-	</use>
 </pkgmetadata>

@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,7 +10,7 @@ LUA_COMPAT=( luajit )
 
 inherit cmake flag-o-matic lua-single
 
-DESCRIPTION="Snort++"
+DESCRIPTION="SNORT(R) Intrusion Prevention System"
 
 HOMEPAGE="https://github.com/snort3/snort3"
 

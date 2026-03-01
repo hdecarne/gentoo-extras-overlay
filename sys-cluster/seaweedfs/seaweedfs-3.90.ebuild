@@ -3,26 +3,19 @@
 
 EAPI=8
 
-
 inherit go-module
 
 DESCRIPTION="SeaweedFS is a fast distributed storage system."
-
 HOMEPAGE="https://seaweedfs.com/"
-
 SRC_URI="https://github.com/seaweedfs/seaweedfs/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
-
 LICENSE="Apache-2.0"
-
 SLOT="0"
-
 KEYWORDS="~amd64"
 
 IUSE="fuse"
 
 RESTRICT="strip network-sandbox"
-
 
 RDEPEND="acct-group/${PN}
 	acct-user/${PN}
@@ -30,9 +23,8 @@ RDEPEND="acct-group/${PN}
 
 DEPEND="${RDEPEND}"
 
-
 CONFIGS="filer notification replication security master"
-SERVICES="master volume filer"
+SERVICES="master volume filer admin"
 
 src_compile() {
 	pushd weed || die "compile failed"

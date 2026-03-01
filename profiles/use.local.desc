@@ -108,14 +108,6 @@ app-admin/fluent-bit:fluentbit_output_plugins_td - Enable Treasure Data output p
 app-admin/fluent-bit:fluentbit_output_plugins_websocket - Enable Websocket output plugin
 app-admin/fluent-bit:jemalloc - Use Jemalloc as default memory allocator
 app-admin/fluent-bit:luajit - Enable Lua scripting support
-app-admin/loki:fluent-bit - Build the fluent-bit plugin to publish from app-admin/fluent-bit
-app-admin/loki:promtail - Build the promtail log gathering agent
-app-admin/loki:server - Build the loki server
-app-admin/loki:tools - Build the loki tools logcli and loki-canary
-app-metrics/tempo:fluent-bit - Build the fluent-bit plugin to publish from app-admin/fluent-bit
-app-metrics/tempo:promtail - Build the promtail log gathering agent
-app-metrics/tempo:server - Build the loki server
-app-metrics/tempo:tools - Build the loki tools logcli and loki-canary
 dev-db/influxdb:cli - Install CLI
 dev-db/influxdb:man - Install manual pages
 dev-libs/cjose:doc - Generate Doxygen API documentation
@@ -124,7 +116,6 @@ media-libs/raspberrypi-userland64:tools-only - Only install tools (vcgcmd and th
 net-analyzer/snort3:flatbuffers - Use dev-libs/flatbuffers for serialization
 net-analyzer/snort3:hyperscan - Use dev-libs/hyperscan for regular expression matching
 net-analyzer/snort3:iconv - Enable support for the iconv character set conversion library
-net-analyzer/snort3:jemalloc - Use dev-libs/jemalloc for memory management
 net-analyzer/snort3:large-pcap - Enable support for pcaps larger than 2 GB
 net-analyzer/snort3:lzma - Support for LZMA (de)compression algorithm
 net-analyzer/snort3:tcmalloc - Use the dev-util/google-perftools libraries to replace the malloc() implementation with a possibly faster one
