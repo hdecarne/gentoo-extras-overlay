@@ -1,2 +1,0 @@
-# command_user="traefik:traefik"
-# command_args="--configFile /etc/traefik/traefik.yml"

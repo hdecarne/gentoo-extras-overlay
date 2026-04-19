@@ -1,8 +1,0 @@
-# The fluent-bit config file
-FLUENT_BIT_CONF="/etc/fluent-bit/fluent-bit.conf"
-
-# Add any extra options to be passed to fluent-bit to this setting.
-#FLUENT_BIT_OPTS=""
-
-# Stop timeout
-FLUENT_BIT_STOP_TIMEOUT=60

@@ -47,29 +47,3 @@ The following ebuilds are are in use by myself and therefore are actively mainta
 
 ### List of inactive ebuilds
 The following ebuilds are no longer used by myself, will receive no updates and will be removed at some point in time.
-
-* app-admin/fluent-bit: New ebuild for fluent-bit log processor and forwarder (https://fluentbit.io).
-
-* dev-db/influxdb: Updated ebuild for the latest InfluxDB metrics database (https://influxdata.com).
-
-* app-metrics/agent: New ebuild for Grafana Agent telemetry collector (https://github.com/grafana/agent).
-
-* dev-php/pecl-msgpack: New ebuild for msgpack PHP extension (https://github.com/msgpack/msgpack-php).
-
-* media-libs/raspberrypi-userland: Derived ebuild for 64 bit Raspberry Pi userland tools (https://github.com/raspberrypi/userland).
-
-* net-fs/mc: New ebuild for the MinIO cluster management tool (https://github.com/minio/mc).
-
-* net-fs/minio: New ebuild for the MinIO object store (https://github.com/minio/minio).
-
-* net-misc/kea: Updated ebuild with DB backend support (MySQL, PostgreSQL).
-
-* net-proxy/traefik: New ebuild for Traefik Application Proxy (https://github.com/traefik/traefik)
-
-* sys-firmware/rpi-eeprom: New ebuild for Raspberry Pi4 bootloader EEPROM updates (https://github.com/raspberrypi/rpi-eeprom).
-
-* sys-kernel/raspberrypi-sources: Updated ebuild for the latest Raspberry Pi kernel.
-
-* www-apache/mod_auth_openidc: New ebuild for Apache OIDC module (https://github.com/zmartzone/mod_auth_openidc).
-
-* www-apps/filebrowser: New ebuild for Web File Browser (https://filebrowser.org).
