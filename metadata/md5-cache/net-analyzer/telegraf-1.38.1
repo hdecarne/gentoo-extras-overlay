@@ -1,0 +1,17 @@
+BDEPEND=>=dev-lang/go-1.24:= >=dev-lang/go-1.20:= app-arch/unzip virtual/pkgconfig
+DEFINED_PHASES=compile install postinst prepare unpack
+DEPEND=acct-group/telegraf acct-user/telegraf
+DESCRIPTION=The plugin-driven server agent for collecting & reporting metrics.
+EAPI=8
+HOMEPAGE=https://github.com/influxdata/telegraf
+IDEPEND=filecaps? ( sys-libs/libcap )
+INHERIT=fcaps go-module savedconfig systemd
+IUSE=systemd telegraf_cap_net_admin +filecaps savedconfig
+KEYWORDS=~amd64 ~arm64
+LICENSE=MIT
+RDEPEND=acct-group/telegraf acct-user/telegraf
+RESTRICT=network-sandbox
+SLOT=0
+SRC_URI=https://github.com/influxdata/telegraf/archive/v1.38.1.tar.gz -> telegraf-1.38.1.tar.gz
+_eclasses_=fcaps	c94316d02a37fb5cbe79b7d41c729119	flag-o-matic	fd3558f73f6503093adee69adf41020d	go-env	f7f56c1e72a626b159373a2c2b89af39	go-module	1333f0eba2be11d0afeadce17a07af4d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	portability	3c2334cdfbb30bc4b33c85164fe832bf	savedconfig	b9131abe556ad2ea96c01b06d658d363	sysroot	ba2e3d2f7daad91fdef9350dc789d87f	systemd	a964c0cbe818b5729da1dbfcee5be861	toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9
+_md5_=26ef6f982cdfc56948a1078133b013a9

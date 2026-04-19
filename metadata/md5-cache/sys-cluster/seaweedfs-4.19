@@ -1,0 +1,16 @@
+BDEPEND=>=dev-lang/go-1.20:= app-arch/unzip
+DEFINED_PHASES=compile install unpack
+DEPEND=acct-group/seaweedfs acct-user/seaweedfs fuse? ( sys-fs/fuse )
+DESCRIPTION=SeaweedFS is a fast distributed storage system.
+EAPI=8
+HOMEPAGE=https://seaweedfs.com/
+INHERIT=go-module
+IUSE=fuse
+KEYWORDS=~amd64
+LICENSE=Apache-2.0
+RDEPEND=acct-group/seaweedfs acct-user/seaweedfs fuse? ( sys-fs/fuse )
+RESTRICT=strip network-sandbox
+SLOT=0
+SRC_URI=https://github.com/seaweedfs/seaweedfs/archive/refs/tags/4.19.tar.gz -> seaweedfs-4.19.tar.gz
+_eclasses_=flag-o-matic	fd3558f73f6503093adee69adf41020d	go-env	f7f56c1e72a626b159373a2c2b89af39	go-module	1333f0eba2be11d0afeadce17a07af4d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	sysroot	ba2e3d2f7daad91fdef9350dc789d87f	toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9
+_md5_=0e1acd6e481a2f8ff42bdfd1cd3e584e

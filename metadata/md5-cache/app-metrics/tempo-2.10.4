@@ -1,0 +1,15 @@
+BDEPEND=>=dev-lang/go-1.20:= app-arch/unzip
+DEFINED_PHASES=compile install unpack
+DEPEND=acct-group/grafana acct-user/tempo
+DESCRIPTION=Grafana Tempo is a high volume, minimal dependency distributed tracing backend.
+EAPI=8
+HOMEPAGE=https://grafana.com/oss/tempo/
+INHERIT=go-module
+KEYWORDS=~amd64
+LICENSE=AGPL-3
+RDEPEND=acct-group/grafana acct-user/tempo
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://github.com/grafana/tempo/archive/v2.10.4.tar.gz -> tempo-2.10.4.tar.gz
+_eclasses_=flag-o-matic	fd3558f73f6503093adee69adf41020d	go-env	f7f56c1e72a626b159373a2c2b89af39	go-module	1333f0eba2be11d0afeadce17a07af4d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	sysroot	ba2e3d2f7daad91fdef9350dc789d87f	toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9
+_md5_=1dab35ab0c9014dca2d3b7d95747c640

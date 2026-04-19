@@ -1,4 +1,4 @@
-BDEPEND=dev-libs/libyaml dev-build/make >=dev-build/cmake-3.20.5
+BDEPEND=dev-libs/libyaml dev-build/make >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=acct-group/logger acct-user/fluent-bit dev-libs/openssl luajit? ( dev-lang/luajit ) jemalloc? ( dev-libs/jemalloc ) fluentbit_output_plugins_pgsql? ( >=dev-db/postgresql-9.4:= ) fluentbit_filters_geoip2? ( dev-libs/libmaxminddb )
 DESCRIPTION=Fast and Lightweight Log processor and forwarder for Linux, BSD and OSX
@@ -11,5 +11,5 @@ LICENSE=Apache-2.0
 RDEPEND=acct-group/logger acct-user/fluent-bit dev-libs/openssl luajit? ( dev-lang/luajit ) jemalloc? ( dev-libs/jemalloc ) fluentbit_output_plugins_pgsql? ( >=dev-db/postgresql-9.4:= ) fluentbit_filters_geoip2? ( dev-libs/libmaxminddb )
 SLOT=0
 SRC_URI=https://github.com/fluent/fluent-bit/archive/v2.2.2.tar.gz -> fluent-bit-2.2.2.tar.gz
-_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a
+_eclasses_=cmake	3395ce6618fc5c7af03335471b896644	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	xdg-utils	42869b3c8d86a70ef3cf75165a395e09
 _md5_=313a40cc66eb63efbdf1a7542101da74
