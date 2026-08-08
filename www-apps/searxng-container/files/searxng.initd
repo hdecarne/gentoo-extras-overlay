@@ -1,0 +1,59 @@
+#!/sbin/openrc-run
+# Copyright 1999-2026 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+
+description="SearXNG privacy metasearch engine"
+
+RUN_PATH="/run/${RC_SVCNAME}"
+pidfile="${RUN_PATH}/${RC_SVCNAME}.pid"
+
+container_name="${RC_SVCNAME}"
+container_volume_cache="${CONTAINER_VOLUME_CACHE:-/var/cache/searxng}"
+container_volume_config="${CONTAINER_VOLUME_CONFIG:-/etc/searxng}"
+container_image="${CONTAINER_IMAGE:-docker.io/searxng/searxng:latest}"
+container_healthcheck="${CONTAINER_HEALTHCHECK:-wget --quiet --tries=1 --spider http://localhost:8080/healthz}"
+
+podman_command="/usr/bin/podman"
+podman_args="${PODMAN_ARGS:---memory 512m}"
+
+depend() {
+	use net
+	after caddy
+}
+
+start() {
+	ebegin "Starting SearXNG container [${container_name}]"
+
+	mkdir -p "${container_volume_cache}"
+
+	"${podman_command}" run \
+		--replace \
+		--name "${container_name}" \
+		--detach \
+		--health-cmd "${container_healthcheck}" \
+		--volume "${container_volume_cache}":/var/cache/searxng \
+		--volume "${container_volume_config}":/etc/searxng \
+		${podman_args} \
+		"${container_image}" >/dev/null
+
+	local retval=$?
+
+	if [ $retval -eq 0 ]; then
+		"${podman_command}" wait --condition=running "${container_name}" >/dev/null
+		retval=$?
+	fi
+
+	eend $retval
+}
+
+stop() {
+	ebegin "Stopping SearXNG container [${container_name}]"
+	"${podman_command}" stop --time 60 "${container_name}" >/dev/null
+	eend $?
+}
+
+status() {
+	ebegin "Checking SearXNG container status [${container_name}]"
+	"${podman_command}" healthcheck run "${container_name}" >/dev/null
+	eend $?
+}

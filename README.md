@@ -21,6 +21,8 @@ The following ebuilds are are in use by myself and therefore are actively mainta
 
 * app-admin/loki: New ebuild for Loki log aggregator (https://grafana.com/loki).
 
+* app-ai/hermesagent-bin: New meta ebuild for init script and dependency installation for Hermes Agent (https://github.com/NousResearch/hermes-agent).
+
 * app-crypt/bitwarden-container: New ebuild for running Bitwarden (https://bitwarden.com/help/install-and-deploy-unified-beta/) container via podman.
 
 * app-metrics/alloy: New ebuild for Grafana Alloy OpenTelemetry Collector distribution with programmable pipelines (https://github.com/grafana/alloy).
@@ -29,11 +31,17 @@ The following ebuilds are are in use by myself and therefore are actively mainta
 
 * app-metrics/tempo: New ebuild for Grafana Tempo a high volume, minimal dependency distributed tracing backend (https://github.com/grafana/tempo).
 
+* dev-db/qdrant: New ebuild for Qdrant - High-performance, massive-scale Vector Database and Vector Search Engine (https://github.com/qdrant/qdrant).
+
+* mail-client/himalaya: New ebuild for CLI email client (https://github.com/pimalaya/himalaya).
+
+* net-analyzer/pulledpork3: Updated ebuild for the latest Pulled Pork (beta) for Snort v3 (https://github.com/shirkdog/pulledpork3).
+
 * net-analyzer/snort3: Updated ebuild for the latest Snort IDS (https://snort.org).
 
 * net-analyzer/telegraf: Updated ebuild for Telegraf metric reporter (https://influxdata.com).
 
-* net-analyzer/pulledpork3: Updated ebuild for the latest Pulled Pork (beta) for Snort v3 (https://github.com/shirkdog/pulledpork3).
+* net-im/mattermost-bin: New ebuild for Mattermost Instant Messaging Server (https://github.com/mattermost/mattermost).
 
 * net-nds/authelia: New ebuild for Authelia Single Sign-On Multi-Factor portal for web apps (https://www.authelia.com/).
 
@@ -44,6 +52,8 @@ The following ebuilds are are in use by myself and therefore are actively mainta
 * www-apps/ocis: New ebuild for ownCloud Infinite Scale Stack (https://doc.owncloud.com/ocis/next/).
 
 * www-apps/paperless-ngx-container: New ebuild for running Paperless-ngx (https://docs.paperless-ngx.com/) container via podman.
+
+* www-apps/searxng-container: New ebuild for running SearXNG (https://github.com/searxng/searxng) container via podman.
 
 ### List of inactive ebuilds
 The following ebuilds are no longer used by myself, will receive no updates and will be removed at some point in time.

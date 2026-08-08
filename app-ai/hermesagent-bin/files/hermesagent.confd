@@ -1,0 +1,32 @@
+# Instance configuration for Hermes Agent Gateway
+
+# Hermes profile (default = ~/.hermes/)
+#HERMES_PROFILE="default"
+
+# Hermes home directory
+#HERMES_HOME="/var/lib/hermesagent/.hermes"
+
+# Run as this user:group
+#HERMES_USER="hermesagent"
+#HERMES_GROUP="hermesagent"
+
+# Additional hermes gateway arguments (e.g. --verbose)
+#HERMES_ARGS=""
+
+# Path to hermes binary
+#HERMES_BIN="/usr/local/bin/hermes"
+
+# PID file
+#pidfile="/var/lib/hermesagent/gateway.pid"
+
+# Log file
+#logfile="/var/lib/hermesagent/gateway.log"
+
+# supervise-daemon: delay between restart attempts (seconds)
+#respawn_delay=5
+
+# supervise-daemon: max restarts in respawn_period
+#respawn_max=10
+
+# supervise-daemon: reset counter after this many seconds
+#respawn_period=60

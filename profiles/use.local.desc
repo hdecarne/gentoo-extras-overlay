@@ -2,6 +2,9 @@
 # your descriptions to your package's metadata.xml ONLY.
 # * generated automatically using egencache *
 
+mail-client/himalaya:imap - Enable IMAP backend
+mail-client/himalaya:maildir - Enable Maildir backend
+mail-client/himalaya:smtp - Enable SMTP backend
 net-analyzer/snort3:flatbuffers - Use dev-libs/flatbuffers for serialization
 net-analyzer/snort3:hyperscan - Use dev-libs/hyperscan for regular expression matching
 net-analyzer/snort3:iconv - Enable support for the iconv character set conversion library
@@ -29,8 +32,4 @@ net-nds/authelia:postgres - Enable PostgreSQL support
 net-nds/authelia:redis - Enable redis support
 net-nds/authelia:sqlite - Enable sqlite support
 sys-cluster/seaweedfs:fuse - Require sys-fs/fuse for mount support
-www-apps/filebrowser:mysql - Enable MySQL support
-www-apps/filebrowser:postgres - Enable PostgreSQL support
-www-apps/filebrowser:redis - Enable redis support
-www-apps/filebrowser:sqlite - Enable sqlite support
 www-apps/grafana:systemd - Install systemd service file

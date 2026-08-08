@@ -1,0 +1,48 @@
+#!/sbin/openrc-run
+# Copyright 1999-2026 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+description="Hermes Agent Gateway — The agent that grows with you"
+
+instance="${RC_SVCNAME#*.}"
+
+: "${supervisor:=supervise-daemon}"
+: "${respawn_delay:=5}"
+: "${respawn_max:=10}"
+: "${respawn_period:=60}"
+
+HERMES_PROFILE="${HERMES_PROFILE:-default}"
+HERMES_HOME="${HERMES_HOME:-/var/lib/hermesagent/.hermes}"
+HERMES_USER="${HERMES_USER:-hermesagent}"
+HERMES_GROUP="${HERMES_GROUP:-hermesagent}"
+HERMES_ARGS="${HERMES_ARGS:-}"
+HERMES_BIN="${HERMES_BIN:-/usr/local/bin/hermes}"
+
+name="${RC_SVCNAME}"
+pidfile="${pidfile:-/var/lib/hermesagent/gateway.pid}"
+logfile="${logfile:-/var/lib/hermesagent/gateway.log}"
+
+command="${HERMES_BIN}"
+command_args="gateway ${HERMES_ARGS}"
+command_user="${HERMES_USER}:${HERMES_GROUP}"
+command_background="true"
+
+start_stop_daemon_args="--user ${HERMES_USER} --group ${HERMES_GROUP} --stdout ${logfile} --stderr ${logfile}"
+
+depend() {
+    need net
+    need localmount
+    after bootmisc
+    after sshd
+}
+
+start_pre() {
+    checkpath --directory --owner "${HERMES_USER}:${HERMES_GROUP}" --mode 0755 $(dirname ${pidfile})
+    checkpath --directory --owner "${HERMES_USER}:${HERMES_GROUP}" --mode 0755 $(dirname ${logfile})
+    checkpath --file --owner "${HERMES_USER}:${HERMES_GROUP}" --mode 0644 "${logfile}"
+    if [ -n "${HERMES_PROFILE}" ] && [ "${HERMES_PROFILE}" != "default" ]; then
+        export HERMES_PROFILE
+    fi
+    export HERMES_HOME
+    export HOME="${HERMES_HOME}"
+}

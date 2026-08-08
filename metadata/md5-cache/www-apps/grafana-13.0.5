@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig >=dev-lang/go-1.24.11:= app-arch/unzip virtual/pkgconfig
+DEFINED_PHASES=compile install prepare unpack
+DEPEND=!www-apps/grafana-bin acct-group/grafana acct-user/grafana media-libs/fontconfig <net-libs/nodejs-25.0.0[icu] sys-apps/yarn
+DESCRIPTION=The tool for beautiful monitoring and metric analytics & dashboards
+EAPI=8
+HOMEPAGE=https://grafana.com
+INHERIT=go-module systemd
+IUSE=systemd
+KEYWORDS=~amd64
+LICENSE=AGPL-3
+RESTRICT=strip network-sandbox
+SLOT=0
+SRC_URI=https://github.com/grafana/grafana/archive/v13.0.5.tar.gz -> grafana-13.0.5.tar.gz
+_eclasses_=flag-o-matic	fd3558f73f6503093adee69adf41020d	go-env	fca4e820393c2eac25a944be8bdf6a3a	go-module	3d4b6f3f29b3ebdeb708785b3cb1743b	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	sysroot	4c36abaf94ebd3ab32f8abea9a444121	systemd	a964c0cbe818b5729da1dbfcee5be861	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5
+_md5_=ee3ff56918194dbf4af16e0e75c54cbf

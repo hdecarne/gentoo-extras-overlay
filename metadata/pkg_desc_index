@@ -1,29 +1,44 @@
 acct-group/authelia 0: authelia program group
 acct-group/bitwarden 0: bitwarden program group
+acct-group/hermesagent 0: hermesagent program group
+acct-group/mattermost 0: mattermost program group
+acct-group/mcp 0: mcp program group
 acct-group/paperless 0: paperless program group
+acct-group/qdrant 0: qdrant program group
+acct-group/searxng 0: searxng program group
 acct-group/seaweedfs 0: seaweedfs program group
+acct-user/adjudex 0: adjudex program user
 acct-user/alloy 0: alloy program user
 acct-user/authelia 0: authelia program user
 acct-user/bitwarden 0: bitwarden program user
+acct-user/hermesagent 0: hermesagent program user
 acct-user/loki 0-r1: loki program user
+acct-user/mattermost 0: mattermost program user
 acct-user/mimir 0: mimir program user
+acct-user/mnemosyne 0: mnemosyne program user
 acct-user/paperless 0: paperless program user
+acct-user/pim-mcp 0: pim-mcp program user
+acct-user/qdrant 0: qdrant program user
+acct-user/searxng 0: searxng program user
 acct-user/seaweedfs 0: seaweedfs program user
 acct-user/tempo 0: tempo program user
-app-admin/loki 3.4.0 3.4.1 3.4.2 3.4.3 3.4.5 3.4.6 3.5.0 3.5.1 3.5.2 3.5.3 3.5.4 3.5.5 3.5.6 3.5.7 3.5.8 3.5.9 3.5.11 3.5.12 3.6.0 3.6.1 3.6.2 3.6.3 3.6.4 3.6.5 3.6.6 3.6.7 3.6.8 3.6.9 3.6.10 3.7.0 3.7.1: Like Prometheus, but for logs.
+acct-user/totem 0: totem program user
+app-admin/loki 3.4.0 3.4.1 3.4.2 3.4.3 3.4.5 3.4.6 3.5.0 3.5.1 3.5.2 3.5.3 3.5.4 3.5.5 3.5.6 3.5.7 3.5.8 3.5.9 3.5.11 3.5.12 3.6.0 3.6.1 3.6.2 3.6.3 3.6.4 3.6.5 3.6.6 3.6.7 3.6.8 3.6.9 3.6.10 3.6.11 3.6.15 3.7.0 3.7.1 3.7.2 3.7.3 3.7.4 3.7.5 3.7.6: Like Prometheus, but for logs.
+app-ai/hermesagent-bin 1: Installs init scripts and dependencies to run to run an externally installed Hermes Agent
 app-crypt/bitwarden-container 2 3: Installs init scripts to run bitwarden via podman
-app-metrics/agent 0.39.1 0.39.2 0.40.0 0.40.1 0.40.2 0.40.3 0.40.4 0.40.5 0.41.0 0.41.1 0.42.0 0.43.0 0.43.3 0.43.4: Vendor-neutral programmable observability pipelines.
-app-metrics/alloy 1.10.1 1.10.2 1.11.0 1.11.2 1.11.3 1.12.0 1.12.2 1.13.0 1.13.1 1.13.2 1.14.0 1.14.1 1.14.2 1.15.0 1.15.1: OpenTelemetry Collector distribution with programmable pipelines
-app-metrics/mimir 2.16.0 2.16.1 2.16.2 2.17.0 2.17.1 2.17.2 2.17.3 2.17.4 2.17.5 2.17.6 2.17.7 2.17.8 2.17.9 3.0.0 3.0.1 3.0.2 3.0.3 3.0.4 3.0.5: Prometheus long-term storage.
-app-metrics/tempo 2.8.2 2.8.3 2.9.0 2.9.1 2.10.0 2.10.1 2.10.2 2.10.3 2.10.4: Grafana Tempo is a high volume, minimal dependency distributed tracing backend.
-dev-go/wire 0.5.0 0.6.0: Compile-time Dependency Injection for Go
+app-metrics/alloy 1.10.1 1.10.2 1.11.0 1.11.2 1.11.3 1.12.0 1.12.2 1.13.0 1.13.1 1.13.2 1.14.0 1.14.1 1.14.2 1.15.0 1.15.1 1.16.0 1.16.1 1.16.3 1.17.1 1.18.0 1.18.1: OpenTelemetry Collector distribution with programmable pipelines
+app-metrics/mimir 2.16.0 2.16.1 2.16.2 2.17.0 2.17.1 2.17.2 2.17.3 2.17.4 2.17.5 2.17.6 2.17.7 2.17.8 2.17.9 2.17.10 2.17.11 3.0.0 3.0.1 3.0.2 3.0.3 3.0.4 3.0.5 3.0.6 3.0.7 3.0.8 3.1.0 3.1.1 3.1.2 3.1.3 3.1.4: Prometheus long-term storage.
+app-metrics/tempo 2.8.2 2.8.3 2.8.4 2.9.0 2.9.1 2.9.2 2.10.0 2.10.1 2.10.2 2.10.3 2.10.4 2.10.5 3.0.0 3.0.2: Grafana Tempo is a high volume, minimal dependency distributed tracing backend.
+dev-db/qdrant 1.18.3: Qdrant - Vector Search engine
+mail-client/himalaya 1.2.0 2.0.0: A CLI email client written in Rust
 net-analyzer/pulledpork3 9999: Pulled Pork for Snort3 rule management
-net-analyzer/snort3 3.8.1.0 3.9.1.0 3.9.2.0 3.9.3.0 3.9.7.0 3.10.0.0 3.10.1.0 3.10.2.0 3.11.1.0 3.12.1.0: SNORT(R) Intrusion Prevention System
-net-analyzer/telegraf 1.35.0 1.35.1 1.35.2 1.35.3 1.35.4 1.36.1 1.36.2 1.36.3 1.36.4 1.37.0 1.37.1 1.37.2 1.37.3 1.38.0 1.38.1 1.38.2 9999: The plugin-driven server agent for collecting & reporting metrics.
+net-analyzer/snort3 3.8.1.0 3.9.1.0 3.9.2.0 3.9.3.0 3.9.7.0 3.10.0.0 3.10.1.0 3.10.2.0 3.11.1.0 3.12.1.0 3.12.2.0: SNORT(R) Intrusion Prevention System
+net-analyzer/telegraf 1.35.0 1.35.1 1.35.2 1.35.3 1.35.4 1.36.1 1.36.2 1.36.3 1.36.4 1.37.0 1.37.1 1.37.2 1.37.3 1.38.0 1.38.1 1.38.2 1.38.3 1.38.4 1.39.0 1.39.1 1.39.2: The plugin-driven server agent for collecting & reporting metrics.
+net-im/mattermost-bin 11.6.1 11.6.2 11.7.1 11.7.2 11.8.0 11.8.1 11.8.2 11.8.3 11.9.0: Mattermost is an open source platform for secure collaboration.
 net-libs/libdaq 3.0.5 3.0.6 3.0.7 3.0.8 3.0.9 3.0.10 3.0.11 3.0.12 3.0.13 3.0.14 3.0.15 3.0.16 3.0.17 3.0.18 3.0.19 3.0.20 3.0.21 3.0.22 3.0.23 3.0.24 3.0.25 3.0.27: LibDAQ: The Data AcQuisition Library
-net-nds/authelia 4.39.9 4.39.10 4.39.13 4.39.14 4.39.15 4.39.16 4.39.18 4.39.19: The Single Sign-On Multi-Factor portal for web apps
-sys-cluster/seaweedfs 3.87 3.88 3.89 3.90 3.91 3.92 3.93 3.94 3.95 3.96 3.97 3.98 3.99 4.00 4.01 4.02 4.03 4.04 4.05 4.06 4.07 4.08 4.09 4.10 4.12 4.13 4.15 4.17 4.18 4.19 4.20: SeaweedFS is a fast distributed storage system.
-www-apps/filebrowser 2.21.0 2.21.1 2.22.0 2.22.1 2.22.2 2.22.3 2.22.4 2.23.0: Web File Browser
-www-apps/grafana 11.6.0 11.6.0_p01 11.6.1 11.6.2 11.6.3 11.6.4 11.6.5 11.6.6 11.6.7 11.6.8 11.6.9 11.6.10 11.6.11 11.6.12 11.6.13 11.6.14 12.0.0 12.0.1 12.0.1_p01 12.0.2 12.0.3 12.0.4 12.0.5 12.0.6 12.0.7 12.0.8 12.0.9 12.0.10 12.1.0 12.1.1 12.1.2 12.1.3 12.1.4 12.1.5 12.1.6 12.1.7 12.1.8 12.1.9 12.1.10 12.2.0 12.2.1 12.2.2 12.2.3 12.2.4 12.2.5 12.2.6 12.2.7 12.2.8 12.3.0 12.3.1 12.3.2 12.3.3 12.3.4 12.3.5 12.3.6 12.4.0 12.4.1 12.4.2 12.4.3 13.0.0 13.0.1: The tool for beautiful monitoring and metric analytics & dashboards
-www-apps/ocis 7.0.0 7.0.1 7.1.0 7.1.1 7.1.2 7.1.3 7.1.4 7.2.0 7.3.0 7.3.1 8.0.0 8.0.1: ownCloud Infinite Scale Stack
+net-nds/authelia 4.39.9 4.39.10 4.39.13 4.39.14 4.39.15 4.39.16 4.39.18 4.39.19 4.39.20: The Single Sign-On Multi-Factor portal for web apps
+sys-cluster/seaweedfs 3.87 3.88 3.89 3.90 3.91 3.92 3.93 3.94 3.95 3.96 3.97 3.98 3.99 4.00 4.01 4.02 4.03 4.04 4.05 4.06 4.07 4.08 4.09 4.10 4.12 4.13 4.15 4.17 4.18 4.19 4.20 4.21 4.22 4.23 4.24 4.25 4.26 4.27 4.28 4.29 4.30 4.31 4.32 4.33 4.34 4.35 4.37 4.38 4.39 4.40 4.41: SeaweedFS is a fast distributed storage system.
+www-apps/grafana 12.4.0 12.4.1 12.4.2 12.4.3 12.4.4 12.4.8 13.0.0 13.0.1 13.0.2 13.0.3 13.0.4 13.0.5 13.1.0 13.1.1 13.1.2 13.1.3: The tool for beautiful monitoring and metric analytics & dashboards
+www-apps/ocis 7.0.0 7.0.1 7.1.0 7.1.1 7.1.2 7.1.3 7.1.4 7.2.0 7.3.0 7.3.1 8.0.0 8.0.1 8.0.2 8.0.3 8.0.4 8.0.5 8.1.0: ownCloud Infinite Scale Stack
 www-apps/paperless-ngx-container 1: Installs init scripts to run paperless-ngx via podman
+www-apps/searxng-container 1: Installs init scripts to run SearXNG via podman

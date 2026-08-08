@@ -1,0 +1,4 @@
+# command_user="mattermost:mattermost"
+# logfile="/var/log/mattermost/mattermost.log"
+#
+# command_args="--config /etc/mattermost/config.json"

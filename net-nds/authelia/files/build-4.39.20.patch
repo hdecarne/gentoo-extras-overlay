@@ -1,0 +1,106 @@
+diff '--color=auto' -ruN authelia-4.39.20/cmd/authelia-scripts/cmd/build.go authelia-4.39.20.patch/cmd/authelia-scripts/cmd/build.go
+--- authelia-4.39.20/cmd/authelia-scripts/cmd/build.go	2026-05-26 12:09:21.000000000 +0200
++++ authelia-4.39.20.patch/cmd/authelia-scripts/cmd/build.go	2026-06-09 14:50:25.743270270 +0200
+@@ -122,7 +122,7 @@
+ }
+ 
+ func buildFrontend() {
+-	cmd := utils.CommandWithStdout("pnpm", "install", "--ignore-scripts")
++	cmd := utils.CommandWithStdout("npx", "pnpm", "install", "--ignore-scripts")
+ 	cmd.Dir = webDirectory
+ 
+ 	err := cmd.Run()
+@@ -130,7 +130,7 @@
+ 		log.Fatal(err)
+ 	}
+ 
+-	cmd = utils.CommandWithStdout("pnpm", "build")
++	cmd = utils.CommandWithStdout("npx", "pnpm", "build")
+ 	cmd.Dir = webDirectory
+ 
+ 	err = cmd.Run()
+diff '--color=auto' -ruN authelia-4.39.20/cmd/authelia-scripts/cmd/helpers.go authelia-4.39.20.patch/cmd/authelia-scripts/cmd/helpers.go
+--- authelia-4.39.20/cmd/authelia-scripts/cmd/helpers.go	2026-05-26 12:09:21.000000000 +0200
++++ authelia-4.39.20.patch/cmd/authelia-scripts/cmd/helpers.go	2026-06-09 18:17:39.519396141 +0200
+@@ -1,64 +1,19 @@
+ package cmd
+ 
+ import (
+-	"fmt"
+-	"strconv"
+ 	"time"
+-
+-	"github.com/authelia/authelia/v4/internal/utils"
+ )
+ 
+ func getBuild(branch, buildNumber, extra string) (b *Build, err error) {
+-	var out string
+-
+ 	b = &Build{
+ 		Branch: branch,
+ 		Extra:  extra,
+ 	}
+-
+-	if buildNumber != "" {
+-		if b.Number, err = strconv.Atoi(buildNumber); err != nil {
+-			return nil, fmt.Errorf("error parsing provided build number: %w", err)
+-		}
+-	}
+-
+-	if b.Branch == "" {
+-		if out, _, err = utils.RunCommandAndReturnOutput("git rev-parse --abbrev-ref HEAD"); err != nil {
+-			return nil, fmt.Errorf("error getting branch with git rev-parse: %w", err)
+-		}
+-
+-		if out == "" {
+-			b.Branch = "master"
+-		} else {
+-			b.Branch = out
+-		}
+-	}
+-
+-	var (
+-		gitTagCommit string
+-	)
+-
+-	if gitTagCommit, _, err = utils.RunCommandAndReturnOutput("git rev-list --tags --max-count=1"); err != nil {
+-		return nil, fmt.Errorf("error getting tag commit with git rev-list: %w", err)
+-	}
+-
+-	if b.Tag, _, err = utils.RunCommandAndReturnOutput(fmt.Sprintf("git describe --tags --abbrev=0 %s", gitTagCommit)); err != nil {
+-		return nil, fmt.Errorf("error getting tag with git describe: %w", err)
+-	}
+-
+-	if b.Commit, _, err = utils.RunCommandAndReturnOutput("git rev-parse HEAD"); err != nil {
+-		return nil, fmt.Errorf("error getting commit with git rev-parse: %w", err)
+-	}
+-
+-	if gitTagCommit == b.Commit {
+-		b.Tagged = true
+-	}
+-
+-	if _, exitCode, _ := utils.RunCommandAndReturnOutput("git diff --quiet"); exitCode == 0 {
+-		b.Clean = true
+-	}
+-
++	b.Branch = "master"
++	b.Tag = "n/a"
++	b.Commit = "n/a"
++	b.Tagged = true
++	b.Clean = true
+ 	b.Date = time.Now()
+-
+ 	return b, nil
+ }
+diff '--color=auto' -ruN authelia-4.39.20/web/package.json authelia-4.39.20.patch/web/package.json
+--- authelia-4.39.20/web/package.json	2026-05-26 12:09:21.000000000 +0200
++++ authelia-4.39.20.patch/web/package.json	2026-06-09 14:52:58.047542551 +0200
+@@ -34,7 +34,7 @@
+     "zxcvbn": "4.4.2"
+   },
+   "scripts": {
+-    "prepare": "lefthook install",
++    "prepare": "true",
+     "start": "vite --host",
+     "build": "vite build",
+     "coverage": "VITE_COVERAGE=true vite build",

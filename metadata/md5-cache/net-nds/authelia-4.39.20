@@ -1,0 +1,17 @@
+BDEPEND=net-libs/nodejs virtual/pkgconfig >=dev-lang/go-1.24.11:= app-arch/unzip
+DEFINED_PHASES=compile install prepare unpack
+DEPEND=acct-group/authelia acct-user/authelia mysql? ( virtual/mysql ) postgres? ( dev-db/postgresql:* ) sqlite? ( dev-db/sqlite:3 ) redis? ( dev-db/redis )
+DESCRIPTION=The Single Sign-On Multi-Factor portal for web apps
+EAPI=8
+HOMEPAGE=https://www.authelia.com/
+INHERIT=go-module
+IUSE=mysql postgres redis sqlite
+KEYWORDS=~amd64
+LICENSE=Apache-2.0
+RDEPEND=acct-group/authelia acct-user/authelia mysql? ( virtual/mysql ) postgres? ( dev-db/postgresql:* ) sqlite? ( dev-db/sqlite:3 ) redis? ( dev-db/redis )
+REQUIRED_USE=|| ( mysql postgres sqlite )
+RESTRICT=strip network-sandbox
+SLOT=0
+SRC_URI=https://github.com/authelia/authelia/archive/refs/tags/v4.39.20.tar.gz -> authelia-4.39.20.tar.gz
+_eclasses_=flag-o-matic	fd3558f73f6503093adee69adf41020d	go-env	fca4e820393c2eac25a944be8bdf6a3a	go-module	3d4b6f3f29b3ebdeb708785b3cb1743b	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	sysroot	4c36abaf94ebd3ab32f8abea9a444121	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5
+_md5_=ca76a70d0b51f1011eb7692f902ec6fa

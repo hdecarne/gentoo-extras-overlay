@@ -1,0 +1,14 @@
+# config file for /etc/init.d/searxng
+
+# container image
+#CONTAINER_IMAGE="docker.io/searxng/searxng:latest"
+
+# volume paths
+#CONTAINER_VOLUME_CACHE="/var/cache/searxng"
+#CONTAINER_VOLUME_CONFIG="/etc/searxng"
+
+# container healthcheck
+#CONTAINER_HEALTHCHECK="wget --quiet --tries=1 --spider http://localhost:8080/healthz"
+
+# additional podman run arguments
+#PODMAN_ARGS="--memory 512m"
